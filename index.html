@@ -505,6 +505,14 @@
         }
       }
 
+      // Variations (for recipes like Egg Nog Variations)
+      if (recipe.variations) {
+        html += '<h3>Variations</h3>';
+        recipe.variations.forEach(v => {
+          html += `<p><strong>${v.name}:</strong> ${v.recipe}</p>`;
+        });
+      }
+
       // Suggestions (for Tastefully Simple cards)
       if (recipe.suggestions) {
         html += '<h3>Serving Suggestions</h3><ul>';
