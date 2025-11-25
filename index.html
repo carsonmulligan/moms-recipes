@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mom's Recipes</title>
+  <title>Dr. Lesa Mulligan's Cookbook</title>
   <style>
     * { box-sizing: border-box; }
     body {
       font-family: Georgia, serif;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 20px;
       background: #faf8f5;
@@ -19,11 +19,53 @@
       color: #8b4513;
       border-bottom: 2px solid #d4a574;
       padding-bottom: 10px;
+      font-size: 2em;
+    }
+    .subtitle {
+      text-align: center;
+      color: #a0522d;
+      margin-top: -10px;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+    .search-container {
+      margin-bottom: 20px;
+    }
+    #search {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-family: inherit;
+      border: 2px solid #d4a574;
+      border-radius: 8px;
+      background: white;
+    }
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    .category-btn {
+      padding: 8px 16px;
+      border: 2px solid #d4a574;
+      border-radius: 20px;
+      background: white;
+      color: #8b4513;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .category-btn:hover, .category-btn.active {
+      background: #8b4513;
+      color: white;
     }
     select {
       width: 100%;
       padding: 12px;
-      font-size: 18px;
+      font-size: 16px;
       font-family: inherit;
       border: 2px solid #d4a574;
       border-radius: 8px;
@@ -71,58 +113,164 @@
     #recipe-container { display: none; }
     #recipe-container.active { display: block; }
     .instructions { white-space: pre-wrap; }
+    .recipe-count {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
-  <h1>Mom's Recipes</h1>
+  <h1>Dr. Lesa Mulligan's Cookbook</h1>
+  <p class="subtitle">A Collection of Family Recipes</p>
+
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Search recipes...">
+  </div>
+
+  <div class="category-nav">
+    <button class="category-btn active" data-category="all">All</button>
+    <button class="category-btn" data-category="appetizers">Appetizers</button>
+    <button class="category-btn" data-category="breakfast">Breakfast</button>
+    <button class="category-btn" data-category="entrees">Entrees</button>
+    <button class="category-btn" data-category="soups">Soups</button>
+    <button class="category-btn" data-category="salads">Salads</button>
+    <button class="category-btn" data-category="vegetables">Vegetables</button>
+    <button class="category-btn" data-category="cakes">Cakes</button>
+    <button class="category-btn" data-category="desserts">Desserts</button>
+    <button class="category-btn" data-category="drinks">Drinks</button>
+    <button class="category-btn" data-category="breads">Breads</button>
+    <button class="category-btn" data-category="thanksgiving">Thanksgiving</button>
+  </div>
+
+  <p class="recipe-count" id="recipe-count"></p>
 
   <select id="recipe-select">
     <option value="">-- Select a Recipe --</option>
-    <optgroup label="Thanksgiving - Desserts">
-      <option value="thanksgiving/desserts/buttermilk-chess-pie">Buttermilk Chess Pie</option>
-      <option value="thanksgiving/desserts/no-bake-cookies">No Bake Cookies</option>
-      <option value="thanksgiving/desserts/peanut-butter-ball-dip">Peanut Butter Ball (Dip)</option>
-      <option value="thanksgiving/desserts/peanut-butter-balls">Peanut Butter Balls</option>
-      <option value="thanksgiving/desserts/pecan-pie">Pecan Pie</option>
-      <option value="thanksgiving/desserts/pumpkin-pie">Pumpkin Pie</option>
+
+    <optgroup label="Appetizers" data-category="appetizers">
+      <option value="appetizers/bruschetta">Bruschetta</option>
+      <option value="appetizers/cashew-crab-artichoke-dip">Cashew Crab Artichoke Dip</option>
+      <option value="appetizers/cheese-dip-with-beer">Cheese Dip with Beer</option>
+      <option value="appetizers/cheese-dreams">Cheese Dreams</option>
+      <option value="appetizers/cheese-fondue">Cheese Fondue</option>
+      <option value="appetizers/cream-cheese-penguins">Cream Cheese Penguins</option>
+      <option value="appetizers/deviled-eggs">Deviled Eggs</option>
+      <option value="appetizers/italian-dipping-oil">Italian Dipping Oil</option>
+      <option value="appetizers/pecan-cheese-ball">Pecan Cheese Ball</option>
+      <option value="appetizers/pepperoni-pizza-dip">Pepperoni Pizza Dip</option>
+      <option value="appetizers/roasted-pumpkin-seed-hummus">Roasted Pumpkin Seed Hummus</option>
+      <option value="appetizers/spice-roasted-honeynut-squash-chickpeas">Spice Roasted Honeynut Squash & Chickpeas</option>
+      <option value="appetizers/spinach-artichoke-dip">Spinach Artichoke Dip</option>
+      <option value="appetizers/spinach-artichoke-pasta">Spinach Artichoke Pasta</option>
+      <option value="appetizers/stuffed-celery">Stuffed Celery</option>
+      <option value="appetizers/sweet-almond-crackers">Sweet Almond Crackers</option>
+      <option value="appetizers/texas-caviar">Texas Caviar</option>
     </optgroup>
-    <optgroup label="Thanksgiving - Sides">
-      <option value="thanksgiving/savory-tings/corn-casserole">Corn Casserole</option>
-      <option value="thanksgiving/savory-tings/cranberry-salad">Cranberry Salad</option>
-      <option value="thanksgiving/savory-tings/fruit-salad-with-cannoli-cream">Fruit Salad with Cannoli Cream</option>
-      <option value="thanksgiving/savory-tings/garlic-mashed-potatoes">Garlic Mashed Potatoes</option>
-      <option value="thanksgiving/savory-tings/green-beans-amandine">Green Beans Amandine</option>
-      <option value="thanksgiving/savory-tings/marinated-vegetable-salad">Marinated Vegetable Salad</option>
-      <option value="thanksgiving/savory-tings/sweet-potato-casserole">Sweet Potato Casserole</option>
-      <option value="thanksgiving/savory-tings/taffy-apple-salad">Taffy Apple Salad</option>
-      <option value="thanksgiving/savory-tings/thanksgiving-turkey-dressing">Thanksgiving Turkey Dressing</option>
-      <option value="thanksgiving/savory-tings/caramels">Caramels</option>
-      <option value="thanksgiving/savory-tings/caramel-apple-crumble-pie">Caramel Apple Crumble Pie</option>
+
+    <optgroup label="Breakfast" data-category="breakfast">
+      <option value="breakfast/cinnamon-cottage-cheese-pancakes">Cinnamon Cottage Cheese Pancakes</option>
+      <option value="breakfast/cinnamon-crunch-bagels">Cinnamon Crunch Bagels</option>
+      <option value="breakfast/cinnamon-roll-cake">Cinnamon Roll Cake</option>
+      <option value="breakfast/cinnamon-rolls-puff-pastry">Cinnamon Rolls (Puff Pastry)</option>
+      <option value="breakfast/french-toast-bake">French Toast Bake</option>
+      <option value="breakfast/lemon-blueberry-scones">Lemon Blueberry Scones</option>
+      <option value="breakfast/pumpkin-breakfast-casserole">Pumpkin Breakfast Casserole</option>
+      <option value="breakfast/quiche">Quiche</option>
+      <option value="breakfast/waffles">Waffles</option>
+      <option value="misc/german-pancakes">German Pancakes</option>
+      <option value="misc/lemon-blueberry-dutch-baby">Lemon Blueberry Dutch Baby</option>
     </optgroup>
-    <optgroup label="Appetizers">
-      <option value="misc/bruschetta">Bruschetta</option>
-      <option value="misc/cranberry-pecan-brie-cups">Cranberry Pecan Brie Cups</option>
-      <option value="misc/pesto-palmiers">Pesto Palmiers</option>
-      <option value="misc/stuffed-mushrooms">Stuffed Mushrooms</option>
-    </optgroup>
-    <optgroup label="Main Dishes">
+
+    <optgroup label="Entrees" data-category="entrees">
+      <option value="entrees/veggie-quesadillas">Veggie Quesadillas</option>
+      <option value="entrees/pasta/caprese-farfalle">Caprese Farfalle</option>
+      <option value="entrees/pasta/penne-primavera">Penne Primavera</option>
+      <option value="entrees/sauces/giblet-gravy">Giblet Gravy</option>
+      <option value="entrees/sauces/nonnas-sauce">Nonna's Sauce</option>
+      <option value="entrees/seafood/salmon-tacos">Salmon Tacos</option>
       <option value="misc/bourbon-bbq-pork-chops">Bourbon BBQ Pork Chops</option>
       <option value="misc/caprese-stuffed-chicken">Caprese Stuffed Chicken</option>
       <option value="misc/sausage-quiche">Sausage Quiche</option>
       <option value="misc/zucchini-lasagna">Zucchini Lasagna</option>
     </optgroup>
-    <optgroup label="Sides & Salads">
+
+    <optgroup label="Soups" data-category="soups">
+      <option value="soups/baked-potato-soup">Baked Potato Soup</option>
+      <option value="soups/chicken-noodle-soup">Chicken Noodle Soup</option>
+      <option value="soups/chicken-rice-soup">Chicken & Rice Soup</option>
+      <option value="soups/chicken-tortilla-soup">Chicken Tortilla Soup</option>
+      <option value="soups/chili">Chili</option>
+      <option value="soups/egg-drop-soup">Egg Drop Soup</option>
+      <option value="soups/lentil-ham-soup">Lentil Ham Soup</option>
+      <option value="soups/potato-leek-soup">Potato Leek Soup</option>
+      <option value="soups/roasted-red-pepper-tomato-gouda-bisque">Roasted Red Pepper Tomato & Smoked Gouda Bisque</option>
+      <option value="soups/shrimp-sausage-stew">Shrimp & Sausage Stew</option>
+      <option value="soups/white-bean-soup-greens-turkey">White Bean Soup with Greens & Turkey</option>
+    </optgroup>
+
+    <optgroup label="Salads" data-category="salads">
+      <option value="salads/candy-bar-apple-salad">Candy Bar Apple Salad</option>
+      <option value="salads/charred-corn-chicken-salad">Charred Corn & Chicken Cheese Salad</option>
+      <option value="salads/cucumber-mango-salad">Cucumber Mango Salad</option>
+      <option value="salads/cucumber-salad">Cucumber Salad</option>
+      <option value="salads/egg-salad">Egg Salad</option>
+      <option value="salads/lime-jello-salad">Lime Jello Salad</option>
+      <option value="salads/macaroni-salad">Macaroni Salad</option>
+      <option value="salads/marinated-vegetable-salad">Marinated Vegetable Salad</option>
+      <option value="salads/spaghetti-salad">Spaghetti Salad</option>
       <option value="misc/cabbage-ramen-salad">Cabbage Ramen Salad</option>
+    </optgroup>
+
+    <optgroup label="Vegetables & Sides" data-category="vegetables">
+      <option value="vegetables/baked-cheese-grits">Baked Cheese Grits</option>
+      <option value="vegetables/black-eyed-peas">Black Eyed Peas</option>
+      <option value="vegetables/garlic-roasted-potato-wedges">Garlic Roasted Potato Wedges</option>
+      <option value="vegetables/green-beans-cheese">Green Beans & Cheese</option>
+      <option value="vegetables/twice-baked-sweet-potatoes-ricotta">Twice Baked Sweet Potatoes with Ricotta</option>
+      <option value="vegetables/zucchini-corn-skillet">Zucchini & Corn Skillet</option>
       <option value="misc/creamy-parmesan-spinach-bake">Creamy Parmesan Spinach Bake</option>
       <option value="misc/mac-and-cheese">Mac & Cheese</option>
       <option value="misc/sage-and-onion-stuffing">Sage and Onion Stuffing</option>
       <option value="misc/tomato-relish">Tomato Relish</option>
     </optgroup>
-    <optgroup label="Breakfast">
-      <option value="misc/german-pancakes">German Pancakes</option>
-      <option value="misc/lemon-blueberry-dutch-baby">Lemon Blueberry Dutch Baby</option>
+
+    <optgroup label="Cakes" data-category="cakes">
+      <option value="cakes/apple-dump-cake">Apple Dump Cake</option>
+      <option value="cakes/chewy-gingerbread-cookies">Chewy Gingerbread Cookies</option>
+      <option value="cakes/hisaes-choc-cake">Hisae's Chocolate Cake</option>
+      <option value="cakes/thunder-cake">Thunder Cake</option>
+      <option value="cakes/upside-down-blueberry-dump-cake">Upside Down Blueberry Dump Cake</option>
+      <option value="cakes/upside-down-pumpkin-cake">Upside Down Pumpkin Cake</option>
+      <option value="misc/gooey-butter-cake">Gooey Butter Cake</option>
     </optgroup>
-    <optgroup label="Cookies">
+
+    <optgroup label="Desserts" data-category="desserts">
+      <option value="desserts/apple-pie">Apple Pie</option>
+      <option value="desserts/cinnamon-sugar-pie-crust-cookies">Cinnamon Sugar Pie Crust Cookies</option>
+      <option value="desserts/creamy-coconut-cake">Creamy Coconut Cake</option>
+      <option value="desserts/no-bake-cookies">No Bake Cookies</option>
+      <option value="desserts/raspberry-prosecco-tulip">Raspberry Prosecco Tulip</option>
+      <option value="misc/banana-cream-pretzel-pie">Banana Cream Pretzel Pie</option>
+      <option value="misc/banana-pineapple-pudding-pie">Banana Pineapple Pudding Pie</option>
+      <option value="misc/bourbon-salted-caramel-brownies">Bourbon Salted Caramel Brownies</option>
+      <option value="misc/bread-pudding">Bread Pudding</option>
+      <option value="misc/chocolate-almond-macaroons">Chocolate Almond Macaroons</option>
+      <option value="misc/chocolate-cream-layered-dessert">Chocolate Cream Layered Dessert</option>
+      <option value="misc/chocolate-mice">Chocolate Mice</option>
+      <option value="misc/english-toffee">English Toffee</option>
+      <option value="misc/lemon-pecan-slab-pie">Lemon Pecan Slab Pie</option>
+      <option value="misc/lime-pretzel-jello">Lime Pretzel Jello</option>
+      <option value="misc/nutella-bread-pudding">Nutella Bread Pudding</option>
+      <option value="misc/nutella-tart">Nutella Tart</option>
+      <option value="misc/paula-deens-banana-pudding">Paula Deen's Banana Pudding</option>
+      <option value="misc/peach-crumble">Peach Crumble</option>
+      <option value="misc/pumpkin-pudding">Pumpkin Pudding</option>
+      <option value="misc/smore-pie">S'more Pie</option>
+    </optgroup>
+
+    <optgroup label="Cookies" data-category="desserts">
       <option value="misc/chocolate-cookies">Chocolate Cookies</option>
       <option value="misc/chocolate-crackle-cookie">Chocolate Crackle Cookie</option>
       <option value="misc/cut-out-sugar-cookies">Cut Out Sugar Cookies</option>
@@ -133,43 +281,55 @@
       <option value="misc/no-bake-chocolate-oatmeal-cookies">No Bake Chocolate Oatmeal Cookies</option>
       <option value="misc/snickerdoodles">Snickerdoodles</option>
     </optgroup>
-    <optgroup label="Candy & Treats">
+
+    <optgroup label="Candy & Treats" data-category="desserts">
       <option value="misc/baklava-palmiers">Baklava Palmiers</option>
-      <option value="misc/chocolate-mice">Chocolate Mice</option>
-      <option value="misc/english-toffee">English Toffee</option>
       <option value="misc/knox-blox">Knox Blox</option>
+      <option value="misc/mini-strawberry-santas">Mini Strawberry Santas</option>
       <option value="misc/night-before-christmas-mice">Night Before Christmas Mice</option>
       <option value="misc/palmiers">Palmiers (Sugar)</option>
+      <option value="misc/pesto-palmiers">Pesto Palmiers</option>
+      <option value="misc/witches-hat">Witch's Hat Cookies</option>
     </optgroup>
-    <optgroup label="Pies & Tarts">
-      <option value="misc/banana-cream-pretzel-pie">Banana Cream Pretzel Pie</option>
-      <option value="misc/banana-pineapple-pudding-pie">Banana Pineapple Pudding Pie</option>
-      <option value="misc/lemon-pecan-slab-pie">Lemon Pecan Slab Pie</option>
-      <option value="misc/nutella-tart">Nutella Tart</option>
-      <option value="misc/smore-pie">S'more Pie</option>
+
+    <optgroup label="Drinks" data-category="drinks">
+      <option value="drinks/egg-nog-variations">Egg Nog Variations</option>
+      <option value="drinks/egg-nogg">Egg Nog</option>
+      <option value="drinks/mango-breeze-margarita">Mango Breeze Margarita</option>
+      <option value="drinks/pumpkin-spiced-latte">Pumpkin Spiced Latte</option>
+      <option value="drinks/raspberry-prosecco-cocktail">Raspberry Prosecco Cocktail</option>
+      <option value="drinks/sangria">Sangria</option>
+      <option value="drinks/white-hot-chocolate">White Hot Chocolate</option>
     </optgroup>
-    <optgroup label="Cakes & Desserts">
-      <option value="misc/bourbon-salted-caramel-brownies">Bourbon Salted Caramel Brownies</option>
-      <option value="misc/bread-pudding">Bread Pudding</option>
-      <option value="misc/chocolate-almond-macaroons">Chocolate Almond Macaroons</option>
-      <option value="misc/chocolate-cream-layered-dessert">Chocolate Cream Layered Dessert</option>
-      <option value="misc/gooey-butter-cake">Gooey Butter Cake</option>
-      <option value="misc/nutella-bread-pudding">Nutella Bread Pudding</option>
-      <option value="misc/paula-deens-banana-pudding">Paula Deen's Banana Pudding</option>
-      <option value="misc/peach-crumble">Peach Crumble</option>
-      <option value="misc/pumpkin-pudding">Pumpkin Pudding</option>
-    </optgroup>
-    <optgroup label="Jello & Salads">
-      <option value="misc/lime-pretzel-jello">Lime Pretzel Jello</option>
-    </optgroup>
-    <optgroup label="Breads">
+
+    <optgroup label="Breads" data-category="breads">
+      <option value="breads/bountiful-beer-bread-suggestions">Bountiful Beer Bread (Suggestions)</option>
       <option value="misc/almond-tea-bread">Almond Tea Bread</option>
       <option value="misc/cream-cheese-pastry">Cream Cheese Pastry</option>
       <option value="misc/nutella-christmas-tree">Nutella Christmas Tree</option>
     </optgroup>
-    <optgroup label="Holiday Fun">
-      <option value="misc/mini-strawberry-santas">Mini Strawberry Santas</option>
-      <option value="misc/witches-hat">Witch's Hat Cookies</option>
+
+    <optgroup label="Thanksgiving - Desserts" data-category="thanksgiving">
+      <option value="thanksgiving/desserts/buttermilk-chess-pie">Buttermilk Chess Pie</option>
+      <option value="thanksgiving/desserts/no-bake-cookies">No Bake Cookies</option>
+      <option value="thanksgiving/desserts/peanut-butter-ball-dip">Peanut Butter Ball (Dip)</option>
+      <option value="thanksgiving/desserts/peanut-butter-balls">Peanut Butter Balls</option>
+      <option value="thanksgiving/desserts/pecan-pie">Pecan Pie</option>
+      <option value="thanksgiving/desserts/pumpkin-pie">Pumpkin Pie</option>
+    </optgroup>
+
+    <optgroup label="Thanksgiving - Sides" data-category="thanksgiving">
+      <option value="thanksgiving/savory-tings/caramel-apple-crumble-pie">Caramel Apple Crumble Pie</option>
+      <option value="thanksgiving/savory-tings/caramels">Caramels</option>
+      <option value="thanksgiving/savory-tings/corn-casserole">Corn Casserole</option>
+      <option value="thanksgiving/savory-tings/cranberry-salad">Cranberry Salad</option>
+      <option value="thanksgiving/savory-tings/fruit-salad-with-cannoli-cream">Fruit Salad with Cannoli Cream</option>
+      <option value="thanksgiving/savory-tings/garlic-mashed-potatoes">Garlic Mashed Potatoes</option>
+      <option value="thanksgiving/savory-tings/green-beans-amandine">Green Beans Amandine</option>
+      <option value="thanksgiving/savory-tings/marinated-vegetable-salad">Marinated Vegetable Salad</option>
+      <option value="thanksgiving/savory-tings/sweet-potato-casserole">Sweet Potato Casserole</option>
+      <option value="thanksgiving/savory-tings/taffy-apple-salad">Taffy Apple Salad</option>
+      <option value="thanksgiving/savory-tings/thanksgiving-turkey-dressing">Thanksgiving Turkey Dressing</option>
     </optgroup>
   </select>
 
@@ -178,6 +338,56 @@
   <script>
     const recipeSelect = document.getElementById('recipe-select');
     const recipeContainer = document.getElementById('recipe-container');
+    const searchInput = document.getElementById('search');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const recipeCount = document.getElementById('recipe-count');
+
+    // Count total recipes
+    const totalRecipes = recipeSelect.querySelectorAll('option[value]').length;
+    recipeCount.textContent = `${totalRecipes} recipes available`;
+
+    // Category filtering
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        filterRecipes(this.dataset.category, searchInput.value);
+      });
+    });
+
+    // Search filtering
+    searchInput.addEventListener('input', function() {
+      const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+      filterRecipes(activeCategory, this.value);
+    });
+
+    function filterRecipes(category, search) {
+      const optgroups = recipeSelect.querySelectorAll('optgroup');
+      const searchLower = search.toLowerCase();
+      let visibleCount = 0;
+
+      optgroups.forEach(group => {
+        const groupCategory = group.dataset.category || '';
+        const options = group.querySelectorAll('option');
+        let groupVisible = false;
+
+        options.forEach(option => {
+          const matchesCategory = category === 'all' || groupCategory === category;
+          const matchesSearch = !search || option.textContent.toLowerCase().includes(searchLower);
+          const visible = matchesCategory && matchesSearch;
+
+          option.style.display = visible ? '' : 'none';
+          if (visible) {
+            groupVisible = true;
+            visibleCount++;
+          }
+        });
+
+        group.style.display = groupVisible ? '' : 'none';
+      });
+
+      recipeCount.textContent = `${visibleCount} of ${totalRecipes} recipes`;
+    }
 
     recipeSelect.addEventListener('change', async function() {
       if (!this.value) {
@@ -191,7 +401,7 @@
         displayRecipe(recipe, this.value);
         recipeContainer.classList.add('active');
       } catch (error) {
-        recipeContainer.innerHTML = '<p>Error loading recipe. Please try again.</p>';
+        recipeContainer.innerHTML = '<div class="recipe"><p>Error loading recipe. Please try again.</p></div>';
         recipeContainer.classList.add('active');
       }
     });
@@ -211,15 +421,22 @@
       let meta = [];
       if (recipe.oven_temp) meta.push(recipe.oven_temp);
       if (recipe.bake_time) meta.push(recipe.bake_time);
+      if (recipe.time_required) meta.push(recipe.time_required);
       if (recipe.yields) meta.push(`Yields: ${recipe.yields}`);
       if (recipe.servings) meta.push(`Serves: ${recipe.servings}`);
+      if (recipe.source) meta.push(`Source: ${recipe.source}`);
       if (meta.length) html += `<div class="meta">${meta.join(' | ')}</div>`;
 
       // Image(s)
       if (recipe.source_image) {
         html += `<img src="${folder}/${recipe.source_image}" alt="${recipe.title} recipe card">`;
-      } else if (recipe.source_images) {
+      } else if (recipe.source_images && recipe.source_images.length) {
         html += `<img src="${folder}/${recipe.source_images[0]}" alt="${recipe.title} recipe card">`;
+      }
+
+      // Notes
+      if (recipe.note) {
+        html += `<p><em>${recipe.note}</em></p>`;
       }
 
       // Ingredients
@@ -231,9 +448,11 @@
         } else {
           // Object with categories
           for (const [key, items] of Object.entries(recipe.ingredients)) {
-            html += `<h3>${formatKey(key)}</h3><ul>`;
-            items.forEach(i => html += `<li>${i}</li>`);
-            html += '</ul>';
+            if (Array.isArray(items)) {
+              html += `<h3>${formatKey(key)}</h3><ul>`;
+              items.forEach(i => html += `<li>${i}</li>`);
+              html += '</ul>';
+            }
           }
         }
       }
@@ -242,7 +461,8 @@
       const ingredientKeys = ['cookie_ingredients', 'crust_ingredients', 'filling_ingredients',
         'topping_ingredients', 'base_ingredients', 'sauce_ingredients', 'glaze_ingredients',
         'frosting_ingredients', 'royal_icing_ingredients', 'coating', 'pudding_ingredients',
-        'layer_1', 'layer_2', 'layer_3', 'topping', 'filling', 'crumble_topping'];
+        'layer_1', 'layer_2', 'layer_3', 'topping', 'filling', 'crumble_topping',
+        'tortilla_strips', 'toppings', 'seasonings', 'soup', 'rice'];
 
       ingredientKeys.forEach(key => {
         if (recipe[key]) {
@@ -263,9 +483,24 @@
           html += '<ol>';
           recipe.instructions.forEach(i => html += `<li>${i}</li>`);
           html += '</ol>';
+        } else if (typeof recipe.instructions === 'object') {
+          for (const [key, steps] of Object.entries(recipe.instructions)) {
+            if (Array.isArray(steps)) {
+              html += `<h4>${formatKey(key)}</h4><ol>`;
+              steps.forEach(i => html += `<li>${i}</li>`);
+              html += '</ol>';
+            }
+          }
         } else {
           html += `<p class="instructions">${recipe.instructions}</p>`;
         }
+      }
+
+      // Suggestions (for Tastefully Simple cards)
+      if (recipe.suggestions) {
+        html += '<h3>Serving Suggestions</h3><ul>';
+        recipe.suggestions.forEach(s => html += `<li>${s}</li>`);
+        html += '</ul>';
       }
 
       // Storage notes
@@ -292,8 +527,17 @@
     }
 
     function getCategoryFromPath(path) {
+      if (path.includes('appetizers')) return 'Appetizer';
+      if (path.includes('breakfast')) return 'Breakfast';
+      if (path.includes('entrees')) return 'Entree';
+      if (path.includes('soups')) return 'Soup';
+      if (path.includes('salads')) return 'Salad';
+      if (path.includes('vegetables')) return 'Side';
+      if (path.includes('cakes')) return 'Cake';
       if (path.includes('desserts')) return 'Dessert';
-      if (path.includes('savory')) return 'Side';
+      if (path.includes('drinks')) return 'Drink';
+      if (path.includes('breads')) return 'Bread';
+      if (path.includes('thanksgiving')) return 'Thanksgiving';
       if (path.includes('misc')) {
         const name = path.split('/').pop();
         if (name.includes('cookie')) return 'Cookie';

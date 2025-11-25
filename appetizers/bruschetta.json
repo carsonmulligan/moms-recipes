@@ -1,0 +1,20 @@
+{
+  "title": "Bruschetta",
+  "source_images": ["IMG_7367.jpg", "IMG_7368.jpg", "IMG_7369.jpg"],
+  "ingredients": [
+    "2-3 medium ripe tomatoes, coarsely chopped",
+    "4 Tbsp olive oil, divided",
+    "Sliced Tuscan bread",
+    "2 cloves garlic, halved",
+    "Sea salt",
+    "Coarsely chopped fresh basil"
+  ],
+  "instructions": [
+    "Combine tomatoes and half of the olive oil in bowl and toss.",
+    "Marinate for 10 mins at room temp.",
+    "Toast the bread slices.",
+    "Gently rub the toasted bread with the cut end of raw garlic cloves.",
+    "Top each slice with tomatoes.",
+    "Sprinkle with salt and chopped basil, drizzle remaining olive oil."
+  ]
+}

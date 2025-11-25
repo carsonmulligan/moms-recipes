@@ -4,40 +4,52 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a recipe image archive containing family recipes as photographs, with JSON transcriptions for easy viewing.
+This is a recipe image archive containing family recipes as photographs, with JSON transcriptions for easy viewing. The cookbook is titled "Dr. Lesa Mulligan's Cookbook".
 
 ## Structure
 
 - `appetizers/` - Appetizer recipes
 - `breads/` - Bread recipes
 - `breakfast/` - Breakfast recipes
-- `cakes/` - Cake and cookie recipes (12 images, 6 JSON transcriptions)
-- `desserts/` - Dessert recipes (11 images, 5 JSON transcriptions)
-- `drinks/` - Beverage recipes (15 images, 7 JSON transcriptions)
+- `cakes/` - Cake and cookie recipes (6 JSON transcriptions)
+- `desserts/` - Dessert recipes (5 JSON transcriptions)
+- `drinks/` - Beverage recipes (7 JSON transcriptions)
 - `entrees/` - Main dish recipes
-  - `pasta/` - Pasta recipes (4 images, needs transcription)
-  - `sauces/` - Sauce recipes (2 images, needs transcription)
-  - `seafood/` - Seafood recipes (1 image, needs transcription)
-- `salads/` - Salad recipes (15 images, needs transcription)
-- `soups/` - Soup recipes (29 images, needs transcription)
+  - `pasta/` - Pasta recipes (2 JSON transcriptions)
+  - `sauces/` - Sauce recipes (2 JSON transcriptions)
+  - `seafood/` - Seafood recipes (1 JSON transcription)
+  - `veggie-quesadillas.json`
+- `salads/` - Salad recipes (9 JSON transcriptions)
+- `soups/` - Soup recipes (11 JSON transcriptions)
 - `vegetables/` - Vegetable side dish recipes
 - `home/` - Homepage assets
 - `thanksgiving/` - Original thanksgiving recipe folders
 
+## Photo Convention for Two-Sided Recipe Cards
+
+When photographing recipe cards that have content on both sides:
+1. **First photo**: Front of the card (usually has title and ingredients)
+2. **Second photo**: Back of the card (usually has instructions)
+3. **Third photo**: Back of the card WITH TWO FINGERS visible in the frame
+
+The **two fingers** indicate this is the BACK side of a two-sided card. This helps Claude identify which images belong together as a single recipe when transcribing.
+
+Example sequence:
+- `IMG_7495.jpg` - Front of "Baked Potato Soup" card
+- `IMG_7496.jpg` - Back of card (instructions)
+- `IMG_7497.jpg` - Back of card with two fingers (confirms this is the back)
+
 ## Transcription Progress
 
 ### Completed
-- cakes/ - 6 recipes transcribed
-- desserts/ - 5 recipes transcribed
-- drinks/ - 7 recipes transcribed
-- entrees/veggie-quesadillas.json - transcribed
+- cakes/ - 6 recipes
+- desserts/ - 5 recipes
+- drinks/ - 7 recipes
+- entrees/ - 6 recipes (veggie-quesadillas, 2 pasta, 2 sauces, 1 seafood)
+- salads/ - 9 recipes
+- soups/ - 11 recipes
 
 ### Needs Transcription
-- entrees/pasta/ (4 images)
-- entrees/sauces/ (2 images)
-- entrees/seafood/ (1 image)
-- salads/ (15 images)
-- soups/ (29 images)
 - appetizers/
 - breads/
 - breakfast/
