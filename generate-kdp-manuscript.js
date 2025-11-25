@@ -72,9 +72,9 @@ function generateHTML() {
   <meta charset="UTF-8">
   <title>Dr. Lesa Mulligan's Cookbook</title>
   <style>
-    /* KDP 8.5x11 with proper margins for ~150 pages (0.5" gutter, 0.5" outside, 0.75" top/bottom) */
+    /* KDP 8.25x11 with proper margins for ~160 pages (0.5" gutter, 0.5" outside, 0.75" top/bottom) */
     @page {
-      size: 8.5in 11in;
+      size: 8.25in 11in;
       margin: 0.75in 0.5in 0.75in 0.625in;
       @bottom-center {
         content: counter(page);
