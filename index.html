@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mom's Recipes</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #faf8f5;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #8b4513;
+      border-bottom: 2px solid #d4a574;
+      padding-bottom: 10px;
+    }
+    select {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      font-family: inherit;
+      border: 2px solid #d4a574;
+      border-radius: 8px;
+      background: white;
+      margin-bottom: 20px;
+    }
+    .recipe {
+      display: none;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .recipe.active { display: block; }
+    .recipe h2 {
+      color: #8b4513;
+      margin-top: 0;
+    }
+    .recipe img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 8px;
+      margin: 15px 0;
+      display: block;
+    }
+    .recipe h3 {
+      color: #a0522d;
+      margin-bottom: 8px;
+    }
+    .recipe ul {
+      margin: 0 0 20px 0;
+      padding-left: 20px;
+    }
+    .recipe li { margin: 5px 0; }
+    .recipe p { line-height: 1.6; }
+    .meta { color: #888; font-size: 14px; margin-bottom: 15px; }
+    .category {
+      display: inline-block;
+      background: #d4a574;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mom's Thanksgiving Recipes</h1>
+
+  <select id="recipe-select">
+    <option value="">-- Select a Recipe --</option>
+    <optgroup label="Desserts">
+      <option value="buttermilk-chess-pie">Buttermilk Chess Pie</option>
+      <option value="no-bake-cookies">No Bake Cookies</option>
+      <option value="peanut-butter-ball-dip">Peanut Butter Ball (Dip)</option>
+      <option value="peanut-butter-balls">Peanut Butter Balls (Rice Krispies)</option>
+      <option value="pecan-pie">Pecan Pie</option>
+      <option value="pumpkin-pie">Pumpkin Pie</option>
+    </optgroup>
+    <optgroup label="Sides & Salads">
+      <option value="corn-casserole">Corn Casserole</option>
+      <option value="cranberry-salad">Cranberry Salad</option>
+      <option value="fruit-salad-with-cannoli-cream">Fruit Salad with Cannoli Cream</option>
+      <option value="garlic-mashed-potatoes">Garlic Mashed Potatoes</option>
+      <option value="green-beans-amandine">Green Beans Amandine</option>
+      <option value="marinated-vegetable-salad">Marinated Vegetable Salad</option>
+      <option value="sweet-potato-casserole">Sweet Potato Casserole</option>
+      <option value="taffy-apple-salad">Taffy Apple Salad</option>
+      <option value="thanksgiving-turkey-dressing">Thanksgiving Turkey Dressing</option>
+    </optgroup>
+    <optgroup label="Sweets & Treats">
+      <option value="caramels">Caramels</option>
+      <option value="caramel-apple-crumble-pie">Caramel Apple Crumble Pie</option>
+    </optgroup>
+  </select>
+
+  <!-- Desserts -->
+  <div class="recipe" id="buttermilk-chess-pie">
+    <span class="category">Dessert</span>
+    <h2>Buttermilk Chess Pie</h2>
+    <div class="meta">350° | 45 min</div>
+    <img src="thanksgiving/desserts/buttermilk-chess-pie.jpg" alt="Buttermilk Chess Pie recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>2 c white sugar</li>
+      <li>2 Tbsp flour</li>
+      <li>5 eggs</li>
+      <li>2/3 c buttermilk</li>
+      <li>1 tsp vanilla</li>
+      <li>1/2 c melted butter</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Combine all ingredients. Bake at 350° for 45 minutes.</p>
+  </div>
+
+  <div class="recipe" id="no-bake-cookies">
+    <span class="category">Dessert</span>
+    <h2>No Bake Cookies</h2>
+    <img src="thanksgiving/desserts/no-bake-cookies.jpg" alt="No Bake Cookies recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>2 c sugar</li>
+      <li>1/2 c milk</li>
+      <li>1 stick (8 Tbsp) unsalted butter</li>
+      <li>1/4 c cocoa powder</li>
+      <li>3 c old-fashioned rolled oats</li>
+      <li>1 c smooth peanut butter</li>
+      <li>1 Tbsp vanilla extract</li>
+      <li>Large pinch salt</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Line baking sheet with wax paper or parchment. Bring sugar, milk, butter, & cocoa to boil in medium sauce pan over medium heat stirring occasionally, then let boil for 1 minute. Remove from heat.</p>
+  </div>
+
+  <div class="recipe" id="peanut-butter-ball-dip">
+    <span class="category">Dessert</span>
+    <h2>Peanut Butter Ball (Dip)</h2>
+    <img src="thanksgiving/desserts/peanut-butter-ball-dip.jpg" alt="Peanut Butter Ball recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>8 oz cream cheese, softened</li>
+      <li>3/4 c peanut butter</li>
+      <li>1 c powdered sugar</li>
+      <li>3 Tbsp brown sugar</li>
+      <li>3/4 c chocolate chips</li>
+      <li>3/4 c peanut butter chips</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Mix & form into ball then roll in chips. Serve with graham crackers or cookies.</p>
+  </div>
+
+  <div class="recipe" id="peanut-butter-balls">
+    <span class="category">Dessert</span>
+    <h2>Peanut Butter Balls (Rice Krispies)</h2>
+    <img src="thanksgiving/desserts/peanut-butter-balls.jpg" alt="Peanut Butter Balls recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1 c sugar</li>
+      <li>1/2 c dark corn syrup</li>
+      <li>1/2 c white corn syrup</li>
+      <li>2 c crunchy peanut butter</li>
+      <li>4 cups Rice Krispies</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>In large sauce pan, stir sugar & syrups together over medium heat. Add peanut butter & continue to stir until mixture is fully combined. Remove pan from heat, add Rice Krispies. Mix well. Spray your hands lightly with cooking spray & shape mixture into balls. Transfer to wax paper. Store in airtight container for up to 2 weeks.</p>
+  </div>
+
+  <div class="recipe" id="pecan-pie">
+    <span class="category">Dessert</span>
+    <h2>Pecan Pie</h2>
+    <div class="meta">350°</div>
+    <img src="thanksgiving/desserts/pecan-pie.jpg" alt="Pecan Pie recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>3 eggs</li>
+      <li>2/3 c sugar</li>
+      <li>Dash salt</li>
+      <li>1 c dark corn syrup</li>
+      <li>1/3 c butter</li>
+      <li>1 c pecan, chopped</li>
+      <li>Pastry for single crust pie</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Beat eggs slightly with rotary beater or fork. Add sugar & salt, stir till dissolved. Stir in dark corn syrup & melted butter. Stir in pecans. Place pastry-lined 9-in pie plate, pour in pecan mixture. Cover edge with foil. Bake x 25 mins until knife in center comes out clean.</p>
+  </div>
+
+  <div class="recipe" id="pumpkin-pie">
+    <span class="category">Dessert</span>
+    <h2>Pumpkin Pie</h2>
+    <div class="meta">Yields 2 pies</div>
+    <img src="thanksgiving/desserts/pumpkin-pie.jpg" alt="Pumpkin Pie recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1 1/2 c sugar</li>
+      <li>1 tsp salt</li>
+      <li>2 tsp ground cinnamon</li>
+      <li>1 tsp ground ginger</li>
+      <li>1/2 tsp ground cloves</li>
+      <li>4 large eggs</li>
+      <li>1 can (30 oz) pure pumpkin</li>
+      <li>2 cans (12 fl oz each) evaporated milk</li>
+      <li>2 unbaked 9 in deep-dish pie shells</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Mix dry ingredients in small bowl. Beat eggs in large bowl. Stir in pumpkin, dry ingredients. Gradually stir in evaporated milk. Pour into pie shells.</p>
+  </div>
+
+  <!-- Sides & Salads -->
+  <div class="recipe" id="corn-casserole">
+    <span class="category">Side</span>
+    <h2>Corn Casserole</h2>
+    <div class="meta">350° | 1 hour | Yields 9 servings</div>
+    <img src="thanksgiving/savory-tings/corn-casserole.jpg" alt="Corn Casserole recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1/2 c butter</li>
+      <li>1 (17 oz) can creamed corn</li>
+      <li>1 (16 oz) can whole kernel corn, drained</li>
+      <li>1 (9 oz) pkg corn muffin mix</li>
+      <li>1 cup sour cream</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Heat butter in 9x9 inch baking dish until melted, tilting dish to cover bottom. Mix cream-style corn, whole kernel corn, muffin mix and sour cream in bowl. Add to prepared dish and mix well. Bake at 350° for 1 hr or until set and brown.</p>
+  </div>
+
+  <div class="recipe" id="cranberry-salad">
+    <span class="category">Salad</span>
+    <h2>Cranberry Salad</h2>
+    <div class="meta">Serves 8-10</div>
+    <img src="thanksgiving/savory-tings/cranberry-salad.jpg" alt="Cranberry Salad recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1 lb cranberries, ground</li>
+      <li>1 whole orange, ground</li>
+      <li>1 1/2 c sugar</li>
+      <li>2 pkgs cherry gelatin</li>
+      <li>2 c warm water</li>
+      <li>1 c chopped pecans</li>
+      <li>1 c chopped marshmallows</li>
+      <li>1 1/2 c chopped celery</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Let ground cranberries, orange, and sugar chill overnight. Mix gelatin with warm water. When it starts to jell, add pecans, marshmallows, celery, and cranberry mixture. Refrigerate until well set.</p>
+  </div>
+
+  <div class="recipe" id="fruit-salad-with-cannoli-cream">
+    <span class="category">Salad</span>
+    <h2>Fruit Salad with Cannoli Cream</h2>
+    <img src="thanksgiving/savory-tings/fruit-salad-with-cannoli-cream.jpg" alt="Fruit Salad with Cannoli Cream recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1/3 cup whole-milk ricotta cheese</li>
+      <li>2 Tbsp plus 1/3 cup whipping cream</li>
+      <li>3 Tbsp powdered sugar</li>
+      <li>Pinch of ground cinnamon</li>
+      <li>12 oz fresh strawberries, hulled & quartered (about 2 1/2 c)</li>
+      <li>1/2 pint fresh raspberries (about 1 1/4 c)</li>
+      <li>1 Tbsp sugar</li>
+      <li>1 Tbsp fresh lemon juice</li>
+      <li>2 kiwi, peeled, cut into 1/2 inch pieces</li>
+      <li>3 Tbsp sliced almonds, toasted</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>In medium bowl stir the ricotta & 2 Tbsp of cream to blend. In a large bowl using an electric mixer, beat the remaining 1/3 c of cream with the powdered sugar and cinnamon.</p>
+  </div>
+
+  <div class="recipe" id="garlic-mashed-potatoes">
+    <span class="category">Side</span>
+    <h2>Garlic Mashed Potatoes</h2>
+    <img src="thanksgiving/savory-tings/garlic-mashed-potatoes.jpg" alt="Garlic Mashed Potatoes recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>3 lbs potatoes</li>
+      <li>2 1/2 tsp garlic powder</li>
+      <li>4 Tbsp butter</li>
+      <li>8 oz sour cream</li>
+      <li>1/2 c whole milk or cream</li>
+      <li>1 Tbsp minced garlic</li>
+      <li>1-2 tsp salt</li>
+      <li>1/4 tsp cracked pepper</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Cook potatoes. Boil 10-12 mins, drain. Transfer to large bowl. Combine hot potatoes, butter, milk, sour cream, garlic, garlic powder, salt, pepper. Combine with hand mixer. Add salt/pepper to taste.</p>
+  </div>
+
+  <div class="recipe" id="green-beans-amandine">
+    <span class="category">Side</span>
+    <h2>Green Beans Amandine</h2>
+    <div class="meta">Serves 6</div>
+    <img src="thanksgiving/savory-tings/green-beans-amandine.jpg" alt="Green Beans Amandine recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1 pound green beans or two 9 oz packages frozen French-style green beans</li>
+      <li>2 Tbsp slivered almonds</li>
+      <li>2 Tbsp butter or margarine</li>
+      <li>1 tsp lemon juice</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Cut fresh beans French-style & cook as directed. Drain. Cook almonds in butter over low heat, stirring occasionally, til golden. Remove from heat, add lemon juice. Pour over green beans.</p>
+  </div>
+
+  <div class="recipe" id="marinated-vegetable-salad">
+    <span class="category">Salad</span>
+    <h2>Marinated Vegetable Salad</h2>
+    <img src="thanksgiving/savory-tings/marinated-vegetable-salad.jpg" alt="Marinated Vegetable Salad recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1 c red wine vinegar</li>
+      <li>1 c sugar</li>
+      <li>1/2 c olive oil</li>
+      <li>1 tsp salt</li>
+      <li>16 oz frozen or fresh shelled green peas, cooked 3 mins & drained</li>
+      <li>16 oz cut green beans, frozen or fresh, cooked 8 mins & drained</li>
+      <li>2 small sweet onions, thinly sliced</li>
+      <li>1 2oz jar chopped pimentos</li>
+      <li>1 red bell pepper, cored, seeded, chopped</li>
+      <li>1 1/2 c thinly chopped celery</li>
+    </ul>
+  </div>
+
+  <div class="recipe" id="sweet-potato-casserole">
+    <span class="category">Side</span>
+    <h2>Sweet Potato Casserole</h2>
+    <div class="meta">350° | 35 minutes</div>
+    <img src="thanksgiving/savory-tings/sweet-potato-casserole.jpg" alt="Sweet Potato Casserole recipe card">
+    <h3>Base Ingredients</h3>
+    <ul>
+      <li>1 40 oz can sweet potatoes</li>
+      <li>1 c white sugar</li>
+      <li>2 eggs</li>
+      <li>1/3 c milk</li>
+      <li>1 tsp vanilla</li>
+    </ul>
+    <h3>Topping Ingredients</h3>
+    <ul>
+      <li>1 c brown sugar</li>
+      <li>1 c chopped pecans</li>
+      <li>1/3 c all-purpose flour</li>
+      <li>2/3 c melted butter</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Preheat oven to 350°. Butter 2 qt baking dish. Heat, drain, and mash sweet potatoes. Combine with white sugar, eggs, half of the melted butter, milk, and vanilla. Place in dish. In separate bowl mix brown sugar, pecans, flour, and remaining melted butter. Sprinkle over top of potato mixture. Bake for 35 minutes or until knife comes out clean from center.</p>
+  </div>
+
+  <div class="recipe" id="taffy-apple-salad">
+    <span class="category">Salad</span>
+    <h2>Taffy Apple Salad</h2>
+    <img src="thanksgiving/savory-tings/taffy-apple-salad.jpg" alt="Taffy Apple Salad recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>1/2 c sugar</li>
+      <li>1 Tbsp cornstarch</li>
+      <li>2 Tbsp lemon juice</li>
+      <li>1 egg, beaten</li>
+      <li>1 carton (8 oz) whipped topping</li>
+      <li>1 can (20 oz) pineapple tidbits, drained, reserving liquid</li>
+      <li>4 apples, unpeeled, cored and cut into small pieces</li>
+      <li>2 1/2 c miniature marshmallows</li>
+      <li>1/2 c salted peanuts</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>In medium saucepan, combine sugar, cornstarch, lemon juice, egg, and pineapple juice. Cook until it boils and thickens, stirring continuously, about 10 min. Allow to cool. In a large bowl, combine whipped topping and cooled mixture. Stir in pineapple, apples, marshmallows, and peanuts just before serving.</p>
+  </div>
+
+  <div class="recipe" id="thanksgiving-turkey-dressing">
+    <span class="category">Side</span>
+    <h2>Thanksgiving Turkey Dressing</h2>
+    <div class="meta">450° | 1 hour</div>
+    <img src="thanksgiving/savory-tings/thanksgiving-turkey-dressing.jpg" alt="Thanksgiving Turkey Dressing recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>2 qts corn bread, crumbled</li>
+      <li>6 slices white or whole wheat bread or biscuits</li>
+      <li>1 Tbsp rubbed sage</li>
+      <li>1/4 t black pepper</li>
+      <li>1 lg sweet onion</li>
+      <li>1 med sized apple, shredded or chopped fine</li>
+      <li>1 c chopped celery</li>
+      <li>1 Tbsp or 1 oz pimentos</li>
+      <li>4 eggs</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Add liquid from chicken (3 qts water with 2 tsp salt, 1 hen boiled 3-4 hrs until tender) to make it consistency of unbaked corn bread, don't get it too dry, add water if needed. Beat 4 eggs and add. Pour into large baking pan. Bake at 450° for 1 hour.</p>
+  </div>
+
+  <!-- Sweets & Treats -->
+  <div class="recipe" id="caramels">
+    <span class="category">Candy</span>
+    <h2>Caramels</h2>
+    <div class="meta">Candy thermometer required | 238-240°F</div>
+    <img src="thanksgiving/savory-tings/caramels.jpg" alt="Caramels recipe card">
+    <h3>Ingredients</h3>
+    <ul>
+      <li>4 c sugar</li>
+      <li>2 sticks butter (1 lb)</li>
+      <li>2 cups white corn syrup</li>
+      <li>1 tsp kosher salt</li>
+      <li>2 12oz cans evaporated milk</li>
+    </ul>
+    <h3>Instructions</h3>
+    <ol>
+      <li>Line 9x13" pan with parchment paper & set aside.</li>
+      <li>Melt sugar, butter, corn syrup, & salt together in large, heavy bottomed pot over medium heat.</li>
+      <li>Once the mixture comes to a boil, add the evaporated milk a little at a time, taking 10-15 minutes per can & stirring constantly.</li>
+      <li>Once all the milk is added use a candy thermometer & bring mixture to 238-240°F - not any hotter!</li>
+    </ol>
+  </div>
+
+  <div class="recipe" id="caramel-apple-crumble-pie">
+    <span class="category">Dessert</span>
+    <h2>Caramel Apple Crumble Pie</h2>
+    <div class="meta">375°</div>
+    <img src="thanksgiving/savory-tings/caramel-apple-crumble-pie.jpg" alt="Caramel Apple Crumble Pie recipe card">
+    <h3>Filling Ingredients</h3>
+    <ul>
+      <li>Single piecrust, chilled</li>
+      <li>3 lbs apples, peeled, cored, & sliced (1/4")</li>
+      <li>1 Tbsp lemon juice</li>
+      <li>1/2 c brown sugar, packed</li>
+      <li>2 Tbsp all-purpose flour</li>
+      <li>2 tsp ground cinnamon</li>
+      <li>1/4 tsp ground nutmeg</li>
+      <li>1/8 tsp ground cloves</li>
+      <li>1/4 tsp salt</li>
+      <li>1-2 Tbsp boiled cider (optional)</li>
+    </ul>
+    <h3>Crumble Topping</h3>
+    <ul>
+      <li>1/4 c butter, room temp</li>
+      <li>1/3 c brown sugar</li>
+      <li>2/3 c old fashioned oats</li>
+      <li>1/3 c all purpose flour</li>
+      <li>1/2 tsp ground cinnamon</li>
+      <li>1/8 tsp ground nutmeg</li>
+      <li>1/4 tsp salt</li>
+      <li>Milk for brushing</li>
+      <li>1/2 c caramel sauce</li>
+    </ul>
+    <h3>Instructions</h3>
+    <p>Preheat oven to 375°.</p>
+  </div>
+
+  <script>
+    document.getElementById('recipe-select').addEventListener('change', function() {
+      document.querySelectorAll('.recipe').forEach(r => r.classList.remove('active'));
+      if (this.value) {
+        document.getElementById(this.value).classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
