@@ -13,6 +13,39 @@ const path = require('path');
 const manuscriptPath = path.join(__dirname, 'cookbook_manuscript.json');
 const manuscript = JSON.parse(fs.readFileSync(manuscriptPath, 'utf8'));
 
+// Build a map of recipe titles to their source images by reading original JSON files
+const recipeImageMap = {};
+
+function findRecipeImages(dir) {
+  const items = fs.readdirSync(dir, { withFileTypes: true });
+  for (const item of items) {
+    const fullPath = path.join(dir, item.name);
+    if (item.isDirectory() && !item.name.startsWith('.') && item.name !== 'node_modules') {
+      findRecipeImages(fullPath);
+    } else if (item.name.endsWith('.json') && item.name !== 'cookbook_manuscript.json' && item.name !== 'complete_cookbook.json' && item.name !== 'package.json' && item.name !== 'package-lock.json') {
+      try {
+        const recipe = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+        if (recipe.title) {
+          const images = recipe.source_images || (recipe.source_image ? [recipe.source_image] : []);
+          if (images.length > 0) {
+            // Store relative path from recipe JSON to images
+            const recipeDir = path.dirname(fullPath);
+            recipeImageMap[recipe.title] = {
+              images: images,
+              dir: recipeDir
+            };
+          }
+        }
+      } catch (e) {
+        // Skip invalid JSON files
+      }
+    }
+  }
+}
+
+findRecipeImages(__dirname);
+console.log(`Found images for ${Object.keys(recipeImageMap).length} recipes`);
+
 // Category order for the cookbook
 const categoryOrder = [
   'Appetizers',
@@ -259,6 +292,36 @@ function generateHTML() {
       margin-top: 0;
     }
 
+    /* Recipe Images */
+    .recipe-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+      justify-content: center;
+    }
+
+    .recipe-images img {
+      max-width: 3in;
+      max-height: 4in;
+      border: 1px solid #d4a574;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .recipe-images.single img {
+      max-width: 5in;
+      max-height: 5in;
+    }
+
+    .recipe-images-caption {
+      font-size: 9pt;
+      color: #888;
+      text-align: center;
+      font-style: italic;
+      margin-top: 5px;
+    }
+
     /* Index */
     .index-page {
       page-break-before: always;
@@ -481,6 +544,21 @@ function generateRecipeHTML(recipe) {
 
   if (meta.length > 0) {
     html += `  <div class="recipe-meta">${meta.join(' | ')}</div>\n`;
+  }
+
+  // Recipe card images
+  const imageData = recipeImageMap[recipe.title];
+  if (imageData && imageData.images.length > 0) {
+    // Filter out images with "two fingers" indicator (third image in sequence) - keep only first 2
+    const displayImages = imageData.images.slice(0, 2);
+    const singleClass = displayImages.length === 1 ? ' single' : '';
+    html += `  <div class="recipe-images${singleClass}">\n`;
+    for (const img of displayImages) {
+      const imgPath = path.join(imageData.dir, img);
+      html += `    <img src="${imgPath}" alt="Original recipe card">\n`;
+    }
+    html += `  </div>\n`;
+    html += `  <p class="recipe-images-caption">Original handwritten recipe card</p>\n`;
   }
 
   // Ingredients
