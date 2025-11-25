@@ -1,0 +1,30 @@
+{
+  "title": "Egg Nog Variations",
+  "source_images": ["IMG_7455.jpg", "IMG_7456.jpg"],
+  "variations": [
+    {
+      "name": "Hazelnut",
+      "recipe": "1/4 cup hazelnut liqueur to 1 quart eggnog will yield 8-10 small servings. Serve warm or cold. Finish with whipped cream & a few chopped hazelnuts."
+    },
+    {
+      "name": "Coffee",
+      "recipe": "1 quart eggnog + 2 cups strong coffee and 2 T. coffee liqueur. Top with whipped cream."
+    },
+    {
+      "name": "Vanilla Bean",
+      "recipe": "1 quart eggnog + seeds scraped from a vanilla bean or 1/2 t. vanilla bean paste; Serve with a cinnamon stick."
+    },
+    {
+      "name": "Peppermint",
+      "recipe": "1 qt. eggnog + heat egg nog with 1 cup white baking pieces and 1/8 c crushed peppermint candy. Serve with whipped cream and a sprinkling of crushed peppermint or candy cane."
+    },
+    {
+      "name": "Apricot Brandy",
+      "recipe": "1/4 cup apricot nectar and 1/4 c apricot brandy into 1 qt heated or chilled eggnog."
+    },
+    {
+      "name": "Mocha",
+      "recipe": "1 c strong coffee and 1/2 c chocolate syrup into 1 qt eggnog. Top with whipped cream and shaved chocolate."
+    }
+  ]
+}
