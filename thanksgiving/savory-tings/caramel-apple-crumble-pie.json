@@ -1,0 +1,33 @@
+{
+  "title": "Caramel Apple Crumble Pie",
+  "source_image": "caramel-apple-crumble-pie.HEIC",
+  "oven_temp": "375°",
+  "filling": {
+    "ingredients": [
+      "single piecrust, chilled",
+      "3 lbs apples, peeled, cored, & sliced (1/4\")",
+      "1 Tbsp lemon juice",
+      "1/2 c brown sugar, packed",
+      "2 Tbsp all-purpose flour",
+      "2 tsp ground cinnamon",
+      "1/4 tsp ground nutmeg",
+      "1/8 tsp ground cloves",
+      "1/4 tsp salt",
+      "1-2 Tbsp boiled cider (optional)"
+    ]
+  },
+  "crumble_topping": {
+    "ingredients": [
+      "1/4 c butter, room temp",
+      "1/3 c brown sugar",
+      "2/3 c old fashioned oats",
+      "1/3 c all purpose flour",
+      "1/2 tsp ground cinnamon",
+      "1/8 tsp ground nutmeg",
+      "1/4 tsp salt",
+      "milk for brushing",
+      "1/2 c caramel sauce"
+    ]
+  },
+  "instructions": "Preheat oven to 375°."
+}
