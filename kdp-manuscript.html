@@ -5,26 +5,11 @@
   <title>Dr. Lesa Mulligan's Cookbook</title>
   <style>
     @page {
-      size: 8.5in 11in;
-      margin: 0.6in 0.5in 0.6in 0.6in;
-      @bottom-center {
-        content: counter(page);
-        font-family: Georgia, serif;
-        font-size: 10pt;
-        color: #8b4513;
-      }
+      size: 8.25in 11in;
+      margin: 0.75in 0.5in 0.75in 0.875in;
     }
 
     @page:first {
-      @bottom-center {
-        content: none;
-      }
-    }
-
-    @page title-pages {
-      @bottom-center {
-        content: none;
-      }
     }
 
     * {
@@ -33,13 +18,20 @@
 
     body {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 10pt;
-      line-height: 1.3;
+      font-size: 9.5pt;
+      line-height: 1.25;
       color: #333;
-      max-width: 7.5in;
+      max-width: 7in;
       margin: 0 auto;
-      padding: 10px;
-      counter-reset: page;
+      padding: 0;
+    }
+
+    /* Page number in footer */
+    .page-number {
+      text-align: center;
+      font-size: 10pt;
+      color: #8b4513;
+      margin-top: 10px;
     }
 
     /* Title Page */
@@ -157,119 +149,181 @@
       margin-top: 20px;
     }
 
-    /* Recipe - 2-column layout on each page */
-    .recipe {
+    /* Recipe page - contains 1 or 2 recipes */
+    .recipe-page {
       page-break-before: always;
       page-break-inside: avoid;
-      display: flex;
-      gap: 0.3in;
       min-height: 9in;
     }
 
-    .recipe:first-of-type {
+    .recipe-page:first-of-type {
       page-break-before: avoid;
     }
 
-    .recipe-left {
-      flex: 0 0 3.2in;
+    /* Single recipe - full page with 2-column layout */
+    .recipe-full {
+      display: flex;
+      gap: 0.2in;
+      min-height: 8.5in;
+      padding-bottom: 0.25in;
+    }
+
+    .recipe-full .recipe-left {
+      flex: 0 0 2.8in;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .recipe-right {
+    .recipe-full .recipe-right {
       flex: 1;
-      padding-top: 0.1in;
+    }
+
+    /* Half-page recipe for 2-per-page layout */
+    .recipe-half {
+      display: flex;
+      gap: 0.15in;
+      height: 4.4in;
+      padding-bottom: 0.15in;
+      border-bottom: 1px solid #d4a574;
+      margin-bottom: 0.15in;
+    }
+
+    .recipe-half:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .recipe-half .recipe-left {
+      flex: 0 0 2in;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .recipe-half .recipe-right {
+      flex: 1;
+    }
+
+    .recipe-half .recipe-images img {
+      max-width: 1.9in;
+      max-height: 2.8in;
+    }
+
+    .recipe-half .recipe-title {
+      font-size: 13pt;
+    }
+
+    .recipe-half h4 {
+      font-size: 9pt;
+      margin: 6px 0 3px 0;
+    }
+
+    .recipe-half li {
+      font-size: 8.5pt;
+      margin: 1px 0;
+    }
+
+    .recipe-half p {
+      font-size: 8.5pt;
     }
 
     .recipe-title {
-      font-size: 18pt;
+      font-size: 16pt;
       color: #8b4513;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       font-weight: bold;
       border-bottom: 2px solid #d4a574;
-      padding-bottom: 5px;
+      padding-bottom: 3px;
     }
 
     .recipe-meta {
-      font-size: 9pt;
+      font-size: 8pt;
       color: #666;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       font-style: italic;
     }
 
-    .recipe h4 {
-      font-size: 11pt;
+    .recipe-full h4, .recipe-half h4 {
       color: #a0522d;
-      margin: 10px 0 5px 0;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
-    .recipe ul {
-      margin: 0 0 10px 0;
-      padding-left: 18px;
+    .recipe-full h4 {
+      font-size: 10pt;
+      margin: 8px 0 4px 0;
     }
 
-    .recipe li {
+    .recipe-full ul, .recipe-half ul {
+      margin: 0 0 6px 0;
+      padding-left: 15px;
+    }
+
+    .recipe-full li {
+      margin: 1px 0;
+      font-size: 9pt;
+    }
+
+    .recipe-full ol, .recipe-half ol {
+      margin: 0 0 6px 0;
+      padding-left: 15px;
+    }
+
+    .recipe-full ol li {
       margin: 2px 0;
-      font-size: 9.5pt;
+      font-size: 9pt;
     }
 
-    .recipe ol {
-      margin: 0 0 10px 0;
-      padding-left: 18px;
+    .recipe-half ol li {
+      margin: 1px 0;
+      font-size: 8.5pt;
     }
 
-    .recipe ol li {
-      margin: 3px 0;
-      font-size: 9.5pt;
-    }
-
-    .recipe p {
-      margin: 0 0 8px 0;
+    .recipe-full p {
+      margin: 0 0 6px 0;
       text-align: justify;
-      font-size: 9.5pt;
+      font-size: 9pt;
     }
 
     .suggestions {
       background: #faf5f0;
-      padding: 8px 12px;
-      border-left: 3px solid #d4a574;
-      margin: 8px 0;
-      font-size: 9pt;
+      padding: 5px 8px;
+      border-left: 2px solid #d4a574;
+      margin: 5px 0;
+      font-size: 8pt;
     }
 
     .suggestions h4 {
       margin-top: 0;
-      font-size: 10pt;
+      font-size: 9pt;
     }
 
-    /* Recipe Images - left column */
+    /* Recipe Images */
     .recipe-images {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-top: 10px;
+      gap: 5px;
+      margin-top: 5px;
     }
 
-    .recipe-images img {
-      max-width: 3in;
-      max-height: 3.8in;
+    .recipe-full .recipe-images img {
+      max-width: 2.6in;
+      max-height: 3.2in;
       border: 1px solid #d4a574;
-      border-radius: 4px;
+      border-radius: 3px;
     }
 
-    .recipe-images.two-images img {
-      max-height: 3.5in;
+    .recipe-full .recipe-images.two-images img {
+      max-height: 2.8in;
     }
 
     .recipe-images-caption {
-      font-size: 8pt;
+      font-size: 7pt;
       color: #888;
       text-align: center;
       font-style: italic;
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
     /* Index */
@@ -371,165 +425,165 @@
 <div class="toc-category"><span>Appetizers</span><span class="page-num">8</span></div>
 <div class="toc-recipe"><span>Balsamic & Basil Dipping Oil Suggestions</span><span class="dots"></span><span class="page-num">9</span></div>
 <div class="toc-recipe"><span>Bruschetta</span><span class="dots"></span><span class="page-num">10</span></div>
-<div class="toc-recipe"><span>Cashew Crab Artichoke Dip</span><span class="dots"></span><span class="page-num">11</span></div>
-<div class="toc-recipe"><span>Cheese Dip with Beer</span><span class="dots"></span><span class="page-num">12</span></div>
-<div class="toc-recipe"><span>Cheese Dreams</span><span class="dots"></span><span class="page-num">13</span></div>
-<div class="toc-recipe"><span>Cheese Fondue</span><span class="dots"></span><span class="page-num">14</span></div>
-<div class="toc-recipe"><span>Cilantro & Olive Salsa Suggestions</span><span class="dots"></span><span class="page-num">15</span></div>
-<div class="toc-recipe"><span>Cream Cheese Penguins</span><span class="dots"></span><span class="page-num">16</span></div>
-<div class="toc-recipe"><span>Deviled Eggs</span><span class="dots"></span><span class="page-num">17</span></div>
-<div class="toc-recipe"><span>Farmer's Medley Dip Suggestions</span><span class="dots"></span><span class="page-num">18</span></div>
-<div class="toc-recipe"><span>Italian Dipping Oil</span><span class="dots"></span><span class="page-num">19</span></div>
-<div class="toc-recipe"><span>Key Lime Cheese Ball Suggestions</span><span class="dots"></span><span class="page-num">20</span></div>
-<div class="toc-recipe"><span>Pecan Cheese Ball</span><span class="dots"></span><span class="page-num">21</span></div>
-<div class="toc-recipe"><span>Pepperoni Pizza Dip</span><span class="dots"></span><span class="page-num">22</span></div>
-<div class="toc-recipe"><span>Roasted Pumpkin Seed Hummus</span><span class="dots"></span><span class="page-num">23</span></div>
-<div class="toc-recipe"><span>Spice Roasted Honeynut Squash & Chickpeas</span><span class="dots"></span><span class="page-num">24</span></div>
-<div class="toc-recipe"><span>Spinach Artichoke Dip</span><span class="dots"></span><span class="page-num">25</span></div>
-<div class="toc-recipe"><span>Spinach Artichoke Pasta</span><span class="dots"></span><span class="page-num">26</span></div>
-<div class="toc-recipe"><span>Stuffed Celery</span><span class="dots"></span><span class="page-num">27</span></div>
-<div class="toc-recipe"><span>Sweet Almond Crackers</span><span class="dots"></span><span class="page-num">28</span></div>
-<div class="toc-recipe"><span>Sweet Pepper Jalapeno Jam Suggestions</span><span class="dots"></span><span class="page-num">29</span></div>
-<div class="toc-recipe"><span>Texas Caviar</span><span class="dots"></span><span class="page-num">30</span></div>
-<div class="toc-category"><span>Breakfast</span><span class="page-num">31</span></div>
-<div class="toc-recipe"><span>Cinnamon Cottage Cheese Pancakes</span><span class="dots"></span><span class="page-num">32</span></div>
-<div class="toc-recipe"><span>Cinnamon Crunch Bagels</span><span class="dots"></span><span class="page-num">33</span></div>
-<div class="toc-recipe"><span>Cinnamon Roll Cake</span><span class="dots"></span><span class="page-num">34</span></div>
-<div class="toc-recipe"><span>Cinnamon Rolls (Puff Pastry)</span><span class="dots"></span><span class="page-num">35</span></div>
-<div class="toc-recipe"><span>French Toast Bake</span><span class="dots"></span><span class="page-num">36</span></div>
-<div class="toc-recipe"><span>Lemon Blueberry Scones</span><span class="dots"></span><span class="page-num">37</span></div>
-<div class="toc-recipe"><span>Pumpkin Breakfast Casserole</span><span class="dots"></span><span class="page-num">38</span></div>
-<div class="toc-recipe"><span>Quiche</span><span class="dots"></span><span class="page-num">39</span></div>
-<div class="toc-recipe"><span>Waffles</span><span class="dots"></span><span class="page-num">40</span></div>
-<div class="toc-category"><span>Entrees</span><span class="page-num">41</span></div>
-<div class="toc-recipe"><span>Caprese Farfalle</span><span class="dots"></span><span class="page-num">42</span></div>
-<div class="toc-recipe"><span>Giblet Gravy</span><span class="dots"></span><span class="page-num">43</span></div>
-<div class="toc-recipe"><span>Nonna's Sauce</span><span class="dots"></span><span class="page-num">44</span></div>
-<div class="toc-recipe"><span>Penne Primavera</span><span class="dots"></span><span class="page-num">45</span></div>
-<div class="toc-recipe"><span>Salmon Tacos</span><span class="dots"></span><span class="page-num">46</span></div>
-<div class="toc-recipe"><span>Veggie Quesadillas</span><span class="dots"></span><span class="page-num">47</span></div>
-<div class="toc-category"><span>Soups</span><span class="page-num">48</span></div>
-<div class="toc-recipe"><span>Baked Potato Soup</span><span class="dots"></span><span class="page-num">49</span></div>
-<div class="toc-recipe"><span>Chicken & Rice Soup</span><span class="dots"></span><span class="page-num">50</span></div>
-<div class="toc-recipe"><span>Chicken Noodle Soup</span><span class="dots"></span><span class="page-num">51</span></div>
-<div class="toc-recipe"><span>Chicken Tortilla Soup</span><span class="dots"></span><span class="page-num">52</span></div>
-<div class="toc-recipe"><span>Chili</span><span class="dots"></span><span class="page-num">53</span></div>
-<div class="toc-recipe"><span>Egg Drop Soup</span><span class="dots"></span><span class="page-num">54</span></div>
-<div class="toc-recipe"><span>Lentil Ham Soup</span><span class="dots"></span><span class="page-num">55</span></div>
-<div class="toc-recipe"><span>Potato Leek Soup</span><span class="dots"></span><span class="page-num">56</span></div>
-<div class="toc-recipe"><span>Roasted Red Pepper, Tomato & Smoked Gouda Bisque</span><span class="dots"></span><span class="page-num">57</span></div>
-<div class="toc-recipe"><span>Shrimp & Sausage Stew</span><span class="dots"></span><span class="page-num">58</span></div>
-<div class="toc-recipe"><span>White Bean Soup with Greens & Turkey</span><span class="dots"></span><span class="page-num">59</span></div>
-<div class="toc-category"><span>Salads</span><span class="page-num">60</span></div>
-<div class="toc-recipe"><span>Candy Bar Apple Salad</span><span class="dots"></span><span class="page-num">61</span></div>
-<div class="toc-recipe"><span>Charred Corn & Chicken Cheese Salad</span><span class="dots"></span><span class="page-num">62</span></div>
-<div class="toc-recipe"><span>Cucumber Mango Salad</span><span class="dots"></span><span class="page-num">63</span></div>
-<div class="toc-recipe"><span>Cucumber Salad</span><span class="dots"></span><span class="page-num">64</span></div>
-<div class="toc-recipe"><span>Egg Salad</span><span class="dots"></span><span class="page-num">65</span></div>
-<div class="toc-recipe"><span>Lime Jello Salad</span><span class="dots"></span><span class="page-num">66</span></div>
-<div class="toc-recipe"><span>Macaroni Salad</span><span class="dots"></span><span class="page-num">67</span></div>
-<div class="toc-recipe"><span>Marinated Vegetable Salad</span><span class="dots"></span><span class="page-num">68</span></div>
-<div class="toc-recipe"><span>Spaghetti Salad</span><span class="dots"></span><span class="page-num">69</span></div>
-<div class="toc-category"><span>Vegetables & Sides</span><span class="page-num">70</span></div>
-<div class="toc-recipe"><span>Baked Cheese Grits</span><span class="dots"></span><span class="page-num">71</span></div>
-<div class="toc-recipe"><span>Black Eyed Peas</span><span class="dots"></span><span class="page-num">72</span></div>
-<div class="toc-recipe"><span>Garlic Roasted Potato Wedges</span><span class="dots"></span><span class="page-num">73</span></div>
-<div class="toc-recipe"><span>Green Beans & Cheese</span><span class="dots"></span><span class="page-num">74</span></div>
-<div class="toc-recipe"><span>Twice Baked Sweet Potatoes with Ricotta Cheese</span><span class="dots"></span><span class="page-num">75</span></div>
-<div class="toc-recipe"><span>Zucchini & Corn Skillet</span><span class="dots"></span><span class="page-num">76</span></div>
-<div class="toc-category"><span>Breads</span><span class="page-num">77</span></div>
-<div class="toc-recipe"><span>Bountiful Beer Bread Suggestions</span><span class="dots"></span><span class="page-num">78</span></div>
-<div class="toc-category"><span>Cakes</span><span class="page-num">79</span></div>
-<div class="toc-recipe"><span>Apple Dump Cake</span><span class="dots"></span><span class="page-num">80</span></div>
-<div class="toc-recipe"><span>Chewy Gingerbread Cookies</span><span class="dots"></span><span class="page-num">81</span></div>
-<div class="toc-recipe"><span>Hisae's Choc Cake</span><span class="dots"></span><span class="page-num">82</span></div>
-<div class="toc-recipe"><span>Thunder Cake</span><span class="dots"></span><span class="page-num">83</span></div>
-<div class="toc-recipe"><span>Upside Down Blueberry Dump Cake</span><span class="dots"></span><span class="page-num">84</span></div>
-<div class="toc-recipe"><span>Upside Down Pumpkin Cake</span><span class="dots"></span><span class="page-num">85</span></div>
-<div class="toc-category"><span>Desserts</span><span class="page-num">86</span></div>
-<div class="toc-recipe"><span>Apple Pie</span><span class="dots"></span><span class="page-num">87</span></div>
-<div class="toc-recipe"><span>Cinnamon Sugar Pie Crust Cookies</span><span class="dots"></span><span class="page-num">88</span></div>
-<div class="toc-recipe"><span>Creamy Coconut Cake</span><span class="dots"></span><span class="page-num">89</span></div>
-<div class="toc-recipe"><span>No Bake Cookies</span><span class="dots"></span><span class="page-num">90</span></div>
-<div class="toc-recipe"><span>Raspberry Prosecco Tulip</span><span class="dots"></span><span class="page-num">91</span></div>
-<div class="toc-category"><span>Drinks</span><span class="page-num">92</span></div>
-<div class="toc-recipe"><span>Egg Nog Variations</span><span class="dots"></span><span class="page-num">93</span></div>
-<div class="toc-recipe"><span>Egg Nogg</span><span class="dots"></span><span class="page-num">94</span></div>
-<div class="toc-recipe"><span>Mango Breeze Margarita Mix</span><span class="dots"></span><span class="page-num">95</span></div>
-<div class="toc-recipe"><span>Pumpkin Spiced Latte</span><span class="dots"></span><span class="page-num">96</span></div>
-<div class="toc-recipe"><span>Raspberry Prosecco Cocktail</span><span class="dots"></span><span class="page-num">97</span></div>
-<div class="toc-recipe"><span>Sangria</span><span class="dots"></span><span class="page-num">98</span></div>
-<div class="toc-recipe"><span>White Hot Chocolate</span><span class="dots"></span><span class="page-num">99</span></div>
-<div class="toc-category"><span>Thanksgiving</span><span class="page-num">100</span></div>
-<div class="toc-recipe"><span>Buttermilk Chess Pie</span><span class="dots"></span><span class="page-num">101</span></div>
-<div class="toc-recipe"><span>Caramel Apple Crumble Pie</span><span class="dots"></span><span class="page-num">102</span></div>
-<div class="toc-recipe"><span>Caramels</span><span class="dots"></span><span class="page-num">103</span></div>
-<div class="toc-recipe"><span>Corn Casserole</span><span class="dots"></span><span class="page-num">104</span></div>
-<div class="toc-recipe"><span>Cranberry Salad</span><span class="dots"></span><span class="page-num">105</span></div>
-<div class="toc-recipe"><span>Fruit Salad with Cannoli Cream</span><span class="dots"></span><span class="page-num">106</span></div>
-<div class="toc-recipe"><span>Garlic Mashed Potatoes</span><span class="dots"></span><span class="page-num">107</span></div>
-<div class="toc-recipe"><span>Green Beans Amandine</span><span class="dots"></span><span class="page-num">108</span></div>
-<div class="toc-recipe"><span>Marinated Vegetable Salad</span><span class="dots"></span><span class="page-num">109</span></div>
-<div class="toc-recipe"><span>No Bake Cookies</span><span class="dots"></span><span class="page-num">110</span></div>
-<div class="toc-recipe"><span>Peanut Butter Ball</span><span class="dots"></span><span class="page-num">111</span></div>
-<div class="toc-recipe"><span>Peanut Butter Ball</span><span class="dots"></span><span class="page-num">112</span></div>
-<div class="toc-recipe"><span>Peanut Butter Balls</span><span class="dots"></span><span class="page-num">113</span></div>
-<div class="toc-recipe"><span>Pecan Pie</span><span class="dots"></span><span class="page-num">114</span></div>
-<div class="toc-recipe"><span>Pumpkin Pie</span><span class="dots"></span><span class="page-num">115</span></div>
-<div class="toc-recipe"><span>Sweet Potato Casserole</span><span class="dots"></span><span class="page-num">116</span></div>
-<div class="toc-recipe"><span>Taffy Apple Salad</span><span class="dots"></span><span class="page-num">117</span></div>
-<div class="toc-recipe"><span>Thanksgiving Turkey Dressing</span><span class="dots"></span><span class="page-num">118</span></div>
-<div class="toc-category"><span>Miscellaneous</span><span class="page-num">119</span></div>
-<div class="toc-recipe"><span>Almond Tea Bread</span><span class="dots"></span><span class="page-num">120</span></div>
-<div class="toc-recipe"><span>Baklava Palmiers with Chocolate Pecan</span><span class="dots"></span><span class="page-num">121</span></div>
-<div class="toc-recipe"><span>Banana Cream Pretzel Pie</span><span class="dots"></span><span class="page-num">122</span></div>
-<div class="toc-recipe"><span>Banana Pineapple Vanilla Pudding Pie</span><span class="dots"></span><span class="page-num">123</span></div>
-<div class="toc-recipe"><span>Bourbon BBQ Pork Chops</span><span class="dots"></span><span class="page-num">124</span></div>
-<div class="toc-recipe"><span>Bourbon Salted Caramel Brownies</span><span class="dots"></span><span class="page-num">125</span></div>
-<div class="toc-recipe"><span>Bread Pudding with Vanilla Sauce</span><span class="dots"></span><span class="page-num">126</span></div>
-<div class="toc-recipe"><span>Bruschetta</span><span class="dots"></span><span class="page-num">127</span></div>
-<div class="toc-recipe"><span>Cabbage Ramen Salad</span><span class="dots"></span><span class="page-num">128</span></div>
-<div class="toc-recipe"><span>Caprese Stuffed Chicken with Roasted Balsamic Veggies</span><span class="dots"></span><span class="page-num">129</span></div>
-<div class="toc-recipe"><span>Chocolate Almond Macaroons</span><span class="dots"></span><span class="page-num">130</span></div>
-<div class="toc-recipe"><span>Chocolate Cookies</span><span class="dots"></span><span class="page-num">131</span></div>
-<div class="toc-recipe"><span>Chocolate Crackle Cookie</span><span class="dots"></span><span class="page-num">132</span></div>
-<div class="toc-recipe"><span>Chocolate Cream Layered Dessert</span><span class="dots"></span><span class="page-num">133</span></div>
-<div class="toc-recipe"><span>Chocolate Mice</span><span class="dots"></span><span class="page-num">134</span></div>
-<div class="toc-recipe"><span>Cranberry Pecan Brie Cups</span><span class="dots"></span><span class="page-num">135</span></div>
-<div class="toc-recipe"><span>Cream Cheese Pastry</span><span class="dots"></span><span class="page-num">136</span></div>
-<div class="toc-recipe"><span>Creamy Parmesan Spinach Bake</span><span class="dots"></span><span class="page-num">137</span></div>
-<div class="toc-recipe"><span>Cut Out Sugar Cookies with Royal Icing</span><span class="dots"></span><span class="page-num">138</span></div>
-<div class="toc-recipe"><span>English Toffee</span><span class="dots"></span><span class="page-num">139</span></div>
-<div class="toc-recipe"><span>Frosted Butter Cutout Cookies</span><span class="dots"></span><span class="page-num">140</span></div>
-<div class="toc-recipe"><span>German Pancakes in the Oven</span><span class="dots"></span><span class="page-num">141</span></div>
-<div class="toc-recipe"><span>Glazed Lemon Cookies</span><span class="dots"></span><span class="page-num">142</span></div>
-<div class="toc-recipe"><span>Gooey Butter Cake</span><span class="dots"></span><span class="page-num">143</span></div>
-<div class="toc-recipe"><span>Hedgehog Cookies</span><span class="dots"></span><span class="page-num">144</span></div>
-<div class="toc-recipe"><span>Knox Blox</span><span class="dots"></span><span class="page-num">145</span></div>
-<div class="toc-recipe"><span>Lemon Blueberry Dutch Baby</span><span class="dots"></span><span class="page-num">146</span></div>
-<div class="toc-recipe"><span>Lemon Pecan Slab Pie</span><span class="dots"></span><span class="page-num">147</span></div>
-<div class="toc-recipe"><span>Lime Pretzel Jello</span><span class="dots"></span><span class="page-num">148</span></div>
-<div class="toc-recipe"><span>Mac & Cheese</span><span class="dots"></span><span class="page-num">149</span></div>
-<div class="toc-recipe"><span>Meringue Cookies</span><span class="dots"></span><span class="page-num">150</span></div>
-<div class="toc-recipe"><span>Mini Strawberry Santas</span><span class="dots"></span><span class="page-num">151</span></div>
-<div class="toc-recipe"><span>Night Before Christmas Mice</span><span class="dots"></span><span class="page-num">152</span></div>
-<div class="toc-recipe"><span>No Bake Chocolate Oatmeal Cookies</span><span class="dots"></span><span class="page-num">153</span></div>
-<div class="toc-recipe"><span>Nutella Bread Pudding</span><span class="dots"></span><span class="page-num">154</span></div>
-<div class="toc-recipe"><span>Nutella Christmas Tree</span><span class="dots"></span><span class="page-num">155</span></div>
-<div class="toc-recipe"><span>Nutella Tart with Toasted Hazelnut Crust</span><span class="dots"></span><span class="page-num">156</span></div>
-<div class="toc-recipe"><span>Palmiers (Sugar)</span><span class="dots"></span><span class="page-num">157</span></div>
-<div class="toc-recipe"><span>Paula Deen's Banana Pudding</span><span class="dots"></span><span class="page-num">158</span></div>
-<div class="toc-recipe"><span>Peach Crumble</span><span class="dots"></span><span class="page-num">159</span></div>
-<div class="toc-recipe"><span>Pesto Palmiers</span><span class="dots"></span><span class="page-num">160</span></div>
-<div class="toc-recipe"><span>Pumpkin Pudding</span><span class="dots"></span><span class="page-num">161</span></div>
-<div class="toc-recipe"><span>S'more Pie</span><span class="dots"></span><span class="page-num">162</span></div>
-<div class="toc-recipe"><span>Sage and Onion Stuffing</span><span class="dots"></span><span class="page-num">163</span></div>
-<div class="toc-recipe"><span>Sausage Quiche</span><span class="dots"></span><span class="page-num">164</span></div>
-<div class="toc-recipe"><span>Snickerdoodles</span><span class="dots"></span><span class="page-num">165</span></div>
-<div class="toc-recipe"><span>Stuffed Mushrooms</span><span class="dots"></span><span class="page-num">166</span></div>
-<div class="toc-recipe"><span>Tomato Relish</span><span class="dots"></span><span class="page-num">167</span></div>
-<div class="toc-recipe"><span>Witch's Hat Cookies</span><span class="dots"></span><span class="page-num">168</span></div>
-<div class="toc-recipe"><span>Zucchini Lasagna</span><span class="dots"></span><span class="page-num">169</span></div>
+<div class="toc-recipe"><span>Cashew Crab Artichoke Dip</span><span class="dots"></span><span class="page-num">10</span></div>
+<div class="toc-recipe"><span>Cheese Dip with Beer</span><span class="dots"></span><span class="page-num">11</span></div>
+<div class="toc-recipe"><span>Cheese Dreams</span><span class="dots"></span><span class="page-num">12</span></div>
+<div class="toc-recipe"><span>Cheese Fondue</span><span class="dots"></span><span class="page-num">13</span></div>
+<div class="toc-recipe"><span>Cilantro & Olive Salsa Suggestions</span><span class="dots"></span><span class="page-num">14</span></div>
+<div class="toc-recipe"><span>Cream Cheese Penguins</span><span class="dots"></span><span class="page-num">15</span></div>
+<div class="toc-recipe"><span>Deviled Eggs</span><span class="dots"></span><span class="page-num">16</span></div>
+<div class="toc-recipe"><span>Farmer's Medley Dip Suggestions</span><span class="dots"></span><span class="page-num">17</span></div>
+<div class="toc-recipe"><span>Italian Dipping Oil</span><span class="dots"></span><span class="page-num">18</span></div>
+<div class="toc-recipe"><span>Key Lime Cheese Ball Suggestions</span><span class="dots"></span><span class="page-num">19</span></div>
+<div class="toc-recipe"><span>Pecan Cheese Ball</span><span class="dots"></span><span class="page-num">20</span></div>
+<div class="toc-recipe"><span>Pepperoni Pizza Dip</span><span class="dots"></span><span class="page-num">21</span></div>
+<div class="toc-recipe"><span>Roasted Pumpkin Seed Hummus</span><span class="dots"></span><span class="page-num">22</span></div>
+<div class="toc-recipe"><span>Spice Roasted Honeynut Squash & Chickpeas</span><span class="dots"></span><span class="page-num">23</span></div>
+<div class="toc-recipe"><span>Spinach Artichoke Dip</span><span class="dots"></span><span class="page-num">24</span></div>
+<div class="toc-recipe"><span>Spinach Artichoke Pasta</span><span class="dots"></span><span class="page-num">25</span></div>
+<div class="toc-recipe"><span>Stuffed Celery</span><span class="dots"></span><span class="page-num">26</span></div>
+<div class="toc-recipe"><span>Sweet Almond Crackers</span><span class="dots"></span><span class="page-num">27</span></div>
+<div class="toc-recipe"><span>Sweet Pepper Jalapeno Jam Suggestions</span><span class="dots"></span><span class="page-num">28</span></div>
+<div class="toc-recipe"><span>Texas Caviar</span><span class="dots"></span><span class="page-num">29</span></div>
+<div class="toc-category"><span>Breakfast</span><span class="page-num">30</span></div>
+<div class="toc-recipe"><span>Cinnamon Cottage Cheese Pancakes</span><span class="dots"></span><span class="page-num">31</span></div>
+<div class="toc-recipe"><span>Cinnamon Crunch Bagels</span><span class="dots"></span><span class="page-num">32</span></div>
+<div class="toc-recipe"><span>Cinnamon Roll Cake</span><span class="dots"></span><span class="page-num">33</span></div>
+<div class="toc-recipe"><span>Cinnamon Rolls (Puff Pastry)</span><span class="dots"></span><span class="page-num">34</span></div>
+<div class="toc-recipe"><span>French Toast Bake</span><span class="dots"></span><span class="page-num">35</span></div>
+<div class="toc-recipe"><span>Lemon Blueberry Scones</span><span class="dots"></span><span class="page-num">36</span></div>
+<div class="toc-recipe"><span>Pumpkin Breakfast Casserole</span><span class="dots"></span><span class="page-num">37</span></div>
+<div class="toc-recipe"><span>Quiche</span><span class="dots"></span><span class="page-num">37</span></div>
+<div class="toc-recipe"><span>Waffles</span><span class="dots"></span><span class="page-num">38</span></div>
+<div class="toc-category"><span>Entrees</span><span class="page-num">39</span></div>
+<div class="toc-recipe"><span>Caprese Farfalle</span><span class="dots"></span><span class="page-num">40</span></div>
+<div class="toc-recipe"><span>Giblet Gravy</span><span class="dots"></span><span class="page-num">41</span></div>
+<div class="toc-recipe"><span>Nonna's Sauce</span><span class="dots"></span><span class="page-num">42</span></div>
+<div class="toc-recipe"><span>Penne Primavera</span><span class="dots"></span><span class="page-num">43</span></div>
+<div class="toc-recipe"><span>Salmon Tacos</span><span class="dots"></span><span class="page-num">44</span></div>
+<div class="toc-recipe"><span>Veggie Quesadillas</span><span class="dots"></span><span class="page-num">45</span></div>
+<div class="toc-category"><span>Soups</span><span class="page-num">46</span></div>
+<div class="toc-recipe"><span>Baked Potato Soup</span><span class="dots"></span><span class="page-num">47</span></div>
+<div class="toc-recipe"><span>Chicken & Rice Soup</span><span class="dots"></span><span class="page-num">48</span></div>
+<div class="toc-recipe"><span>Chicken Noodle Soup</span><span class="dots"></span><span class="page-num">49</span></div>
+<div class="toc-recipe"><span>Chicken Tortilla Soup</span><span class="dots"></span><span class="page-num">50</span></div>
+<div class="toc-recipe"><span>Chili</span><span class="dots"></span><span class="page-num">51</span></div>
+<div class="toc-recipe"><span>Egg Drop Soup</span><span class="dots"></span><span class="page-num">52</span></div>
+<div class="toc-recipe"><span>Lentil Ham Soup</span><span class="dots"></span><span class="page-num">53</span></div>
+<div class="toc-recipe"><span>Potato Leek Soup</span><span class="dots"></span><span class="page-num">54</span></div>
+<div class="toc-recipe"><span>Roasted Red Pepper, Tomato & Smoked Gouda Bisque</span><span class="dots"></span><span class="page-num">55</span></div>
+<div class="toc-recipe"><span>Shrimp & Sausage Stew</span><span class="dots"></span><span class="page-num">56</span></div>
+<div class="toc-recipe"><span>White Bean Soup with Greens & Turkey</span><span class="dots"></span><span class="page-num">57</span></div>
+<div class="toc-category"><span>Salads</span><span class="page-num">58</span></div>
+<div class="toc-recipe"><span>Candy Bar Apple Salad</span><span class="dots"></span><span class="page-num">59</span></div>
+<div class="toc-recipe"><span>Charred Corn & Chicken Cheese Salad</span><span class="dots"></span><span class="page-num">60</span></div>
+<div class="toc-recipe"><span>Cucumber Mango Salad</span><span class="dots"></span><span class="page-num">61</span></div>
+<div class="toc-recipe"><span>Cucumber Salad</span><span class="dots"></span><span class="page-num">61</span></div>
+<div class="toc-recipe"><span>Egg Salad</span><span class="dots"></span><span class="page-num">62</span></div>
+<div class="toc-recipe"><span>Lime Jello Salad</span><span class="dots"></span><span class="page-num">63</span></div>
+<div class="toc-recipe"><span>Macaroni Salad</span><span class="dots"></span><span class="page-num">64</span></div>
+<div class="toc-recipe"><span>Marinated Vegetable Salad</span><span class="dots"></span><span class="page-num">64</span></div>
+<div class="toc-recipe"><span>Spaghetti Salad</span><span class="dots"></span><span class="page-num">65</span></div>
+<div class="toc-category"><span>Vegetables & Sides</span><span class="page-num">66</span></div>
+<div class="toc-recipe"><span>Baked Cheese Grits</span><span class="dots"></span><span class="page-num">67</span></div>
+<div class="toc-recipe"><span>Black Eyed Peas</span><span class="dots"></span><span class="page-num">68</span></div>
+<div class="toc-recipe"><span>Garlic Roasted Potato Wedges</span><span class="dots"></span><span class="page-num">69</span></div>
+<div class="toc-recipe"><span>Green Beans & Cheese</span><span class="dots"></span><span class="page-num">70</span></div>
+<div class="toc-recipe"><span>Twice Baked Sweet Potatoes with Ricotta Cheese</span><span class="dots"></span><span class="page-num">71</span></div>
+<div class="toc-recipe"><span>Zucchini & Corn Skillet</span><span class="dots"></span><span class="page-num">72</span></div>
+<div class="toc-category"><span>Breads</span><span class="page-num">73</span></div>
+<div class="toc-recipe"><span>Bountiful Beer Bread Suggestions</span><span class="dots"></span><span class="page-num">74</span></div>
+<div class="toc-category"><span>Cakes</span><span class="page-num">75</span></div>
+<div class="toc-recipe"><span>Apple Dump Cake</span><span class="dots"></span><span class="page-num">76</span></div>
+<div class="toc-recipe"><span>Chewy Gingerbread Cookies</span><span class="dots"></span><span class="page-num">77</span></div>
+<div class="toc-recipe"><span>Hisae's Choc Cake</span><span class="dots"></span><span class="page-num">78</span></div>
+<div class="toc-recipe"><span>Thunder Cake</span><span class="dots"></span><span class="page-num">79</span></div>
+<div class="toc-recipe"><span>Upside Down Blueberry Dump Cake</span><span class="dots"></span><span class="page-num">80</span></div>
+<div class="toc-recipe"><span>Upside Down Pumpkin Cake</span><span class="dots"></span><span class="page-num">81</span></div>
+<div class="toc-category"><span>Desserts</span><span class="page-num">82</span></div>
+<div class="toc-recipe"><span>Apple Pie</span><span class="dots"></span><span class="page-num">83</span></div>
+<div class="toc-recipe"><span>Cinnamon Sugar Pie Crust Cookies</span><span class="dots"></span><span class="page-num">84</span></div>
+<div class="toc-recipe"><span>Creamy Coconut Cake</span><span class="dots"></span><span class="page-num">85</span></div>
+<div class="toc-recipe"><span>No Bake Cookies</span><span class="dots"></span><span class="page-num">85</span></div>
+<div class="toc-recipe"><span>Raspberry Prosecco Tulip</span><span class="dots"></span><span class="page-num">86</span></div>
+<div class="toc-category"><span>Drinks</span><span class="page-num">87</span></div>
+<div class="toc-recipe"><span>Egg Nog Variations</span><span class="dots"></span><span class="page-num">88</span></div>
+<div class="toc-recipe"><span>Egg Nogg</span><span class="dots"></span><span class="page-num">89</span></div>
+<div class="toc-recipe"><span>Mango Breeze Margarita Mix</span><span class="dots"></span><span class="page-num">90</span></div>
+<div class="toc-recipe"><span>Pumpkin Spiced Latte</span><span class="dots"></span><span class="page-num">91</span></div>
+<div class="toc-recipe"><span>Raspberry Prosecco Cocktail</span><span class="dots"></span><span class="page-num">92</span></div>
+<div class="toc-recipe"><span>Sangria</span><span class="dots"></span><span class="page-num">93</span></div>
+<div class="toc-recipe"><span>White Hot Chocolate</span><span class="dots"></span><span class="page-num">94</span></div>
+<div class="toc-category"><span>Thanksgiving</span><span class="page-num">95</span></div>
+<div class="toc-recipe"><span>Buttermilk Chess Pie</span><span class="dots"></span><span class="page-num">96</span></div>
+<div class="toc-recipe"><span>Caramel Apple Crumble Pie</span><span class="dots"></span><span class="page-num">96</span></div>
+<div class="toc-recipe"><span>Caramels</span><span class="dots"></span><span class="page-num">97</span></div>
+<div class="toc-recipe"><span>Corn Casserole</span><span class="dots"></span><span class="page-num">97</span></div>
+<div class="toc-recipe"><span>Cranberry Salad</span><span class="dots"></span><span class="page-num">98</span></div>
+<div class="toc-recipe"><span>Fruit Salad with Cannoli Cream</span><span class="dots"></span><span class="page-num">98</span></div>
+<div class="toc-recipe"><span>Garlic Mashed Potatoes</span><span class="dots"></span><span class="page-num">99</span></div>
+<div class="toc-recipe"><span>Green Beans Amandine</span><span class="dots"></span><span class="page-num">99</span></div>
+<div class="toc-recipe"><span>Marinated Vegetable Salad</span><span class="dots"></span><span class="page-num">100</span></div>
+<div class="toc-recipe"><span>No Bake Cookies</span><span class="dots"></span><span class="page-num">100</span></div>
+<div class="toc-recipe"><span>Peanut Butter Ball</span><span class="dots"></span><span class="page-num">101</span></div>
+<div class="toc-recipe"><span>Peanut Butter Ball</span><span class="dots"></span><span class="page-num">101</span></div>
+<div class="toc-recipe"><span>Peanut Butter Balls</span><span class="dots"></span><span class="page-num">102</span></div>
+<div class="toc-recipe"><span>Pecan Pie</span><span class="dots"></span><span class="page-num">102</span></div>
+<div class="toc-recipe"><span>Pumpkin Pie</span><span class="dots"></span><span class="page-num">103</span></div>
+<div class="toc-recipe"><span>Sweet Potato Casserole</span><span class="dots"></span><span class="page-num">103</span></div>
+<div class="toc-recipe"><span>Taffy Apple Salad</span><span class="dots"></span><span class="page-num">104</span></div>
+<div class="toc-recipe"><span>Thanksgiving Turkey Dressing</span><span class="dots"></span><span class="page-num">104</span></div>
+<div class="toc-category"><span>Miscellaneous</span><span class="page-num">105</span></div>
+<div class="toc-recipe"><span>Almond Tea Bread</span><span class="dots"></span><span class="page-num">106</span></div>
+<div class="toc-recipe"><span>Baklava Palmiers with Chocolate Pecan</span><span class="dots"></span><span class="page-num">107</span></div>
+<div class="toc-recipe"><span>Banana Cream Pretzel Pie</span><span class="dots"></span><span class="page-num">108</span></div>
+<div class="toc-recipe"><span>Banana Pineapple Vanilla Pudding Pie</span><span class="dots"></span><span class="page-num">109</span></div>
+<div class="toc-recipe"><span>Bourbon BBQ Pork Chops</span><span class="dots"></span><span class="page-num">110</span></div>
+<div class="toc-recipe"><span>Bourbon Salted Caramel Brownies</span><span class="dots"></span><span class="page-num">111</span></div>
+<div class="toc-recipe"><span>Bread Pudding with Vanilla Sauce</span><span class="dots"></span><span class="page-num">112</span></div>
+<div class="toc-recipe"><span>Bruschetta</span><span class="dots"></span><span class="page-num">113</span></div>
+<div class="toc-recipe"><span>Cabbage Ramen Salad</span><span class="dots"></span><span class="page-num">114</span></div>
+<div class="toc-recipe"><span>Caprese Stuffed Chicken with Roasted Balsamic Veggies</span><span class="dots"></span><span class="page-num">115</span></div>
+<div class="toc-recipe"><span>Chocolate Almond Macaroons</span><span class="dots"></span><span class="page-num">116</span></div>
+<div class="toc-recipe"><span>Chocolate Cookies</span><span class="dots"></span><span class="page-num">117</span></div>
+<div class="toc-recipe"><span>Chocolate Crackle Cookie</span><span class="dots"></span><span class="page-num">118</span></div>
+<div class="toc-recipe"><span>Chocolate Cream Layered Dessert</span><span class="dots"></span><span class="page-num">119</span></div>
+<div class="toc-recipe"><span>Chocolate Mice</span><span class="dots"></span><span class="page-num">120</span></div>
+<div class="toc-recipe"><span>Cranberry Pecan Brie Cups</span><span class="dots"></span><span class="page-num">121</span></div>
+<div class="toc-recipe"><span>Cream Cheese Pastry</span><span class="dots"></span><span class="page-num">122</span></div>
+<div class="toc-recipe"><span>Creamy Parmesan Spinach Bake</span><span class="dots"></span><span class="page-num">123</span></div>
+<div class="toc-recipe"><span>Cut Out Sugar Cookies with Royal Icing</span><span class="dots"></span><span class="page-num">124</span></div>
+<div class="toc-recipe"><span>English Toffee</span><span class="dots"></span><span class="page-num">125</span></div>
+<div class="toc-recipe"><span>Frosted Butter Cutout Cookies</span><span class="dots"></span><span class="page-num">126</span></div>
+<div class="toc-recipe"><span>German Pancakes in the Oven</span><span class="dots"></span><span class="page-num">127</span></div>
+<div class="toc-recipe"><span>Glazed Lemon Cookies</span><span class="dots"></span><span class="page-num">128</span></div>
+<div class="toc-recipe"><span>Gooey Butter Cake</span><span class="dots"></span><span class="page-num">129</span></div>
+<div class="toc-recipe"><span>Hedgehog Cookies</span><span class="dots"></span><span class="page-num">129</span></div>
+<div class="toc-recipe"><span>Knox Blox</span><span class="dots"></span><span class="page-num">130</span></div>
+<div class="toc-recipe"><span>Lemon Blueberry Dutch Baby</span><span class="dots"></span><span class="page-num">130</span></div>
+<div class="toc-recipe"><span>Lemon Pecan Slab Pie</span><span class="dots"></span><span class="page-num">131</span></div>
+<div class="toc-recipe"><span>Lime Pretzel Jello</span><span class="dots"></span><span class="page-num">132</span></div>
+<div class="toc-recipe"><span>Mac & Cheese</span><span class="dots"></span><span class="page-num">133</span></div>
+<div class="toc-recipe"><span>Meringue Cookies</span><span class="dots"></span><span class="page-num">134</span></div>
+<div class="toc-recipe"><span>Mini Strawberry Santas</span><span class="dots"></span><span class="page-num">135</span></div>
+<div class="toc-recipe"><span>Night Before Christmas Mice</span><span class="dots"></span><span class="page-num">136</span></div>
+<div class="toc-recipe"><span>No Bake Chocolate Oatmeal Cookies</span><span class="dots"></span><span class="page-num">136</span></div>
+<div class="toc-recipe"><span>Nutella Bread Pudding</span><span class="dots"></span><span class="page-num">137</span></div>
+<div class="toc-recipe"><span>Nutella Christmas Tree</span><span class="dots"></span><span class="page-num">138</span></div>
+<div class="toc-recipe"><span>Nutella Tart with Toasted Hazelnut Crust</span><span class="dots"></span><span class="page-num">139</span></div>
+<div class="toc-recipe"><span>Palmiers (Sugar)</span><span class="dots"></span><span class="page-num">140</span></div>
+<div class="toc-recipe"><span>Paula Deen's Banana Pudding</span><span class="dots"></span><span class="page-num">141</span></div>
+<div class="toc-recipe"><span>Peach Crumble</span><span class="dots"></span><span class="page-num">142</span></div>
+<div class="toc-recipe"><span>Pesto Palmiers</span><span class="dots"></span><span class="page-num">143</span></div>
+<div class="toc-recipe"><span>Pumpkin Pudding</span><span class="dots"></span><span class="page-num">144</span></div>
+<div class="toc-recipe"><span>S'more Pie</span><span class="dots"></span><span class="page-num">145</span></div>
+<div class="toc-recipe"><span>Sage and Onion Stuffing</span><span class="dots"></span><span class="page-num">146</span></div>
+<div class="toc-recipe"><span>Sausage Quiche</span><span class="dots"></span><span class="page-num">147</span></div>
+<div class="toc-recipe"><span>Snickerdoodles</span><span class="dots"></span><span class="page-num">148</span></div>
+<div class="toc-recipe"><span>Stuffed Mushrooms</span><span class="dots"></span><span class="page-num">149</span></div>
+<div class="toc-recipe"><span>Tomato Relish</span><span class="dots"></span><span class="page-num">150</span></div>
+<div class="toc-recipe"><span>Witch's Hat Cookies</span><span class="dots"></span><span class="page-num">151</span></div>
+<div class="toc-recipe"><span>Zucchini Lasagna</span><span class="dots"></span><span class="page-num">152</span></div>
 </div>
 
 <!-- APPETIZERS CHAPTER -->
@@ -538,7 +592,8 @@
   <div class="count">22 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7386.jpg" alt="Original recipe card">
@@ -562,12 +617,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7234.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Bruschetta</div>
@@ -592,12 +649,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7385.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Cashew Crab Artichoke Dip</div>
@@ -620,7 +676,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7387.jpg" alt="Original recipe card">
@@ -642,7 +701,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7388.jpg" alt="Original recipe card">
@@ -669,7 +731,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7389.jpg" alt="Original recipe card">
@@ -694,7 +759,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7393.jpg" alt="Original recipe card">
@@ -720,7 +788,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7393.jpg" alt="Original recipe card">
@@ -742,7 +813,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7368.jpg" alt="Original recipe card">
@@ -768,7 +842,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7396.jpg" alt="Original recipe card">
@@ -795,7 +872,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7397.jpg" alt="Original recipe card">
@@ -821,7 +901,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7380.jpg" alt="Original recipe card">
@@ -844,7 +927,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7372.jpg" alt="Original recipe card">
@@ -871,7 +957,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7371.jpg" alt="Original recipe card">
@@ -899,7 +988,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7364.jpg" alt="Original recipe card">
@@ -929,7 +1021,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7364.jpg" alt="Original recipe card">
@@ -967,7 +1062,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7381.jpg" alt="Original recipe card">
@@ -992,7 +1090,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7376.jpg" alt="Original recipe card">
@@ -1023,7 +1124,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7371.jpg" alt="Original recipe card">
@@ -1055,7 +1159,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7382.jpg" alt="Original recipe card">
@@ -1079,7 +1186,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7379.jpg" alt="Original recipe card">
@@ -1103,7 +1213,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/appetizers/IMG_7370.jpg" alt="Original recipe card">
@@ -1134,13 +1247,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- BREAKFAST CHAPTER -->
 <div class="chapter-divider">
   <h2>Breakfast</h2>
   <div class="count">9 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breakfast/IMG_7414.jpg" alt="Original recipe card">
@@ -1167,7 +1283,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breakfast/IMG_7404.jpg" alt="Original recipe card">
@@ -1183,7 +1302,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breakfast/IMG_7411.jpg" alt="Original recipe card">
@@ -1199,7 +1321,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breakfast/IMG_7407.jpg" alt="Original recipe card">
@@ -1215,7 +1340,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breakfast/IMG_7401.jpg" alt="Original recipe card">
@@ -1231,7 +1359,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breakfast/IMG_7416.jpg" alt="Original recipe card">
@@ -1247,12 +1378,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breakfast/IMG_7415.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Pumpkin Breakfast Casserole</div>
@@ -1277,12 +1410,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breakfast/IMG_7400.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Quiche</div>
@@ -1303,7 +1435,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breakfast/IMG_7410.jpg" alt="Original recipe card">
@@ -1331,13 +1466,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- ENTREES CHAPTER -->
 <div class="chapter-divider">
   <h2>Entrees</h2>
   <div class="count">6 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/entrees/pasta/IMG_7467.jpg" alt="Original recipe card">
@@ -1367,7 +1505,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/entrees/sauces/IMG_7491.jpg" alt="Original recipe card">
@@ -1395,7 +1536,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/entrees/sauces/IMG_7472.PNG" alt="Original recipe card">
@@ -1404,6 +1548,27 @@
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Nonna's Sauce</div>
+    <h4>Ingredients</h4>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Part 1:</p>
+    <ul style="margin-top: 0;">
+      <li>2 large celery stalks, chopped</li>
+      <li>Handful of carrots or two large carrots</li>
+      <li>One small onion</li>
+      <li>Pancetta or mortadella</li>
+    </ul>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Part 2:</p>
+    <ul style="margin-top: 0;">
+      <li>2 lbs ground pork and ground beef mix</li>
+      <li>1 cup of wine</li>
+      <li>Some water</li>
+      <li>Tomato paste (small can)</li>
+      <li>Diced tomatoes, or plain tomato sauce</li>
+      <li>Rosemary</li>
+      <li>Salt</li>
+      <li>Pepper</li>
+      <li>Some Italian seasoning</li>
+      <li>1 cup heavy whipping cream (added at end)</li>
+    </ul>
     <h4>Instructions</h4>
     <ol>
       <li>Part 1: Blend celery, carrots, onion, and pancetta/mortadella, then put in big pan.</li>
@@ -1415,7 +1580,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/entrees/pasta/IMG_7469.jpg" alt="Original recipe card">
@@ -1454,7 +1622,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/entrees/seafood/IMG_7493.jpg" alt="Original recipe card">
@@ -1485,7 +1656,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/entrees/IMG_7463.jpg" alt="Original recipe card">
@@ -1510,13 +1684,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- SOUPS CHAPTER -->
 <div class="chapter-divider">
   <h2>Soups</h2>
   <div class="count">11 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7495.jpg" alt="Original recipe card">
@@ -1557,7 +1734,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7501.jpg" alt="Original recipe card">
@@ -1567,6 +1747,34 @@
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Chicken & Rice Soup</div>
+    <h4>Ingredients</h4>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Seasonings:</p>
+    <ul style="margin-top: 0;">
+      <li>1 tsp dried basil</li>
+      <li>1/2 tsp dried parsley</li>
+      <li>1/2 tsp dried oregano</li>
+      <li>1/2 tsp dried thyme</li>
+      <li>1/2 tsp mustard powder</li>
+      <li>1/4 tsp pepper</li>
+    </ul>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Soup:</p>
+    <ul style="margin-top: 0;">
+      <li>2 Tbsp butter</li>
+      <li>1 yellow onion</li>
+      <li>1/2 cup diced carrots</li>
+      <li>2 ribs celery</li>
+      <li>3 cloves garlic, minced</li>
+      <li>5 cups chicken broth</li>
+      <li>1 tsp soy sauce</li>
+      <li>1 tsp hot sauce</li>
+      <li>1 1/4 lb bone-in chicken breast</li>
+      <li>Fresh parsley to garnish</li>
+    </ul>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Rice:</p>
+    <ul style="margin-top: 0;">
+      <li>1 1/2 cups chicken broth</li>
+      <li>3/4 cup white long-grain rice, uncooked (or 2 1/4 cups cooked rice)</li>
+    </ul>
     <h4>Instructions</h4>
     <ol>
       <li>Cook rice separately.</li>
@@ -1582,7 +1790,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7507.jpg" alt="Original recipe card">
@@ -1616,7 +1827,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7504.jpg" alt="Original recipe card">
@@ -1626,11 +1840,54 @@
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Chicken Tortilla Soup</div>
+    <h4>Ingredients</h4>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Soup:</p>
+    <ul style="margin-top: 0;">
+      <li>1 Tbsp olive oil</li>
+      <li>1 med onion, chopped</li>
+      <li>3 garlic cloves, minced</li>
+      <li>1 jalapeno pepper, seeded and diced</li>
+      <li>1 tsp ground cumin</li>
+      <li>1 tsp chili powder</li>
+      <li>1 lb chicken breasts (2 medium)</li>
+      <li>20 oz crushed tomatoes</li>
+      <li>32 oz chicken broth</li>
+      <li>14 oz can black beans, drained, rinsed</li>
+      <li>14 oz corn, drained, rinsed</li>
+      <li>1/2 cup cilantro, chopped, divided (reserve 1/4 for garnish)</li>
+      <li>1 lime, juiced</li>
+      <li>1 tsp salt, or to taste</li>
+    </ul>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Tortilla Strips:</p>
+    <ul style="margin-top: 0;">
+      <li>1/4 cup olive oil</li>
+      <li>8 corn tortillas (6" tortillas)</li>
+    </ul>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Toppings:</p>
+    <ul style="margin-top: 0;">
+      <li>1 lg avocado</li>
+      <li>1 lime, cut into wedges, to serve</li>
+    </ul>
     <h4>Instructions</h4>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Tortilla Strips:</p>
+    <ol style="margin-top: 0;">
+      <li>Toss tortilla strips in a bowl with 2 Tbsp oil until well coated.</li>
+      <li>Bake on a cookie sheet in a single layer at 350°F for 15 mins.</li>
+    </ol>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Soup:</p>
+    <ol style="margin-top: 0;">
+      <li>1) Preheat pot with oil over med-high heat. Add chopped onion, garlic, and jalapeno; saute until veggies soften.</li>
+      <li>2) Add whole chicken, corn, beans, chili powder, cumin, tomatoes, salt, 1/4 cup cilantro, chicken broth. Bring to boil and let simmer for at least 25 mins.</li>
+      <li>3) Remove chicken and shred it using 2 forks. Add shredded chicken back to soup and simmer another 5 mins, then add lime juice.</li>
+      <li>4) Serve with tortilla strips, pieces of avocado, fresh cilantro, and lime wedges.</li>
+    </ol>
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7498.jpg" alt="Original recipe card">
@@ -1664,7 +1921,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7518.jpg" alt="Original recipe card">
@@ -1695,7 +1955,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7508.jpg" alt="Original recipe card">
@@ -1731,7 +1994,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7515.jpg" alt="Original recipe card">
@@ -1765,7 +2031,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7521.jpg" alt="Original recipe card">
@@ -1804,7 +2073,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7509.jpg" alt="Original recipe card">
@@ -1846,7 +2118,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/soups/IMG_7512.jpg" alt="Original recipe card">
@@ -1889,13 +2164,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- SALADS CHAPTER -->
 <div class="chapter-divider">
   <h2>Salads</h2>
   <div class="count">9 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/salads/IMG_7474.jpg" alt="Original recipe card">
@@ -1923,7 +2201,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/salads/IMG_7475.jpg" alt="Original recipe card">
@@ -1960,12 +2241,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/salads/IMG_7479.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Cucumber Mango Salad</div>
@@ -1993,12 +2276,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/salads/IMG_7478.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Cucumber Salad</div>
@@ -2021,7 +2303,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/salads/IMG_7480.jpg" alt="Original recipe card">
@@ -2049,7 +2334,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/salads/IMG_7481.jpg" alt="Original recipe card">
@@ -2083,12 +2371,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/salads/IMG_7484.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Macaroni Salad</div>
@@ -2118,12 +2408,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/marinated-vegetable-salad.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Marinated Vegetable Salad</div>
@@ -2151,7 +2440,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/salads/IMG_7489.jpg" alt="Original recipe card">
@@ -2184,13 +2476,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- VEGETABLES & SIDES CHAPTER -->
 <div class="chapter-divider">
   <h2>Vegetables & Sides</h2>
   <div class="count">6 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/vegetables/IMG_7525.jpg" alt="Original recipe card">
@@ -2226,7 +2521,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/vegetables/IMG_7528.jpg" alt="Original recipe card">
@@ -2254,7 +2552,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/vegetables/IMG_7529.jpg" alt="Original recipe card">
@@ -2288,7 +2589,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/vegetables/IMG_7532.jpg" alt="Original recipe card">
@@ -2313,7 +2617,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/vegetables/IMG_7533.jpg" alt="Original recipe card">
@@ -2354,7 +2661,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/vegetables/IMG_7536.jpg" alt="Original recipe card">
@@ -2388,13 +2698,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- BREADS CHAPTER -->
 <div class="chapter-divider">
   <h2>Breads</h2>
   <div class="count">1 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/breads/IMG_7420.jpg" alt="Original recipe card">
@@ -2419,13 +2732,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- CAKES CHAPTER -->
 <div class="chapter-divider">
   <h2>Cakes</h2>
   <div class="count">6 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/cakes/IMG_7422.jpg" alt="Original recipe card">
@@ -2454,7 +2770,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/cakes/IMG_7431.jpg" alt="Original recipe card">
@@ -2470,7 +2789,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/cakes/IMG_7423.jpg" alt="Original recipe card">
@@ -2494,7 +2816,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/cakes/IMG_7427.jpg" alt="Original recipe card">
@@ -2522,7 +2847,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/cakes/IMG_7428.jpg" alt="Original recipe card">
@@ -2538,7 +2866,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/cakes/IMG_7426.jpg" alt="Original recipe card">
@@ -2566,13 +2897,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- DESSERTS CHAPTER -->
 <div class="chapter-divider">
   <h2>Desserts</h2>
   <div class="count">5 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/desserts/IMG_7442.jpg" alt="Original recipe card">
@@ -2598,7 +2932,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/desserts/IMG_7438.jpg" alt="Original recipe card">
@@ -2622,12 +2959,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/desserts/IMG_7441.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Creamy Coconut Cake</div>
@@ -2644,12 +2983,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/desserts/no-bake-cookies.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">No Bake Cookies</div>
@@ -2668,7 +3006,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/desserts/IMG_7435.jpg" alt="Original recipe card">
@@ -2692,13 +3033,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- DRINKS CHAPTER -->
 <div class="chapter-divider">
   <h2>Drinks</h2>
   <div class="count">7 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/drinks/IMG_7455.jpg" alt="Original recipe card">
@@ -2712,7 +3056,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/drinks/IMG_7452.jpg" alt="Original recipe card">
@@ -2740,7 +3087,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/drinks/IMG_7451.jpg" alt="Original recipe card">
@@ -2764,7 +3114,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/drinks/IMG_7458.jpg" alt="Original recipe card">
@@ -2789,7 +3142,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/drinks/IMG_7447.jpg" alt="Original recipe card">
@@ -2804,7 +3160,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/drinks/IMG_7450.jpg" alt="Original recipe card">
@@ -2831,7 +3190,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/drinks/IMG_7459.jpg" alt="Original recipe card">
@@ -2856,18 +3218,20 @@
   </div>
 </div>
 
+</div>
+
 <!-- THANKSGIVING CHAPTER -->
 <div class="chapter-divider">
   <h2>Thanksgiving</h2>
   <div class="count">18 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/desserts/buttermilk-chess-pie.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Buttermilk Chess Pie</div>
@@ -2886,12 +3250,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/caramel-apple-crumble-pie.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Caramel Apple Crumble Pie</div>
@@ -2901,12 +3264,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/caramels.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Caramels</div>
@@ -2928,12 +3293,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/corn-casserole.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Corn Casserole</div>
@@ -2951,12 +3315,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/cranberry-salad.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Cranberry Salad</div>
@@ -2976,12 +3342,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/fruit-salad-with-cannoli-cream.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Fruit Salad with Cannoli Cream</div>
@@ -3003,12 +3368,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/garlic-mashed-potatoes.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Garlic Mashed Potatoes</div>
@@ -3028,12 +3395,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/green-beans-amandine.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Green Beans Amandine</div>
@@ -3049,12 +3415,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/marinated-vegetable-salad.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Marinated Vegetable Salad</div>
@@ -3075,12 +3443,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/desserts/no-bake-cookies.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">No Bake Cookies</div>
@@ -3100,12 +3467,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/desserts/peanut-butter-ball-ingredients.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Peanut Butter Ball</div>
@@ -3122,12 +3491,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/desserts/peanut-butter-ball-ingredients.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Peanut Butter Ball</div>
@@ -3145,12 +3513,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/desserts/peanut-butter-balls.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Peanut Butter Balls</div>
@@ -3167,12 +3537,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/desserts/pecan-pie.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Pecan Pie</div>
@@ -3192,12 +3561,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/desserts/pumpkin-pie.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Pumpkin Pie</div>
@@ -3219,12 +3590,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/sweet-potato-casserole.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Sweet Potato Casserole</div>
@@ -3234,12 +3604,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/taffy-apple-salad.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Taffy Apple Salad</div>
@@ -3260,12 +3632,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/thanksgiving/savory-tings/thanksgiving-turkey-dressing.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Thanksgiving Turkey Dressing</div>
@@ -3285,13 +3656,16 @@
   </div>
 </div>
 
+</div>
+
 <!-- MISCELLANEOUS CHAPTER -->
 <div class="chapter-divider">
   <h2>Miscellaneous</h2>
   <div class="count">50 Recipes</div>
 </div>
 
-<div class="recipe">
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7354.jpg" alt="Original recipe card">
@@ -3319,7 +3693,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7340.jpg" alt="Original recipe card">
@@ -3344,7 +3721,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7279.jpg" alt="Original recipe card">
@@ -3359,7 +3739,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7282.jpg" alt="Original recipe card">
@@ -3383,7 +3766,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7275.jpg" alt="Original recipe card">
@@ -3412,7 +3798,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7333.jpg" alt="Original recipe card">
@@ -3428,7 +3817,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7285.jpg" alt="Original recipe card">
@@ -3444,7 +3836,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7234.jpg" alt="Original recipe card">
@@ -3471,7 +3866,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7250.jpg" alt="Original recipe card">
@@ -3480,12 +3878,32 @@
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Cabbage Ramen Salad</div>
+    <h4>Ingredients</h4>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Salad:</p>
+    <ul style="margin-top: 0;">
+      <li>1 head napa cabbage, shredded</li>
+      <li>1 bunch green onions, chopped</li>
+      <li>1/2 c butter</li>
+      <li>2 pkgs ramen noodles, crushed (discard seasoning)</li>
+      <li>1 c slivered almonds</li>
+      <li>1/4 c sesame seeds</li>
+    </ul>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Dressing:</p>
+    <ul style="margin-top: 0;">
+      <li>1 c vegetable oil</li>
+      <li>1/2 c sugar</li>
+      <li>1/2 c rice vinegar</li>
+      <li>2 Tbsp soy sauce</li>
+    </ul>
     <h4>Instructions</h4>
     <p>Combine cabbage and green onions in large bowl. Melt butter in skillet. Add crushed ramen noodles, almonds, and sesame seeds. Sauté until golden brown. Cool. Combine dressing ingredients and shake well. Just before serving, toss cabbage with noodle mixture and dressing.</p>
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7240.jpg" alt="Original recipe card">
@@ -3495,12 +3913,35 @@
   <div class="recipe-right">
     <div class="recipe-title">Caprese Stuffed Chicken with Roasted Balsamic Veggies</div>
     <div class="recipe-meta">Serves: 4 | Oven: 400°</div>
+    <h4>Ingredients</h4>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Chicken:</p>
+    <ul style="margin-top: 0;">
+      <li>4 boneless skinless chicken breasts</li>
+      <li>8 oz fresh mozzarella</li>
+      <li>1 c grape tomatoes, halved</li>
+      <li>1/4 c loosely packed fresh basil leaves</li>
+      <li>1 tsp Italian seasoning</li>
+      <li>1 Tbsp olive oil</li>
+    </ul>
+    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">Vegetables:</p>
+    <ul style="margin-top: 0;">
+      <li>1 small head broccoli, cut into florets</li>
+      <li>1 red bell pepper, chopped</li>
+      <li>1 small zucchini, chopped</li>
+      <li>1 c cremini mushrooms, halved</li>
+      <li>1 Tbsp olive oil</li>
+      <li>1 Tbsp balsamic vinegar</li>
+      <li>salt & pepper</li>
+    </ul>
     <h4>Instructions</h4>
     <p>Preheat oven to 400°. Cut a pocket into each chicken breast and stuff with mozzarella, tomatoes, and basil. Season with Italian seasoning, salt, and pepper. Toss vegetables with olive oil and balsamic vinegar. Arrange chicken and vegetables on baking sheet. Bake 25-30 minutes until chicken is cooked through.</p>
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7288.jpg" alt="Original recipe card">
@@ -3524,7 +3965,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7330.jpg" alt="Original recipe card">
@@ -3552,7 +3996,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7360.jpg" alt="Original recipe card">
@@ -3580,7 +4027,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7291.jpg" alt="Original recipe card">
@@ -3595,7 +4045,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7294.jpg" alt="Original recipe card">
@@ -3620,7 +4073,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7351.jpg" alt="Original recipe card">
@@ -3649,7 +4105,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7268.jpg" alt="Original recipe card">
@@ -3670,7 +4129,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7337.jpg" alt="Original recipe card">
@@ -3697,7 +4159,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7254.jpg" alt="Original recipe card">
@@ -3713,7 +4178,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7260.jpg" alt="Original recipe card">
@@ -3737,7 +4205,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7348.jpg" alt="Original recipe card">
@@ -3753,7 +4224,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7267.jpg" alt="Original recipe card">
@@ -3776,7 +4250,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7346.jpg" alt="Original recipe card">
@@ -3792,12 +4269,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7336.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Gooey Butter Cake</div>
@@ -3807,12 +4286,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7297.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Hedgehog Cookies</div>
@@ -3832,12 +4310,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7266.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Knox Blox</div>
@@ -3852,12 +4332,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7278.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Lemon Blueberry Dutch Baby</div>
@@ -3880,7 +4359,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7298.jpg" alt="Original recipe card">
@@ -3896,7 +4378,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7301.jpg" alt="Original recipe card">
@@ -3911,7 +4396,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7257.jpg" alt="Original recipe card">
@@ -3939,7 +4427,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7236.jpg" alt="Original recipe card">
@@ -3961,7 +4452,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7304.jpg" alt="Original recipe card">
@@ -3983,12 +4477,14 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7307.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">Night Before Christmas Mice</div>
@@ -4007,12 +4503,11 @@
   </div>
 </div>
 
-<div class="recipe">
+<div class="recipe-half">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7308.jpg" alt="Original recipe card">
     </div>
-    <p class="recipe-images-caption">Original recipe card</p>
   </div>
   <div class="recipe-right">
     <div class="recipe-title">No Bake Chocolate Oatmeal Cookies</div>
@@ -4032,7 +4527,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7309.jpg" alt="Original recipe card">
@@ -4059,7 +4557,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7251.jpg" alt="Original recipe card">
@@ -4082,7 +4583,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7312.jpg" alt="Original recipe card">
@@ -4098,7 +4602,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7244.jpg" alt="Original recipe card">
@@ -4119,7 +4626,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7357.jpg" alt="Original recipe card">
@@ -4144,7 +4654,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7317.jpg" alt="Original recipe card">
@@ -4160,7 +4673,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7241.jpg" alt="Original recipe card">
@@ -4182,7 +4698,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7320.jpg" alt="Original recipe card">
@@ -4207,7 +4726,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7324.jpg" alt="Original recipe card">
@@ -4222,7 +4744,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7343.jpg" alt="Original recipe card">
@@ -4250,7 +4775,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7235.jpg" alt="Original recipe card">
@@ -4274,7 +4802,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7263.jpg" alt="Original recipe card">
@@ -4290,7 +4821,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7247.jpg" alt="Original recipe card">
@@ -4317,7 +4851,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7269.jpg" alt="Original recipe card">
@@ -4345,7 +4882,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7323.jpg" alt="Original recipe card">
@@ -4366,7 +4906,10 @@
   </div>
 </div>
 
-<div class="recipe">
+</div>
+
+<div class="recipe-page">
+<div class="recipe-full">
   <div class="recipe-left">
     <div class="recipe-images two-images">
       <img src="/Users/carsonmulligan/Desktop/Workspace/apps/web/simple/moms-recipes/misc/IMG_7237.jpg" alt="Original recipe card">
@@ -4396,183 +4939,185 @@
   </div>
 </div>
 
+</div>
+
 
 <!-- INDEX -->
 <div class="index-page">
   <h2>Index</h2>
   <div class="index-columns">
     <div class="index-letter">A</div>
-    <div class="index-entry"><span>Almond Tea Bread</span><span class="page-num">120</span></div>
-    <div class="index-entry"><span>Apple Dump Cake</span><span class="page-num">80</span></div>
-    <div class="index-entry"><span>Apple Pie</span><span class="page-num">87</span></div>
+    <div class="index-entry"><span>Almond Tea Bread</span><span class="page-num">106</span></div>
+    <div class="index-entry"><span>Apple Dump Cake</span><span class="page-num">76</span></div>
+    <div class="index-entry"><span>Apple Pie</span><span class="page-num">83</span></div>
     <div class="index-letter">B</div>
-    <div class="index-entry"><span>Baked Cheese Grits</span><span class="page-num">71</span></div>
-    <div class="index-entry"><span>Baked Potato Soup</span><span class="page-num">49</span></div>
-    <div class="index-entry"><span>Baklava Palmiers with Chocolate Pecan</span><span class="page-num">121</span></div>
+    <div class="index-entry"><span>Baked Cheese Grits</span><span class="page-num">67</span></div>
+    <div class="index-entry"><span>Baked Potato Soup</span><span class="page-num">47</span></div>
+    <div class="index-entry"><span>Baklava Palmiers with Chocolate Pecan</span><span class="page-num">107</span></div>
     <div class="index-entry"><span>Balsamic & Basil Dipping Oil Suggestions</span><span class="page-num">9</span></div>
-    <div class="index-entry"><span>Banana Cream Pretzel Pie</span><span class="page-num">122</span></div>
-    <div class="index-entry"><span>Banana Pineapple Vanilla Pudding Pie</span><span class="page-num">123</span></div>
-    <div class="index-entry"><span>Black Eyed Peas</span><span class="page-num">72</span></div>
-    <div class="index-entry"><span>Bountiful Beer Bread Suggestions</span><span class="page-num">78</span></div>
-    <div class="index-entry"><span>Bourbon BBQ Pork Chops</span><span class="page-num">124</span></div>
-    <div class="index-entry"><span>Bourbon Salted Caramel Brownies</span><span class="page-num">125</span></div>
-    <div class="index-entry"><span>Bread Pudding with Vanilla Sauce</span><span class="page-num">126</span></div>
+    <div class="index-entry"><span>Banana Cream Pretzel Pie</span><span class="page-num">108</span></div>
+    <div class="index-entry"><span>Banana Pineapple Vanilla Pudding Pie</span><span class="page-num">109</span></div>
+    <div class="index-entry"><span>Black Eyed Peas</span><span class="page-num">68</span></div>
+    <div class="index-entry"><span>Bountiful Beer Bread Suggestions</span><span class="page-num">74</span></div>
+    <div class="index-entry"><span>Bourbon BBQ Pork Chops</span><span class="page-num">110</span></div>
+    <div class="index-entry"><span>Bourbon Salted Caramel Brownies</span><span class="page-num">111</span></div>
+    <div class="index-entry"><span>Bread Pudding with Vanilla Sauce</span><span class="page-num">112</span></div>
     <div class="index-entry"><span>Bruschetta</span><span class="page-num">10</span></div>
-    <div class="index-entry"><span>Bruschetta</span><span class="page-num">127</span></div>
-    <div class="index-entry"><span>Buttermilk Chess Pie</span><span class="page-num">101</span></div>
+    <div class="index-entry"><span>Bruschetta</span><span class="page-num">113</span></div>
+    <div class="index-entry"><span>Buttermilk Chess Pie</span><span class="page-num">96</span></div>
     <div class="index-letter">C</div>
-    <div class="index-entry"><span>Cabbage Ramen Salad</span><span class="page-num">128</span></div>
-    <div class="index-entry"><span>Candy Bar Apple Salad</span><span class="page-num">61</span></div>
-    <div class="index-entry"><span>Caprese Farfalle</span><span class="page-num">42</span></div>
-    <div class="index-entry"><span>Caprese Stuffed Chicken with Roasted Balsamic Veggies</span><span class="page-num">129</span></div>
-    <div class="index-entry"><span>Caramel Apple Crumble Pie</span><span class="page-num">102</span></div>
-    <div class="index-entry"><span>Caramels</span><span class="page-num">103</span></div>
-    <div class="index-entry"><span>Cashew Crab Artichoke Dip</span><span class="page-num">11</span></div>
-    <div class="index-entry"><span>Charred Corn & Chicken Cheese Salad</span><span class="page-num">62</span></div>
-    <div class="index-entry"><span>Cheese Dip with Beer</span><span class="page-num">12</span></div>
-    <div class="index-entry"><span>Cheese Dreams</span><span class="page-num">13</span></div>
-    <div class="index-entry"><span>Cheese Fondue</span><span class="page-num">14</span></div>
-    <div class="index-entry"><span>Chewy Gingerbread Cookies</span><span class="page-num">81</span></div>
-    <div class="index-entry"><span>Chicken & Rice Soup</span><span class="page-num">50</span></div>
-    <div class="index-entry"><span>Chicken Noodle Soup</span><span class="page-num">51</span></div>
-    <div class="index-entry"><span>Chicken Tortilla Soup</span><span class="page-num">52</span></div>
-    <div class="index-entry"><span>Chili</span><span class="page-num">53</span></div>
-    <div class="index-entry"><span>Chocolate Almond Macaroons</span><span class="page-num">130</span></div>
-    <div class="index-entry"><span>Chocolate Cookies</span><span class="page-num">131</span></div>
-    <div class="index-entry"><span>Chocolate Crackle Cookie</span><span class="page-num">132</span></div>
-    <div class="index-entry"><span>Chocolate Cream Layered Dessert</span><span class="page-num">133</span></div>
-    <div class="index-entry"><span>Chocolate Mice</span><span class="page-num">134</span></div>
-    <div class="index-entry"><span>Cilantro & Olive Salsa Suggestions</span><span class="page-num">15</span></div>
-    <div class="index-entry"><span>Cinnamon Cottage Cheese Pancakes</span><span class="page-num">32</span></div>
-    <div class="index-entry"><span>Cinnamon Crunch Bagels</span><span class="page-num">33</span></div>
-    <div class="index-entry"><span>Cinnamon Roll Cake</span><span class="page-num">34</span></div>
-    <div class="index-entry"><span>Cinnamon Rolls (Puff Pastry)</span><span class="page-num">35</span></div>
-    <div class="index-entry"><span>Cinnamon Sugar Pie Crust Cookies</span><span class="page-num">88</span></div>
-    <div class="index-entry"><span>Corn Casserole</span><span class="page-num">104</span></div>
-    <div class="index-entry"><span>Cranberry Pecan Brie Cups</span><span class="page-num">135</span></div>
-    <div class="index-entry"><span>Cranberry Salad</span><span class="page-num">105</span></div>
-    <div class="index-entry"><span>Cream Cheese Pastry</span><span class="page-num">136</span></div>
-    <div class="index-entry"><span>Cream Cheese Penguins</span><span class="page-num">16</span></div>
-    <div class="index-entry"><span>Creamy Coconut Cake</span><span class="page-num">89</span></div>
-    <div class="index-entry"><span>Creamy Parmesan Spinach Bake</span><span class="page-num">137</span></div>
-    <div class="index-entry"><span>Cucumber Mango Salad</span><span class="page-num">63</span></div>
-    <div class="index-entry"><span>Cucumber Salad</span><span class="page-num">64</span></div>
-    <div class="index-entry"><span>Cut Out Sugar Cookies with Royal Icing</span><span class="page-num">138</span></div>
+    <div class="index-entry"><span>Cabbage Ramen Salad</span><span class="page-num">114</span></div>
+    <div class="index-entry"><span>Candy Bar Apple Salad</span><span class="page-num">59</span></div>
+    <div class="index-entry"><span>Caprese Farfalle</span><span class="page-num">40</span></div>
+    <div class="index-entry"><span>Caprese Stuffed Chicken with Roasted Balsamic Veggies</span><span class="page-num">115</span></div>
+    <div class="index-entry"><span>Caramel Apple Crumble Pie</span><span class="page-num">96</span></div>
+    <div class="index-entry"><span>Caramels</span><span class="page-num">97</span></div>
+    <div class="index-entry"><span>Cashew Crab Artichoke Dip</span><span class="page-num">10</span></div>
+    <div class="index-entry"><span>Charred Corn & Chicken Cheese Salad</span><span class="page-num">60</span></div>
+    <div class="index-entry"><span>Cheese Dip with Beer</span><span class="page-num">11</span></div>
+    <div class="index-entry"><span>Cheese Dreams</span><span class="page-num">12</span></div>
+    <div class="index-entry"><span>Cheese Fondue</span><span class="page-num">13</span></div>
+    <div class="index-entry"><span>Chewy Gingerbread Cookies</span><span class="page-num">77</span></div>
+    <div class="index-entry"><span>Chicken & Rice Soup</span><span class="page-num">48</span></div>
+    <div class="index-entry"><span>Chicken Noodle Soup</span><span class="page-num">49</span></div>
+    <div class="index-entry"><span>Chicken Tortilla Soup</span><span class="page-num">50</span></div>
+    <div class="index-entry"><span>Chili</span><span class="page-num">51</span></div>
+    <div class="index-entry"><span>Chocolate Almond Macaroons</span><span class="page-num">116</span></div>
+    <div class="index-entry"><span>Chocolate Cookies</span><span class="page-num">117</span></div>
+    <div class="index-entry"><span>Chocolate Crackle Cookie</span><span class="page-num">118</span></div>
+    <div class="index-entry"><span>Chocolate Cream Layered Dessert</span><span class="page-num">119</span></div>
+    <div class="index-entry"><span>Chocolate Mice</span><span class="page-num">120</span></div>
+    <div class="index-entry"><span>Cilantro & Olive Salsa Suggestions</span><span class="page-num">14</span></div>
+    <div class="index-entry"><span>Cinnamon Cottage Cheese Pancakes</span><span class="page-num">31</span></div>
+    <div class="index-entry"><span>Cinnamon Crunch Bagels</span><span class="page-num">32</span></div>
+    <div class="index-entry"><span>Cinnamon Roll Cake</span><span class="page-num">33</span></div>
+    <div class="index-entry"><span>Cinnamon Rolls (Puff Pastry)</span><span class="page-num">34</span></div>
+    <div class="index-entry"><span>Cinnamon Sugar Pie Crust Cookies</span><span class="page-num">84</span></div>
+    <div class="index-entry"><span>Corn Casserole</span><span class="page-num">97</span></div>
+    <div class="index-entry"><span>Cranberry Pecan Brie Cups</span><span class="page-num">121</span></div>
+    <div class="index-entry"><span>Cranberry Salad</span><span class="page-num">98</span></div>
+    <div class="index-entry"><span>Cream Cheese Pastry</span><span class="page-num">122</span></div>
+    <div class="index-entry"><span>Cream Cheese Penguins</span><span class="page-num">15</span></div>
+    <div class="index-entry"><span>Creamy Coconut Cake</span><span class="page-num">85</span></div>
+    <div class="index-entry"><span>Creamy Parmesan Spinach Bake</span><span class="page-num">123</span></div>
+    <div class="index-entry"><span>Cucumber Mango Salad</span><span class="page-num">61</span></div>
+    <div class="index-entry"><span>Cucumber Salad</span><span class="page-num">61</span></div>
+    <div class="index-entry"><span>Cut Out Sugar Cookies with Royal Icing</span><span class="page-num">124</span></div>
     <div class="index-letter">D</div>
-    <div class="index-entry"><span>Deviled Eggs</span><span class="page-num">17</span></div>
+    <div class="index-entry"><span>Deviled Eggs</span><span class="page-num">16</span></div>
     <div class="index-letter">E</div>
-    <div class="index-entry"><span>Egg Drop Soup</span><span class="page-num">54</span></div>
-    <div class="index-entry"><span>Egg Nog Variations</span><span class="page-num">93</span></div>
-    <div class="index-entry"><span>Egg Nogg</span><span class="page-num">94</span></div>
-    <div class="index-entry"><span>Egg Salad</span><span class="page-num">65</span></div>
-    <div class="index-entry"><span>English Toffee</span><span class="page-num">139</span></div>
+    <div class="index-entry"><span>Egg Drop Soup</span><span class="page-num">52</span></div>
+    <div class="index-entry"><span>Egg Nog Variations</span><span class="page-num">88</span></div>
+    <div class="index-entry"><span>Egg Nogg</span><span class="page-num">89</span></div>
+    <div class="index-entry"><span>Egg Salad</span><span class="page-num">62</span></div>
+    <div class="index-entry"><span>English Toffee</span><span class="page-num">125</span></div>
     <div class="index-letter">F</div>
-    <div class="index-entry"><span>Farmer's Medley Dip Suggestions</span><span class="page-num">18</span></div>
-    <div class="index-entry"><span>French Toast Bake</span><span class="page-num">36</span></div>
-    <div class="index-entry"><span>Frosted Butter Cutout Cookies</span><span class="page-num">140</span></div>
-    <div class="index-entry"><span>Fruit Salad with Cannoli Cream</span><span class="page-num">106</span></div>
+    <div class="index-entry"><span>Farmer's Medley Dip Suggestions</span><span class="page-num">17</span></div>
+    <div class="index-entry"><span>French Toast Bake</span><span class="page-num">35</span></div>
+    <div class="index-entry"><span>Frosted Butter Cutout Cookies</span><span class="page-num">126</span></div>
+    <div class="index-entry"><span>Fruit Salad with Cannoli Cream</span><span class="page-num">98</span></div>
     <div class="index-letter">G</div>
-    <div class="index-entry"><span>Garlic Mashed Potatoes</span><span class="page-num">107</span></div>
-    <div class="index-entry"><span>Garlic Roasted Potato Wedges</span><span class="page-num">73</span></div>
-    <div class="index-entry"><span>German Pancakes in the Oven</span><span class="page-num">141</span></div>
-    <div class="index-entry"><span>Giblet Gravy</span><span class="page-num">43</span></div>
-    <div class="index-entry"><span>Glazed Lemon Cookies</span><span class="page-num">142</span></div>
-    <div class="index-entry"><span>Gooey Butter Cake</span><span class="page-num">143</span></div>
-    <div class="index-entry"><span>Green Beans & Cheese</span><span class="page-num">74</span></div>
-    <div class="index-entry"><span>Green Beans Amandine</span><span class="page-num">108</span></div>
+    <div class="index-entry"><span>Garlic Mashed Potatoes</span><span class="page-num">99</span></div>
+    <div class="index-entry"><span>Garlic Roasted Potato Wedges</span><span class="page-num">69</span></div>
+    <div class="index-entry"><span>German Pancakes in the Oven</span><span class="page-num">127</span></div>
+    <div class="index-entry"><span>Giblet Gravy</span><span class="page-num">41</span></div>
+    <div class="index-entry"><span>Glazed Lemon Cookies</span><span class="page-num">128</span></div>
+    <div class="index-entry"><span>Gooey Butter Cake</span><span class="page-num">129</span></div>
+    <div class="index-entry"><span>Green Beans & Cheese</span><span class="page-num">70</span></div>
+    <div class="index-entry"><span>Green Beans Amandine</span><span class="page-num">99</span></div>
     <div class="index-letter">H</div>
-    <div class="index-entry"><span>Hedgehog Cookies</span><span class="page-num">144</span></div>
-    <div class="index-entry"><span>Hisae's Choc Cake</span><span class="page-num">82</span></div>
+    <div class="index-entry"><span>Hedgehog Cookies</span><span class="page-num">129</span></div>
+    <div class="index-entry"><span>Hisae's Choc Cake</span><span class="page-num">78</span></div>
     <div class="index-letter">I</div>
-    <div class="index-entry"><span>Italian Dipping Oil</span><span class="page-num">19</span></div>
+    <div class="index-entry"><span>Italian Dipping Oil</span><span class="page-num">18</span></div>
     <div class="index-letter">K</div>
-    <div class="index-entry"><span>Key Lime Cheese Ball Suggestions</span><span class="page-num">20</span></div>
-    <div class="index-entry"><span>Knox Blox</span><span class="page-num">145</span></div>
+    <div class="index-entry"><span>Key Lime Cheese Ball Suggestions</span><span class="page-num">19</span></div>
+    <div class="index-entry"><span>Knox Blox</span><span class="page-num">130</span></div>
     <div class="index-letter">L</div>
-    <div class="index-entry"><span>Lemon Blueberry Dutch Baby</span><span class="page-num">146</span></div>
-    <div class="index-entry"><span>Lemon Blueberry Scones</span><span class="page-num">37</span></div>
-    <div class="index-entry"><span>Lemon Pecan Slab Pie</span><span class="page-num">147</span></div>
-    <div class="index-entry"><span>Lentil Ham Soup</span><span class="page-num">55</span></div>
-    <div class="index-entry"><span>Lime Jello Salad</span><span class="page-num">66</span></div>
-    <div class="index-entry"><span>Lime Pretzel Jello</span><span class="page-num">148</span></div>
+    <div class="index-entry"><span>Lemon Blueberry Dutch Baby</span><span class="page-num">130</span></div>
+    <div class="index-entry"><span>Lemon Blueberry Scones</span><span class="page-num">36</span></div>
+    <div class="index-entry"><span>Lemon Pecan Slab Pie</span><span class="page-num">131</span></div>
+    <div class="index-entry"><span>Lentil Ham Soup</span><span class="page-num">53</span></div>
+    <div class="index-entry"><span>Lime Jello Salad</span><span class="page-num">63</span></div>
+    <div class="index-entry"><span>Lime Pretzel Jello</span><span class="page-num">132</span></div>
     <div class="index-letter">M</div>
-    <div class="index-entry"><span>Mac & Cheese</span><span class="page-num">149</span></div>
-    <div class="index-entry"><span>Macaroni Salad</span><span class="page-num">67</span></div>
-    <div class="index-entry"><span>Mango Breeze Margarita Mix</span><span class="page-num">95</span></div>
-    <div class="index-entry"><span>Marinated Vegetable Salad</span><span class="page-num">68</span></div>
-    <div class="index-entry"><span>Marinated Vegetable Salad</span><span class="page-num">109</span></div>
-    <div class="index-entry"><span>Meringue Cookies</span><span class="page-num">150</span></div>
-    <div class="index-entry"><span>Mini Strawberry Santas</span><span class="page-num">151</span></div>
+    <div class="index-entry"><span>Mac & Cheese</span><span class="page-num">133</span></div>
+    <div class="index-entry"><span>Macaroni Salad</span><span class="page-num">64</span></div>
+    <div class="index-entry"><span>Mango Breeze Margarita Mix</span><span class="page-num">90</span></div>
+    <div class="index-entry"><span>Marinated Vegetable Salad</span><span class="page-num">64</span></div>
+    <div class="index-entry"><span>Marinated Vegetable Salad</span><span class="page-num">100</span></div>
+    <div class="index-entry"><span>Meringue Cookies</span><span class="page-num">134</span></div>
+    <div class="index-entry"><span>Mini Strawberry Santas</span><span class="page-num">135</span></div>
     <div class="index-letter">N</div>
-    <div class="index-entry"><span>Night Before Christmas Mice</span><span class="page-num">152</span></div>
-    <div class="index-entry"><span>No Bake Chocolate Oatmeal Cookies</span><span class="page-num">153</span></div>
-    <div class="index-entry"><span>No Bake Cookies</span><span class="page-num">90</span></div>
-    <div class="index-entry"><span>No Bake Cookies</span><span class="page-num">110</span></div>
-    <div class="index-entry"><span>Nonna's Sauce</span><span class="page-num">44</span></div>
-    <div class="index-entry"><span>Nutella Bread Pudding</span><span class="page-num">154</span></div>
-    <div class="index-entry"><span>Nutella Christmas Tree</span><span class="page-num">155</span></div>
-    <div class="index-entry"><span>Nutella Tart with Toasted Hazelnut Crust</span><span class="page-num">156</span></div>
+    <div class="index-entry"><span>Night Before Christmas Mice</span><span class="page-num">136</span></div>
+    <div class="index-entry"><span>No Bake Chocolate Oatmeal Cookies</span><span class="page-num">136</span></div>
+    <div class="index-entry"><span>No Bake Cookies</span><span class="page-num">85</span></div>
+    <div class="index-entry"><span>No Bake Cookies</span><span class="page-num">100</span></div>
+    <div class="index-entry"><span>Nonna's Sauce</span><span class="page-num">42</span></div>
+    <div class="index-entry"><span>Nutella Bread Pudding</span><span class="page-num">137</span></div>
+    <div class="index-entry"><span>Nutella Christmas Tree</span><span class="page-num">138</span></div>
+    <div class="index-entry"><span>Nutella Tart with Toasted Hazelnut Crust</span><span class="page-num">139</span></div>
     <div class="index-letter">P</div>
-    <div class="index-entry"><span>Palmiers (Sugar)</span><span class="page-num">157</span></div>
-    <div class="index-entry"><span>Paula Deen's Banana Pudding</span><span class="page-num">158</span></div>
-    <div class="index-entry"><span>Peach Crumble</span><span class="page-num">159</span></div>
-    <div class="index-entry"><span>Peanut Butter Ball</span><span class="page-num">111</span></div>
-    <div class="index-entry"><span>Peanut Butter Ball</span><span class="page-num">112</span></div>
-    <div class="index-entry"><span>Peanut Butter Balls</span><span class="page-num">113</span></div>
-    <div class="index-entry"><span>Pecan Cheese Ball</span><span class="page-num">21</span></div>
-    <div class="index-entry"><span>Pecan Pie</span><span class="page-num">114</span></div>
-    <div class="index-entry"><span>Penne Primavera</span><span class="page-num">45</span></div>
-    <div class="index-entry"><span>Pepperoni Pizza Dip</span><span class="page-num">22</span></div>
-    <div class="index-entry"><span>Pesto Palmiers</span><span class="page-num">160</span></div>
-    <div class="index-entry"><span>Potato Leek Soup</span><span class="page-num">56</span></div>
-    <div class="index-entry"><span>Pumpkin Breakfast Casserole</span><span class="page-num">38</span></div>
-    <div class="index-entry"><span>Pumpkin Pie</span><span class="page-num">115</span></div>
-    <div class="index-entry"><span>Pumpkin Pudding</span><span class="page-num">161</span></div>
-    <div class="index-entry"><span>Pumpkin Spiced Latte</span><span class="page-num">96</span></div>
+    <div class="index-entry"><span>Palmiers (Sugar)</span><span class="page-num">140</span></div>
+    <div class="index-entry"><span>Paula Deen's Banana Pudding</span><span class="page-num">141</span></div>
+    <div class="index-entry"><span>Peach Crumble</span><span class="page-num">142</span></div>
+    <div class="index-entry"><span>Peanut Butter Ball</span><span class="page-num">101</span></div>
+    <div class="index-entry"><span>Peanut Butter Ball</span><span class="page-num">101</span></div>
+    <div class="index-entry"><span>Peanut Butter Balls</span><span class="page-num">102</span></div>
+    <div class="index-entry"><span>Pecan Cheese Ball</span><span class="page-num">20</span></div>
+    <div class="index-entry"><span>Pecan Pie</span><span class="page-num">102</span></div>
+    <div class="index-entry"><span>Penne Primavera</span><span class="page-num">43</span></div>
+    <div class="index-entry"><span>Pepperoni Pizza Dip</span><span class="page-num">21</span></div>
+    <div class="index-entry"><span>Pesto Palmiers</span><span class="page-num">143</span></div>
+    <div class="index-entry"><span>Potato Leek Soup</span><span class="page-num">54</span></div>
+    <div class="index-entry"><span>Pumpkin Breakfast Casserole</span><span class="page-num">37</span></div>
+    <div class="index-entry"><span>Pumpkin Pie</span><span class="page-num">103</span></div>
+    <div class="index-entry"><span>Pumpkin Pudding</span><span class="page-num">144</span></div>
+    <div class="index-entry"><span>Pumpkin Spiced Latte</span><span class="page-num">91</span></div>
     <div class="index-letter">Q</div>
-    <div class="index-entry"><span>Quiche</span><span class="page-num">39</span></div>
+    <div class="index-entry"><span>Quiche</span><span class="page-num">37</span></div>
     <div class="index-letter">R</div>
-    <div class="index-entry"><span>Raspberry Prosecco Cocktail</span><span class="page-num">97</span></div>
-    <div class="index-entry"><span>Raspberry Prosecco Tulip</span><span class="page-num">91</span></div>
-    <div class="index-entry"><span>Roasted Pumpkin Seed Hummus</span><span class="page-num">23</span></div>
-    <div class="index-entry"><span>Roasted Red Pepper, Tomato & Smoked Gouda Bisque</span><span class="page-num">57</span></div>
+    <div class="index-entry"><span>Raspberry Prosecco Cocktail</span><span class="page-num">92</span></div>
+    <div class="index-entry"><span>Raspberry Prosecco Tulip</span><span class="page-num">86</span></div>
+    <div class="index-entry"><span>Roasted Pumpkin Seed Hummus</span><span class="page-num">22</span></div>
+    <div class="index-entry"><span>Roasted Red Pepper, Tomato & Smoked Gouda Bisque</span><span class="page-num">55</span></div>
     <div class="index-letter">S</div>
-    <div class="index-entry"><span>S'more Pie</span><span class="page-num">162</span></div>
-    <div class="index-entry"><span>Sage and Onion Stuffing</span><span class="page-num">163</span></div>
-    <div class="index-entry"><span>Salmon Tacos</span><span class="page-num">46</span></div>
-    <div class="index-entry"><span>Sangria</span><span class="page-num">98</span></div>
-    <div class="index-entry"><span>Sausage Quiche</span><span class="page-num">164</span></div>
-    <div class="index-entry"><span>Shrimp & Sausage Stew</span><span class="page-num">58</span></div>
-    <div class="index-entry"><span>Snickerdoodles</span><span class="page-num">165</span></div>
-    <div class="index-entry"><span>Spaghetti Salad</span><span class="page-num">69</span></div>
-    <div class="index-entry"><span>Spice Roasted Honeynut Squash & Chickpeas</span><span class="page-num">24</span></div>
-    <div class="index-entry"><span>Spinach Artichoke Dip</span><span class="page-num">25</span></div>
-    <div class="index-entry"><span>Spinach Artichoke Pasta</span><span class="page-num">26</span></div>
-    <div class="index-entry"><span>Stuffed Celery</span><span class="page-num">27</span></div>
-    <div class="index-entry"><span>Stuffed Mushrooms</span><span class="page-num">166</span></div>
-    <div class="index-entry"><span>Sweet Almond Crackers</span><span class="page-num">28</span></div>
-    <div class="index-entry"><span>Sweet Pepper Jalapeno Jam Suggestions</span><span class="page-num">29</span></div>
-    <div class="index-entry"><span>Sweet Potato Casserole</span><span class="page-num">116</span></div>
+    <div class="index-entry"><span>S'more Pie</span><span class="page-num">145</span></div>
+    <div class="index-entry"><span>Sage and Onion Stuffing</span><span class="page-num">146</span></div>
+    <div class="index-entry"><span>Salmon Tacos</span><span class="page-num">44</span></div>
+    <div class="index-entry"><span>Sangria</span><span class="page-num">93</span></div>
+    <div class="index-entry"><span>Sausage Quiche</span><span class="page-num">147</span></div>
+    <div class="index-entry"><span>Shrimp & Sausage Stew</span><span class="page-num">56</span></div>
+    <div class="index-entry"><span>Snickerdoodles</span><span class="page-num">148</span></div>
+    <div class="index-entry"><span>Spaghetti Salad</span><span class="page-num">65</span></div>
+    <div class="index-entry"><span>Spice Roasted Honeynut Squash & Chickpeas</span><span class="page-num">23</span></div>
+    <div class="index-entry"><span>Spinach Artichoke Dip</span><span class="page-num">24</span></div>
+    <div class="index-entry"><span>Spinach Artichoke Pasta</span><span class="page-num">25</span></div>
+    <div class="index-entry"><span>Stuffed Celery</span><span class="page-num">26</span></div>
+    <div class="index-entry"><span>Stuffed Mushrooms</span><span class="page-num">149</span></div>
+    <div class="index-entry"><span>Sweet Almond Crackers</span><span class="page-num">27</span></div>
+    <div class="index-entry"><span>Sweet Pepper Jalapeno Jam Suggestions</span><span class="page-num">28</span></div>
+    <div class="index-entry"><span>Sweet Potato Casserole</span><span class="page-num">103</span></div>
     <div class="index-letter">T</div>
-    <div class="index-entry"><span>Taffy Apple Salad</span><span class="page-num">117</span></div>
-    <div class="index-entry"><span>Texas Caviar</span><span class="page-num">30</span></div>
-    <div class="index-entry"><span>Thanksgiving Turkey Dressing</span><span class="page-num">118</span></div>
-    <div class="index-entry"><span>Thunder Cake</span><span class="page-num">83</span></div>
-    <div class="index-entry"><span>Tomato Relish</span><span class="page-num">167</span></div>
-    <div class="index-entry"><span>Twice Baked Sweet Potatoes with Ricotta Cheese</span><span class="page-num">75</span></div>
+    <div class="index-entry"><span>Taffy Apple Salad</span><span class="page-num">104</span></div>
+    <div class="index-entry"><span>Texas Caviar</span><span class="page-num">29</span></div>
+    <div class="index-entry"><span>Thanksgiving Turkey Dressing</span><span class="page-num">104</span></div>
+    <div class="index-entry"><span>Thunder Cake</span><span class="page-num">79</span></div>
+    <div class="index-entry"><span>Tomato Relish</span><span class="page-num">150</span></div>
+    <div class="index-entry"><span>Twice Baked Sweet Potatoes with Ricotta Cheese</span><span class="page-num">71</span></div>
     <div class="index-letter">U</div>
-    <div class="index-entry"><span>Upside Down Blueberry Dump Cake</span><span class="page-num">84</span></div>
-    <div class="index-entry"><span>Upside Down Pumpkin Cake</span><span class="page-num">85</span></div>
+    <div class="index-entry"><span>Upside Down Blueberry Dump Cake</span><span class="page-num">80</span></div>
+    <div class="index-entry"><span>Upside Down Pumpkin Cake</span><span class="page-num">81</span></div>
     <div class="index-letter">V</div>
-    <div class="index-entry"><span>Veggie Quesadillas</span><span class="page-num">47</span></div>
+    <div class="index-entry"><span>Veggie Quesadillas</span><span class="page-num">45</span></div>
     <div class="index-letter">W</div>
-    <div class="index-entry"><span>Waffles</span><span class="page-num">40</span></div>
-    <div class="index-entry"><span>White Bean Soup with Greens & Turkey</span><span class="page-num">59</span></div>
-    <div class="index-entry"><span>White Hot Chocolate</span><span class="page-num">99</span></div>
-    <div class="index-entry"><span>Witch's Hat Cookies</span><span class="page-num">168</span></div>
+    <div class="index-entry"><span>Waffles</span><span class="page-num">38</span></div>
+    <div class="index-entry"><span>White Bean Soup with Greens & Turkey</span><span class="page-num">57</span></div>
+    <div class="index-entry"><span>White Hot Chocolate</span><span class="page-num">94</span></div>
+    <div class="index-entry"><span>Witch's Hat Cookies</span><span class="page-num">151</span></div>
     <div class="index-letter">Z</div>
-    <div class="index-entry"><span>Zucchini & Corn Skillet</span><span class="page-num">76</span></div>
-    <div class="index-entry"><span>Zucchini Lasagna</span><span class="page-num">169</span></div>
+    <div class="index-entry"><span>Zucchini & Corn Skillet</span><span class="page-num">72</span></div>
+    <div class="index-entry"><span>Zucchini Lasagna</span><span class="page-num">152</span></div>
   </div>
 </div>
 

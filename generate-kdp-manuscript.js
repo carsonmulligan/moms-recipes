@@ -73,26 +73,11 @@ function generateHTML() {
   <title>Dr. Lesa Mulligan's Cookbook</title>
   <style>
     @page {
-      size: 8.5in 11in;
-      margin: 0.6in 0.5in 0.6in 0.6in;
-      @bottom-center {
-        content: counter(page);
-        font-family: Georgia, serif;
-        font-size: 10pt;
-        color: #8b4513;
-      }
+      size: 8.25in 11in;
+      margin: 0.75in 0.5in 0.75in 0.875in;
     }
 
     @page:first {
-      @bottom-center {
-        content: none;
-      }
-    }
-
-    @page title-pages {
-      @bottom-center {
-        content: none;
-      }
     }
 
     * {
@@ -101,13 +86,20 @@ function generateHTML() {
 
     body {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 10pt;
-      line-height: 1.3;
+      font-size: 9.5pt;
+      line-height: 1.25;
       color: #333;
-      max-width: 7.5in;
+      max-width: 7in;
       margin: 0 auto;
-      padding: 10px;
-      counter-reset: page;
+      padding: 0;
+    }
+
+    /* Page number in footer */
+    .page-number {
+      text-align: center;
+      font-size: 10pt;
+      color: #8b4513;
+      margin-top: 10px;
     }
 
     /* Title Page */
@@ -225,119 +217,181 @@ function generateHTML() {
       margin-top: 20px;
     }
 
-    /* Recipe - 2-column layout on each page */
-    .recipe {
+    /* Recipe page - contains 1 or 2 recipes */
+    .recipe-page {
       page-break-before: always;
       page-break-inside: avoid;
-      display: flex;
-      gap: 0.3in;
       min-height: 9in;
     }
 
-    .recipe:first-of-type {
+    .recipe-page:first-of-type {
       page-break-before: avoid;
     }
 
-    .recipe-left {
-      flex: 0 0 3.2in;
+    /* Single recipe - full page with 2-column layout */
+    .recipe-full {
+      display: flex;
+      gap: 0.2in;
+      min-height: 8.5in;
+      padding-bottom: 0.25in;
+    }
+
+    .recipe-full .recipe-left {
+      flex: 0 0 2.8in;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .recipe-right {
+    .recipe-full .recipe-right {
       flex: 1;
-      padding-top: 0.1in;
+    }
+
+    /* Half-page recipe for 2-per-page layout */
+    .recipe-half {
+      display: flex;
+      gap: 0.15in;
+      height: 4.4in;
+      padding-bottom: 0.15in;
+      border-bottom: 1px solid #d4a574;
+      margin-bottom: 0.15in;
+    }
+
+    .recipe-half:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .recipe-half .recipe-left {
+      flex: 0 0 2in;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .recipe-half .recipe-right {
+      flex: 1;
+    }
+
+    .recipe-half .recipe-images img {
+      max-width: 1.9in;
+      max-height: 2.8in;
+    }
+
+    .recipe-half .recipe-title {
+      font-size: 13pt;
+    }
+
+    .recipe-half h4 {
+      font-size: 9pt;
+      margin: 6px 0 3px 0;
+    }
+
+    .recipe-half li {
+      font-size: 8.5pt;
+      margin: 1px 0;
+    }
+
+    .recipe-half p {
+      font-size: 8.5pt;
     }
 
     .recipe-title {
-      font-size: 18pt;
+      font-size: 16pt;
       color: #8b4513;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       font-weight: bold;
       border-bottom: 2px solid #d4a574;
-      padding-bottom: 5px;
+      padding-bottom: 3px;
     }
 
     .recipe-meta {
-      font-size: 9pt;
+      font-size: 8pt;
       color: #666;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       font-style: italic;
     }
 
-    .recipe h4 {
-      font-size: 11pt;
+    .recipe-full h4, .recipe-half h4 {
       color: #a0522d;
-      margin: 10px 0 5px 0;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
-    .recipe ul {
-      margin: 0 0 10px 0;
-      padding-left: 18px;
+    .recipe-full h4 {
+      font-size: 10pt;
+      margin: 8px 0 4px 0;
     }
 
-    .recipe li {
+    .recipe-full ul, .recipe-half ul {
+      margin: 0 0 6px 0;
+      padding-left: 15px;
+    }
+
+    .recipe-full li {
+      margin: 1px 0;
+      font-size: 9pt;
+    }
+
+    .recipe-full ol, .recipe-half ol {
+      margin: 0 0 6px 0;
+      padding-left: 15px;
+    }
+
+    .recipe-full ol li {
       margin: 2px 0;
-      font-size: 9.5pt;
+      font-size: 9pt;
     }
 
-    .recipe ol {
-      margin: 0 0 10px 0;
-      padding-left: 18px;
+    .recipe-half ol li {
+      margin: 1px 0;
+      font-size: 8.5pt;
     }
 
-    .recipe ol li {
-      margin: 3px 0;
-      font-size: 9.5pt;
-    }
-
-    .recipe p {
-      margin: 0 0 8px 0;
+    .recipe-full p {
+      margin: 0 0 6px 0;
       text-align: justify;
-      font-size: 9.5pt;
+      font-size: 9pt;
     }
 
     .suggestions {
       background: #faf5f0;
-      padding: 8px 12px;
-      border-left: 3px solid #d4a574;
-      margin: 8px 0;
-      font-size: 9pt;
+      padding: 5px 8px;
+      border-left: 2px solid #d4a574;
+      margin: 5px 0;
+      font-size: 8pt;
     }
 
     .suggestions h4 {
       margin-top: 0;
-      font-size: 10pt;
+      font-size: 9pt;
     }
 
-    /* Recipe Images - left column */
+    /* Recipe Images */
     .recipe-images {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-top: 10px;
+      gap: 5px;
+      margin-top: 5px;
     }
 
-    .recipe-images img {
-      max-width: 3in;
-      max-height: 3.8in;
+    .recipe-full .recipe-images img {
+      max-width: 2.6in;
+      max-height: 3.2in;
       border: 1px solid #d4a574;
-      border-radius: 4px;
+      border-radius: 3px;
     }
 
-    .recipe-images.two-images img {
-      max-height: 3.5in;
+    .recipe-full .recipe-images.two-images img {
+      max-height: 2.8in;
     }
 
     .recipe-images-caption {
-      font-size: 8pt;
+      font-size: 7pt;
       color: #888;
       text-align: center;
       font-style: italic;
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
     /* Index */
@@ -438,33 +492,78 @@ function generateHTML() {
   <h2>Table of Contents</h2>
 `;
 
-  // Calculate page numbers
-  // Front matter: Title (1), Copyright (2), Dedication (3), TOC starts at 4
-  // TOC takes approximately 4 pages for 150 recipes
-  // Recipes start after TOC
+  // Helper function to check if recipe can fit on half page
+  function canFitHalfPage(recipe) {
+    const imageData = recipeImageMap[recipe.title];
+    const hasMultipleImages = imageData && imageData.images && imageData.images.length >= 2;
 
+    // Count ingredients (handle both array and nested object)
+    let ingredientCount = 0;
+    if (Array.isArray(recipe.ingredients)) {
+      ingredientCount = recipe.ingredients.length;
+    } else if (typeof recipe.ingredients === 'object' && recipe.ingredients) {
+      for (const items of Object.values(recipe.ingredients)) {
+        if (Array.isArray(items)) ingredientCount += items.length;
+      }
+    }
+
+    // Count instructions (handle both array, string, and nested object)
+    let instructionLength = 0;
+    if (Array.isArray(recipe.instructions)) {
+      instructionLength = recipe.instructions.length;
+    } else if (typeof recipe.instructions === 'string') {
+      instructionLength = recipe.instructions.length; // character count for strings
+    } else if (typeof recipe.instructions === 'object' && recipe.instructions) {
+      for (const steps of Object.values(recipe.instructions)) {
+        if (Array.isArray(steps)) instructionLength += steps.length;
+      }
+    }
+
+    const hasSuggestions = recipe.suggestions && recipe.suggestions.length > 0;
+
+    // Full page if: 2+ images, many ingredients, long instructions, or has suggestions
+    if (hasMultipleImages) return false;
+    if (ingredientCount > 12) return false;
+    if (Array.isArray(recipe.instructions) && instructionLength > 8) return false;
+    if (typeof recipe.instructions === 'string' && instructionLength > 400) return false;
+    if (typeof recipe.instructions === 'object' && !Array.isArray(recipe.instructions) && instructionLength > 6) return false;
+    if (hasSuggestions && recipe.suggestions.length > 4) return false;
+
+    return true;
+  }
+
+  // Calculate page numbers with 2-per-page support
   const tocData = [];
   const categoryPages = {};
 
-  // Calculate starting page for recipes (after front matter + TOC)
   // Front matter = 3 pages, TOC = ~4 pages = start at page 8
   let currentPage = 8;
 
-  // First pass: calculate all page numbers
+  // First pass: calculate all page numbers considering 2-per-page
   for (const category of categoryOrder) {
     const categoryData = manuscript.categories[category];
     if (categoryData && categoryData.recipes && categoryData.recipes.length > 0) {
-      // Chapter divider page
       categoryPages[category] = currentPage;
       currentPage++; // chapter divider takes 1 page
 
-      for (const recipe of categoryData.recipes) {
-        tocData.push({
-          title: recipe.title,
-          category: category,
-          page: currentPage
-        });
-        currentPage++; // each recipe gets its own page
+      const recipes = categoryData.recipes;
+      let i = 0;
+      while (i < recipes.length) {
+        const recipe1 = recipes[i];
+        const recipe2 = recipes[i + 1];
+
+        // Check if we can pair two recipes on one page
+        if (recipe2 && canFitHalfPage(recipe1) && canFitHalfPage(recipe2)) {
+          // Both recipes on same page
+          tocData.push({ title: recipe1.title, category: category, page: currentPage, half: true });
+          tocData.push({ title: recipe2.title, category: category, page: currentPage, half: true });
+          i += 2;
+        } else {
+          // Single recipe on full page
+          tocData.push({ title: recipe1.title, category: category, page: currentPage, half: false });
+          i += 1;
+        }
+        currentPage++;
       }
     }
   }
@@ -484,7 +583,7 @@ function generateHTML() {
 
   html += `</div>\n\n`;
 
-  // Generate chapters with recipes
+  // Generate chapters with recipes (2 per page when possible)
   for (const category of categoryOrder) {
     const categoryData = manuscript.categories[category];
     if (categoryData && categoryData.recipes && categoryData.recipes.length > 0) {
@@ -495,9 +594,27 @@ function generateHTML() {
       html += `  <div class="count">${categoryData.recipes.length} Recipes</div>\n`;
       html += `</div>\n\n`;
 
-      // Recipes
-      for (const recipe of categoryData.recipes) {
-        html += generateRecipeHTML(recipe);
+      // Recipes - pair them when possible
+      const recipes = categoryData.recipes;
+      let i = 0;
+      while (i < recipes.length) {
+        const recipe1 = recipes[i];
+        const recipe2 = recipes[i + 1];
+
+        if (recipe2 && canFitHalfPage(recipe1) && canFitHalfPage(recipe2)) {
+          // Two recipes on one page
+          html += `<div class="recipe-page">\n`;
+          html += generateRecipeHTML(recipe1, true);
+          html += generateRecipeHTML(recipe2, true);
+          html += `</div>\n\n`;
+          i += 2;
+        } else {
+          // Single recipe on full page
+          html += `<div class="recipe-page">\n`;
+          html += generateRecipeHTML(recipe1, false);
+          html += `</div>\n\n`;
+          i += 1;
+        }
       }
     }
   }
@@ -546,8 +663,9 @@ function generateHTML() {
   return html;
 }
 
-function generateRecipeHTML(recipe) {
-  let html = `<div class="recipe">\n`;
+function generateRecipeHTML(recipe, isHalf = false) {
+  const recipeClass = isHalf ? 'recipe-half' : 'recipe-full';
+  let html = `<div class="${recipeClass}">\n`;
 
   // LEFT COLUMN - Images
   html += `  <div class="recipe-left">\n`;
@@ -555,8 +673,9 @@ function generateRecipeHTML(recipe) {
   // Recipe card images
   const imageData = recipeImageMap[recipe.title];
   if (imageData && imageData.images.length > 0) {
-    // Filter out images with "two fingers" indicator (third image in sequence) - keep only first 2
-    const displayImages = imageData.images.slice(0, 2);
+    // For half-page, only show first image; for full page, show up to 2
+    const maxImages = isHalf ? 1 : 2;
+    const displayImages = imageData.images.slice(0, maxImages);
     const twoImagesClass = displayImages.length === 2 ? ' two-images' : '';
     html += `    <div class="recipe-images${twoImagesClass}">\n`;
     for (const img of displayImages) {
@@ -564,10 +683,12 @@ function generateRecipeHTML(recipe) {
       html += `      <img src="${imgPath}" alt="Original recipe card">\n`;
     }
     html += `    </div>\n`;
-    html += `    <p class="recipe-images-caption">Original recipe card</p>\n`;
-  } else {
-    // Placeholder for recipes without images
-    html += `    <div style="width: 3in; height: 4in; border: 2px dashed #d4a574; display: flex; align-items: center; justify-content: center; color: #888; font-style: italic; text-align: center; border-radius: 8px;">Recipe Card<br>Image</div>\n`;
+    if (!isHalf) {
+      html += `    <p class="recipe-images-caption">Original recipe card</p>\n`;
+    }
+  } else if (!isHalf) {
+    // Placeholder only for full-page recipes without images
+    html += `    <div style="width: 2.5in; height: 3in; border: 2px dashed #d4a574; display: flex; align-items: center; justify-content: center; color: #888; font-style: italic; text-align: center; border-radius: 8px; font-size: 9pt;">Recipe Card<br>Image</div>\n`;
   }
 
   html += `  </div>\n`;
@@ -591,27 +712,59 @@ function generateRecipeHTML(recipe) {
     html += `    <div class="recipe-meta">${meta.join(' | ')}</div>\n`;
   }
 
-  // Ingredients
-  if (recipe.ingredients && recipe.ingredients.length > 0) {
-    html += `    <h4>Ingredients</h4>\n`;
-    html += `    <ul>\n`;
-    for (const ingredient of recipe.ingredients) {
-      html += `      <li>${ingredient}</li>\n`;
+  // Ingredients - handle both array and object (nested) formats
+  if (recipe.ingredients) {
+    if (Array.isArray(recipe.ingredients) && recipe.ingredients.length > 0) {
+      // Simple array format
+      html += `    <h4>Ingredients</h4>\n`;
+      html += `    <ul>\n`;
+      for (const ingredient of recipe.ingredients) {
+        html += `      <li>${ingredient}</li>\n`;
+      }
+      html += `    </ul>\n`;
+    } else if (typeof recipe.ingredients === 'object' && !Array.isArray(recipe.ingredients)) {
+      // Nested object format (e.g., {soup: [...], toppings: [...]})
+      html += `    <h4>Ingredients</h4>\n`;
+      for (const [section, items] of Object.entries(recipe.ingredients)) {
+        if (Array.isArray(items) && items.length > 0) {
+          const sectionName = section.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+          html += `    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">${sectionName}:</p>\n`;
+          html += `    <ul style="margin-top: 0;">\n`;
+          for (const ingredient of items) {
+            html += `      <li>${ingredient}</li>\n`;
+          }
+          html += `    </ul>\n`;
+        }
+      }
     }
-    html += `    </ul>\n`;
   }
 
-  // Instructions
+  // Instructions - handle both array, string, and object (nested) formats
   if (recipe.instructions) {
     html += `    <h4>Instructions</h4>\n`;
     if (Array.isArray(recipe.instructions) && recipe.instructions.length > 0) {
+      // Simple array format
       html += `    <ol>\n`;
       for (const step of recipe.instructions) {
         html += `      <li>${step}</li>\n`;
       }
       html += `    </ol>\n`;
     } else if (typeof recipe.instructions === 'string' && recipe.instructions.trim()) {
+      // Simple string format
       html += `    <p>${recipe.instructions}</p>\n`;
+    } else if (typeof recipe.instructions === 'object' && !Array.isArray(recipe.instructions)) {
+      // Nested object format (e.g., {tortilla_strips: [...], soup: [...]})
+      for (const [section, steps] of Object.entries(recipe.instructions)) {
+        if (Array.isArray(steps) && steps.length > 0) {
+          const sectionName = section.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+          html += `    <p style="font-size: 8pt; color: #666; margin: 4px 0 2px 0; font-style: italic;">${sectionName}:</p>\n`;
+          html += `    <ol style="margin-top: 0;">\n`;
+          for (const step of steps) {
+            html += `      <li>${step}</li>\n`;
+          }
+          html += `    </ol>\n`;
+        }
+      }
     }
   }
 
@@ -681,7 +834,7 @@ Next Steps:
 4. Upload the PDF to KDP
 
 Specifications:
-- Trim Size: 8.5" x 11" (US Letter)
+- Trim Size: 8.25" x 11" (KDP large format)
 - Layout: 2-column (image left, recipe right)
 - Color: Premium color (for photos)
 - Paper: 70# white
