@@ -1,0 +1,22 @@
+{
+  "title": "Bread Pudding with Vanilla Sauce",
+  "source_images": ["IMG_7285.jpg", "IMG_7286.jpg"],
+  "pudding_ingredients": [
+    "1 loaf French bread, cubed (about 10 cups)",
+    "4 c milk",
+    "4 eggs",
+    "2 c sugar",
+    "2 Tbsp vanilla extract",
+    "1 c raisins (optional)",
+    "3 Tbsp butter, melted"
+  ],
+  "sauce_ingredients": [
+    "1 c sugar",
+    "1/2 c butter",
+    "1 egg, beaten",
+    "2 Tbsp vanilla extract",
+    "1/4 c bourbon (optional)"
+  ],
+  "oven_temp": "350°",
+  "instructions": "Soak bread in milk for 1 hour. Preheat oven to 350°. Beat eggs, sugar, and vanilla. Stir into bread mixture. Add raisins if using. Pour melted butter into 9x13 pan. Add bread mixture. Bake 45-50 minutes until set. For sauce: Cream sugar and butter. Cook in double boiler, stirring constantly. Remove from heat. Whisk in beaten egg, vanilla, and bourbon. Serve warm over bread pudding."
+}

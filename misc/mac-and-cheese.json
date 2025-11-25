@@ -1,0 +1,17 @@
+{
+  "title": "Mac & Cheese",
+  "source_images": ["IMG_7257.jpg", "IMG_7258.jpg"],
+  "ingredients": [
+    "1 lb elbow macaroni",
+    "6 Tbsp butter",
+    "1/3 c all-purpose flour",
+    "3 c milk",
+    "1 lb sharp cheddar cheese, shredded",
+    "1/2 lb Velveeta cheese, cubed",
+    "1 tsp salt",
+    "1/2 tsp pepper",
+    "1/2 tsp dry mustard"
+  ],
+  "oven_temp": "350°",
+  "instructions": "Cook macaroni according to package directions. Drain. Melt butter in large saucepan over medium heat. Whisk in flour and cook 1 minute. Gradually whisk in milk. Cook, stirring constantly, until thickened. Remove from heat. Add cheeses, salt, pepper, and mustard. Stir until melted. Add macaroni and mix well. Pour into greased 9x13 baking dish. Bake 30 minutes until bubbly."
+}

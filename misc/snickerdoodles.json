@@ -1,0 +1,21 @@
+{
+  "title": "Snickerdoodles",
+  "source_images": ["IMG_7263.jpg", "IMG_7264.jpg"],
+  "yields": "4 dozen cookies",
+  "cookie_ingredients": [
+    "2 3/4 c all-purpose flour",
+    "2 tsp cream of tartar",
+    "1 tsp baking soda",
+    "1/2 tsp salt",
+    "1 c butter, softened",
+    "1 1/2 c sugar",
+    "2 eggs",
+    "1 tsp vanilla"
+  ],
+  "coating": [
+    "3 Tbsp sugar",
+    "3 tsp cinnamon"
+  ],
+  "oven_temp": "400°",
+  "instructions": "Preheat oven to 400°. Combine flour, cream of tartar, baking soda, and salt. Beat butter and sugar until fluffy. Add eggs and vanilla. Gradually add flour mixture. Mix coating ingredients in small bowl. Roll dough into 1-inch balls and roll in cinnamon-sugar mixture. Place 2 inches apart on ungreased cookie sheet. Bake 8-10 minutes until edges are set but centers are still soft."
+}
