@@ -73,8 +73,8 @@ function generateHTML() {
   <title>Dr. Lesa Mulligan's Cookbook</title>
   <style>
     @page {
-      size: 8in 10in;
-      margin: 0.75in 0.5in 0.6in 0.75in;
+      size: 8.5in 11in;
+      margin: 0.6in 0.5in 0.6in 0.6in;
       @bottom-center {
         content: counter(page);
         font-family: Georgia, serif;
@@ -101,12 +101,12 @@ function generateHTML() {
 
     body {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 11pt;
-      line-height: 1.4;
+      font-size: 10pt;
+      line-height: 1.3;
       color: #333;
-      max-width: 7in;
+      max-width: 7.5in;
       margin: 0 auto;
-      padding: 20px;
+      padding: 10px;
       counter-reset: page;
     }
 
@@ -225,101 +225,119 @@ function generateHTML() {
       margin-top: 20px;
     }
 
-    /* Recipe - each on its own page */
+    /* Recipe - 2-column layout on each page */
     .recipe {
       page-break-before: always;
       page-break-inside: avoid;
-      padding-top: 0.25in;
+      display: flex;
+      gap: 0.3in;
+      min-height: 9in;
     }
 
     .recipe:first-of-type {
       page-break-before: avoid;
     }
 
+    .recipe-left {
+      flex: 0 0 3.2in;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .recipe-right {
+      flex: 1;
+      padding-top: 0.1in;
+    }
+
     .recipe-title {
-      font-size: 16pt;
+      font-size: 18pt;
       color: #8b4513;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-weight: bold;
+      border-bottom: 2px solid #d4a574;
+      padding-bottom: 5px;
     }
 
     .recipe-meta {
-      font-size: 10pt;
-      color: #888;
-      margin-bottom: 12px;
+      font-size: 9pt;
+      color: #666;
+      margin-bottom: 10px;
       font-style: italic;
     }
 
     .recipe h4 {
-      font-size: 12pt;
+      font-size: 11pt;
       color: #a0522d;
-      margin: 15px 0 8px 0;
+      margin: 10px 0 5px 0;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
     .recipe ul {
-      margin: 0 0 15px 0;
-      padding-left: 25px;
+      margin: 0 0 10px 0;
+      padding-left: 18px;
     }
 
     .recipe li {
-      margin: 4px 0;
+      margin: 2px 0;
+      font-size: 9.5pt;
     }
 
     .recipe ol {
-      margin: 0 0 15px 0;
-      padding-left: 25px;
+      margin: 0 0 10px 0;
+      padding-left: 18px;
     }
 
     .recipe ol li {
-      margin: 6px 0;
+      margin: 3px 0;
+      font-size: 9.5pt;
     }
 
     .recipe p {
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
       text-align: justify;
+      font-size: 9.5pt;
     }
 
     .suggestions {
       background: #faf5f0;
-      padding: 10px 15px;
+      padding: 8px 12px;
       border-left: 3px solid #d4a574;
-      margin: 10px 0;
+      margin: 8px 0;
+      font-size: 9pt;
     }
 
     .suggestions h4 {
       margin-top: 0;
+      font-size: 10pt;
     }
 
-    /* Recipe Images */
+    /* Recipe Images - left column */
     .recipe-images {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 15px 0;
-      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
     }
 
     .recipe-images img {
       max-width: 3in;
-      max-height: 4in;
+      max-height: 3.8in;
       border: 1px solid #d4a574;
       border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    .recipe-images.single img {
-      max-width: 5in;
-      max-height: 5in;
+    .recipe-images.two-images img {
+      max-height: 3.5in;
     }
 
     .recipe-images-caption {
-      font-size: 9pt;
+      font-size: 8pt;
       color: #888;
       text-align: center;
       font-style: italic;
-      margin-top: 5px;
+      margin-top: 3px;
     }
 
     /* Index */
@@ -530,7 +548,34 @@ function generateHTML() {
 
 function generateRecipeHTML(recipe) {
   let html = `<div class="recipe">\n`;
-  html += `  <div class="recipe-title">${recipe.title}</div>\n`;
+
+  // LEFT COLUMN - Images
+  html += `  <div class="recipe-left">\n`;
+
+  // Recipe card images
+  const imageData = recipeImageMap[recipe.title];
+  if (imageData && imageData.images.length > 0) {
+    // Filter out images with "two fingers" indicator (third image in sequence) - keep only first 2
+    const displayImages = imageData.images.slice(0, 2);
+    const twoImagesClass = displayImages.length === 2 ? ' two-images' : '';
+    html += `    <div class="recipe-images${twoImagesClass}">\n`;
+    for (const img of displayImages) {
+      const imgPath = path.join(imageData.dir, img);
+      html += `      <img src="${imgPath}" alt="Original recipe card">\n`;
+    }
+    html += `    </div>\n`;
+    html += `    <p class="recipe-images-caption">Original recipe card</p>\n`;
+  } else {
+    // Placeholder for recipes without images
+    html += `    <div style="width: 3in; height: 4in; border: 2px dashed #d4a574; display: flex; align-items: center; justify-content: center; color: #888; font-style: italic; text-align: center; border-radius: 8px;">Recipe Card<br>Image</div>\n`;
+  }
+
+  html += `  </div>\n`;
+
+  // RIGHT COLUMN - Recipe content
+  html += `  <div class="recipe-right">\n`;
+
+  html += `    <div class="recipe-title">${recipe.title}</div>\n`;
 
   // Meta info
   const meta = [];
@@ -543,66 +588,52 @@ function generateRecipeHTML(recipe) {
   if (recipe.oven_temp) meta.push(`Oven: ${recipe.oven_temp}`);
 
   if (meta.length > 0) {
-    html += `  <div class="recipe-meta">${meta.join(' | ')}</div>\n`;
-  }
-
-  // Recipe card images
-  const imageData = recipeImageMap[recipe.title];
-  if (imageData && imageData.images.length > 0) {
-    // Filter out images with "two fingers" indicator (third image in sequence) - keep only first 2
-    const displayImages = imageData.images.slice(0, 2);
-    const singleClass = displayImages.length === 1 ? ' single' : '';
-    html += `  <div class="recipe-images${singleClass}">\n`;
-    for (const img of displayImages) {
-      const imgPath = path.join(imageData.dir, img);
-      html += `    <img src="${imgPath}" alt="Original recipe card">\n`;
-    }
-    html += `  </div>\n`;
-    html += `  <p class="recipe-images-caption">Original handwritten recipe card</p>\n`;
+    html += `    <div class="recipe-meta">${meta.join(' | ')}</div>\n`;
   }
 
   // Ingredients
   if (recipe.ingredients && recipe.ingredients.length > 0) {
-    html += `  <h4>Ingredients</h4>\n`;
-    html += `  <ul>\n`;
+    html += `    <h4>Ingredients</h4>\n`;
+    html += `    <ul>\n`;
     for (const ingredient of recipe.ingredients) {
-      html += `    <li>${ingredient}</li>\n`;
+      html += `      <li>${ingredient}</li>\n`;
     }
-    html += `  </ul>\n`;
+    html += `    </ul>\n`;
   }
 
   // Instructions
   if (recipe.instructions) {
-    html += `  <h4>Instructions</h4>\n`;
+    html += `    <h4>Instructions</h4>\n`;
     if (Array.isArray(recipe.instructions) && recipe.instructions.length > 0) {
-      html += `  <ol>\n`;
+      html += `    <ol>\n`;
       for (const step of recipe.instructions) {
-        html += `    <li>${step}</li>\n`;
+        html += `      <li>${step}</li>\n`;
       }
-      html += `  </ol>\n`;
+      html += `    </ol>\n`;
     } else if (typeof recipe.instructions === 'string' && recipe.instructions.trim()) {
-      html += `  <p>${recipe.instructions}</p>\n`;
+      html += `    <p>${recipe.instructions}</p>\n`;
     }
   }
 
   // Suggestions (for Tastefully Simple products)
   if (recipe.suggestions && recipe.suggestions.length > 0) {
-    html += `  <div class="suggestions">\n`;
-    html += `    <h4>Serving Suggestions</h4>\n`;
-    html += `    <ul>\n`;
+    html += `    <div class="suggestions">\n`;
+    html += `      <h4>Serving Suggestions</h4>\n`;
+    html += `      <ul>\n`;
     for (const suggestion of recipe.suggestions) {
-      html += `      <li>${suggestion}</li>\n`;
+      html += `        <li>${suggestion}</li>\n`;
     }
-    html += `    </ul>\n`;
-    html += `  </div>\n`;
+    html += `      </ul>\n`;
+    html += `    </div>\n`;
   }
 
   // Notes
   if (recipe.note) {
-    html += `  <p><em>Note: ${recipe.note}</em></p>\n`;
+    html += `    <p><em>Note: ${recipe.note}</em></p>\n`;
   }
 
-  html += `</div>\n\n`;
+  html += `  </div>\n`; // Close recipe-right
+  html += `</div>\n\n`; // Close recipe
   return html;
 }
 
@@ -650,8 +681,9 @@ Next Steps:
 4. Upload the PDF to KDP
 
 Specifications:
-- Trim Size: 8" x 10"
-- Color: Standard color
+- Trim Size: 8.5" x 11" (US Letter)
+- Layout: 2-column (image left, recipe right)
+- Color: Premium color (for photos)
 - Paper: 70# white
 - Binding: Hardcover (case laminate)
 
