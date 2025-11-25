@@ -1,0 +1,3278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dr. Lesa Mulligan's Cookbook</title>
+  <style>
+    @page {
+      size: 8in 10in;
+      margin: 0.75in 0.5in 0.5in 0.75in;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 11pt;
+      line-height: 1.4;
+      color: #333;
+      max-width: 7in;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Title Page */
+    .title-page {
+      page-break-after: always;
+      text-align: center;
+      padding-top: 3in;
+    }
+
+    .title-page h1 {
+      font-size: 36pt;
+      color: #8b4513;
+      margin-bottom: 0.5in;
+      font-weight: normal;
+    }
+
+    .title-page .subtitle {
+      font-size: 18pt;
+      color: #a0522d;
+      font-style: italic;
+      margin-bottom: 2in;
+    }
+
+    .title-page .author {
+      font-size: 16pt;
+      color: #666;
+    }
+
+    /* Copyright Page */
+    .copyright-page {
+      page-break-after: always;
+      font-size: 10pt;
+      padding-top: 4in;
+    }
+
+    /* Dedication */
+    .dedication-page {
+      page-break-after: always;
+      text-align: center;
+      padding-top: 3in;
+      font-style: italic;
+      font-size: 14pt;
+    }
+
+    /* Table of Contents */
+    .toc-page {
+      page-break-after: always;
+    }
+
+    .toc-page h2 {
+      text-align: center;
+      color: #8b4513;
+      font-size: 24pt;
+      margin-bottom: 0.5in;
+    }
+
+    .toc-category {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #8b4513;
+      margin-top: 20px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid #d4a574;
+      padding-bottom: 3px;
+    }
+
+    .toc-recipe {
+      font-size: 11pt;
+      margin-left: 20px;
+      line-height: 1.6;
+    }
+
+    /* Chapter Divider */
+    .chapter-divider {
+      page-break-before: always;
+      page-break-after: always;
+      text-align: center;
+      padding-top: 3in;
+    }
+
+    .chapter-divider h2 {
+      font-size: 32pt;
+      color: #8b4513;
+      font-weight: normal;
+      border-bottom: 3px double #d4a574;
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+
+    .chapter-divider .count {
+      font-size: 14pt;
+      color: #888;
+      margin-top: 20px;
+    }
+
+    /* Recipe */
+    .recipe {
+      page-break-inside: avoid;
+      margin-bottom: 0.5in;
+      padding-bottom: 0.3in;
+      border-bottom: 1px solid #eee;
+    }
+
+    .recipe:last-child {
+      border-bottom: none;
+    }
+
+    .recipe-title {
+      font-size: 16pt;
+      color: #8b4513;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .recipe-meta {
+      font-size: 10pt;
+      color: #888;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .recipe h4 {
+      font-size: 12pt;
+      color: #a0522d;
+      margin: 15px 0 8px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .recipe ul {
+      margin: 0 0 15px 0;
+      padding-left: 25px;
+    }
+
+    .recipe li {
+      margin: 4px 0;
+    }
+
+    .recipe ol {
+      margin: 0 0 15px 0;
+      padding-left: 25px;
+    }
+
+    .recipe ol li {
+      margin: 6px 0;
+    }
+
+    .recipe p {
+      margin: 0 0 10px 0;
+      text-align: justify;
+    }
+
+    .suggestions {
+      background: #faf5f0;
+      padding: 10px 15px;
+      border-left: 3px solid #d4a574;
+      margin: 10px 0;
+    }
+
+    .suggestions h4 {
+      margin-top: 0;
+    }
+
+    /* Index */
+    .index-page {
+      page-break-before: always;
+    }
+
+    .index-page h2 {
+      text-align: center;
+      color: #8b4513;
+      font-size: 24pt;
+      margin-bottom: 0.5in;
+    }
+
+    .index-columns {
+      column-count: 2;
+      column-gap: 30px;
+    }
+
+    .index-letter {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #8b4513;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    .index-entry {
+      font-size: 10pt;
+      margin-left: 10px;
+      line-height: 1.5;
+    }
+
+    /* Notes Page */
+    .notes-page {
+      page-break-before: always;
+    }
+
+    .notes-page h2 {
+      text-align: center;
+      color: #8b4513;
+      font-size: 24pt;
+      margin-bottom: 0.5in;
+    }
+
+    .notes-lines {
+      border-bottom: 1px solid #ddd;
+      height: 35px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- TITLE PAGE -->
+<div class="title-page">
+  <h1>Dr. Lesa Mulligan's<br>Cookbook</h1>
+  <div class="subtitle">A Collection of 150 Family Recipes</div>
+  <div class="author">Compiled with love from handwritten recipe cards</div>
+</div>
+
+<!-- COPYRIGHT PAGE -->
+<div class="copyright-page">
+  <p><strong>Dr. Lesa Mulligan's Cookbook</strong></p>
+  <p>A Collection of 150 Family Recipes</p>
+  <br><br>
+  <p>Copyright © 2025</p>
+  <p>All rights reserved.</p>
+  <br><br>
+  <p>No part of this publication may be reproduced, distributed, or transmitted
+  in any form or by any means without the prior written permission of the publisher.</p>
+  <br><br>
+  <p>These recipes have been lovingly transcribed from handwritten recipe cards
+  collected over generations. Some recipes may have originated from friends,
+  family members, or other sources as noted.</p>
+  <br><br>
+  <p>First Edition</p>
+  <p>Printed in the United States of America</p>
+</div>
+
+<!-- DEDICATION PAGE -->
+<div class="dedication-page">
+  <p>Dedicated to all who gather around the table,<br>
+  share a meal, and create memories together.</p>
+  <br><br>
+  <p>"People who love to eat are always the best people."<br>
+  — Julia Child</p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc-page">
+  <h2>Table of Contents</h2>
+<div class="toc-category">Appetizers (22)</div>
+<div class="toc-recipe">Balsamic & Basil Dipping Oil Suggestions</div>
+<div class="toc-recipe">Bruschetta</div>
+<div class="toc-recipe">Cashew Crab Artichoke Dip</div>
+<div class="toc-recipe">Cheese Dip with Beer</div>
+<div class="toc-recipe">Cheese Dreams</div>
+<div class="toc-recipe">Cheese Fondue</div>
+<div class="toc-recipe">Cilantro & Olive Salsa Suggestions</div>
+<div class="toc-recipe">Cream Cheese Penguins</div>
+<div class="toc-recipe">Deviled Eggs</div>
+<div class="toc-recipe">Farmer's Medley Dip Suggestions</div>
+<div class="toc-recipe">Italian Dipping Oil</div>
+<div class="toc-recipe">Key Lime Cheese Ball Suggestions</div>
+<div class="toc-recipe">Pecan Cheese Ball</div>
+<div class="toc-recipe">Pepperoni Pizza Dip</div>
+<div class="toc-recipe">Roasted Pumpkin Seed Hummus</div>
+<div class="toc-recipe">Spice Roasted Honeynut Squash & Chickpeas</div>
+<div class="toc-recipe">Spinach Artichoke Dip</div>
+<div class="toc-recipe">Spinach Artichoke Pasta</div>
+<div class="toc-recipe">Stuffed Celery</div>
+<div class="toc-recipe">Sweet Almond Crackers</div>
+<div class="toc-recipe">Sweet Pepper Jalapeno Jam Suggestions</div>
+<div class="toc-recipe">Texas Caviar</div>
+<div class="toc-category">Breakfast (9)</div>
+<div class="toc-recipe">Cinnamon Cottage Cheese Pancakes</div>
+<div class="toc-recipe">Cinnamon Crunch Bagels</div>
+<div class="toc-recipe">Cinnamon Roll Cake</div>
+<div class="toc-recipe">Cinnamon Rolls (Puff Pastry)</div>
+<div class="toc-recipe">French Toast Bake</div>
+<div class="toc-recipe">Lemon Blueberry Scones</div>
+<div class="toc-recipe">Pumpkin Breakfast Casserole</div>
+<div class="toc-recipe">Quiche</div>
+<div class="toc-recipe">Waffles</div>
+<div class="toc-category">Entrees (6)</div>
+<div class="toc-recipe">Caprese Farfalle</div>
+<div class="toc-recipe">Giblet Gravy</div>
+<div class="toc-recipe">Nonna's Sauce</div>
+<div class="toc-recipe">Penne Primavera</div>
+<div class="toc-recipe">Salmon Tacos</div>
+<div class="toc-recipe">Veggie Quesadillas</div>
+<div class="toc-category">Soups (11)</div>
+<div class="toc-recipe">Baked Potato Soup</div>
+<div class="toc-recipe">Chicken & Rice Soup</div>
+<div class="toc-recipe">Chicken Noodle Soup</div>
+<div class="toc-recipe">Chicken Tortilla Soup</div>
+<div class="toc-recipe">Chili</div>
+<div class="toc-recipe">Egg Drop Soup</div>
+<div class="toc-recipe">Lentil Ham Soup</div>
+<div class="toc-recipe">Potato Leek Soup</div>
+<div class="toc-recipe">Roasted Red Pepper, Tomato & Smoked Gouda Bisque</div>
+<div class="toc-recipe">Shrimp & Sausage Stew</div>
+<div class="toc-recipe">White Bean Soup with Greens & Turkey</div>
+<div class="toc-category">Salads (9)</div>
+<div class="toc-recipe">Candy Bar Apple Salad</div>
+<div class="toc-recipe">Charred Corn & Chicken Cheese Salad</div>
+<div class="toc-recipe">Cucumber Mango Salad</div>
+<div class="toc-recipe">Cucumber Salad</div>
+<div class="toc-recipe">Egg Salad</div>
+<div class="toc-recipe">Lime Jello Salad</div>
+<div class="toc-recipe">Macaroni Salad</div>
+<div class="toc-recipe">Marinated Vegetable Salad</div>
+<div class="toc-recipe">Spaghetti Salad</div>
+<div class="toc-category">Vegetables & Sides (6)</div>
+<div class="toc-recipe">Baked Cheese Grits</div>
+<div class="toc-recipe">Black Eyed Peas</div>
+<div class="toc-recipe">Garlic Roasted Potato Wedges</div>
+<div class="toc-recipe">Green Beans & Cheese</div>
+<div class="toc-recipe">Twice Baked Sweet Potatoes with Ricotta Cheese</div>
+<div class="toc-recipe">Zucchini & Corn Skillet</div>
+<div class="toc-category">Breads (1)</div>
+<div class="toc-recipe">Bountiful Beer Bread Suggestions</div>
+<div class="toc-category">Cakes (6)</div>
+<div class="toc-recipe">Apple Dump Cake</div>
+<div class="toc-recipe">Chewy Gingerbread Cookies</div>
+<div class="toc-recipe">Hisae's Choc Cake</div>
+<div class="toc-recipe">Thunder Cake</div>
+<div class="toc-recipe">Upside Down Blueberry Dump Cake</div>
+<div class="toc-recipe">Upside Down Pumpkin Cake</div>
+<div class="toc-category">Desserts (5)</div>
+<div class="toc-recipe">Apple Pie</div>
+<div class="toc-recipe">Cinnamon Sugar Pie Crust Cookies</div>
+<div class="toc-recipe">Creamy Coconut Cake</div>
+<div class="toc-recipe">No Bake Cookies</div>
+<div class="toc-recipe">Raspberry Prosecco Tulip</div>
+<div class="toc-category">Drinks (7)</div>
+<div class="toc-recipe">Egg Nog Variations</div>
+<div class="toc-recipe">Egg Nogg</div>
+<div class="toc-recipe">Mango Breeze Margarita Mix</div>
+<div class="toc-recipe">Pumpkin Spiced Latte</div>
+<div class="toc-recipe">Raspberry Prosecco Cocktail</div>
+<div class="toc-recipe">Sangria</div>
+<div class="toc-recipe">White Hot Chocolate</div>
+<div class="toc-category">Thanksgiving (18)</div>
+<div class="toc-recipe">Buttermilk Chess Pie</div>
+<div class="toc-recipe">Caramel Apple Crumble Pie</div>
+<div class="toc-recipe">Caramels</div>
+<div class="toc-recipe">Corn Casserole</div>
+<div class="toc-recipe">Cranberry Salad</div>
+<div class="toc-recipe">Fruit Salad with Cannoli Cream</div>
+<div class="toc-recipe">Garlic Mashed Potatoes</div>
+<div class="toc-recipe">Green Beans Amandine</div>
+<div class="toc-recipe">Marinated Vegetable Salad</div>
+<div class="toc-recipe">No Bake Cookies</div>
+<div class="toc-recipe">Peanut Butter Ball</div>
+<div class="toc-recipe">Peanut Butter Ball</div>
+<div class="toc-recipe">Peanut Butter Balls</div>
+<div class="toc-recipe">Pecan Pie</div>
+<div class="toc-recipe">Pumpkin Pie</div>
+<div class="toc-recipe">Sweet Potato Casserole</div>
+<div class="toc-recipe">Taffy Apple Salad</div>
+<div class="toc-recipe">Thanksgiving Turkey Dressing</div>
+<div class="toc-category">Miscellaneous (50)</div>
+<div class="toc-recipe">Almond Tea Bread</div>
+<div class="toc-recipe">Baklava Palmiers with Chocolate Pecan</div>
+<div class="toc-recipe">Banana Cream Pretzel Pie</div>
+<div class="toc-recipe">Banana Pineapple Vanilla Pudding Pie</div>
+<div class="toc-recipe">Bourbon BBQ Pork Chops</div>
+<div class="toc-recipe">Bourbon Salted Caramel Brownies</div>
+<div class="toc-recipe">Bread Pudding with Vanilla Sauce</div>
+<div class="toc-recipe">Bruschetta</div>
+<div class="toc-recipe">Cabbage Ramen Salad</div>
+<div class="toc-recipe">Caprese Stuffed Chicken with Roasted Balsamic Veggies</div>
+<div class="toc-recipe">Chocolate Almond Macaroons</div>
+<div class="toc-recipe">Chocolate Cookies</div>
+<div class="toc-recipe">Chocolate Crackle Cookie</div>
+<div class="toc-recipe">Chocolate Cream Layered Dessert</div>
+<div class="toc-recipe">Chocolate Mice</div>
+<div class="toc-recipe">Cranberry Pecan Brie Cups</div>
+<div class="toc-recipe">Cream Cheese Pastry</div>
+<div class="toc-recipe">Creamy Parmesan Spinach Bake</div>
+<div class="toc-recipe">Cut Out Sugar Cookies with Royal Icing</div>
+<div class="toc-recipe">English Toffee</div>
+<div class="toc-recipe">Frosted Butter Cutout Cookies</div>
+<div class="toc-recipe">German Pancakes in the Oven</div>
+<div class="toc-recipe">Glazed Lemon Cookies</div>
+<div class="toc-recipe">Gooey Butter Cake</div>
+<div class="toc-recipe">Hedgehog Cookies</div>
+<div class="toc-recipe">Knox Blox</div>
+<div class="toc-recipe">Lemon Blueberry Dutch Baby</div>
+<div class="toc-recipe">Lemon Pecan Slab Pie</div>
+<div class="toc-recipe">Lime Pretzel Jello</div>
+<div class="toc-recipe">Mac & Cheese</div>
+<div class="toc-recipe">Meringue Cookies</div>
+<div class="toc-recipe">Mini Strawberry Santas</div>
+<div class="toc-recipe">Night Before Christmas Mice</div>
+<div class="toc-recipe">No Bake Chocolate Oatmeal Cookies</div>
+<div class="toc-recipe">Nutella Bread Pudding</div>
+<div class="toc-recipe">Nutella Christmas Tree</div>
+<div class="toc-recipe">Nutella Tart with Toasted Hazelnut Crust</div>
+<div class="toc-recipe">Palmiers (Sugar)</div>
+<div class="toc-recipe">Paula Deen's Banana Pudding</div>
+<div class="toc-recipe">Peach Crumble</div>
+<div class="toc-recipe">Pesto Palmiers</div>
+<div class="toc-recipe">Pumpkin Pudding</div>
+<div class="toc-recipe">S'more Pie</div>
+<div class="toc-recipe">Sage and Onion Stuffing</div>
+<div class="toc-recipe">Sausage Quiche</div>
+<div class="toc-recipe">Snickerdoodles</div>
+<div class="toc-recipe">Stuffed Mushrooms</div>
+<div class="toc-recipe">Tomato Relish</div>
+<div class="toc-recipe">Witch's Hat Cookies</div>
+<div class="toc-recipe">Zucchini Lasagna</div>
+</div>
+
+<!-- APPETIZERS CHAPTER -->
+<div class="chapter-divider">
+  <h2>Appetizers</h2>
+  <div class="count">22 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Balsamic & Basil Dipping Oil Suggestions</div>
+  <h4>Instructions</h4>
+  <div class="suggestions">
+    <h4>Serving Suggestions</h4>
+    <ul>
+      <li>Arrange alternating slices of fresh tomato and mozzarella cheese on a platter; drizzle with dipping oil and garnish with fresh basil leaves. Serve with crusty French bread</li>
+      <li>Brush on grilled cheese sandwiches before grilling</li>
+      <li>Brush on slices of Bountiful Beer Bread; broil until toasted. Top with chopped tomatoes; drizzle with additional oil</li>
+      <li>Drizzle on submarine sandwiches</li>
+      <li>Saute cubed chicken breast in Balsamic & Basil Dipping Oil. Add fresh diced tomatoes and hot cooked pasta; drizzle with additional oil. Heat through. Serve topped with grated cheese</li>
+      <li>For pasta salad, toss 7-9 oz prepared cheese tortellini with 1/2 cup dipping oil; add 1 diced tomato, 2 Tbsp sliced olives and 1/4 cup minced red onion</li>
+    </ul>
+  </div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Bruschetta</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2-3 medium ripe tomatoes, coarsely chopped</li>
+    <li>4 Tbsp olive oil, divided</li>
+    <li>Sliced Tuscan bread</li>
+    <li>2 cloves garlic, halved</li>
+    <li>Sea salt</li>
+    <li>Coarsely chopped fresh basil</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Combine tomatoes and half of the olive oil in bowl and toss.</li>
+    <li>Marinate for 10 mins at room temp.</li>
+    <li>Toast the bread slices.</li>
+    <li>Gently rub the toasted bread with the cut end of raw garlic cloves.</li>
+    <li>Top each slice with tomatoes.</li>
+    <li>Sprinkle with salt and chopped basil, drizzle remaining olive oil.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cashew Crab Artichoke Dip</div>
+  <div class="recipe-meta">Prep: 10 minutes | Cook: 25 minutes | Yields: 4 cups</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 red bell pepper, chopped</li>
+    <li>3 green onions, sliced</li>
+    <li>2 fresh jalapeno peppers, diced (about 2 tbsp)</li>
+    <li>2 tsp olive oil</li>
+    <li>2 cans (6 oz) lump crabmeat, drained & picked through</li>
+    <li>1 can (14 oz) artichoke hearts, drained & chopped</li>
+    <li>1 cup regular or low fat mayonnaise</li>
+    <li>1/2 cup grated Parmesan cheese</li>
+    <li>1/2 cup Planters Cashew Halves</li>
+    <li>Assorted Nabisco Crackers</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>In skillet, cook and stir pepper, green onions, and jalapenos in oil until tender. Mix crabmeat, artichokes, mayonnaise and cheese; stir in pepper mixture. Spoon into a greased 1-quart casserole; top with cashew halves. Bake at 375°F for 25 to 30 minutes or until bubbly. Serve warm as a dip with assorted Nabisco crackers.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cheese Dip with Beer</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>8 oz shredded cheddar cheese</li>
+    <li>8 oz shredded mozzarella cheese</li>
+    <li>8 oz cream cheese, softened</li>
+    <li>1 cup beer</li>
+    <li>1 tsp garlic salt</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Melt the cream cheese in large saucepan over medium heat; stir in cheddar cheese, mozzarella cheese, beer, & garlic salt; heat, stirring continually, until all the cheese is melted.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cheese Dreams</div>
+  <div class="recipe-meta">Oven: 375°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 cups finely grated sharp cheddar cheese</li>
+    <li>1 cup butter, softened</li>
+    <li>2 Tbsp heavy cream</li>
+    <li>1 large egg</li>
+    <li>1 tsp Worcestershire sauce</li>
+    <li>1/2 tsp table salt</li>
+    <li>1/2 tsp dry mustard</li>
+    <li>ground red pepper or hot sauce to taste</li>
+    <li>1 (16oz) pkg firm white sandwich bread slices</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 375°. Beat cheese & butter until blended. Beat in cream & next 5 ingredients. Cut crusts from bread slices; cut each bread slice into 4 squares. Spread cheese mixture on half of bread squares (about 1 tsp per square); top each with 1 remaining square. Spread remaining cheese mixture over top & sides of sandwiches. Place sandwiches 1 inch apart, on a lightly greased baking sheet. Bake at 375° for 15 min or until golden brown.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cheese Fondue</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 c dry white wine</li>
+    <li>1/2 pound shredded Swiss cheese</li>
+    <li>1/2 pound shredded Gruyere cheese</li>
+    <li>2 Tbsp all purpose flour</li>
+    <li>1/4 tsp salt</li>
+    <li>1/4 tsp ground nutmeg</li>
+    <li>1 (1 lb) loaf French bread</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Simmer wine in fondue pot. Add Swiss & Gruyere cheese, 1/4 pound at a time. Stir after each addition of cheese until melted. Stir in flour. When all the cheese has melted, stir in salt & nutmeg. Serve with cut-up French bread.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cilantro & Olive Salsa Suggestions</div>
+  <h4>Instructions</h4>
+  <div class="suggestions">
+    <h4>Serving Suggestions</h4>
+    <ul>
+      <li>Spoon over enchiladas</li>
+      <li>Excellent with Blue Aztec Chips</li>
+      <li>Spoon warmed salsa over hot pasta or rice</li>
+      <li>Stir into macaroni and cheese or Alfredo sauce</li>
+      <li>Excellent on omelets or scrambled eggs</li>
+      <li>For creamy dip, stir in sour cream to taste</li>
+      <li>Make it spicier with a sprinkle of Fiesta Party Dip Mix</li>
+      <li>Excellent served with Mango Breeze Margaritas or Samba Sangria Slush</li>
+    </ul>
+  </div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cream Cheese Penguins</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>18 jumbo black olives, pitted</li>
+    <li>1 8oz pkg cream cheese, softened</li>
+    <li>18 small black olives</li>
+    <li>1 carrot</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Cut a slit from top to bottom, lengthwise, into the side of each jumbo olive. Carefully insert about 1 tsp cream cheese into each olive. Slice the carrot into eighteen 1/4 in thick rounds; cut a small notch out of each carrot slice to form feet. Save the cut out piece & press into center of small olive to form beak. If necessary cut a small slit into each olive before inserting the beak. Set the big olive, large hole side down, onto a carrot slice. Then, set a small olive onto the large olive, adjusting so that the beak, cream cheese chest & notch in the carrot slice line up. Secure with a toothpick. Can wrap 'scarf' of pimento or sliced bell pepper.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Deviled Eggs</div>
+  <div class="recipe-meta">Yields: 24 deviled egg halves</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>12 large eggs</li>
+    <li>1/2 c mayonnaise</li>
+    <li>2 Tbsp sweet pickle relish</li>
+    <li>1 Tbsp yellow mustard</li>
+    <li>1/4 tsp salt</li>
+    <li>1/8 tsp black pepper</li>
+    <li>paprika for garnish</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Place eggs in single layer in saucepan. Cover with water. Bring to boil over high heat. Remove from heat, cover, and let stand 12 minutes. Drain and place in ice water until cool. Peel eggs and slice in half lengthwise. Remove yolks and place in bowl. Mash yolks with fork. Add mayonnaise, relish, mustard, salt, and pepper. Mix well. Spoon or pipe filling into egg white halves. Sprinkle with paprika. Refrigerate until serving.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Farmer's Medley Dip Suggestions</div>
+  <h4>Instructions</h4>
+  <div class="suggestions">
+    <h4>Serving Suggestions</h4>
+    <ul>
+      <li>Serve with fresh vegetables for dipping</li>
+      <li>Spread on sandwiches, wraps or bruschetta</li>
+      <li>Top burgers, baked potatoes or steamed vegetables</li>
+      <li>Spread on a tortilla and top with deli-sliced ham. Roll up and slice into pinwheels</li>
+      <li>Excellent base for cold veggie pizza</li>
+      <li>Stir prepared dip into potato or pasta salad dressing</li>
+      <li>Spoon over grilled chicken or fish</li>
+      <li>Wonderful dip for French fries or onion rings</li>
+      <li>Add chopped spinach and diced water chestnuts</li>
+    </ul>
+  </div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Italian Dipping Oil</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 Tbsp crushed red pepper</li>
+    <li>1/2 Tbsp black pepper</li>
+    <li>1 Tbsp dried oregano</li>
+    <li>1 Tbsp dried rosemary</li>
+    <li>1 Tbsp dried basil</li>
+    <li>1 Tbsp dried parsley</li>
+    <li>1 1/2 Tbsp garlic powder</li>
+    <li>1 tsp kosher salt</li>
+    <li>olive oil for serving</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Mix all dried herbs and spices together. Store in airtight container. To serve, place 1-2 Tbsp of herb mixture on a small plate and pour olive oil over top. Serve with crusty bread for dipping.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Key Lime Cheese Ball Suggestions</div>
+  <h4>Instructions</h4>
+  <div class="suggestions">
+    <h4>Serving Suggestions</h4>
+    <ul>
+      <li>Serve cheese ball with Twisty Grahams, vanilla wafers or fresh fruit</li>
+      <li>Spread between layers of Absolutely Almond Pound Cake; top with fresh berries and crumbs from Packet 2</li>
+      <li>Excellent on fruit pizza topped with diced tropical fruits</li>
+      <li>For fruit dip, add 8 oz cream cheese and 7 oz marshmallow creme; blend well</li>
+      <li>Fold 8 oz thawed Cool Whip into prepared cheese ball mix; spread mixture into graham cracker crust. Cover; chill 2 hours. Sprinkle with crumbs from Packet 2. Serve topped with Creamy Caramel Sauce</li>
+    </ul>
+  </div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Pecan Cheese Ball</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1/2 block cream cheese</li>
+    <li>1 cup chopped pecans</li>
+    <li>1/2 cup chopped green onions (or purple)</li>
+    <li>1 cup shredded sharp cheddar cheese</li>
+    <li>1/4 - 1/2 cup jam over the top (Red Pepper Jelly or Jalapeno Jelly)</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Mix cream cheese, pecans, green onions, and cheddar cheese together.</li>
+    <li>Form into a ball.</li>
+    <li>Top with jam.</li>
+    <li>(Can double)</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Pepperoni Pizza Dip</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>8 oz cream cheese, softened</li>
+    <li>1/2 c sour cream</li>
+    <li>1 tsp Italian seasoning</li>
+    <li>1/4 tsp garlic powder</li>
+    <li>1/2 c pizza sauce</li>
+    <li>1/2 c pepperoni, chopped</li>
+    <li>1/4 c green bell pepper, diced</li>
+    <li>1/4 c black olives, sliced</li>
+    <li>1 c mozzarella cheese, shredded</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350°. Mix cream cheese, sour cream, Italian seasoning, and garlic powder until smooth. Spread in bottom of 9-inch pie plate. Spread pizza sauce over cream cheese layer. Top with pepperoni, bell pepper, olives, and mozzarella. Bake 20-25 minutes until bubbly. Serve with crackers or bread.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Roasted Pumpkin Seed Hummus</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 c pumpkin seeds (pepitas)</li>
+    <li>1 Tbsp olive oil</li>
+    <li>1/2 tsp paprika</li>
+    <li>1/2 tsp chili powder</li>
+    <li>salt and pepper</li>
+    <li>4-5 garlic cloves</li>
+    <li>1 (15 oz) can chickpeas, drained</li>
+    <li>1/4 c tahini</li>
+    <li>juice of 1 lemon</li>
+    <li>1/4 c olive oil</li>
+    <li>salt and pepper to taste</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350°. Grease baking sheet or line with aluminum foil. Right on the pan add pumpkin seeds, 1 Tbsp olive oil, 1/2 tsp paprika, 1/2 tsp chili powder, salt & pepper. Toss well with your hands. Add garlic cloves to one side of the pan (leave them in their skin). Roast for 15-25 mins until seeds are cooked & begin to lightly brown. Stir seeds every 10 mins & check for doneness. Let cool 5 mins then peel skin from garlic. If garlic is not tender wrap in foil & continue roasting until soft. Add seeds to food processor & process until smooth paste. Then add beans & garlic to puree. Stream in olive oil, add remaining chili & paprika. Salt & pepper to taste. Place in bowl & drizzle with extra olive oil.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Spice Roasted Honeynut Squash & Chickpeas</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 (14.5oz) cans chickpeas, drained and rinsed</li>
+    <li>2 1/2 lbs honeynut or butternut squash, peeled, trimmed, seeded, and cut into 1 inch cubes (6 cups)</li>
+    <li>1 3/4 tsp baharat, garam masala, or another spice blend</li>
+    <li>1 1/4 tsp fine salt, divided, more if needed</li>
+    <li>5 thyme sprigs</li>
+    <li>1/8 tsp crushed red pepper</li>
+    <li>3 Tbsp olive oil</li>
+    <li>1 small red onion, thinly sliced</li>
+    <li>1 Tbsp cider vinegar or red wine vinegar</li>
+    <li>1/2 cup fresh cilantro or dill sprigs, or combo</li>
+    <li>1-2 Tbsp hot honey</li>
+    <li>Plain whole-milk yogurt or sour cream for serving</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Heat oven to 425°F. Line sheet pan with parchment paper and second sheet pan with clean kitchen towel or paper towels.</li>
+    <li>Place drained chickpeas on towel-lined sheet pan and gently rub them dry. Place pan on back of stove and let chickpeas dry as you prepare remainder.</li>
+    <li>Place squash on paper-lined pan and toss with 1 tsp baharat, 1/2 tsp salt, thyme, red pepper, 2 Tbsp olive oil. Spread squash evenly and roast for 20 mins.</li>
+    <li>Combine chickpeas, onion, remaining baharat, 3/4 tsp salt, 1 Tbsp olive oil and toss. Add mixture to pan of squash and stir.</li>
+    <li>Continue roasting another 30 mins, tossing 1/2 way through, until squash is golden and chickpeas are slightly crispy.</li>
+    <li>Sprinkle vinegar and herbs on top and toss. Drizzle with honey. Add more salt and vinegar to taste.</li>
+    <li>Serve with dollop of yogurt.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Spinach Artichoke Dip</div>
+  <div class="recipe-meta">Oven: 375°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 c parmesan cheese</li>
+    <li>1 10oz box frozen chopped spinach, thawed & drained</li>
+    <li>1 14oz can artichoke hearts, drained & chopped</li>
+    <li>2/3 c sour cream</li>
+    <li>1 c cream cheese</li>
+    <li>1/3 c mayonnaise</li>
+    <li>2 tsp minced garlic</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat to 375°. Mix parmesan, spinach, artichoke hearts. Combine ingredients & mix with spinach mixture. Bake 20-30 mins.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Spinach Artichoke Pasta</div>
+  <div class="recipe-meta">Serves: 6</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>12 oz bowtie pasta</li>
+    <li>1 14oz can quartered artichoke hearts</li>
+    <li>1/2 lb frozen chopped spinach, thawed</li>
+    <li>4 cloves garlic</li>
+    <li>2 Tbsp olive oil</li>
+    <li>4 oz cream cheese</li>
+    <li>1/2 c sour cream</li>
+    <li>1/4 c white wine</li>
+    <li>1/2 c milk</li>
+    <li>1/2 c grated parmesan cheese</li>
+    <li>1/4 tsp crushed red pepper</li>
+    <li>salt & pepper to taste</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Cook pasta 7-10 mins. Drain. While cooking pasta, prepare the sauce. Drain artichoke hearts & roughly chop into smaller pieces. Squeeze excess moisture out of thawed spinach. Set spinach & artichokes aside. Mince garlic & add to large skillet with olive oil. Saute over medium heat for 1 minute, just until garlic softens. Add cream cheese, sour cream, & white wine. Stir & cook until cream cheese has melted & sauce is smooth. Whisk milk into sauce & heat through. Once hot, turn down heat to low & stir in parmesan cheese. Season. Stir spinach & artichokes into sauce. Then add cooked pasta & stir to combine.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Stuffed Celery</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3/4 cup shredded smoked Gouda (4oz)</li>
+    <li>2 oz cream cheese</li>
+    <li>2 Tbsp mayonnaise</li>
+    <li>1 1/2 tsp Dijon mustard</li>
+    <li>2 oz chopped ham</li>
+    <li>1/4 cup chopped pitted green olives</li>
+    <li>1/2 tsp onion powder</li>
+    <li>1/2 tsp Worcestershire sauce</li>
+    <li>Pepper</li>
+    <li>Celery</li>
+    <li>2 Tbsp chopped chives</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Mix all ingredients except celery and chives.</li>
+    <li>Fill celery stalks with mixture.</li>
+    <li>Top with chopped chives.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Sweet Almond Crackers</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>52 individual butter crackers (Club crackers)</li>
+    <li>8 Tbsp (1 stick) salted butter</li>
+    <li>1 c firmly packed brown sugar</li>
+    <li>1 tsp vanilla extract</li>
+    <li>1 c sliced almonds</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven 350°. Arrange crackers in single layer on rimmed baking sheet so that the baking sheet is completely covered with a solid layer of crackers. Set aside. In medium saucepan, melt butter, brown sugar, & vanilla. Bring to gentle boil over medium heat & boil until it starts to thicken, 1-2 mins. Immediately pour the mixture over the crackers in a even layer. Bake for 5 mins. Sprinkle the almonds all over, then let cool completely. When cool, break apart for a great snack.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Sweet Pepper Jalapeno Jam Suggestions</div>
+  <h4>Instructions</h4>
+  <div class="suggestions">
+    <h4>Serving Suggestions</h4>
+    <ul>
+      <li>Spoon over cream cheese; serve with crackers</li>
+      <li>Use as a dip for shrimp, French fries, onion rings or chicken fingers</li>
+      <li>For chicken or pork glaze, add 1 Tbsp melted butter to 1/4 cup Sweet Pepper Jalapeno Jam</li>
+      <li>Excellent marinade for wild duck or pheasant</li>
+      <li>Delicious on warm corn bread or muffins</li>
+      <li>Spread tortillas with cream cheese; top with a layer of Sweet Pepper Jalapeno Jam. Roll up tortillas; chill until served. Cut into pinwheel slices</li>
+    </ul>
+  </div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Texas Caviar</div>
+  <div class="recipe-meta">Source: From Chef Mary Ann Schrader</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 cans of blackeyed peas with jalapinos (or cut your own jalapinas up to taste)</li>
+    <li>1 can hominy (white or yellow)</li>
+    <li>1 cup salsa (your choice)</li>
+    <li>1 lg bell pepper, chopped fine</li>
+    <li>1 (med) purple onion, chopped fine</li>
+    <li>1/2 cup celery (or leave out)</li>
+    <li>1 bunch cilantro</li>
+    <li>1 sm bottle Zesty Italian dressing</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Drain blackeyed peas and hominy.</li>
+    <li>Mix all ingredients together.</li>
+    <li>Eat with chips.</li>
+    <li>Best 2 or 3 days old... I double this.</li>
+  </ol>
+</div>
+
+<!-- BREAKFAST CHAPTER -->
+<div class="chapter-divider">
+  <h2>Breakfast</h2>
+  <div class="count">9 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cinnamon Cottage Cheese Pancakes</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>4 eggs</li>
+    <li>1 cup cottage cheese</li>
+    <li>1/2 cup milk</li>
+    <li>1 tsp vanilla</li>
+    <li>2 Tbsp melted butter</li>
+    <li>1 cup all purpose flour</li>
+    <li>2 Tbsp white sugar</li>
+    <li>1 pinch salt</li>
+    <li>3/4 tsp baking soda</li>
+    <li>1 tsp ground cinnamon</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Blend all ingredients together in blender until smooth. Cook on greased griddle over medium heat until bubbles form on surface, then flip and cook other side until golden.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cinnamon Crunch Bagels</div>
+  <div class="recipe-meta">Oven: 425°</div>
+  <h4>Instructions</h4>
+  <p>In the bowl of stand mixer with hook attachment, combine warm water & yeast & allow to proof x 5 mins. Next, add flour, brown sugar, & salt. Mix x 2-3 mins on lowest setting. Dough should be stiff & sticky. Knead by hand on lightly floured surface x 5-6 mins. Dough should be firm & tough. First rise: shape dough into a smooth ball & place in a clean, lightly greased bowl. Turn dough over a few times to coat all sides with oil. Cover with clean towel. Let proof at room temp x 60-90 min until it has doubled in size. Topping: In a small bowl, whisk together melted butter, brown sugar, cinnamon, & flour. Set aside. Shape: After 1st rise, punch dough down & turn it out onto lightly floured surface. Divide dough into 12 equal pieces & form each piece into smooth balls. Shape each ball into a bagel by poking your finger through center while gently stretching dough into a ring. Arrange bagels on parchment-lined baking sheet & cover with towel. Let rest 10-15 mins. Water bath: Preheat oven to 425°. Place a large pot on stove over high heat. Fill with 8c water & bring to boil. Whisk in 1/4 c honey & reduce heat to medium. Gently drop 2-3 bagels into water bath at a time. Cook for 2-3 mins, turning about 1 min. Remove using slotted spoon & return to parchment on baking sheet. Limit each baking sheet to 4 bagels. Bake: Whisk egg white & water & brush egg wash over tops & sides. Spoon on crunch topping. Bake 20-25 mins rotating pan halfway & pushing any topping that falls off back onto bagels.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cinnamon Roll Cake</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350°F. Cream together shortening & granulated sugar. Add both to large mixing bowl & use hand mixer to combine until light & fluffy (2 mins). Beat eggs, one at a time. Keep mixer going until mixture starts to look frothy. Beat in remaining wet ingredients. Incorporate until everything is just combined. Add flour & beat for 30 sec's. Whisk together brown sugar & cinnamon separately. In 9x13" greased pan add 1/2 batter & smoothe. Sprinkle brown sugar mix across layer. Add remainder of batter. Use a chopstick to swirl the mixture. Bake 350° 25-30 min until toothpick is clean. Icing: melt butter, add milk (warmed ~30 sec in microwave) then whisk in powdered sugar. Poke holes in cake & top with glaze.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cinnamon Rolls (Puff Pastry)</div>
+  <div class="recipe-meta">Serves: 16 | Oven: 400°</div>
+  <h4>Instructions</h4>
+  <p>Cut each puff pastry sheet into a circle, approx 10" in diameter. Mix brown sugar & cinnamon. Lay first dough circle on parchment-lined baking sheet; spread 1/3 of softened butter over it evenly and then spread 1/3 of cinnamon sugar mixture over that. Repeat with 2nd & 3rd dough circles. Top with 4th circle. Use something small (about 2" in diameter) to be guide & place in middle of your stack. Cut 16 pieces (starting by quartering it, halving quarters, etc). Take 2 strips & twist them away from each other two times then pinch the ends together. Repeat around entire snowflake. Brush with egg wash. Bake 400° x 20 mins. While baking, cream butter & cream cheese then add powdered sugar & vanilla. Mix on medium high until well combined. Allow pastry to cool a few minutes, then brush frosting over & dust with powdered sugar.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">French Toast Bake</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Preheat 350°. Spray 9x13 pan with cooking spray. In large bowl, add eggs, milk, heavy cream, sugar, 1/2 c brown sugar, vanilla, cinnamon, nutmeg. Chop bread into 3/4-1 inch cubes & put it in the bowl with egg mixture & toss well until all the liquid is absorbed. In a small bowl or food processor add the flour, remaining brown sugar, cinnamon, & salt and mix. Cut the butter into sugar mixture until crumbly. Mix pecans into mix. Pour the bread & egg mixture into the pan, cover evenly with brown sugar-butter topping & bake 45-55 mins or until top is crispy & center is no longer wet.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Lemon Blueberry Scones</div>
+  <div class="recipe-meta">Yields: 8 scones | Oven: 400°</div>
+  <h4>Instructions</h4>
+  <p>Whisk flour, sugar, lemon zest, baking powder, & salt together in a large bowl. Grate the frozen butter, add it to the flour mixture & combine with pastry cutter, two forks, or your fingers until the mixture comes together in pea-sized crumbs. Place in refrigerator as you mix the wet ingredients. Whisk 1/2 cup heavy cream, the egg, & vanilla extract together in a small bowl. Drizzle over the flour mixture, add blueberries, then mix together until everything is moistened. Pour onto the counter & (with floured hands) work dough into ball as best you can. Dough will be sticky. If too sticky add more flour, if too dry add 1-2 Tbsp heavy cream. Press into 8in disk. With sharp knife or bench scraper cut into 8 wedges. Brush scones with remaining heavy cream. For extra crunch sprinkle with coarse sugar. Refrigerate for at least 15 min on plate or lined baking sheet. Preheat oven to 400°F. Arrange scones 2-3 in. apart. Bake for 22-25 min or until golden brown around edges & slightly browned on top. Cool for a few minutes before icing. Whisk icing ingredients together & drizzle over warm scones. Leftover scones keep well at room temp for 2 days or refrigerator for 5 days.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Pumpkin Breakfast Casserole</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>10 slices white bread, cubed</li>
+    <li>1 (15oz) can pumpkin puree</li>
+    <li>2/3 c white sugar</li>
+    <li>1 tsp ground cinnamon</li>
+    <li>1/2 tsp ground ginger</li>
+    <li>1/2 tsp ground nutmeg</li>
+    <li>1 tsp vanilla extract</li>
+    <li>1/8 tsp salt</li>
+    <li>6 eggs, beaten</li>
+    <li>1 cup milk</li>
+    <li>1 (5oz) can evaporated milk</li>
+    <li>1/2 c chopped pecans</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Spray 9x13" baking dish with cooking spray. Place bread cubes into the dish. In a bowl, mix pumpkin, sugar, cinnamon, ginger, nutmeg, vanilla, salt, eggs, milk, evaporated milk & pecans. Pour pumpkin mixture over bread. Cover with plastic wrap & refrigerate overnight. Preheat oven 350°. Uncover & bake casserole until mixture is set & toothpick comes out clean, about 45 min.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Quiche</div>
+  <div class="recipe-meta">Oven: 375°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>pie crust</li>
+    <li>6 eggs</li>
+    <li>3/4 c milk or cream</li>
+    <li>3/4 tsp salt</li>
+    <li>1/4 tsp pepper</li>
+    <li>1 c cooked ham</li>
+    <li>1 1/2 c shredded cheese, divided</li>
+    <li>3 Tbsp green onions</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Bake at 375°. Reserve 1/2 c cheese for topping. Bake 35-40 mins.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Waffles</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 1/2 c milk</li>
+    <li>2 Tbsp vinegar</li>
+    <li>3 large egg yolks, beaten</li>
+    <li>2 c flour</li>
+    <li>1 tsp baking soda</li>
+    <li>2 Tbsp corn starch</li>
+    <li>5 Tbsp melted butter</li>
+    <li>3 egg whites</li>
+    <li>1/4 tsp cinnamon</li>
+    <li>1/3 c sugar</li>
+    <li>1 tsp vanilla</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Mix milk with vinegar. Mix with 3 large egg yolks, beaten. Mix 2c flour, 1 tsp baking soda, 2 Tbsp corn starch. Gradually add to milk mixture. Add 5 Tbsp melted butter. Whip 3 egg whites to stiff peaks. Gradually fold into mix. Add 1/4 tsp cinnamon, 1/3 c sugar, 1 tsp vanilla. Cook in waffle iron.</p>
+</div>
+
+<!-- ENTREES CHAPTER -->
+<div class="chapter-divider">
+  <h2>Entrees</h2>
+  <div class="count">6 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Caprese Farfalle</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 (16oz) box uncooked farfalle pasta</li>
+    <li>1/3 cup balsamic vinegar, divided</li>
+    <li>1 jar (23oz) four cheese spaghetti sauce</li>
+    <li>8 oz mini fresh mozzarella balls (pearls)</li>
+    <li>1 cup grape tomatoes, halved</li>
+    <li>1/2 cup loosely packed thinly sliced fresh basil leaves</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Cook pasta as directed; drain.</li>
+    <li>Microwave 1/4 cup vinegar in small microwaveable ramekin on HIGH 1-2 min or until thickened and reduced by half; cool completely.</li>
+    <li>Heat sauce and remaining vinegar in saucepan on medium heat.</li>
+    <li>Remove from heat; toss with hot pasta and half the cheese.</li>
+    <li>Drizzle with balsamic glaze; serve topped with remaining cheese, tomatoes, and basil.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Giblet Gravy</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1/2 pound giblets and neck</li>
+    <li>Celery leaves</li>
+    <li>Onion slices</li>
+    <li>1/2 cup all purpose flour</li>
+    <li>Dash pepper</li>
+    <li>2 hard boiled eggs, diced</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Cook giblets and neck with celery leaves and onion slices.</li>
+    <li>Make gravy using flour and cooking liquid.</li>
+    <li>Season with pepper.</li>
+    <li>Add diced hard boiled eggs.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Nonna's Sauce</div>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Part 1: Blend celery, carrots, onion, and pancetta/mortadella, then put in big pan.</li>
+    <li>Part 2: Add meat in raw.</li>
+    <li>Add wine, water, tomato paste, diced tomatoes/sauce, and seasonings.</li>
+    <li>Cook for at least an hour and up to 6 hours.</li>
+    <li>Add a cup of heavy whipping cream around the end.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Penne Primavera</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>12 oz penne pasta</li>
+    <li>1/2 pound eggplant, diced</li>
+    <li>1 Tbsp olive oil</li>
+    <li>1 medium red onion, cut into slivers</li>
+    <li>1 medium zucchini, cut in 1/2 lengthwise, sliced 1/4 in thick</li>
+    <li>8 oz sliced cremini mushrooms (baby portobello or white button mushrooms)</li>
+    <li>1 cup vegetable broth</li>
+    <li>1 jar thick & hearty tomato basil spaghetti sauce</li>
+    <li>1/4 cup grated Romano cheese</li>
+    <li>1 cup (4oz) Italian blend shredded cheese</li>
+    <li>2 Tbsp chopped fresh basil</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Cook pasta in large pot, omitting salt; keep warm.</li>
+    <li>Place diced eggplant in single layer on microwave-safe plate lined with a double layer of paper towels. Microwave on HIGH 3 min. Cool and pat dry.</li>
+    <li>Heat oil in same pot on medium-high heat; add onions.</li>
+    <li>Cook 3-4 min, or until edges just start to brown, stirring constantly.</li>
+    <li>Reduce heat to medium. Add eggplant, zucchini, mushrooms, and broth.</li>
+    <li>Cook 3 min, while gently scraping browned bits from bottom of pan.</li>
+    <li>Stir in sauce, hot pasta, Romano and half of shredded cheese.</li>
+    <li>Cover and cook until heated through.</li>
+    <li>Serve immediately, topped with remaining cheese and fresh chopped basil.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Salmon Tacos</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>Mango</li>
+    <li>Avocado</li>
+    <li>Onion</li>
+    <li>Tomato</li>
+    <li>Cilantro</li>
+    <li>Olive oil</li>
+    <li>Salt</li>
+    <li>Salmon</li>
+    <li>Soy sauce</li>
+    <li>Tortillas</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Marinate salmon with soy sauce and curry.</li>
+    <li>Brown salmon over medium heat.</li>
+    <li>Top with salad on tortillas.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Veggie Quesadillas</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 Tbsp olive oil</li>
+    <li>1 small onion, diced</li>
+    <li>1 small red bell pepper, diced</li>
+    <li>1 small zucchini, diced</li>
+    <li>1 jar spaghetti sauce</li>
+    <li>4 (10in) burrito size flour tortillas</li>
+    <li>1 cup shredded mozzarella or Monterey Jack cheese, divided</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Heat 1 Tbsp olive oil in 12-in nonstick skillet over medium-high heat & cook onion, pepper, & zucchini, stirring occasionally, 4 min or until tender. Reduce heat to medium & stir in 1 1/2 c sauce. Simmer, stirring occasionally, 5 mins or until sauce is thickened. Evenly spread sauce mixture on tortillas, leaving a 1 inch border. Sprinkle evenly with cheese & fold in half; set aside. Clean skillet. Heat remaining 1 Tbsp olive oil in same skillet over medium heat & cook quesadillas; two at a time, turning once, 4 mins or until golden brown & cheese is melted. Cut quesadillas into wedges & serve with remaining sauce, heated.</p>
+</div>
+
+<!-- SOUPS CHAPTER -->
+<div class="chapter-divider">
+  <h2>Soups</h2>
+  <div class="count">11 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Baked Potato Soup</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>6 strips uncooked bacon</li>
+    <li>3 Tbsp butter</li>
+    <li>1 med yellow onion, chopped</li>
+    <li>3 lg garlic cloves</li>
+    <li>1/3 cup flour</li>
+    <li>2 1/2 lbs gold potatoes</li>
+    <li>4 cups chicken broth</li>
+    <li>2 cups milk</li>
+    <li>2/3 cup heavy cream</li>
+    <li>1 1/2 tsp salt</li>
+    <li>1 tsp pepper</li>
+    <li>3/4 cup sour cream</li>
+    <li>Shredded cheese, chives</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Place bacon pieces in large pot over med heat and cook.</li>
+    <li>Remove bacon and set aside, leaving fat in the pot.</li>
+    <li>Add butter and chopped onion, cook over med heat until onions are tender (3-5 mins).</li>
+    <li>Add garlic and cook until fragrant (30 secs).</li>
+    <li>Sprinkle flour over ingredients and stir until smooth.</li>
+    <li>Add diced potatoes with chicken broth, milk, cream, salt, pepper.</li>
+    <li>Stir well. Bring to boil and cook until potatoes are tender (10 mins).</li>
+    <li>Reduce heat to simmer for 15 mins.</li>
+    <li>Top with sour cream, cheese, chives.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chicken & Rice Soup</div>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Cook rice separately.</li>
+    <li>Mix seasonings.</li>
+    <li>Melt butter in large soup pot over medium heat.</li>
+    <li>Add onions, carrots, celery. Soften for 4 min, then add garlic and cook for 1 min more.</li>
+    <li>Add seasonings, soy sauce, hot sauce, chicken, broth.</li>
+    <li>Bring soup to gentle boil and cover partially. Allow chicken to cook slowly - about 15-20 min.</li>
+    <li>Remove chicken and shred. Return it to the soup.</li>
+    <li>While the chicken simmers, cook rice separately. Bring broth (1 1/2 cups) to boil in saucepan. Add rice, bring to boil. Cover tightly and reduce to simmer, cook 15 mins. Turn off heat and let sit covered for 10 min.</li>
+    <li>Spoon rice into serving bowls.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chicken Noodle Soup</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1/2 Tbsp butter</li>
+    <li>2 ribs celery, diced</li>
+    <li>3-4 large carrots, diced</li>
+    <li>1 clove garlic, minced</li>
+    <li>10 cups chicken stock or broth</li>
+    <li>1 tsp salt</li>
+    <li>1/2 tsp black pepper</li>
+    <li>1/2 tsp dried rosemary, or more</li>
+    <li>1/8 tsp dried sage</li>
+    <li>1/8 tsp crushed red pepper flakes</li>
+    <li>5 cups egg noodles, farfalle, or other pasta</li>
+    <li>3 cups chicken</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Saute celery, carrots in butter for 3 mins.</li>
+    <li>Add garlic and cook for another 30 secs.</li>
+    <li>Add chicken stock and season with rosemary, sage, red pepper, salt and pepper.</li>
+    <li>Bring to boil. Add noodles and chicken.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chicken Tortilla Soup</div>
+  <h4>Instructions</h4>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chili</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 lbs ground beef</li>
+    <li>1 med chopped onion</li>
+    <li>1 chopped green pepper</li>
+    <li>4 cloves garlic, minced</li>
+    <li>1 (16oz) can diced tomatoes</li>
+    <li>1 (16oz) kidney beans, drained</li>
+    <li>1 (8oz) can tomato sauce</li>
+    <li>2 Tbsp chili powder</li>
+    <li>1 tsp dried basil or Italian seasoning</li>
+    <li>1/2 tsp salt</li>
+    <li>1/2 tsp pepper</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Cook ground beef, onion, green pepper, and garlic until meat is browned. Drain off fat.</li>
+    <li>Stir in undrained tomatoes, kidney beans, tomato sauce, chili powder, basil, 1/2 tsp salt, 1/2 tsp pepper.</li>
+    <li>Bring to boiling, then reduce heat.</li>
+    <li>Cover and simmer about 20 mins.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Egg Drop Soup</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1/8 tsp ground ginger</li>
+    <li>2 Tbsp chopped chives</li>
+    <li>1/4 tsp salt</li>
+    <li>1 1/2 Tbsp corn starch</li>
+    <li>4 cups chicken broth</li>
+    <li>2 eggs, less yolk</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Reserve 3/4 cup chicken broth and pour the rest into large saucepan.</li>
+    <li>Stir in salt, ginger, and chives. Bring to rolling boil.</li>
+    <li>In a cup or small bowl stir together remaining broth and cornstarch until smooth. Set aside.</li>
+    <li>In a small bowl, whisk the eggs and egg yolk together using a fork.</li>
+    <li>Drizzle egg a little at a time from the fork into the boiling broth mixture. Egg should cook immediately.</li>
+    <li>Once the eggs have been dropped, stir in the cornstarch mixture gradually until the soup is the desired consistency.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Lentil Ham Soup</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 (32oz) chicken broth</li>
+    <li>2 cups water</li>
+    <li>2 carrots, chopped</li>
+    <li>2 stalks celery, chopped</li>
+    <li>1 lg onion, chopped</li>
+    <li>1 cup dried lentils</li>
+    <li>2 cloves garlic, minced</li>
+    <li>2 Tbsp red wine vinegar</li>
+    <li>1 1/2 cups cubed cooked ham</li>
+    <li>1 tsp dried mustard</li>
+    <li>1 tsp salt</li>
+    <li>1/2 tsp ground black pepper</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Stir chicken broth, water, carrots, celery, onion, lentils, garlic, red wine vinegar.</li>
+    <li>Bring to boil. Reduce to low heat and simmer until carrots are tender, about 10 mins.</li>
+    <li>Stir in ham, mustard, salt, pepper.</li>
+    <li>Simmer until lentils are tender, 20-30 mins more.</li>
+    <li>May add 1-2 tsp paprika.</li>
+    <li>178 cal per serving. 8 servings per pot.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Potato Leek Soup</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 large leeks (about 3 cups after chopping)</li>
+    <li>2 Tbsp butter</li>
+    <li>4 cups chicken broth</li>
+    <li>2 lbs potatoes, peeled, diced</li>
+    <li>1 tsp sea salt</li>
+    <li>Pinch of marjoram (or oregano)</li>
+    <li>1-2 sprigs fresh thyme or 1/2 tsp dried thyme</li>
+    <li>1 bay leaf</li>
+    <li>1/4 cup chopped parsley</li>
+    <li>White or black pepper to taste</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>1) Clean and cut the leeks. Cut off the roots. Cut lengthwise, fan them open under running water, cut off dark green tops and discard. Slice the white and light green parts into 1/4 inch slices. Complete cleaning in cold water.</li>
+    <li>Cook leeks in melted butter to soften. Cover pot and lower heat to low, cook for 10 min (not browned).</li>
+    <li>Add broth, potatoes, herbs, salt. Simmer and cook for 20-30 min.</li>
+    <li>Puree the soup.</li>
+    <li>Add parsley and season to taste.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Roasted Red Pepper, Tomato & Smoked Gouda Bisque</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 med onion, diced</li>
+    <li>3 lg garlic cloves, minced</li>
+    <li>3 Tbsp butter</li>
+    <li>2 (14.5oz) cans fire roasted tomatoes</li>
+    <li>1 (16oz) jar roasted red peppers</li>
+    <li>3 cups chicken stock</li>
+    <li>2 Tbsp tomato paste</li>
+    <li>2 tsp dried basil</li>
+    <li>1.5 tsp salt</li>
+    <li>1 tsp oregano</li>
+    <li>1/2 tsp black pepper</li>
+    <li>8 oz smoked Gouda, shredded</li>
+    <li>1/2 cup heavy cream</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>In slow cooker, add tomatoes, roasted red peppers with the juice, chicken stock, tomato paste, basil, salt, oregano, pepper. Turn slow cooker on low.</li>
+    <li>In medium pan, over medium heat, saute onion and garlic in butter until soft and translucent.</li>
+    <li>Add onion and garlic to slow cooker. Cook on low for 4 hours.</li>
+    <li>Blend the soup until smooth using an immersion blender or transfer to your blender and blend until smooth.</li>
+    <li>Add back to the slow cooker. Stir in heavy cream and smoked Gouda.</li>
+    <li>Cover and cook on low for 1 hr then enjoy.</li>
+    <li>Makes 12 cups.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Shrimp & Sausage Stew</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 Tbsp olive oil</li>
+    <li>1 large fennel bulb, trimmed and chopped (or 2 stalks celery with 1 tsp fennel seed)</li>
+    <li>4 cloves garlic, rough chopped</li>
+    <li>2 small shallots, minced</li>
+    <li>12 oz bulk hot Italian sausage</li>
+    <li>1 1/2 cups dry white wine</li>
+    <li>1/4 cup tomato paste</li>
+    <li>2 1/2 cups chicken broth</li>
+    <li>1 bay leaf</li>
+    <li>1 lb large shrimp</li>
+    <li>2 cups white beans, rinsed and drained</li>
+    <li>1/2 cup fresh basil, chopped</li>
+    <li>1 Tbsp chopped fresh thyme</li>
+    <li>Kosher salt and black pepper to taste</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Heat oil over med-high heat in large heavy pan.</li>
+    <li>Add fennel, garlic, shallots and cook until vegetables are softened, about 10 mins.</li>
+    <li>Add sausage and break it up. Cook until browned.</li>
+    <li>Add wine. Stir in tomato paste, chicken broth, bay leaf and bring to simmer.</li>
+    <li>Cover and cook 10 mins.</li>
+    <li>Uncover and add shrimp, beans, basil, and thyme.</li>
+    <li>Simmer uncovered until shrimp are pink, about 4 mins.</li>
+    <li>Discard bay leaf. Season to taste with salt and pepper.</li>
+    <li>399 kcal</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">White Bean Soup with Greens & Turkey</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 Tbsp olive oil</li>
+    <li>1 lg onion, diced</li>
+    <li>1 lg carrot, diced</li>
+    <li>1 bunch sturdy greens (kale, broccoli rabe, mustard greens, or collard greens)</li>
+    <li>1 Tbsp tomato paste</li>
+    <li>3/4 tsp ground cumin</li>
+    <li>1/8 tsp crushed red pepper</li>
+    <li>1/2 pound ground turkey</li>
+    <li>3 cloves garlic</li>
+    <li>1 Tbsp grated fresh ginger</li>
+    <li>1 tsp salt</li>
+    <li>1 qt chicken stock</li>
+    <li>2 (15oz) cans white beans, drained and rinsed</li>
+    <li>1 cup chopped fresh soft herbs (parsley, mint, dill, basil, tarragon, chives, or combo)</li>
+    <li>Freshly squeezed lemon juice</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Heat large pot over med-high heat. Add oil and heat until it thins out, about 30 sec.</li>
+    <li>Add onion, carrot. Saute until very soft and brown at edges (7-10 mins).</li>
+    <li>Rinse greens and pull leaves off stems. Tear or chop into bite-size pieces, set aside.</li>
+    <li>When onion is golden, add tomato paste, 3/4 tsp cumin and 1/8 tsp red pepper. Saute until paste darkens, about 1 min.</li>
+    <li>Add turkey, garlic, ginger, 1 tsp salt, and saute, breaking up meat, until turkey is browned in spots (4-7 mins).</li>
+    <li>Add stock and beans, bring to simmer. Let simmer until soup is thick (15-25 mins).</li>
+    <li>For thicker broth, puree 2 cups of soup and return to pot.</li>
+    <li>Add greens and simmer until soft (5-10 mins).</li>
+    <li>Stir herbs and lemon juice, add more salt, cumin, lemon as desired.</li>
+  </ol>
+</div>
+
+<!-- SALADS CHAPTER -->
+<div class="chapter-divider">
+  <h2>Salads</h2>
+  <div class="count">9 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Candy Bar Apple Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 1/2 cups cold milk</li>
+    <li>1 pkg (3.4oz) instant vanilla pudding</li>
+    <li>1 carton (8oz) frozen whipped topping, thawed</li>
+    <li>4 large apples, chopped (about 4 cups)</li>
+    <li>4 Snickers candy bars (1.86oz each), cut into 1/2-inch pieces</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>In large bowl, whisk milk and pudding mix for 2 min.</li>
+    <li>Let stand until soft-set, about 2 min.</li>
+    <li>Fold in whipped topping.</li>
+    <li>Fold in apples and candy bars.</li>
+    <li>Refrigerate until serving.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Charred Corn & Chicken Cheese Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>4 ears corn</li>
+    <li>1 lg shallot, thin sliced into rings</li>
+    <li>4 Tbsp olive oil, divided</li>
+    <li>1/4 cup lime juice</li>
+    <li>Zest of 1 lime</li>
+    <li>Salt and pepper</li>
+    <li>1 cup cherry tomatoes, halved</li>
+    <li>1 avocado, pitted, peeled, chopped</li>
+    <li>3 cups shredded rotisserie chicken</li>
+    <li>2 ounces Feta, Cotija, or Mexican cheese, crumbled</li>
+    <li>1/4 cup cilantro</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Grill corn until lightly charred and hot (charred).</li>
+    <li>Cut kernels from corn and set aside.</li>
+    <li>Heat 1 Tbsp olive oil in large skillet. Place corn and shallots in skillet and cook and brown until shallots are tender. Set aside.</li>
+    <li>In a small bowl combine 3 Tbsp olive oil, lime juice, pinch of salt and pepper.</li>
+    <li>In large bowl add corn mixture, tomatoes, avocado, shredded chicken, cheese, drizzle with olive oil and lime juice. Lightly toss.</li>
+    <li>Garnish with cilantro.</li>
+    <li>Serve with chips.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cucumber Mango Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 tsp sugar</li>
+    <li>1 1/2 Tbsp rice vinegar</li>
+    <li>3 Tbsp olive oil</li>
+    <li>1/2 tsp kosher salt, plus more to taste</li>
+    <li>1/4 tsp ground black pepper</li>
+    <li>2 cucumbers, sliced/diced</li>
+    <li>1 cup halved cherry tomatoes</li>
+    <li>1 medium diced mango, peeled, diced</li>
+    <li>1/2 cup fresh basil</li>
+    <li>3 Tbsp extra-virgin olive oil</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Mix vinegar, oil, salt, pepper to taste and set aside.</li>
+    <li>Mix remaining ingredients, salt and pepper to taste.</li>
+    <li>Drizzle vinegar and oil and serve.</li>
+    <li>Serves 8. No salt for serving.</li>
+    <li>Refrigerate for up to 3 days.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cucumber Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>Chopped cucumber</li>
+    <li>Diced roma tomatoes</li>
+    <li>Chopped red onion</li>
+    <li>Diced avocado</li>
+    <li>Cilantro</li>
+    <li>Juice of a lemon</li>
+    <li>Salt</li>
+    <li>Olive oil</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Combine all ingredients in a bowl.</li>
+    <li>Toss and serve.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Egg Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>8 large hard boiled eggs</li>
+    <li>3-4 Tbsp mayo or Greek yogurt, to taste</li>
+    <li>1 tsp yellow mustard</li>
+    <li>Salt and pepper to taste</li>
+    <li>1/4 tsp paprika</li>
+    <li>Optional: green onions, celery</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Chop hard boiled eggs.</li>
+    <li>Mix with mayo or Greek yogurt, mustard, salt, pepper, and paprika.</li>
+    <li>Add optional green onions and celery if desired.</li>
+    <li>Serve on bread or crackers.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Lime Jello Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 cup boiling water</li>
+    <li>1 (6oz) pkg lime flavored Jello</li>
+    <li>1 (20oz) can crushed pineapple, drained with juice reserved</li>
+    <li>2 cups heavy cream</li>
+    <li>1 cup chopped pecans</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>In a large bowl, pour 1 cup boiling water over gelatin mix.</li>
+    <li>Stir until dissolved, then stir in 1/2 cup pineapple juice.</li>
+    <li>Refrigerate until thickened but not set, about 1 hr.</li>
+    <li>Meanwhile, place crushed pineapple and remaining juice in small saucepan. Bring to a boil, reduce heat, and simmer for about 5 min.</li>
+    <li>In a large bowl, blend softened cream cheese and lime gelatin until smooth.</li>
+    <li>Mix in the cooled pineapple.</li>
+    <li>In a medium bowl, whip cream until soft peaks form.</li>
+    <li>Fold into gelatin mixture.</li>
+    <li>Fold in chopped nuts.</li>
+    <li>Pour into a pretty crystal bowl and refrigerate for at least 4 hrs or until set.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Macaroni Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 cups dry elbow macaroni, cooked, rinsed and drained</li>
+    <li>1/3 cup diced celery</li>
+    <li>1/4 cup minced onion, soaked in cold water for 5 min, drained</li>
+    <li>1 Tbsp minced flat-leaf parsley</li>
+    <li>1/2 cup diced sun-ripened tomato (opt)</li>
+    <li>3/4 cup prepared mayonnaise</li>
+    <li>1 1/2 tsp dry mustard</li>
+    <li>1 1/2 tsp sugar</li>
+    <li>1 1/2 Tbsp cider vinegar</li>
+    <li>3 Tbsp sour cream</li>
+    <li>1/2 tsp kosher salt, plus more to taste</li>
+    <li>Fresh ground black pepper</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>In a large bowl combine macaroni, celery, onion, parsley, tomato (if using).</li>
+    <li>In a small bowl, whisk together mayonnaise, mustard, sugar, vinegar, sour cream, and salt.</li>
+    <li>Pour the dressing over the salad and salt and pepper to taste.</li>
+    <li>Stir to combine. Season with salt and pepper to taste.</li>
+    <li>Serve. Store covered in the refrigerator for up to 3 days.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Marinated Vegetable Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 cup red wine vinegar</li>
+    <li>1 cup sugar</li>
+    <li>1/2 cup olive oil</li>
+    <li>1 tsp salt</li>
+    <li>1 (16oz) frozen or fresh shelled green peas, cooked 3 min and drained (or canned peas)</li>
+    <li>1 (16oz) can cut green beans, frozen or fresh, cooked 3 min and drained (or canned green beans)</li>
+    <li>2 small sweet onions, sliced</li>
+    <li>1 (2oz) jar chopped pimentos</li>
+    <li>1 red bell pepper, cored, seeded, chopped</li>
+    <li>1 1/2 cups thinly chopped celery</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Bring the vinegar and sugar to a boil in medium saucepan.</li>
+    <li>Add the oil and salt and set aside to cool.</li>
+    <li>Add the peas, beans, onions, pimentos, bell pepper, and celery.</li>
+    <li>Transfer the mixture to a bowl, cover with plastic wrap, and marinate in the refrigerator for 24 hrs.</li>
+    <li>Drain and serve.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Spaghetti Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 pkg spaghetti, cooked and cooled</li>
+    <li>3 Tbsp olive oil</li>
+    <li>3 Tbsp red wine vinegar</li>
+    <li>1 1/2 tsp salt</li>
+    <li>1 tsp garlic salt</li>
+    <li>2 cucumbers</li>
+    <li>1 zucchini</li>
+    <li>1 green bell pepper</li>
+    <li>1 red bell pepper</li>
+    <li>3 tomatoes</li>
+    <li>1 onion</li>
+    <li>Black olives</li>
+    <li>Capers, drained</li>
+    <li>Feta cheese</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Whisk together oil, vinegar, garlic salt, sugar, and pour over salad.</li>
+  </ol>
+</div>
+
+<!-- VEGETABLES & SIDES CHAPTER -->
+<div class="chapter-divider">
+  <h2>Vegetables & Sides</h2>
+  <div class="count">6 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Baked Cheese Grits</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>6 cups water</li>
+    <li>2 1/4 tsp salt</li>
+    <li>2 cups yellow grits (not quick or instant)</li>
+    <li>1 stick (1/2 cup) unsalted butter</li>
+    <li>1/2 tsp black pepper</li>
+    <li>2 Tbsp chopped garlic</li>
+    <li>1 1/2 lb cheddar, coarsely grated (6 cups)</li>
+    <li>3 large eggs</li>
+    <li>1 cup whole milk</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Preheat oven to 350°F.</li>
+    <li>Bring water and 2 1/4 tsp salt to boil in 4 qt heavy pot.</li>
+    <li>Add grits in a slow stream, stirring constantly.</li>
+    <li>Reduce heat and gently simmer, until very thick, about 30 mins (use a long-handled spoon to avoid bubbling & popping hot grits).</li>
+    <li>Add butter, remaining 1 1/2 tsp salt, pepper, garlic, and cheese, stirring until butter and cheese are melted. Lightly beat eggs and milk in a small bowl, then stir into grits until combined.</li>
+    <li>Pour into ungreased 3 qt graze baking dish (2 inches deep).</li>
+    <li>Bake until set and lightly browned, about an hour.</li>
+    <li>Serve immediately.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Black Eyed Peas</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 lbs peas</li>
+    <li>4 cups chicken broth</li>
+    <li>1 Tbsp bacon grease</li>
+    <li>1/4 tsp dried thyme (or Italian seasoning)</li>
+    <li>Kosher salt and black pepper (or garlic salt)</li>
+    <li>1/4 cup chopped onions</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Cook peas in the broth until tender.</li>
+    <li>Add bacon grease and thyme.</li>
+    <li>Bring to boil, then reduce heat to simmer until tender.</li>
+    <li>Drain, salt and pepper to taste.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Garlic Roasted Potato Wedges</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3-4 lg russet potatoes, sliced into wedges</li>
+    <li>4 Tbsp olive oil</li>
+    <li>2 tsp salt</li>
+    <li>2 tsp garlic powder</li>
+    <li>2 tsp Italian seasoning</li>
+    <li>1/2 cup shredded Parmesan cheese</li>
+    <li>Optional: fresh parsley (or cilantro), ranch or blue cheese dressing for dipping</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Preheat oven to 375°F.</li>
+    <li>Lightly grease lg baking sheet.</li>
+    <li>Place potato wedges in lg bowl. Drizzle with olive oil, toss to coat.</li>
+    <li>In small bowl whisk together salt, garlic powder, and Italian seasoning.</li>
+    <li>Sprinkle potato wedges with shredded cheese, then sprinkle with seasoning mixture.</li>
+    <li>Place potatoes on prepared baking sheet, cut side down.</li>
+    <li>Bake 25-35 min or until potatoes are fork tender and golden.</li>
+    <li>Sprinkle with freshly chopped parsley and dressing for dipping.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Green Beans & Cheese</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2-3 cans French cut green beans</li>
+    <li>1 small can evaporated milk</li>
+    <li>1 jar mushrooms</li>
+    <li>1/4 cup minced onions (optional)</li>
+    <li>1/2 block Velveeta cheese</li>
+    <li>Top with bacon bits</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Place in crockpot on low.</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Twice Baked Sweet Potatoes with Ricotta Cheese</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 medium sweet potatoes</li>
+    <li>1 tsp olive oil</li>
+    <li>2 shallots, finely chopped</li>
+    <li>1/2 cup fat-free ricotta cheese</li>
+    <li>1/4 tsp salt</li>
+    <li>1/4 tsp ground black pepper</li>
+    <li>1/4 tsp ground ginger</li>
+    <li>1 tsp brown sugar</li>
+    <li>2 1/2 Tbsp chopped fresh sage</li>
+    <li>1/4 cup grated Parmesan cheese</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Preheat oven to 400°F. Pierce potatoes with a fork and bake until soft, about an hour.</li>
+    <li>Remove from oven and cool until potatoes can be handled.</li>
+    <li>Reduce oven temp to 350°F. Grease large baking sheet.</li>
+    <li>Place olive oil in small skillet over med heat. Add shallots and cook and stir until softened, beginning to brown, about 10 min.</li>
+    <li>Cut potatoes in half lengthwise and scoop out pulp, leaving the skin intact.</li>
+    <li>Place pulp into a blender or food processor and blend until smooth.</li>
+    <li>Add ricotta, salt, pepper, ginger, sage, to the blender. Blend until smooth.</li>
+    <li>Return potato mixture to bowl. Stir in shallots, Parmesan cheese, and sage.</li>
+    <li>Spoon mixture back into potato skins.</li>
+    <li>Place potatoes on prepared baking sheet.</li>
+    <li>Bake until heated through, about 30 mins.</li>
+  </ol>
+  <p><em>Note: Can be made about 20 min ahead</em></p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Zucchini & Corn Skillet</div>
+  <div class="recipe-meta">Time: 30 minutes | Serves: 6 | Source: Gooseberry Patch</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 small zucchini</li>
+    <li>1 tablespoon of butter</li>
+    <li>1 tablespoon vegetable oil</li>
+    <li>1 to 2 garlic cloves, minced</li>
+    <li>1 (15 1/2 oz) can whole kernel corn, drained</li>
+    <li>1 (2oz) jar diced pimentos, drained</li>
+    <li>1 teaspoon salt</li>
+    <li>1 tsp lemon pepper</li>
+    <li>3/4 teaspoon shredded mozzarella cheese</li>
+    <li>1/2 cup (2oz) shredded mozzarella cheese</li>
+    <li>2 tablespoons chopped fresh basil</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Cut each zucchini lengthwise into quarters, thinly slice quarters.</li>
+    <li>Melt butter with oil in a large skillet over medium-high heat; add zucchini and garlic and saute 3-4 minutes.</li>
+    <li>Add corn and next 3 ingredients; cook, stirring often, 2-3 minutes, or until zucchini is tender.</li>
+    <li>Sprinkle with cheese and basil; heat until cheese melts.</li>
+  </ol>
+</div>
+
+<!-- BREADS CHAPTER -->
+<div class="chapter-divider">
+  <h2>Breads</h2>
+  <div class="count">1 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Bountiful Beer Bread Suggestions</div>
+  <h4>Instructions</h4>
+  <div class="suggestions">
+    <h4>Serving Suggestions</h4>
+    <ul>
+      <li>For 'watermelon' bread, replace beer with Mountain Dew Code Red; add chocolate chips</li>
+      <li>Make gifts by dividing batter between three foil mini loaf pans; bake 35-40 minutes. Cool; wrap in colored plastic</li>
+      <li>Mix 1/2 cup chopped pepperoni, 1 Tbsp Garlic Garlic and 1/2 cup grated Parmesan cheese into batter before baking</li>
+      <li>Toast and top with fried egg and sliced cheese</li>
+      <li>For spice bread, add 12 oz root beer, 1/2 cup molasses and 1 tsp pumpkin pie spice in place of beer</li>
+      <li>For delicious French toast, dip bread slices into a mixture of eggs, cream and cinnamon; saute in butter</li>
+      <li>Makes excellent grilled cheese sandwiches</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CAKES CHAPTER -->
+<div class="chapter-divider">
+  <h2>Cakes</h2>
+  <div class="count">6 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Apple Dump Cake</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 c flour</li>
+    <li>2 c sugar</li>
+    <li>1/2 c applesauce</li>
+    <li>1 c chopped dates</li>
+    <li>1 c chopped nuts</li>
+    <li>1 can apple pie filling</li>
+    <li>2 eggs</li>
+    <li>2 t soda</li>
+    <li>1 t salt</li>
+    <li>1 t cinnamon</li>
+    <li>1 t vanilla</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Put apple filling in bowl and chop up with mixer. Then dump everything together - stir in all ingredients. Bake at 350 for 40 min. May be frosted with cream cheese frosting.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chewy Gingerbread Cookies</div>
+  <div class="recipe-meta">Yields: 6 large cookies per tray or 8 smaller cookies | Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Preheat to 350°. Whisk together flour, baking powder, & baking soda, set aside. Cream butter & salt for a minute to incorporate. Add in brown sugar & cream for 3 mins on medium high speed, until lighter in color & fluffy. Add in egg & vanilla & mix, scrape down sides. Add in molasses, cinnamon, ginger & cloves & mix. Add in flour mix & combine. Stop mixing as soon as the dough comes together. Line a cookie sheet with parchment paper. Use a cookie or ice cream scoop & scoop out dough. Roll into a ball & then roll into granulated sugar. Put 6 larger cookies per tray or 8 smaller cookies. Bake on middle rack for 12-14 min for large cookies, small cookies 8-10 mins. When baked, allow to cool for 2 mins then transfer to cooling rack. When cool, melt both chocolate & candy melts in piping bag. Cut a little end & pipe.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Hisae's Choc Cake</div>
+  <div class="recipe-meta">Oven: 375° then 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>12 oz bittersweet choc, melted</li>
+    <li>0.25 stick butter, softened</li>
+    <li>0.25 c honey</li>
+    <li>1.25 c filberts or almonds, skins removed then roughly ground</li>
+    <li>10 eggs, separated</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Butter & flour 9" springform pan & preheat oven to 375°. Microwave choc in Pyrex cup on high 1 min. Stir with wooden spoon or plastic spatula, then microwave another 30 secs or until melted. Whip egg whites till stiff & glossy. Blend all other ingredients together, adding egg yolks 1 at a time. Gently fold in egg whites until no white streaks appear. Pour batter in prepared pan. Bake at 375° x 7 minutes. Reduce heat to 350° - bake another 30 min. Insert a thin knife or piece of pasta in the center of the cake to test for doneness. A bit of chocolate crumb should cling to the tester. Cool in the pan.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Thunder Cake</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 c shortening</li>
+    <li>1 3/4 c sugar</li>
+    <li>1 teaspoon vanilla</li>
+    <li>3 eggs separated (blend yolks in, beat whites until stiff, then fold in)</li>
+    <li>1 c cold water</li>
+    <li>1/3 c pureed tomatoes</li>
+    <li>2 1/2 c cake flour</li>
+    <li>1/2 c dry cocoa</li>
+    <li>1 1/2 teaspoons baking soda</li>
+    <li>1 teaspoon salt</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Cream together, one at a time: shortening, sugar, vanilla. Add 3 eggs separated (blend yolks in, beat whites until stiff, then fold in). Sift together flour, cocoa, baking soda, salt. Mix dry mixture into creamy mixture. Bake in two greased and floured 8 1/2-inch round pans at 350° for 35-40 min. Frost with chocolate butter frosting. Top with strawberries.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Upside Down Blueberry Dump Cake</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Preheat oven 350°. Whisk eggs, yogurt, sugars & mix well. While whisking, gradually drizzle in olive oil until smooth. Add flour, baking powder, & salt. Whisk until smooth. Add lemon zest & ginger, mix, set aside. Toss blueberries with sugar, lemon zest, lemon juice, & ginger. To greased 9 inch round cake pan, layer the bottom with parchment paper. Layer the blueberries out in even layer. Gently pour in batter. Bake 50-55 mins. Let cool before flipping. Sprinkle ginger sugar over the top. Rub it gently into berries to let it melt in. Top with lemon zest & serve.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Upside Down Pumpkin Cake</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 (29oz) can pumpkin puree</li>
+    <li>2 tsp ground cinnamon</li>
+    <li>1/2 tsp ground cloves</li>
+    <li>salt to taste</li>
+    <li>1 3/4 c white sugar</li>
+    <li>3 eggs</li>
+    <li>1 (12oz) can evaporated milk</li>
+    <li>1 (18.25oz) pkg yellow cake mix with pudding</li>
+    <li>1 c chopped pecans</li>
+    <li>1 c melted butter</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven 350°. In mixing bowl blend pumpkin, spices, sugar, eggs, milk. Pour into 9x13" baking dish. Sprinkle dry cake mix & nuts over batter. Pour melted butter over cake. Bake for 60 mins & let cool. Cake will be "liquidy" at first but will solidify as it cools.</p>
+</div>
+
+<!-- DESSERTS CHAPTER -->
+<div class="chapter-divider">
+  <h2>Desserts</h2>
+  <div class="count">5 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Apple Pie</div>
+  <div class="recipe-meta">Oven: 425° then 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>8 small Granny Smith apples (or mix 2 Honeycrisp)</li>
+    <li>1/2 c unsalted butter</li>
+    <li>3 Tbsp flour</li>
+    <li>1/2 c white sugar</li>
+    <li>1/2 c packed brown sugar</li>
+    <li>1/4 c water</li>
+    <li>9" double crust pie pastry</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Peel & core apples, then thinly slice. Set aside. Preheat oven to 425°F. Melt butter in saucepan over medium heat. Add flour & stir to form a paste; cook until fragrant, about 1-2 minutes. Add both sugars & water; bring to a boil. Reduce heat to low & simmer for 3-5 mins. Remove from heat. Press one pastry into bottom & up sides of 9" pie pan. Roll out remaining pastry so it will overhang pie by 1/2". Cut into 1" strips. Place top crust. Place apples in pan forming a mound. Slowly pour sugar mixture over the top. Bake 15 mins @ 425°. Reduce temp to 350° x 35-45 mins until apples are soft.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cinnamon Sugar Pie Crust Cookies</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 unbaked pie crust</li>
+    <li>2 Tbsp sugar</li>
+    <li>2 Tbsp brown sugar</li>
+    <li>2 tsp cinnamon</li>
+    <li>3 Tbsp unsalted melted butter</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven 350°, line baking sheet with parchment paper. On a lightly floured surface, roll out pie crust into a thin rectangle. Brush dough with melted butter. In a small bowl whisk together sugar, brown sugar, & cinnamon. Sprinkle over melted butter on pie crust. Starting at the bottom long end of the rectangle roll dough in a log jelly-roll style. Tuck ends of dough under to close the roll. Using a sharp knife, cut into 1-inch rounds. Place on prepared baking sheet 1-inch apart. Bake until golden brown, 10-15 mins. Scrape away any leaked caramelized sugar & let cool completely. Enjoy!</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Creamy Coconut Cake</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 (16oz) pkg white cake mix</li>
+    <li>1 (14oz) can cream of coconut</li>
+    <li>1 (14oz) can sweetened condensed milk</li>
+    <li>1 (16oz) whipped topping</li>
+    <li>1 (10oz) pkg flaked coconut</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Prepare cake according to package directions. Bake in 9x13 inch pan. Cool completely. Poke holes in cake with a straw. Pour milk mixture over cake & spread with whipped topping. Sprinkle coconut over cake. Serve chilled.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">No Bake Cookies</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1/2 c salted butter</li>
+    <li>1 3/4 c sugar</li>
+    <li>1/3 c cocoa powder</li>
+    <li>1/2 c milk</li>
+    <li>1 tsp vanilla extract</li>
+    <li>2/3 c peanut butter</li>
+    <li>3 c quick oats</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Combine butter, sugar, cocoa, milk. Over medium heat cook until full boil, stirring constantly. Boil x 60 secs (+/- 15 sec). Remove from heat, add vanilla, peanut butter, oats. Stir, then drop onto cookie sheet.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Raspberry Prosecco Tulip</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>4 1/4oz packets gelatin</li>
+    <li>1 1/4 c sugar</li>
+    <li>2 1/2 c prosecco</li>
+    <li>1 c club soda</li>
+    <li>3 Tbsp black raspberry liqueur</li>
+    <li>1 6oz container raspberries plus extra for serving</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Pour 2 c water into saucepan & sprinkle gelatin over the top. Let sit until gelatin has absorbed liquid, about 1 min. Bring to boil over med heat, stirring often to fully dissolve. Pour mixture into the bowl & add sugar, stir until dissolved. Let cool until just warm to touch. Add prosecco, club soda, liqueur, stir until combined. Ladle 2 c of liquid into Bundt pan. Sprinkle with raspberries & refrigerate until set, 1 hr. Once first layer is set, pour remaining liquid over the top. Refrigerate another 3 hrs until fully set. To unmold, dip Bundt pan in small amount warm water for a few seconds then cover pan with a plate & invert.</p>
+</div>
+
+<!-- DRINKS CHAPTER -->
+<div class="chapter-divider">
+  <h2>Drinks</h2>
+  <div class="count">7 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Egg Nog Variations</div>
+  <h4>Instructions</h4>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Egg Nogg</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 eggs, lightly beaten</li>
+    <li>1/3 c white sugar</li>
+    <li>salt to taste</li>
+    <li>2 1/2 c milk</li>
+    <li>1 tsp vanilla extract</li>
+    <li>1 c heavy cream</li>
+    <li>2 Tbsp powdered sugar</li>
+    <li>1/2 tsp vanilla extract</li>
+    <li>1/2 c rum</li>
+    <li>1 pinch ground nutmeg</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>In a heavy saucepan, combine eggs, white sugar, & salt; gradually stir in milk. Stirring constantly, cook for 10-15 mins over med heat, until mixture just coats a metal spoon. Remove from heat, & stir in 1 tsp vanilla extract. Place saucepan over ice water until custard cools, & then refrigerate until chilled. In a chilled bowl, combine heavy cream, powdered sugar, & 1/2 tsp vanilla extract. Beat until stiff peaks form. Stir in rum. Fold whipped cream mixture into the cooled custard. Pour into serving bowl, & sprinkle with nutmeg. Serve immediately.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Mango Breeze Margarita Mix</div>
+  <h4>Instructions</h4>
+  <div class="suggestions">
+    <h4>Serving Suggestions</h4>
+    <ul>
+      <li>Serve in margarita glasses or wine glasses</li>
+      <li>For sparkling margaritas, scoop frozen Mango Breeze Margarita into tall glasses; top with sparkling water</li>
+      <li>Non-alcoholic recipe is on the container</li>
+      <li>Excellent served with: Tempting Taco Cheese Ball, Crazy Cucumber Dip, Giddyup Guacamole, Cilantro & Olive Salsa, Simply Salsa</li>
+      <li>To salt rim of glass, coat rim with lime juice or prepared Mango Breeze Margarita; dip rim in coarse salt</li>
+      <li>Garnish with lime wedges or cubed mango on toothpicks</li>
+    </ul>
+  </div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Pumpkin Spiced Latte</div>
+  <div class="recipe-meta">Yields: 3 coffee mugs</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 c hot whole milk</li>
+    <li>4 tsp white sugar</li>
+    <li>1/2 tsp vanilla extract</li>
+    <li>1/2 tsp pumpkin pie spice</li>
+    <li>6 oz double-strength brewed coffee</li>
+    <li>3 Tbsp sweetened whipped cream</li>
+    <li>3 pinches pumpkin pie spice</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Combine hot milk, sugar, vanilla, pumpkin pie spice in blender. Blend until frothy. Pour into 3 coffee mugs to about 2/3 full. Pour 2 oz coffee into each mug. Garnish with whipped topping & pumpkin pie spice.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Raspberry Prosecco Cocktail</div>
+  <h4>Instructions</h4>
+  <p>Raspberry Syrup: Place sugar & 2 c water in red sauce pan over med heat. Bring to simmer until dissolved. Add lemon juice & raspberries & simmer until raspberries have broken down, about 10 mins. Pour mixture through a strainer & return to pot. Simmer over med heat until syrup has thickened, about 10 min more. Let cool completely then pour into airtight container & store in refrigerator for up to 2 wks. Cocktail: Add raspberry syrup & lemon juice to bottom of champagne flute. Fill with prosecco.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Sangria</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 c burgundy wine</li>
+    <li>1 1/2 c 7up</li>
+    <li>1 1/2 c OJ</li>
+    <li>1/2 c brandy</li>
+    <li>1/4 c sugar</li>
+    <li>2 TBL cointreau</li>
+    <li>2 TBL grenadine</li>
+    <li>2 TBL lemon juice</li>
+    <li>2 TBL lime juice</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Mix all ingredients together and serve chilled.</p>
+  <p><em>Note: From Karen to Lesa</em></p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">White Hot Chocolate</div>
+  <div class="recipe-meta">Yields: 5 (6oz) servings</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 c half-and-half or light cream</li>
+    <li>3/4 c white baking pieces or chopped white chocolate baking squares</li>
+    <li>3 inches stick cinnamon</li>
+    <li>1/8 t ground nutmeg</li>
+    <li>1 t vanilla</li>
+    <li>1/4 t almond extract</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>In medium saucepan combine 1/4 c half-and-half or light cream, the baking pieces, stick cinnamon, and nutmeg. Stir over low heat until baking pieces are melted. Add remaining half-and-half or light cream. Cook and stir until heated through. Remove from heat. Remove stick cinnamon. Add vanilla and almond extract. Makes 5 (6oz) servings.</p>
+</div>
+
+<!-- THANKSGIVING CHAPTER -->
+<div class="chapter-divider">
+  <h2>Thanksgiving</h2>
+  <div class="count">18 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Buttermilk Chess Pie</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 c white sugar</li>
+    <li>2 Tbsp flour</li>
+    <li>5 eggs</li>
+    <li>2/3 c buttermilk</li>
+    <li>1 tsp vanilla</li>
+    <li>1/2 c melted butter</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Combine.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Caramel Apple Crumble Pie</div>
+  <div class="recipe-meta">Oven: 375°</div>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 375°.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Caramels</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>4 c sugar</li>
+    <li>2 sticks butter (1 lb)</li>
+    <li>2 cups white corn syrup</li>
+    <li>1 tsp kosher salt</li>
+    <li>2 12oz cans evaporated milk</li>
+  </ul>
+  <h4>Instructions</h4>
+  <ol>
+    <li>Line 9x13" pan with parchment paper & set aside.</li>
+    <li>Melt sugar, butter, corn syrup, & salt together in large, heavy bottomed pot over medium heat.</li>
+    <li>Once the mixture comes to a boil, add the evaporated milk a little at a time, taking 10-15 minutes per can & stirring constantly.</li>
+    <li>Once all the milk is added use a candy thermometer & bring mixture to 238-240°F - not any hotter!</li>
+  </ol>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Corn Casserole</div>
+  <div class="recipe-meta">Yields: 9 servings</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1/2 c butter</li>
+    <li>1 (17 oz) can creamed corn</li>
+    <li>1 (16 oz) can whole kernel corn, drained</li>
+    <li>1 (9 oz) pkg corn muffin mix</li>
+    <li>1 cup sour cream</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Heat butter in 9x9 inch baking dish until melted, tilting dish to cover bottom. Mix cream-style corn, whole kernel corn, muffin mix and sour cream in bowl. Add to prepared dish and mix well. Bake at 350° for 1 hr or until set and brown.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cranberry Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 lb cranberries, ground</li>
+    <li>1 whole orange, ground</li>
+    <li>1 1/2 c sugar</li>
+    <li>2 pkgs cherry gelatin</li>
+    <li>2 c warm water</li>
+    <li>1 c chopped pecans</li>
+    <li>1 c chopped marshmallows</li>
+    <li>1 1/2 c chopped celery</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Let ground cranberries, orange, and sugar chill overnight. Mix gelatin with warm water. When it starts to jell, add pecans, marshmallows, celery, and cranberry mixture. Refrigerate until well set. Serves 8-10.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Fruit Salad with Cannoli Cream</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1/3 cup whole-milk ricotta cheese</li>
+    <li>2 Tbsp plus 1/3 cup whipping cream</li>
+    <li>3 Tbsp powdered sugar</li>
+    <li>pinch of ground cinnamon</li>
+    <li>12 oz fresh strawberries, hulled & quartered (about 2 1/2 c)</li>
+    <li>1/2 pint fresh raspberries (about 1 1/4 c)</li>
+    <li>1 Tbsp sugar</li>
+    <li>1 Tbsp fresh lemon juice</li>
+    <li>2 kiwi, peeled, cut into 1/2 inch pieces</li>
+    <li>3 Tbsp sliced almonds, toasted</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>In medium bowl stir the ricotta & 2 Tbsp of cream to blend. In a large bowl using an electric mixer, beat the remaining 1/3 c of cream with the powdered sugar and...</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Garlic Mashed Potatoes</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 lbs potatoes</li>
+    <li>2 1/2 tsp garlic powder</li>
+    <li>4 Tbsp butter</li>
+    <li>8 oz sour cream</li>
+    <li>1/2 c whole milk or cream</li>
+    <li>1 Tbsp minced garlic</li>
+    <li>1-2 tsp salt</li>
+    <li>1/4 tsp cracked pepper</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Cook potatoes. Boil x 10-12 mins, drain. Transfer to large bowl. In large bowl combine hot potatoes, butter, milk, sour cream, garlic, garlic powder, salt, pepper. Combine with hand mixer. Add salt/pepper to taste.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Green Beans Amandine</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 pound green beans or two 9 oz packages frozen French-style green beans</li>
+    <li>2 Tbsp slivered almonds</li>
+    <li>2 Tbsp butter or margarine</li>
+    <li>1 tsp lemon juice</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Cut fresh beans French-style & cook as directed. Drain. Cook almonds in butter over low heat, stirring occasionally, til golden. Remove from heat, add lemon juice. Pour over green beans. Serves 6.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Marinated Vegetable Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 c red wine vinegar</li>
+    <li>1 c sugar</li>
+    <li>1/2 c olive oil</li>
+    <li>1 tsp salt</li>
+    <li>16 oz frozen or fresh shelled green peas, cooked 3 mins & drained</li>
+    <li>16 oz cut green beans, frozen or fresh, cooked 8 mins & drained</li>
+    <li>2 small sweet onions, thinly sliced</li>
+    <li>1 2oz jar chopped pimentos</li>
+    <li>1 red bell pepper, cored, seeded, chopped</li>
+    <li>1 1/2 c thinly chopped celery</li>
+  </ul>
+  <h4>Instructions</h4>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">No Bake Cookies</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 c sugar</li>
+    <li>1/2 c milk</li>
+    <li>1 stick (8 Tbsp) unsalted butter</li>
+    <li>1/4 c cocoa powder</li>
+    <li>3 c old-fashioned rolled oats</li>
+    <li>1 c smooth peanut butter</li>
+    <li>1 Tbsp vanilla extract</li>
+    <li>large pinch salt</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Line baking sheet w/ wax paper or parchment. Bring sugar, milk, butter, & cocoa to boil in medium sauce pan over medium heat stirring occas., then let boil for 1 minute. Remove from heat.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Peanut Butter Ball</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3/4 c peanut butter, creamy</li>
+    <li>8 oz cream cheese</li>
+    <li>1 c powdered sugar</li>
+    <li>3 Tbsp brown sugar, packed</li>
+    <li>3/4 c peanut butter chips</li>
+    <li>3/4 c milk chocolate chips</li>
+  </ul>
+  <h4>Instructions</h4>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Peanut Butter Ball</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>8 oz cream cheese, softened</li>
+    <li>3/4 c peanut butter</li>
+    <li>1 c powdered sugar</li>
+    <li>3 Tbsp brown sugar</li>
+    <li>3/4 c chocolate chips</li>
+    <li>3/4 c peanut butter chips</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Mix & form into ball then roll in chips. Serve with graham crackers or cookies.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Peanut Butter Balls</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 c sugar</li>
+    <li>1/2 c dark corn syrup</li>
+    <li>1/2 c white corn syrup</li>
+    <li>2 c crunchy peanut butter</li>
+    <li>4 cups Rice Krispies</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>In large sauce pan, stir sugar & syrups together over medium heat. Add peanut butter & continue to stir until mixture is fully combined. Remove pan from heat, add Rice Krispies. Mix well. Spray your hands lightly with cooking spray & shape mixture into balls. Transfer to wax paper. Store in airtight container for up to 2 weeks.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Pecan Pie</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 eggs</li>
+    <li>2/3 c sugar</li>
+    <li>dash salt</li>
+    <li>1 c dark corn syrup</li>
+    <li>1/3 c butter</li>
+    <li>1 c pecan, chopped</li>
+    <li>pastry for single crust pie</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Beat eggs slightly with rotary beater or fork. Add sugar & salt, stir till dissolved. Stir in dark corn syrup & melted butter. Stir in pecans. Place pastry-lined 9-in pie plate, pour in pecan mixture. Cover edge with foil. Bake x 25 mins until knife in center comes out clean.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Pumpkin Pie</div>
+  <div class="recipe-meta">Yields: 2</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 1/2 c sugar</li>
+    <li>1 tsp salt</li>
+    <li>2 tsp ground cinnamon</li>
+    <li>1 tsp ground ginger</li>
+    <li>1/2 tsp ground cloves</li>
+    <li>4 large eggs</li>
+    <li>1 can (30 oz) pure pumpkin</li>
+    <li>2 cans (12 fl oz each) evaporated milk</li>
+    <li>2 unbaked 9 in deep-dish pie shells</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Mix dry ingredients in small bowl. Beat eggs in large bowl. Stir in pumpkin, dry ingredients. Gradually stir in evaporated milk. Pour into pie shells.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Sweet Potato Casserole</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350 degrees. Butter 2 qt baking dish. Heat, drain, and mash sweet potatoes. Combine with white sugar, eggs, half of the melted butter, milk, and vanilla. Place in dish. In separate bowl mix brown sugar, pecans, flour, and remaining melted butter. Sprinkle over top of potato mixture. Bake for 35 minutes or until knife comes out clean from center.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Taffy Apple Salad</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1/2 c sugar</li>
+    <li>1 Tbsp cornstarch</li>
+    <li>2 Tbsp lemon juice</li>
+    <li>1 egg, beaten</li>
+    <li>1 carton (8 oz) whipped topping</li>
+    <li>1 can (20 oz) pineapple tidbits, drained, reserving liquid</li>
+    <li>4 apples, unpeeled, cored and cut into small pieces</li>
+    <li>2 1/2 c miniature marshmallows</li>
+    <li>1/2 c salted peanuts</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>In medium saucepan, combine sugar, cornstarch, lemon juice, egg, and pineapple juice. Cook until it boils and thickens, stirring continuously, about 10 min. Allow to cool. In a large bowl, combine whipped topping and cooled mixture. Stir in pineapple, apples, marshmallows, and peanuts just before serving.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Thanksgiving Turkey Dressing</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 qts corn bread, crumbled</li>
+    <li>6 slices white or whole wheat bread or biscuits</li>
+    <li>1 Tbsp rubbed sage</li>
+    <li>1/4 t black pepper</li>
+    <li>1 lg sweet onion</li>
+    <li>1 med sized apple, shredded or chopped fine</li>
+    <li>1 c chopped celery</li>
+    <li>1 Tbsp or 1 oz pimentos</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Add liquid from chicken (3 qts water with 2 tsp salt, 1 hen boiled 3-4 hrs until tender) to make it consistency of unbaked corn bread, don't get it too dry, add water if needed. Beat 4 eggs and add. Pour into large baking pan. Bake at 450° for 1 hour.</p>
+</div>
+
+<!-- MISCELLANEOUS CHAPTER -->
+<div class="chapter-divider">
+  <h2>Miscellaneous</h2>
+  <div class="count">50 Recipes</div>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Almond Tea Bread</div>
+  <div class="recipe-meta">Yields: 2 loaves | Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 can (8oz) almond paste</li>
+    <li>1/4 c butter, softened</li>
+    <li>1 c sugar</li>
+    <li>3 large eggs</li>
+    <li>1 1/2 c fresh pitted cherries or blueberries</li>
+    <li>3 c all-purpose flour, divided</li>
+    <li>4 tsp baking powder</li>
+    <li>1/2 tsp salt</li>
+    <li>3/4 c whole milk</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>In a large bowl, combine almond paste & butter; beat until well-blended. Gradually add sugar, beating until light & fluffy. Add eggs one at a time, beating well after each addition. In a small bowl, gently toss cherries & 1 Tbsp flour. Set aside. Combine baking powder, salt, & remaining flour; add to creamed mixture alternately with milk, beating well after each addition. Spoon 1/6 of batter into each of 2 greased & floured 8x4 in. loaf pans; sprinkle layers with 1/2 of fruit. Cover with another layer of batter & sprinkle with remainder of fruit. Top with remaining batter; smooth with a spatula. Bake 350° for 1 1/4 hrs. Cool 10 mins before removing to a wire rack.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Baklava Palmiers with Chocolate Pecan</div>
+  <div class="recipe-meta">Yields: about 26 cookies | Oven: 400°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 sheet puff pastry, thawed</li>
+    <li>1/2 c finely chopped pecans</li>
+    <li>1/4 c sugar</li>
+    <li>1 tsp cinnamon</li>
+    <li>1/4 c honey</li>
+    <li>1/2 c chocolate chips, melted</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Mix pecans, sugar, and cinnamon. Unfold pastry and drizzle with honey. Sprinkle with pecan mixture. Roll both short sides to meet in center. Refrigerate 30 minutes. Slice into 1/2 inch rounds. Place on parchment-lined baking sheet. Bake at 400° for 12-15 minutes until golden. Cool completely. Drizzle with melted chocolate.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Banana Cream Pretzel Pie</div>
+  <h4>Instructions</h4>
+  <p>Mix pretzel crumbs, butter, and sugar. Press into 9-inch pie pan. Bake at 350° for 10 minutes. Cool completely. Beat cream cheese and powdered sugar until smooth. Fold in half the Cool Whip. Spread over crust. Layer banana slices on top. Whisk pudding mix and milk until thickened. Spread over bananas. Top with remaining Cool Whip. Refrigerate at least 4 hours before serving.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Banana Pineapple Vanilla Pudding Pie</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 graham cracker pie crust</li>
+    <li>1 (3.4 oz) box instant vanilla pudding</li>
+    <li>1 c milk</li>
+    <li>1 (8 oz) can crushed pineapple, drained</li>
+    <li>2 bananas, sliced</li>
+    <li>8 oz Cool Whip</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Whisk pudding mix and milk until thickened. Fold in drained pineapple. Pour half into pie crust. Layer banana slices on top. Add remaining pudding mixture. Top with Cool Whip. Refrigerate at least 2 hours.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Bourbon BBQ Pork Chops</div>
+  <div class="recipe-meta">Serves: 4</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>4 bone-in pork chops, 1 inch thick</li>
+    <li>salt and pepper</li>
+    <li>2 Tbsp olive oil</li>
+    <li>1/2 c bourbon</li>
+    <li>1/2 c ketchup</li>
+    <li>1/4 c brown sugar</li>
+    <li>2 Tbsp Worcestershire sauce</li>
+    <li>2 Tbsp apple cider vinegar</li>
+    <li>1 tsp garlic powder</li>
+    <li>1/2 tsp onion powder</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Season pork chops with salt and pepper. Heat oil in large skillet over medium-high heat. Sear pork chops 3-4 minutes per side. Remove and set aside. Reduce heat to medium. Add bourbon to deglaze pan (careful of flame). Whisk in ketchup, brown sugar, Worcestershire, vinegar, garlic powder, and onion powder. Return pork chops to pan. Spoon sauce over chops. Cover and simmer 15-20 minutes until internal temp reaches 145°F.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Bourbon Salted Caramel Brownies</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Melt butter. Stir in sugar. Beat in eggs, one at a time. Add cocoa, flour, salt, and vanilla. Pour into greased 9x13 pan. Bake at 350° for 25-30 minutes. For caramel: Cook sugar over medium heat until amber. Remove from heat. Carefully whisk in butter, then cream and bourbon. Pour over warm brownies. Sprinkle with sea salt. Cool completely before cutting.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Bread Pudding with Vanilla Sauce</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Soak bread in milk for 1 hour. Preheat oven to 350°. Beat eggs, sugar, and vanilla. Stir into bread mixture. Add raisins if using. Pour melted butter into 9x13 pan. Add bread mixture. Bake 45-50 minutes until set. For sauce: Cream sugar and butter. Cook in double boiler, stirring constantly. Remove from heat. Whisk in beaten egg, vanilla, and bourbon. Serve warm over bread pudding.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Bruschetta</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>6 roma tomatoes, diced</li>
+    <li>1/2 c sun-dried tomatoes, packed in oil</li>
+    <li>3 cloves minced garlic</li>
+    <li>1/4 c olive oil</li>
+    <li>2 Tbsp balsamic vinegar</li>
+    <li>1/4 c fresh basil, stems removed</li>
+    <li>1/4 tsp salt</li>
+    <li>1/4 tsp ground black pepper</li>
+    <li>1 French baguette</li>
+    <li>2 c mozzarella cheese, shredded</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven on broiler setting. In a large bowl, combine roma tomatoes, sun-dried tomatoes, garlic, olive oil, vinegar, basil, salt, and pepper. Allow to sit for 10 minutes. Cut baguette into 3/4 inch slices. On a baking sheet, arrange baguette slices in a single layer. Broil for 1-2 minutes until slightly brown. Divide tomato mixture evenly over baguette slices. Top with mozzarella cheese. Broil for 5 minutes or until cheese is melted.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cabbage Ramen Salad</div>
+  <h4>Instructions</h4>
+  <p>Combine cabbage and green onions in large bowl. Melt butter in skillet. Add crushed ramen noodles, almonds, and sesame seeds. Sauté until golden brown. Cool. Combine dressing ingredients and shake well. Just before serving, toss cabbage with noodle mixture and dressing.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Caprese Stuffed Chicken with Roasted Balsamic Veggies</div>
+  <div class="recipe-meta">Serves: 4 | Oven: 400°</div>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 400°. Cut a pocket into each chicken breast and stuff with mozzarella, tomatoes, and basil. Season with Italian seasoning, salt, and pepper. Toss vegetables with olive oil and balsamic vinegar. Arrange chicken and vegetables on baking sheet. Bake 25-30 minutes until chicken is cooked through.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chocolate Almond Macaroons</div>
+  <div class="recipe-meta">Yields: about 30 cookies | Oven: 325°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>4 egg whites</li>
+    <li>2 1/4 c powdered sugar</li>
+    <li>1 c almond flour</li>
+    <li>3 Tbsp unsweetened cocoa powder</li>
+    <li>pinch of salt</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 325°. Line baking sheets with parchment paper. Sift together powdered sugar, almond flour, and cocoa powder. Beat egg whites with salt until stiff peaks form. Gently fold dry ingredients into egg whites. Pipe or spoon 1-inch rounds onto prepared baking sheets. Let stand 30 minutes to form skin. Bake 12-15 minutes. Cool completely on baking sheets before removing.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chocolate Cookies</div>
+  <div class="recipe-meta">Yields: about 36 cookies | Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 c all-purpose flour</li>
+    <li>3/4 c unsweetened cocoa powder</li>
+    <li>1 tsp baking soda</li>
+    <li>1/2 tsp salt</li>
+    <li>1 c butter, softened</li>
+    <li>1 1/2 c sugar</li>
+    <li>2 eggs</li>
+    <li>2 tsp vanilla extract</li>
+    <li>1 c chocolate chips (optional)</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350°. Whisk flour, cocoa, baking soda, and salt. Beat butter and sugar until fluffy. Add eggs and vanilla. Gradually add flour mixture. Stir in chocolate chips if using. Drop by rounded tablespoons onto ungreased cookie sheets. Bake 10-12 minutes until edges are set. Cool on pan 2 minutes before transferring to wire rack.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chocolate Crackle Cookie</div>
+  <div class="recipe-meta">Yields: about 48 cookies | Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 c white sugar</li>
+    <li>1 c unsweetened cocoa powder</li>
+    <li>1/2 c vegetable oil</li>
+    <li>4 large eggs</li>
+    <li>2 tsps vanilla extract</li>
+    <li>2 c all-purpose flour</li>
+    <li>2 tsp baking powder</li>
+    <li>1/2 tsp salt</li>
+    <li>1/2 c powdered sugar</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Mix sugar, cocoa, & oil in medium bowl. Beat in eggs, one at a time, until combined. Stir in vanilla. Combine flour, baking powder, & salt in another bowl. Gradually stir flour mixture into the cocoa mixture until thoroughly mixed. Cover dough & refrigerate for at least 4 hrs. Preheat oven to 350°. Line two cookie sheets with parchment paper. Roll or scoop chilled dough into 1-inch balls. Coat each ball in powdered sugar & place 1-inch apart on the prepared cookie sheet. Bake 10-12 mins. Let stand on cookie sheet for a few mins before transferring to wire racks to cool. May be frozen for up to 3 months either dough or baked. 58 cal per cookie.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chocolate Cream Layered Dessert</div>
+  <h4>Instructions</h4>
+  <p>Mix flour, butter, and pecans. Press into 9x13 pan. Bake at 350° for 15-20 minutes. Cool completely. Beat cream cheese and powdered sugar. Fold in 1 c Cool Whip. Spread over crust. Whisk pudding mixes and milk until thick. Spread over cream cheese layer. Top with remaining Cool Whip and chocolate shavings. Refrigerate 4 hours.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Chocolate Mice</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 (12 oz) bag semisweet chocolate chips</li>
+    <li>1/3 c sour cream</li>
+    <li>1 c chocolate cookie crumbs (crushed Oreos)</li>
+    <li>Sliced almonds for ears</li>
+    <li>Candy eyes</li>
+    <li>Red licorice strings for tails</li>
+    <li>Red candy for nose</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Melt chocolate chips in microwave, stirring every 30 seconds until smooth. Stir in sour cream and cookie crumbs. Refrigerate until firm enough to shape, about 30 minutes. Roll into oval shapes to form mouse bodies. Insert sliced almonds for ears, add candy eyes, red candy for nose, and licorice string for tail. Refrigerate until set.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cranberry Pecan Brie Cups</div>
+  <div class="recipe-meta">Yields: 24 cups | Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>24 wonton wrappers</li>
+    <li>Cooking spray</li>
+    <li>1 c whole-berry cranberry sauce</li>
+    <li>1/4 c orange marmalade</li>
+    <li>1/4 c honey</li>
+    <li>2 Tbsp brandy</li>
+    <li>1/2 tsp ground ginger</li>
+    <li>1/2 tsp apple pie spice</li>
+    <li>1/2 lb Brie cheese (rind removed), cut into 24 pieces</li>
+    <li>1/2 c chopped pecans</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat 350°. Press wonton wrappers into miniature muffin cups coated with cooking spray. Bake 6-8 mins or until edges are brown. Meanwhile, in small saucepan combine cranberry sauce, marmalade, honey, brandy, & spices; heat through over med. heat, stirring frequently. Remove from heat. Divide cheese among wonton cups, top with cranberry mixture. Sprinkle with pecans. Bake 8-10 mins or until heated through & wrappers are golden brown.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cream Cheese Pastry</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>8 oz cream cheese, softened</li>
+    <li>1 c butter, softened</li>
+    <li>2 c all-purpose flour</li>
+    <li>1/4 tsp salt</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Beat cream cheese and butter until smooth. Add flour and salt. Mix until dough forms. Divide into 2 disks. Wrap in plastic wrap and refrigerate at least 1 hour. Roll out and use for sweet or savory pastries.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Creamy Parmesan Spinach Bake</div>
+  <div class="recipe-meta">Serves: 8 | Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 (10 oz) packages frozen chopped spinach, thawed and drained</li>
+    <li>8 oz cream cheese, softened</li>
+    <li>1/2 c mayonnaise</li>
+    <li>1/2 c grated parmesan cheese</li>
+    <li>2 cloves garlic, minced</li>
+    <li>1/4 tsp red pepper flakes</li>
+    <li>1/2 c shredded mozzarella cheese</li>
+    <li>Salt and pepper to taste</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350°. Squeeze excess moisture from spinach. Beat cream cheese, mayonnaise, parmesan, garlic, and red pepper flakes. Stir in spinach. Season with salt and pepper. Transfer to greased 8x8 baking dish. Top with mozzarella. Bake 25-30 minutes until bubbly and golden. Serve with crackers or bread.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Cut Out Sugar Cookies with Royal Icing</div>
+  <div class="recipe-meta">Yields: 24 cookies | Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Whisk flour, baking powder, and salt together. Beat butter and sugar until fluffy. Add egg, milk, and vanilla. Gradually add flour mixture. Refrigerate 1 hour. Roll to 1/4 inch thickness. Cut with cookie cutters. Bake 8-10 minutes. For icing: Beat powdered sugar, meringue powder, and water until stiff peaks form. Tint with food coloring as desired.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">English Toffee</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 c butter</li>
+    <li>1 c sugar</li>
+    <li>1/4 c water</li>
+    <li>1/2 tsp salt</li>
+    <li>1 c semisweet chocolate chips</li>
+    <li>1 c finely chopped almonds, toasted</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Line baking sheet with parchment paper. Combine butter, sugar, water, and salt in heavy saucepan. Cook over medium heat, stirring constantly, until mixture reaches 300°F (hard crack stage) on candy thermometer. Pour immediately onto prepared baking sheet and spread thin. Sprinkle chocolate chips over hot toffee. Let stand 5 minutes then spread melted chocolate evenly. Sprinkle with almonds. Cool completely. Break into pieces.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Frosted Butter Cutout Cookies</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>In large bowl, beat butter, sugar, & extracts until blended. Beat in eggs, one at a time. Gradually beat in buttermilk. In another bowl, whisk flour, baking powder, baking soda, & salt; gradually beat into creamed mixture (dough will be soft). Refrigerate, covered, overnight. Preheat 350°. Divide dough in half. On a floured surface, roll each portion of dough to 1/4 inch thickness. Cut with a floured 2 1/2 in or other cookie cutter. Place 1 inch apart on greased baking sheets. Bake 6-8 mins or until light brown. Remove to wire racks to cool completely. For frosting, in a bowl, beat the butter, powdered sugar, extract, & enough cream to reach a spreading consistency. If desired, tint frosting with food coloring. Spread over cookies, sprinkle with coarse sugar. Let stand until set.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">German Pancakes in the Oven</div>
+  <div class="recipe-meta">Serves: 6 | Oven: 400°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1/2 c butter</li>
+    <li>6 eggs</li>
+    <li>1 c milk</li>
+    <li>1 c all-purpose flour</li>
+    <li>pinch of salt</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 400°. Place butter in 9x13 baking dish and melt in oven. In blender, combine eggs, milk, flour, and salt. Blend until smooth. Pour batter into pan with melted butter. Bake 20-25 minutes until puffed and golden. Serve immediately with powdered sugar, lemon juice, syrup, or fresh fruit.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Glazed Lemon Cookies</div>
+  <div class="recipe-meta">Yields: about 3 dozen cookies | Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350°. Line 2 baking sheets with parchment paper. In small bowl, rub sugar & lemon zest together until fragrant. Combine flour, baking powder, salt in small bowl. Whisk & set aside. Beat butter, sugar/lemon mixture until light & fluffy. Beat in egg & vanilla. Mix until smooth. Slowly beat in flour mixture on low speed. Drop dough by tablespoon onto prepared baking sheet, spacing 2 inches apart. Gently flatten dough with palm of your hand. Bake 12-14 min or until cookies are just set & slightly golden brown. Cool cookies on baking sheet x 2 min & transfer to cooling racks. Cool completely. In medium bowl, whisk powdered sugar & lemon juice. Dip each cookie top into lemon glaze. Let cookies sit until icing is set. Makes about 3 dozen cookies.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Gooey Butter Cake</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350°. Mix cake mix, 1 egg, and melted butter. Press into greased 9x13 pan. Beat cream cheese until smooth. Add 2 eggs and vanilla. Gradually add powdered sugar. Pour over crust. Bake 40-45 minutes until edges are golden but center is still slightly jiggly. Cool completely. Dust with powdered sugar.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Hedgehog Cookies</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 c butter, softened</li>
+    <li>1/2 c sugar</li>
+    <li>2 c all-purpose flour</li>
+    <li>1 c finely chopped almonds</li>
+    <li>1 tsp vanilla</li>
+    <li>Sliced almonds for spines</li>
+    <li>Mini chocolate chips for eyes and nose</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Beat butter and sugar until fluffy. Add flour, chopped almonds, and vanilla. Shape dough into small ovals (hedgehog bodies) with a pointed end for nose. Insert sliced almonds at an angle into the body to create spines. Add mini chocolate chips for eyes and nose. Bake at 350° for 12-15 minutes until lightly golden.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Knox Blox</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>4 envelopes Knox unflavored gelatin</li>
+    <li>3 (3 oz) packages Jello (any flavor)</li>
+    <li>4 c boiling water</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Combine unflavored gelatin and Jello in large bowl. Add boiling water and stir until completely dissolved (about 5 minutes). Pour into 9x13 pan. Refrigerate until firm, about 3 hours. Cut into squares.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Lemon Blueberry Dutch Baby</div>
+  <div class="recipe-meta">Serves: 4 | Oven: 425°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 Tbsp butter</li>
+    <li>3 eggs</li>
+    <li>1/2 c milk</li>
+    <li>1/2 c all-purpose flour</li>
+    <li>2 Tbsp sugar</li>
+    <li>1 Tbsp lemon zest</li>
+    <li>1/4 tsp salt</li>
+    <li>1 c fresh blueberries</li>
+    <li>powdered sugar for dusting</li>
+    <li>lemon wedges for serving</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 425°. Place butter in 10-inch cast iron skillet and melt in oven. In blender, combine eggs, milk, flour, sugar, lemon zest, and salt. Blend until smooth. Pour batter into hot skillet with melted butter. Scatter blueberries over top. Bake 18-22 minutes until puffed and golden. Dust with powdered sugar and serve with lemon wedges.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Lemon Pecan Slab Pie</div>
+  <div class="recipe-meta">Serves: 24 bars | Oven: 350°</div>
+  <h4>Instructions</h4>
+  <p>For crust: Mix flour and sugar. Cut in butter until crumbly. Add egg yolks and water. Press into 15x10 jelly roll pan. Bake 15 minutes at 350°. For filling: Whisk melted butter, sugar, eggs, corn syrup, lemon juice, and zest. Stir in pecans. Pour over crust. Bake 25-30 minutes until set. Cool and cut into bars.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Lime Pretzel Jello</div>
+  <h4>Instructions</h4>
+  <p>Mix pretzels, butter, and sugar. Press into 9x13 pan. Bake at 350° for 10 minutes. Cool completely. Beat cream cheese and sugar. Fold in Cool Whip. Spread over cooled crust, sealing edges. Dissolve Jello in boiling water. Stir in pineapple. Let cool until slightly thickened. Pour over cream cheese layer. Refrigerate until set, at least 4 hours.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Mac & Cheese</div>
+  <div class="recipe-meta">Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 lb elbow macaroni</li>
+    <li>6 Tbsp butter</li>
+    <li>1/3 c all-purpose flour</li>
+    <li>3 c milk</li>
+    <li>1 lb sharp cheddar cheese, shredded</li>
+    <li>1/2 lb Velveeta cheese, cubed</li>
+    <li>1 tsp salt</li>
+    <li>1/2 tsp pepper</li>
+    <li>1/2 tsp dry mustard</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Cook macaroni according to package directions. Drain. Melt butter in large saucepan over medium heat. Whisk in flour and cook 1 minute. Gradually whisk in milk. Cook, stirring constantly, until thickened. Remove from heat. Add cheeses, salt, pepper, and mustard. Stir until melted. Add macaroni and mix well. Pour into greased 9x13 baking dish. Bake 30 minutes until bubbly.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Meringue Cookies</div>
+  <div class="recipe-meta">Oven: 200°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 egg whites</li>
+    <li>1/4 tsp cream of tartar</li>
+    <li>3/4 c sugar</li>
+    <li>1 c chocolate chips or crushed candy cane</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Heat oven to 200°. Line baking sheet with parchment paper. In a large bowl beat the egg whites with an electric mixer on med-high speed until foamy. Add cream of tartar and continue beating until soft peaks form. Gradually add sugar, beating until stiff, glossy peaks form (1-2 min). Fold in chocolate chips. Drop dough by teaspoons, spacing them 1" apart. Bake until the meringues are dry to the touch but not browned, 1.5-2 hours. Turn oven off. Let the meringues cool in oven at least 1 hour.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Mini Strawberry Santas</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 lb large fresh strawberries</li>
+    <li>8 oz cream cheese, softened</li>
+    <li>1/4 c powdered sugar</li>
+    <li>Mini chocolate chips for eyes</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Wash and dry strawberries. Cut off the leafy top to create a flat base. Cut off the pointed tip (this will be Santa's hat). Beat cream cheese and powdered sugar until fluffy. Pipe or spread cream cheese mixture on the cut base of the strawberry (body). Place the pointed tip on top (hat). Add a small dollop of cream cheese for the pom-pom. Use mini chocolate chips for eyes. Refrigerate until serving.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Night Before Christmas Mice</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 (12 oz) bag white chocolate chips</li>
+    <li>1/3 c sour cream</li>
+    <li>1 c vanilla cookie crumbs</li>
+    <li>Red candy melts</li>
+    <li>Sliced almonds for ears</li>
+    <li>Mini chocolate chips for eyes</li>
+    <li>Red licorice strings for tails</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Melt white chocolate chips in microwave, stirring every 30 seconds until smooth. Stir in sour cream and cookie crumbs. Refrigerate until firm enough to shape. Roll into oval shapes for mouse bodies. Dip tips in red candy melt to make little hats or scarves. Add sliced almonds for ears, mini chocolate chips for eyes, and licorice strings for tails.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">No Bake Chocolate Oatmeal Cookies</div>
+  <div class="recipe-meta">Yields: about 30 cookies</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 c sugar</li>
+    <li>1/2 c milk</li>
+    <li>1/2 c butter</li>
+    <li>1/4 c unsweetened cocoa powder</li>
+    <li>3 c quick oats</li>
+    <li>1 c peanut butter</li>
+    <li>1 tsp vanilla extract</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Line baking sheet with wax paper. Combine sugar, milk, butter, and cocoa in saucepan. Bring to a boil over medium heat, stirring constantly. Boil for 1 minute. Remove from heat. Stir in oats, peanut butter, and vanilla. Drop by spoonfuls onto prepared baking sheet. Let cool until set.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Nutella Bread Pudding</div>
+  <div class="recipe-meta">Serves: 8 | Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 loaf brioche or challah bread, cubed</li>
+    <li>1 c Nutella</li>
+    <li>4 eggs</li>
+    <li>2 c milk</li>
+    <li>1 c heavy cream</li>
+    <li>1/2 c sugar</li>
+    <li>1 tsp vanilla extract</li>
+    <li>Powdered sugar for dusting</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Grease 9x13 baking dish. Arrange bread cubes in dish. Warm Nutella and drizzle over bread. Whisk eggs, milk, cream, sugar, and vanilla. Pour over bread. Let soak 30 minutes, pressing bread down occasionally. Bake at 350° for 45-50 minutes until puffed and set. Dust with powdered sugar before serving.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Nutella Christmas Tree</div>
+  <div class="recipe-meta">Oven: 400°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>2 sheets puff pastry, thawed</li>
+    <li>1 c Nutella</li>
+    <li>1 egg, beaten</li>
+    <li>powdered sugar for dusting</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 400°. Line baking sheet with parchment. Cut one sheet of puff pastry into a triangle (Christmas tree shape). Spread Nutella evenly over the triangle. Cut second sheet into same triangle shape and place on top. Using a knife, make cuts along each side to create branches, leaving center intact. Twist each branch. Brush with beaten egg. Bake 15-20 minutes until golden brown. Dust with powdered sugar before serving.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Nutella Tart with Toasted Hazelnut Crust</div>
+  <div class="recipe-meta">Oven: 375°</div>
+  <h4>Instructions</h4>
+  <p>For crust: Pulse flour, hazelnuts, sugar, and salt in food processor. Add butter and pulse until crumbly. Add egg yolk and water. Press into 9-inch tart pan. Bake at 375° for 18-20 minutes until golden. Cool completely. For filling: Heat Nutella and cream together until smooth. Pour into cooled crust. Refrigerate until set, at least 2 hours. Garnish with whole hazelnuts.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Palmiers (Sugar)</div>
+  <div class="recipe-meta">Yields: about 26 cookies | Oven: 450°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 sheet frozen puff pastry, thawed</li>
+    <li>1/2 c sugar, divided</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 450°. Sprinkle 1/4 c sugar on work surface. Unfold pastry on sugar and sprinkle with 2 Tbsp sugar. Roll into 12x10 inch rectangle. With short side facing you, fold both short sides to meet at center. Fold in half like closing a book. Cut into 1/2 inch slices. Place cut side down on parchment-lined baking sheet. Sprinkle with remaining sugar. Bake 6 minutes. Turn cookies over and bake 5-6 minutes more until golden.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Paula Deen's Banana Pudding</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>12 oz frozen whipped topping, thawed</li>
+    <li>14 oz can sweetened condensed milk</li>
+    <li>8 oz pkg cream cheese, softened</li>
+    <li>2 c milk</li>
+    <li>5 oz box instant French vanilla pudding mix</li>
+    <li>6-8 bananas, sliced</li>
+    <li>2 bags chessmen cookies</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Line bottom of 13 x 9 x 2 inch dish with 1 bag of cookies & layer bananas on top. In a bowl, combine milk & pudding mix & blend well using handheld mixer. Using another bowl, combine cream cheese & condensed milk together & mix until smooth. Fold whipped topping into cream cheese. Add cream cheese mixture to pudding mixture & stir until well blended. Pour mixture over cookies & bananas & cover with remaining cookies. Refrigerate until ready to serve.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Peach Crumble</div>
+  <div class="recipe-meta">Serves: 8 | Oven: 375°</div>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 375°. Toss peaches with sugar, cornstarch, cinnamon, and nutmeg. Pour into 9x13 baking dish. For topping: Mix flour, oats, brown sugar, and cinnamon. Cut in butter until crumbly. Sprinkle over peaches. Bake 40-45 minutes until golden and bubbly. Serve warm with vanilla ice cream.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Pesto Palmiers</div>
+  <div class="recipe-meta">Yields: 32 palmiers | Oven: 400°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 sheet puff pastry, thawed</li>
+    <li>1/2 c basil pesto</li>
+    <li>1/4 c grated parmesan cheese</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 400°. Line baking sheet with parchment paper. On a lightly floured surface, unfold puff pastry. Roll into a 10x12 inch rectangle. Spread pesto evenly over pastry, leaving 1/2 inch border. Sprinkle with parmesan. Starting from one short side, roll pastry tightly to the center. Roll the other side to meet in the middle. Refrigerate 30 minutes. Slice into 1/4 inch rounds. Place on prepared baking sheet 2 inches apart. Bake 12-15 minutes until golden brown.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Pumpkin Pudding</div>
+  <div class="recipe-meta">Serves: 8</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 (15 oz) can pumpkin puree</li>
+    <li>1 (3.4 oz) box instant vanilla pudding</li>
+    <li>1 c milk</li>
+    <li>1 tsp pumpkin pie spice</li>
+    <li>8 oz Cool Whip</li>
+    <li>Graham crackers or gingersnaps for serving</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Whisk pumpkin, pudding mix, milk, and pumpkin pie spice until smooth and thickened. Fold in Cool Whip. Refrigerate at least 1 hour. Serve in small cups with graham crackers or gingersnaps for dipping.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">S'more Pie</div>
+  <h4>Instructions</h4>
+  <p>Mix graham cracker crumbs, sugar, and butter. Press into 9-inch pie pan. Bake at 350° for 10 minutes. Cool. For filling: Heat cream until simmering. Pour over chocolate chips. Let stand 5 minutes, then stir until smooth. Add vanilla. Pour into crust. Refrigerate 2 hours. Top with marshmallows. Broil 1-2 minutes until marshmallows are toasted (watch carefully!). Garnish with graham cracker pieces.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Sage and Onion Stuffing</div>
+  <div class="recipe-meta">Serves: 10-12 lb turkey</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 loaf white bread, cubed and dried</li>
+    <li>1 c butter</li>
+    <li>2 large onions, diced</li>
+    <li>4 stalks celery, diced</li>
+    <li>2 Tbsp fresh sage, chopped (or 2 tsp dried)</li>
+    <li>1 tsp dried thyme</li>
+    <li>1/2 tsp salt</li>
+    <li>1/4 tsp black pepper</li>
+    <li>1-2 c chicken broth</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Melt butter in large skillet. Sauté onions and celery until softened, about 10 minutes. Add sage, thyme, salt, and pepper. Combine with bread cubes in large bowl. Add enough broth to moisten. If you prefer a moister dressing, add a bit of broth. This is sufficient stuffing for a 10-12 lb turkey.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Sausage Quiche</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>1 lb sausage</li>
+    <li>4 eggs</li>
+    <li>2 c half-and-half</li>
+    <li>1/2 tsp salt</li>
+    <li>1/4 tsp pepper</li>
+    <li>2 deep dish pie shells</li>
+    <li>2 c cheese, shredded</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Brown and drain sausage. Beat eggs with half & half, salt & pepper. Sprinkle sausage & cheese into pie shell. Pour egg mix over sausage and cheese. Bake at 375° for 45 min.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Snickerdoodles</div>
+  <div class="recipe-meta">Yields: 4 dozen cookies | Oven: 400°</div>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 400°. Combine flour, cream of tartar, baking soda, and salt. Beat butter and sugar until fluffy. Add eggs and vanilla. Gradually add flour mixture. Mix coating ingredients in small bowl. Roll dough into 1-inch balls and roll in cinnamon-sugar mixture. Place 2 inches apart on ungreased cookie sheet. Bake 8-10 minutes until edges are set but centers are still soft.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Stuffed Mushrooms</div>
+  <div class="recipe-meta">Serves: 24 mushrooms | Oven: 350°</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>24 whole fresh mushrooms</li>
+    <li>1 Tbsp vegetable oil</li>
+    <li>1 Tbsp minced garlic</li>
+    <li>1 (8 oz) pkg cream cheese, softened</li>
+    <li>1/4 c grated parmesan cheese</li>
+    <li>1/4 tsp ground black pepper</li>
+    <li>1/4 tsp onion powder</li>
+    <li>1/4 tsp ground cayenne pepper</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350°. Spray baking sheet with cooking spray. Clean mushrooms with damp paper towel. Carefully break off stems. Chop stems extremely fine, discarding tough ends. Heat oil in skillet over medium heat. Add garlic and chopped mushroom stems. Fry until moisture has disappeared, being careful not to burn garlic. Set aside to cool. Mix cream cheese, parmesan, pepper, onion powder, and cayenne. Stir in cooled mushroom mixture. Fill mushroom caps with mixture. Arrange on prepared baking sheet. Bake 20 minutes or until stuffing is lightly browned.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Tomato Relish</div>
+  <div class="recipe-meta">Yields: about 6 pints</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>4 quarts ripe tomatoes, peeled and chopped</li>
+    <li>2 c chopped onions</li>
+    <li>2 c chopped celery</li>
+    <li>2 c chopped green peppers</li>
+    <li>1 c sugar</li>
+    <li>2 Tbsp salt</li>
+    <li>2 Tbsp mustard seed</li>
+    <li>1 1/2 tsp celery seed</li>
+    <li>2 c vinegar</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Combine all ingredients in large pot. Bring to boil. Reduce heat and simmer 30 minutes. Ladle into hot sterilized jars, leaving 1/2 inch headspace. Process in boiling water bath for 15 minutes.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Witch's Hat Cookies</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>Fudge stripe cookies</li>
+    <li>Hershey's Kisses, unwrapped</li>
+    <li>Orange frosting</li>
+    <li>Candy corn or sprinkles for decoration</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Turn fudge stripe cookie upside down (striped side down). Use a dab of frosting to attach a Hershey's Kiss to the center of the cookie, pointed side up. Pipe orange frosting around the base of the kiss to create a band. Decorate with candy corn or sprinkles.</p>
+</div>
+
+<div class="recipe">
+  <div class="recipe-title">Zucchini Lasagna</div>
+  <h4>Ingredients</h4>
+  <ul>
+    <li>3 medium zucchini, sliced 1/8" thick</li>
+    <li>1 Tbsp olive oil</li>
+    <li>1/2 lb ground beef</li>
+    <li>3 cloves garlic, minced</li>
+    <li>1 (14 oz) can crushed tomatoes</li>
+    <li>2 tsp dried basil</li>
+    <li>freshly ground black pepper to taste</li>
+    <li>salt</li>
+    <li>1 c low-fat cottage cheese</li>
+    <li>1 egg</li>
+    <li>1/2 c grated parmesan cheese</li>
+    <li>2 c shredded mozzarella cheese</li>
+  </ul>
+  <h4>Instructions</h4>
+  <p>Preheat oven to 350°. Grease 9x13 baking dish. Lay sliced zucchini on paper towels & sprinkle with salt. Let stand to remove moisture. Heat oil over med-high heat. Add beef & garlic. Cook until browned & no longer pink. Drain excess grease. Add crushed tomatoes & basil. Season with pepper. Simmer 20 min. Mix cottage cheese, egg, and 1/4 c parmesan in bowl. In prepared pan, layer zucchini, cottage cheese mixture, meat sauce, mozzarella and remaining parmesan. Repeat layers. Bake covered with foil for 30 minutes. Remove foil and bake until bubbly, about 30 minutes more. Cool 10 minutes before serving.</p>
+</div>
+
+
+<!-- INDEX -->
+<div class="index-page">
+  <h2>Index</h2>
+  <div class="index-columns">
+    <div class="index-letter">A</div>
+    <div class="index-entry">Almond Tea Bread</div>
+    <div class="index-entry">Apple Dump Cake</div>
+    <div class="index-entry">Apple Pie</div>
+    <div class="index-letter">B</div>
+    <div class="index-entry">Baked Cheese Grits</div>
+    <div class="index-entry">Baked Potato Soup</div>
+    <div class="index-entry">Baklava Palmiers with Chocolate Pecan</div>
+    <div class="index-entry">Balsamic & Basil Dipping Oil Suggestions</div>
+    <div class="index-entry">Banana Cream Pretzel Pie</div>
+    <div class="index-entry">Banana Pineapple Vanilla Pudding Pie</div>
+    <div class="index-entry">Black Eyed Peas</div>
+    <div class="index-entry">Bountiful Beer Bread Suggestions</div>
+    <div class="index-entry">Bourbon BBQ Pork Chops</div>
+    <div class="index-entry">Bourbon Salted Caramel Brownies</div>
+    <div class="index-entry">Bread Pudding with Vanilla Sauce</div>
+    <div class="index-entry">Bruschetta</div>
+    <div class="index-entry">Bruschetta</div>
+    <div class="index-entry">Buttermilk Chess Pie</div>
+    <div class="index-letter">C</div>
+    <div class="index-entry">Cabbage Ramen Salad</div>
+    <div class="index-entry">Candy Bar Apple Salad</div>
+    <div class="index-entry">Caprese Farfalle</div>
+    <div class="index-entry">Caprese Stuffed Chicken with Roasted Balsamic Veggies</div>
+    <div class="index-entry">Caramel Apple Crumble Pie</div>
+    <div class="index-entry">Caramels</div>
+    <div class="index-entry">Cashew Crab Artichoke Dip</div>
+    <div class="index-entry">Charred Corn & Chicken Cheese Salad</div>
+    <div class="index-entry">Cheese Dip with Beer</div>
+    <div class="index-entry">Cheese Dreams</div>
+    <div class="index-entry">Cheese Fondue</div>
+    <div class="index-entry">Chewy Gingerbread Cookies</div>
+    <div class="index-entry">Chicken & Rice Soup</div>
+    <div class="index-entry">Chicken Noodle Soup</div>
+    <div class="index-entry">Chicken Tortilla Soup</div>
+    <div class="index-entry">Chili</div>
+    <div class="index-entry">Chocolate Almond Macaroons</div>
+    <div class="index-entry">Chocolate Cookies</div>
+    <div class="index-entry">Chocolate Crackle Cookie</div>
+    <div class="index-entry">Chocolate Cream Layered Dessert</div>
+    <div class="index-entry">Chocolate Mice</div>
+    <div class="index-entry">Cilantro & Olive Salsa Suggestions</div>
+    <div class="index-entry">Cinnamon Cottage Cheese Pancakes</div>
+    <div class="index-entry">Cinnamon Crunch Bagels</div>
+    <div class="index-entry">Cinnamon Roll Cake</div>
+    <div class="index-entry">Cinnamon Rolls (Puff Pastry)</div>
+    <div class="index-entry">Cinnamon Sugar Pie Crust Cookies</div>
+    <div class="index-entry">Corn Casserole</div>
+    <div class="index-entry">Cranberry Pecan Brie Cups</div>
+    <div class="index-entry">Cranberry Salad</div>
+    <div class="index-entry">Cream Cheese Pastry</div>
+    <div class="index-entry">Cream Cheese Penguins</div>
+    <div class="index-entry">Creamy Coconut Cake</div>
+    <div class="index-entry">Creamy Parmesan Spinach Bake</div>
+    <div class="index-entry">Cucumber Mango Salad</div>
+    <div class="index-entry">Cucumber Salad</div>
+    <div class="index-entry">Cut Out Sugar Cookies with Royal Icing</div>
+    <div class="index-letter">D</div>
+    <div class="index-entry">Deviled Eggs</div>
+    <div class="index-letter">E</div>
+    <div class="index-entry">Egg Drop Soup</div>
+    <div class="index-entry">Egg Nog Variations</div>
+    <div class="index-entry">Egg Nogg</div>
+    <div class="index-entry">Egg Salad</div>
+    <div class="index-entry">English Toffee</div>
+    <div class="index-letter">F</div>
+    <div class="index-entry">Farmer's Medley Dip Suggestions</div>
+    <div class="index-entry">French Toast Bake</div>
+    <div class="index-entry">Frosted Butter Cutout Cookies</div>
+    <div class="index-entry">Fruit Salad with Cannoli Cream</div>
+    <div class="index-letter">G</div>
+    <div class="index-entry">Garlic Mashed Potatoes</div>
+    <div class="index-entry">Garlic Roasted Potato Wedges</div>
+    <div class="index-entry">German Pancakes in the Oven</div>
+    <div class="index-entry">Giblet Gravy</div>
+    <div class="index-entry">Glazed Lemon Cookies</div>
+    <div class="index-entry">Gooey Butter Cake</div>
+    <div class="index-entry">Green Beans & Cheese</div>
+    <div class="index-entry">Green Beans Amandine</div>
+    <div class="index-letter">H</div>
+    <div class="index-entry">Hedgehog Cookies</div>
+    <div class="index-entry">Hisae's Choc Cake</div>
+    <div class="index-letter">I</div>
+    <div class="index-entry">Italian Dipping Oil</div>
+    <div class="index-letter">K</div>
+    <div class="index-entry">Key Lime Cheese Ball Suggestions</div>
+    <div class="index-entry">Knox Blox</div>
+    <div class="index-letter">L</div>
+    <div class="index-entry">Lemon Blueberry Dutch Baby</div>
+    <div class="index-entry">Lemon Blueberry Scones</div>
+    <div class="index-entry">Lemon Pecan Slab Pie</div>
+    <div class="index-entry">Lentil Ham Soup</div>
+    <div class="index-entry">Lime Jello Salad</div>
+    <div class="index-entry">Lime Pretzel Jello</div>
+    <div class="index-letter">M</div>
+    <div class="index-entry">Mac & Cheese</div>
+    <div class="index-entry">Macaroni Salad</div>
+    <div class="index-entry">Mango Breeze Margarita Mix</div>
+    <div class="index-entry">Marinated Vegetable Salad</div>
+    <div class="index-entry">Marinated Vegetable Salad</div>
+    <div class="index-entry">Meringue Cookies</div>
+    <div class="index-entry">Mini Strawberry Santas</div>
+    <div class="index-letter">N</div>
+    <div class="index-entry">Night Before Christmas Mice</div>
+    <div class="index-entry">No Bake Chocolate Oatmeal Cookies</div>
+    <div class="index-entry">No Bake Cookies</div>
+    <div class="index-entry">No Bake Cookies</div>
+    <div class="index-entry">Nonna's Sauce</div>
+    <div class="index-entry">Nutella Bread Pudding</div>
+    <div class="index-entry">Nutella Christmas Tree</div>
+    <div class="index-entry">Nutella Tart with Toasted Hazelnut Crust</div>
+    <div class="index-letter">P</div>
+    <div class="index-entry">Palmiers (Sugar)</div>
+    <div class="index-entry">Paula Deen's Banana Pudding</div>
+    <div class="index-entry">Peach Crumble</div>
+    <div class="index-entry">Peanut Butter Ball</div>
+    <div class="index-entry">Peanut Butter Ball</div>
+    <div class="index-entry">Peanut Butter Balls</div>
+    <div class="index-entry">Pecan Cheese Ball</div>
+    <div class="index-entry">Pecan Pie</div>
+    <div class="index-entry">Penne Primavera</div>
+    <div class="index-entry">Pepperoni Pizza Dip</div>
+    <div class="index-entry">Pesto Palmiers</div>
+    <div class="index-entry">Potato Leek Soup</div>
+    <div class="index-entry">Pumpkin Breakfast Casserole</div>
+    <div class="index-entry">Pumpkin Pie</div>
+    <div class="index-entry">Pumpkin Pudding</div>
+    <div class="index-entry">Pumpkin Spiced Latte</div>
+    <div class="index-letter">Q</div>
+    <div class="index-entry">Quiche</div>
+    <div class="index-letter">R</div>
+    <div class="index-entry">Raspberry Prosecco Cocktail</div>
+    <div class="index-entry">Raspberry Prosecco Tulip</div>
+    <div class="index-entry">Roasted Pumpkin Seed Hummus</div>
+    <div class="index-entry">Roasted Red Pepper, Tomato & Smoked Gouda Bisque</div>
+    <div class="index-letter">S</div>
+    <div class="index-entry">S'more Pie</div>
+    <div class="index-entry">Sage and Onion Stuffing</div>
+    <div class="index-entry">Salmon Tacos</div>
+    <div class="index-entry">Sangria</div>
+    <div class="index-entry">Sausage Quiche</div>
+    <div class="index-entry">Shrimp & Sausage Stew</div>
+    <div class="index-entry">Snickerdoodles</div>
+    <div class="index-entry">Spaghetti Salad</div>
+    <div class="index-entry">Spice Roasted Honeynut Squash & Chickpeas</div>
+    <div class="index-entry">Spinach Artichoke Dip</div>
+    <div class="index-entry">Spinach Artichoke Pasta</div>
+    <div class="index-entry">Stuffed Celery</div>
+    <div class="index-entry">Stuffed Mushrooms</div>
+    <div class="index-entry">Sweet Almond Crackers</div>
+    <div class="index-entry">Sweet Pepper Jalapeno Jam Suggestions</div>
+    <div class="index-entry">Sweet Potato Casserole</div>
+    <div class="index-letter">T</div>
+    <div class="index-entry">Taffy Apple Salad</div>
+    <div class="index-entry">Texas Caviar</div>
+    <div class="index-entry">Thanksgiving Turkey Dressing</div>
+    <div class="index-entry">Thunder Cake</div>
+    <div class="index-entry">Tomato Relish</div>
+    <div class="index-entry">Twice Baked Sweet Potatoes with Ricotta Cheese</div>
+    <div class="index-letter">U</div>
+    <div class="index-entry">Upside Down Blueberry Dump Cake</div>
+    <div class="index-entry">Upside Down Pumpkin Cake</div>
+    <div class="index-letter">V</div>
+    <div class="index-entry">Veggie Quesadillas</div>
+    <div class="index-letter">W</div>
+    <div class="index-entry">Waffles</div>
+    <div class="index-entry">White Bean Soup with Greens & Turkey</div>
+    <div class="index-entry">White Hot Chocolate</div>
+    <div class="index-entry">Witch's Hat Cookies</div>
+    <div class="index-letter">Z</div>
+    <div class="index-entry">Zucchini & Corn Skillet</div>
+    <div class="index-entry">Zucchini Lasagna</div>
+  </div>
+</div>
+
+<!-- NOTES -->
+<div class="notes-page">
+  <h2>Notes</h2>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+</div>
+
+<div class="notes-page" style="page-break-before: always;">
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+  <div class="notes-lines"></div>
+</div>
+
+
+<!-- BACK MATTER -->
+<div style="page-break-before: always; text-align: center; padding-top: 4in;">
+  <p style="font-size: 14pt; color: #8b4513;">Thank you for cooking with us!</p>
+  <br><br>
+  <p style="font-size: 11pt; color: #888;">
+    These recipes represent years of family traditions,<br>
+    holiday gatherings, and everyday meals made with love.
+  </p>
+  <br><br>
+  <p style="font-size: 10pt; color: #888;">
+    Visit us online:<br>
+    carsonmulligan.github.io/moms-recipes
+  </p>
+</div>
+
+</body>
+</html>
