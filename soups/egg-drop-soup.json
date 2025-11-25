@@ -1,0 +1,20 @@
+{
+  "title": "Egg Drop Soup",
+  "source_images": ["IMG_7518.jpg", "IMG_7519.jpg", "IMG_7520.jpg"],
+  "ingredients": [
+    "1/8 tsp ground ginger",
+    "2 Tbsp chopped chives",
+    "1/4 tsp salt",
+    "1 1/2 Tbsp corn starch",
+    "4 cups chicken broth",
+    "2 eggs, less yolk"
+  ],
+  "instructions": [
+    "Reserve 3/4 cup chicken broth and pour the rest into large saucepan.",
+    "Stir in salt, ginger, and chives. Bring to rolling boil.",
+    "In a cup or small bowl stir together remaining broth and cornstarch until smooth. Set aside.",
+    "In a small bowl, whisk the eggs and egg yolk together using a fork.",
+    "Drizzle egg a little at a time from the fork into the boiling broth mixture. Egg should cook immediately.",
+    "Once the eggs have been dropped, stir in the cornstarch mixture gradually until the soup is the desired consistency."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Salmon Tacos",
+  "source_images": ["IMG_7493.jpg"],
+  "ingredients": [
+    "Mango",
+    "Avocado",
+    "Onion",
+    "Tomato",
+    "Cilantro",
+    "Olive oil",
+    "Salt",
+    "Salmon",
+    "Soy sauce",
+    "Tortillas"
+  ],
+  "instructions": [
+    "Marinate salmon with soy sauce and curry.",
+    "Brown salmon over medium heat.",
+    "Top with salad on tortillas."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Chili",
+  "source_images": ["IMG_7498.jpg", "IMG_7499.jpg", "IMG_7500.jpg"],
+  "ingredients": [
+    "3 lbs ground beef",
+    "1 med chopped onion",
+    "1 chopped green pepper",
+    "4 cloves garlic, minced",
+    "1 (16oz) can diced tomatoes",
+    "1 (16oz) kidney beans, drained",
+    "1 (8oz) can tomato sauce",
+    "2 Tbsp chili powder",
+    "1 tsp dried basil or Italian seasoning",
+    "1/2 tsp salt",
+    "1/2 tsp pepper"
+  ],
+  "instructions": [
+    "Cook ground beef, onion, green pepper, and garlic until meat is browned. Drain off fat.",
+    "Stir in undrained tomatoes, kidney beans, tomato sauce, chili powder, basil, 1/2 tsp salt, 1/2 tsp pepper.",
+    "Bring to boiling, then reduce heat.",
+    "Cover and simmer about 20 mins."
+  ]
+}

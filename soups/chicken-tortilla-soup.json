@@ -1,0 +1,42 @@
+{
+  "title": "Chicken Tortilla Soup",
+  "source_images": ["IMG_7504.jpg", "IMG_7505.jpg", "IMG_7506.jpg"],
+  "ingredients": {
+    "soup": [
+      "1 Tbsp olive oil",
+      "1 med onion, chopped",
+      "3 garlic cloves, minced",
+      "1 jalapeno pepper, seeded and diced",
+      "1 tsp ground cumin",
+      "1 tsp chili powder",
+      "1 lb chicken breasts (2 medium)",
+      "20 oz crushed tomatoes",
+      "32 oz chicken broth",
+      "14 oz can black beans, drained, rinsed",
+      "14 oz corn, drained, rinsed",
+      "1/2 cup cilantro, chopped, divided (reserve 1/4 for garnish)",
+      "1 lime, juiced",
+      "1 tsp salt, or to taste"
+    ],
+    "tortilla_strips": [
+      "1/4 cup olive oil",
+      "8 corn tortillas (6\" tortillas)"
+    ],
+    "toppings": [
+      "1 lg avocado",
+      "1 lime, cut into wedges, to serve"
+    ]
+  },
+  "instructions": {
+    "tortilla_strips": [
+      "Toss tortilla strips in a bowl with 2 Tbsp oil until well coated.",
+      "Bake on a cookie sheet in a single layer at 350°F for 15 mins."
+    ],
+    "soup": [
+      "1) Preheat pot with oil over med-high heat. Add chopped onion, garlic, and jalapeno; saute until veggies soften.",
+      "2) Add whole chicken, corn, beans, chili powder, cumin, tomatoes, salt, 1/4 cup cilantro, chicken broth. Bring to boil and let simmer for at least 25 mins.",
+      "3) Remove chicken and shred it using 2 forks. Add shredded chicken back to soup and simmer another 5 mins, then add lime juice.",
+      "4) Serve with tortilla strips, pieces of avocado, fresh cilantro, and lime wedges."
+    ]
+  }
+}

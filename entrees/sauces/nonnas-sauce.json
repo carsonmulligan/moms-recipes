@@ -1,0 +1,31 @@
+{
+  "title": "Nonna's Sauce",
+  "source_images": ["IMG_7472.PNG"],
+  "ingredients": {
+    "part_1": [
+      "2 large celery stalks, chopped",
+      "Handful of carrots or two large carrots",
+      "One small onion",
+      "Pancetta or mortadella"
+    ],
+    "part_2": [
+      "2 lbs ground pork and ground beef mix",
+      "1 cup of wine",
+      "Some water",
+      "Tomato paste (small can)",
+      "Diced tomatoes, or plain tomato sauce",
+      "Rosemary",
+      "Salt",
+      "Pepper",
+      "Some Italian seasoning",
+      "1 cup heavy whipping cream (added at end)"
+    ]
+  },
+  "instructions": [
+    "Part 1: Blend celery, carrots, onion, and pancetta/mortadella, then put in big pan.",
+    "Part 2: Add meat in raw.",
+    "Add wine, water, tomato paste, diced tomatoes/sauce, and seasonings.",
+    "Cook for at least an hour and up to 6 hours.",
+    "Add a cup of heavy whipping cream around the end."
+  ]
+}

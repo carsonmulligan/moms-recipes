@@ -1,0 +1,41 @@
+{
+  "title": "Chicken & Rice Soup",
+  "source_images": ["IMG_7501.jpg", "IMG_7502.jpg", "IMG_7503.jpg"],
+  "ingredients": {
+    "seasonings": [
+      "1 tsp dried basil",
+      "1/2 tsp dried parsley",
+      "1/2 tsp dried oregano",
+      "1/2 tsp dried thyme",
+      "1/2 tsp mustard powder",
+      "1/4 tsp pepper"
+    ],
+    "soup": [
+      "2 Tbsp butter",
+      "1 yellow onion",
+      "1/2 cup diced carrots",
+      "2 ribs celery",
+      "3 cloves garlic, minced",
+      "5 cups chicken broth",
+      "1 tsp soy sauce",
+      "1 tsp hot sauce",
+      "1 1/4 lb bone-in chicken breast",
+      "Fresh parsley to garnish"
+    ],
+    "rice": [
+      "1 1/2 cups chicken broth",
+      "3/4 cup white long-grain rice, uncooked (or 2 1/4 cups cooked rice)"
+    ]
+  },
+  "instructions": [
+    "Cook rice separately.",
+    "Mix seasonings.",
+    "Melt butter in large soup pot over medium heat.",
+    "Add onions, carrots, celery. Soften for 4 min, then add garlic and cook for 1 min more.",
+    "Add seasonings, soy sauce, hot sauce, chicken, broth.",
+    "Bring soup to gentle boil and cover partially. Allow chicken to cook slowly - about 15-20 min.",
+    "Remove chicken and shred. Return it to the soup.",
+    "While the chicken simmers, cook rice separately. Bring broth (1 1/2 cups) to boil in saucepan. Add rice, bring to boil. Cover tightly and reduce to simmer, cook 15 mins. Turn off heat and let sit covered for 10 min.",
+    "Spoon rice into serving bowls."
+  ]
+}
