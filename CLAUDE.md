@@ -4,26 +4,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a recipe image archive containing family recipes as photographs, with JSON transcriptions for easy viewing. The cookbook is titled "Dr. Lesa Mulligan's Cookbook".
+**Dr. Lesa Mulligan's Cookbook** - A digital archive of 150 family recipes, transcribed from handwritten recipe cards and photographs into a searchable web application.
+
+## Live Site
+
+Visit: https://carsonmulligan.github.io/moms-recipes/
 
 ## Structure
 
-- `appetizers/` - Appetizer recipes
-- `breads/` - Bread recipes
-- `breakfast/` - Breakfast recipes
-- `cakes/` - Cake and cookie recipes (6 JSON transcriptions)
-- `desserts/` - Dessert recipes (5 JSON transcriptions)
-- `drinks/` - Beverage recipes (7 JSON transcriptions)
-- `entrees/` - Main dish recipes
-  - `pasta/` - Pasta recipes (2 JSON transcriptions)
-  - `sauces/` - Sauce recipes (2 JSON transcriptions)
-  - `seafood/` - Seafood recipes (1 JSON transcription)
-  - `veggie-quesadillas.json`
-- `salads/` - Salad recipes (9 JSON transcriptions)
-- `soups/` - Soup recipes (11 JSON transcriptions)
-- `vegetables/` - Vegetable side dish recipes
-- `home/` - Homepage assets
-- `thanksgiving/` - Original thanksgiving recipe folders
+```
+├── index.html           # Main recipe viewer with search & category filters
+├── appetizers/          # 24 appetizer recipes
+├── breads/              # 4 bread recipes
+├── breakfast/           # 11 breakfast recipes
+├── cakes/               # 7 cake recipes
+├── desserts/            # 30 dessert recipes (including cookies & candy)
+├── drinks/              # 7 beverage recipes
+├── entrees/             # 10 main dish recipes
+│   ├── pasta/           # Pasta recipes
+│   ├── sauces/          # Sauce recipes
+│   └── seafood/         # Seafood recipes
+├── salads/              # 10 salad recipes
+├── soups/               # 11 soup recipes
+├── vegetables/          # 10 vegetable & side dish recipes
+├── thanksgiving/        # 18 thanksgiving-specific recipes
+│   ├── desserts/
+│   └── savory-tings/
+├── misc/                # Additional recipes
+└── home/                # Homepage assets
+```
 
 ## Photo Convention for Two-Sided Recipe Cards
 
@@ -39,31 +48,24 @@ Example sequence:
 - `IMG_7496.jpg` - Back of card (instructions)
 - `IMG_7497.jpg` - Back of card with two fingers (confirms this is the back)
 
-## Transcription Progress
+## Transcription Status
 
-### Completed
-- cakes/ - 6 recipes
-- desserts/ - 5 recipes
-- drinks/ - 7 recipes
-- entrees/ - 6 recipes (veggie-quesadillas, 2 pasta, 2 sauces, 1 seafood)
-- salads/ - 9 recipes
-- soups/ - 11 recipes
+**COMPLETE** - All 150 recipes have been transcribed!
 
-### Needs Transcription
-- appetizers/
-- breads/
-- breakfast/
-- vegetables/
-
-## Known Issues
-
-### Image Size Limitation
-When processing many images in a single conversation, Claude's API has a limit on image dimensions (max 2000 pixels per dimension for many-image requests). If you encounter errors like:
-```
-"At least one of the image dimensions exceed max allowed size for many-image requests: 2000 pixels"
-```
-
-**Workaround:** Start a new conversation to clear the image context, or process images in smaller batches.
+| Category | Recipes |
+|----------|---------|
+| Appetizers | 24 |
+| Breakfast | 11 |
+| Entrees | 10 |
+| Soups | 11 |
+| Salads | 10 |
+| Vegetables & Sides | 10 |
+| Cakes | 7 |
+| Desserts | 30 |
+| Drinks | 7 |
+| Breads | 4 |
+| Thanksgiving | 18 |
+| **Total** | **150** |
 
 ## JSON Recipe Format
 
@@ -77,9 +79,29 @@ Each recipe JSON file follows this structure:
 }
 ```
 
+Some recipes include additional fields:
+- `source`: Attribution for the recipe
+- `servings`: Number of servings
+- `time_required`: Cooking/prep time
+- `note`: Special instructions or tips
+
+## Known Issues
+
+### Image Size Limitation
+When processing many images in a single conversation, Claude's API has a limit on image dimensions (max 2000 pixels per dimension for many-image requests).
+
+**Workaround:** Start a new conversation to clear the image context, or process images in smaller batches.
+
+## Adding New Recipes
+
+1. Take photos of the recipe card (use two-finger convention for two-sided cards)
+2. Convert HEIC to JPG if needed
+3. Place images in appropriate category folder
+4. Create JSON file with recipe transcription
+5. Add entry to `index.html` in the appropriate `<optgroup>`
+
 ## Notes
 
-- Original images were in HEIC format, now converted to JPG
-- Images are named with original iPhone photo IDs (IMG_XXXX)
-- To add new recipes, organize images into appropriate category folders
-- Use `index.html` to view recipes via GitHub Pages
+- All images are in JPG format (converted from iPhone HEIC)
+- Images use original iPhone photo IDs (IMG_XXXX.jpg)
+- Website hosted via GitHub Pages
