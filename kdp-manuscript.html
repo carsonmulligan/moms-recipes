@@ -6,7 +6,25 @@
   <style>
     @page {
       size: 8in 10in;
-      margin: 0.75in 0.5in 0.5in 0.75in;
+      margin: 0.75in 0.5in 0.6in 0.75in;
+      @bottom-center {
+        content: counter(page);
+        font-family: Georgia, serif;
+        font-size: 10pt;
+        color: #8b4513;
+      }
+    }
+
+    @page:first {
+      @bottom-center {
+        content: none;
+      }
+    }
+
+    @page title-pages {
+      @bottom-center {
+        content: none;
+      }
     }
 
     * {
@@ -21,6 +39,7 @@
       max-width: 7in;
       margin: 0 auto;
       padding: 20px;
+      counter-reset: page;
     }
 
     /* Title Page */
@@ -85,12 +104,34 @@
       margin-bottom: 5px;
       border-bottom: 1px solid #d4a574;
       padding-bottom: 3px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .toc-category .page-num {
+      font-weight: normal;
+      color: #a0522d;
     }
 
     .toc-recipe {
       font-size: 11pt;
       margin-left: 20px;
-      line-height: 1.6;
+      line-height: 1.8;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .toc-recipe .dots {
+      flex: 1;
+      border-bottom: 1px dotted #ccc;
+      margin: 0 8px;
+      position: relative;
+      top: -4px;
+    }
+
+    .toc-recipe .page-num {
+      color: #8b4513;
+      font-weight: normal;
     }
 
     /* Chapter Divider */
@@ -116,16 +157,15 @@
       margin-top: 20px;
     }
 
-    /* Recipe */
+    /* Recipe - each on its own page */
     .recipe {
+      page-break-before: always;
       page-break-inside: avoid;
-      margin-bottom: 0.5in;
-      padding-bottom: 0.3in;
-      border-bottom: 1px solid #eee;
+      padding-top: 0.25in;
     }
 
-    .recipe:last-child {
-      border-bottom: none;
+    .recipe:first-of-type {
+      page-break-before: avoid;
     }
 
     .recipe-title {
@@ -213,6 +253,13 @@
       font-size: 10pt;
       margin-left: 10px;
       line-height: 1.5;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .index-entry .page-num {
+      color: #8b4513;
+      margin-left: 5px;
     }
 
     /* Notes Page */
@@ -273,168 +320,168 @@
 <!-- TABLE OF CONTENTS -->
 <div class="toc-page">
   <h2>Table of Contents</h2>
-<div class="toc-category">Appetizers (22)</div>
-<div class="toc-recipe">Balsamic & Basil Dipping Oil Suggestions</div>
-<div class="toc-recipe">Bruschetta</div>
-<div class="toc-recipe">Cashew Crab Artichoke Dip</div>
-<div class="toc-recipe">Cheese Dip with Beer</div>
-<div class="toc-recipe">Cheese Dreams</div>
-<div class="toc-recipe">Cheese Fondue</div>
-<div class="toc-recipe">Cilantro & Olive Salsa Suggestions</div>
-<div class="toc-recipe">Cream Cheese Penguins</div>
-<div class="toc-recipe">Deviled Eggs</div>
-<div class="toc-recipe">Farmer's Medley Dip Suggestions</div>
-<div class="toc-recipe">Italian Dipping Oil</div>
-<div class="toc-recipe">Key Lime Cheese Ball Suggestions</div>
-<div class="toc-recipe">Pecan Cheese Ball</div>
-<div class="toc-recipe">Pepperoni Pizza Dip</div>
-<div class="toc-recipe">Roasted Pumpkin Seed Hummus</div>
-<div class="toc-recipe">Spice Roasted Honeynut Squash & Chickpeas</div>
-<div class="toc-recipe">Spinach Artichoke Dip</div>
-<div class="toc-recipe">Spinach Artichoke Pasta</div>
-<div class="toc-recipe">Stuffed Celery</div>
-<div class="toc-recipe">Sweet Almond Crackers</div>
-<div class="toc-recipe">Sweet Pepper Jalapeno Jam Suggestions</div>
-<div class="toc-recipe">Texas Caviar</div>
-<div class="toc-category">Breakfast (9)</div>
-<div class="toc-recipe">Cinnamon Cottage Cheese Pancakes</div>
-<div class="toc-recipe">Cinnamon Crunch Bagels</div>
-<div class="toc-recipe">Cinnamon Roll Cake</div>
-<div class="toc-recipe">Cinnamon Rolls (Puff Pastry)</div>
-<div class="toc-recipe">French Toast Bake</div>
-<div class="toc-recipe">Lemon Blueberry Scones</div>
-<div class="toc-recipe">Pumpkin Breakfast Casserole</div>
-<div class="toc-recipe">Quiche</div>
-<div class="toc-recipe">Waffles</div>
-<div class="toc-category">Entrees (6)</div>
-<div class="toc-recipe">Caprese Farfalle</div>
-<div class="toc-recipe">Giblet Gravy</div>
-<div class="toc-recipe">Nonna's Sauce</div>
-<div class="toc-recipe">Penne Primavera</div>
-<div class="toc-recipe">Salmon Tacos</div>
-<div class="toc-recipe">Veggie Quesadillas</div>
-<div class="toc-category">Soups (11)</div>
-<div class="toc-recipe">Baked Potato Soup</div>
-<div class="toc-recipe">Chicken & Rice Soup</div>
-<div class="toc-recipe">Chicken Noodle Soup</div>
-<div class="toc-recipe">Chicken Tortilla Soup</div>
-<div class="toc-recipe">Chili</div>
-<div class="toc-recipe">Egg Drop Soup</div>
-<div class="toc-recipe">Lentil Ham Soup</div>
-<div class="toc-recipe">Potato Leek Soup</div>
-<div class="toc-recipe">Roasted Red Pepper, Tomato & Smoked Gouda Bisque</div>
-<div class="toc-recipe">Shrimp & Sausage Stew</div>
-<div class="toc-recipe">White Bean Soup with Greens & Turkey</div>
-<div class="toc-category">Salads (9)</div>
-<div class="toc-recipe">Candy Bar Apple Salad</div>
-<div class="toc-recipe">Charred Corn & Chicken Cheese Salad</div>
-<div class="toc-recipe">Cucumber Mango Salad</div>
-<div class="toc-recipe">Cucumber Salad</div>
-<div class="toc-recipe">Egg Salad</div>
-<div class="toc-recipe">Lime Jello Salad</div>
-<div class="toc-recipe">Macaroni Salad</div>
-<div class="toc-recipe">Marinated Vegetable Salad</div>
-<div class="toc-recipe">Spaghetti Salad</div>
-<div class="toc-category">Vegetables & Sides (6)</div>
-<div class="toc-recipe">Baked Cheese Grits</div>
-<div class="toc-recipe">Black Eyed Peas</div>
-<div class="toc-recipe">Garlic Roasted Potato Wedges</div>
-<div class="toc-recipe">Green Beans & Cheese</div>
-<div class="toc-recipe">Twice Baked Sweet Potatoes with Ricotta Cheese</div>
-<div class="toc-recipe">Zucchini & Corn Skillet</div>
-<div class="toc-category">Breads (1)</div>
-<div class="toc-recipe">Bountiful Beer Bread Suggestions</div>
-<div class="toc-category">Cakes (6)</div>
-<div class="toc-recipe">Apple Dump Cake</div>
-<div class="toc-recipe">Chewy Gingerbread Cookies</div>
-<div class="toc-recipe">Hisae's Choc Cake</div>
-<div class="toc-recipe">Thunder Cake</div>
-<div class="toc-recipe">Upside Down Blueberry Dump Cake</div>
-<div class="toc-recipe">Upside Down Pumpkin Cake</div>
-<div class="toc-category">Desserts (5)</div>
-<div class="toc-recipe">Apple Pie</div>
-<div class="toc-recipe">Cinnamon Sugar Pie Crust Cookies</div>
-<div class="toc-recipe">Creamy Coconut Cake</div>
-<div class="toc-recipe">No Bake Cookies</div>
-<div class="toc-recipe">Raspberry Prosecco Tulip</div>
-<div class="toc-category">Drinks (7)</div>
-<div class="toc-recipe">Egg Nog Variations</div>
-<div class="toc-recipe">Egg Nogg</div>
-<div class="toc-recipe">Mango Breeze Margarita Mix</div>
-<div class="toc-recipe">Pumpkin Spiced Latte</div>
-<div class="toc-recipe">Raspberry Prosecco Cocktail</div>
-<div class="toc-recipe">Sangria</div>
-<div class="toc-recipe">White Hot Chocolate</div>
-<div class="toc-category">Thanksgiving (18)</div>
-<div class="toc-recipe">Buttermilk Chess Pie</div>
-<div class="toc-recipe">Caramel Apple Crumble Pie</div>
-<div class="toc-recipe">Caramels</div>
-<div class="toc-recipe">Corn Casserole</div>
-<div class="toc-recipe">Cranberry Salad</div>
-<div class="toc-recipe">Fruit Salad with Cannoli Cream</div>
-<div class="toc-recipe">Garlic Mashed Potatoes</div>
-<div class="toc-recipe">Green Beans Amandine</div>
-<div class="toc-recipe">Marinated Vegetable Salad</div>
-<div class="toc-recipe">No Bake Cookies</div>
-<div class="toc-recipe">Peanut Butter Ball</div>
-<div class="toc-recipe">Peanut Butter Ball</div>
-<div class="toc-recipe">Peanut Butter Balls</div>
-<div class="toc-recipe">Pecan Pie</div>
-<div class="toc-recipe">Pumpkin Pie</div>
-<div class="toc-recipe">Sweet Potato Casserole</div>
-<div class="toc-recipe">Taffy Apple Salad</div>
-<div class="toc-recipe">Thanksgiving Turkey Dressing</div>
-<div class="toc-category">Miscellaneous (50)</div>
-<div class="toc-recipe">Almond Tea Bread</div>
-<div class="toc-recipe">Baklava Palmiers with Chocolate Pecan</div>
-<div class="toc-recipe">Banana Cream Pretzel Pie</div>
-<div class="toc-recipe">Banana Pineapple Vanilla Pudding Pie</div>
-<div class="toc-recipe">Bourbon BBQ Pork Chops</div>
-<div class="toc-recipe">Bourbon Salted Caramel Brownies</div>
-<div class="toc-recipe">Bread Pudding with Vanilla Sauce</div>
-<div class="toc-recipe">Bruschetta</div>
-<div class="toc-recipe">Cabbage Ramen Salad</div>
-<div class="toc-recipe">Caprese Stuffed Chicken with Roasted Balsamic Veggies</div>
-<div class="toc-recipe">Chocolate Almond Macaroons</div>
-<div class="toc-recipe">Chocolate Cookies</div>
-<div class="toc-recipe">Chocolate Crackle Cookie</div>
-<div class="toc-recipe">Chocolate Cream Layered Dessert</div>
-<div class="toc-recipe">Chocolate Mice</div>
-<div class="toc-recipe">Cranberry Pecan Brie Cups</div>
-<div class="toc-recipe">Cream Cheese Pastry</div>
-<div class="toc-recipe">Creamy Parmesan Spinach Bake</div>
-<div class="toc-recipe">Cut Out Sugar Cookies with Royal Icing</div>
-<div class="toc-recipe">English Toffee</div>
-<div class="toc-recipe">Frosted Butter Cutout Cookies</div>
-<div class="toc-recipe">German Pancakes in the Oven</div>
-<div class="toc-recipe">Glazed Lemon Cookies</div>
-<div class="toc-recipe">Gooey Butter Cake</div>
-<div class="toc-recipe">Hedgehog Cookies</div>
-<div class="toc-recipe">Knox Blox</div>
-<div class="toc-recipe">Lemon Blueberry Dutch Baby</div>
-<div class="toc-recipe">Lemon Pecan Slab Pie</div>
-<div class="toc-recipe">Lime Pretzel Jello</div>
-<div class="toc-recipe">Mac & Cheese</div>
-<div class="toc-recipe">Meringue Cookies</div>
-<div class="toc-recipe">Mini Strawberry Santas</div>
-<div class="toc-recipe">Night Before Christmas Mice</div>
-<div class="toc-recipe">No Bake Chocolate Oatmeal Cookies</div>
-<div class="toc-recipe">Nutella Bread Pudding</div>
-<div class="toc-recipe">Nutella Christmas Tree</div>
-<div class="toc-recipe">Nutella Tart with Toasted Hazelnut Crust</div>
-<div class="toc-recipe">Palmiers (Sugar)</div>
-<div class="toc-recipe">Paula Deen's Banana Pudding</div>
-<div class="toc-recipe">Peach Crumble</div>
-<div class="toc-recipe">Pesto Palmiers</div>
-<div class="toc-recipe">Pumpkin Pudding</div>
-<div class="toc-recipe">S'more Pie</div>
-<div class="toc-recipe">Sage and Onion Stuffing</div>
-<div class="toc-recipe">Sausage Quiche</div>
-<div class="toc-recipe">Snickerdoodles</div>
-<div class="toc-recipe">Stuffed Mushrooms</div>
-<div class="toc-recipe">Tomato Relish</div>
-<div class="toc-recipe">Witch's Hat Cookies</div>
-<div class="toc-recipe">Zucchini Lasagna</div>
+<div class="toc-category"><span>Appetizers</span><span class="page-num">8</span></div>
+<div class="toc-recipe"><span>Balsamic & Basil Dipping Oil Suggestions</span><span class="dots"></span><span class="page-num">9</span></div>
+<div class="toc-recipe"><span>Bruschetta</span><span class="dots"></span><span class="page-num">10</span></div>
+<div class="toc-recipe"><span>Cashew Crab Artichoke Dip</span><span class="dots"></span><span class="page-num">11</span></div>
+<div class="toc-recipe"><span>Cheese Dip with Beer</span><span class="dots"></span><span class="page-num">12</span></div>
+<div class="toc-recipe"><span>Cheese Dreams</span><span class="dots"></span><span class="page-num">13</span></div>
+<div class="toc-recipe"><span>Cheese Fondue</span><span class="dots"></span><span class="page-num">14</span></div>
+<div class="toc-recipe"><span>Cilantro & Olive Salsa Suggestions</span><span class="dots"></span><span class="page-num">15</span></div>
+<div class="toc-recipe"><span>Cream Cheese Penguins</span><span class="dots"></span><span class="page-num">16</span></div>
+<div class="toc-recipe"><span>Deviled Eggs</span><span class="dots"></span><span class="page-num">17</span></div>
+<div class="toc-recipe"><span>Farmer's Medley Dip Suggestions</span><span class="dots"></span><span class="page-num">18</span></div>
+<div class="toc-recipe"><span>Italian Dipping Oil</span><span class="dots"></span><span class="page-num">19</span></div>
+<div class="toc-recipe"><span>Key Lime Cheese Ball Suggestions</span><span class="dots"></span><span class="page-num">20</span></div>
+<div class="toc-recipe"><span>Pecan Cheese Ball</span><span class="dots"></span><span class="page-num">21</span></div>
+<div class="toc-recipe"><span>Pepperoni Pizza Dip</span><span class="dots"></span><span class="page-num">22</span></div>
+<div class="toc-recipe"><span>Roasted Pumpkin Seed Hummus</span><span class="dots"></span><span class="page-num">23</span></div>
+<div class="toc-recipe"><span>Spice Roasted Honeynut Squash & Chickpeas</span><span class="dots"></span><span class="page-num">24</span></div>
+<div class="toc-recipe"><span>Spinach Artichoke Dip</span><span class="dots"></span><span class="page-num">25</span></div>
+<div class="toc-recipe"><span>Spinach Artichoke Pasta</span><span class="dots"></span><span class="page-num">26</span></div>
+<div class="toc-recipe"><span>Stuffed Celery</span><span class="dots"></span><span class="page-num">27</span></div>
+<div class="toc-recipe"><span>Sweet Almond Crackers</span><span class="dots"></span><span class="page-num">28</span></div>
+<div class="toc-recipe"><span>Sweet Pepper Jalapeno Jam Suggestions</span><span class="dots"></span><span class="page-num">29</span></div>
+<div class="toc-recipe"><span>Texas Caviar</span><span class="dots"></span><span class="page-num">30</span></div>
+<div class="toc-category"><span>Breakfast</span><span class="page-num">31</span></div>
+<div class="toc-recipe"><span>Cinnamon Cottage Cheese Pancakes</span><span class="dots"></span><span class="page-num">32</span></div>
+<div class="toc-recipe"><span>Cinnamon Crunch Bagels</span><span class="dots"></span><span class="page-num">33</span></div>
+<div class="toc-recipe"><span>Cinnamon Roll Cake</span><span class="dots"></span><span class="page-num">34</span></div>
+<div class="toc-recipe"><span>Cinnamon Rolls (Puff Pastry)</span><span class="dots"></span><span class="page-num">35</span></div>
+<div class="toc-recipe"><span>French Toast Bake</span><span class="dots"></span><span class="page-num">36</span></div>
+<div class="toc-recipe"><span>Lemon Blueberry Scones</span><span class="dots"></span><span class="page-num">37</span></div>
+<div class="toc-recipe"><span>Pumpkin Breakfast Casserole</span><span class="dots"></span><span class="page-num">38</span></div>
+<div class="toc-recipe"><span>Quiche</span><span class="dots"></span><span class="page-num">39</span></div>
+<div class="toc-recipe"><span>Waffles</span><span class="dots"></span><span class="page-num">40</span></div>
+<div class="toc-category"><span>Entrees</span><span class="page-num">41</span></div>
+<div class="toc-recipe"><span>Caprese Farfalle</span><span class="dots"></span><span class="page-num">42</span></div>
+<div class="toc-recipe"><span>Giblet Gravy</span><span class="dots"></span><span class="page-num">43</span></div>
+<div class="toc-recipe"><span>Nonna's Sauce</span><span class="dots"></span><span class="page-num">44</span></div>
+<div class="toc-recipe"><span>Penne Primavera</span><span class="dots"></span><span class="page-num">45</span></div>
+<div class="toc-recipe"><span>Salmon Tacos</span><span class="dots"></span><span class="page-num">46</span></div>
+<div class="toc-recipe"><span>Veggie Quesadillas</span><span class="dots"></span><span class="page-num">47</span></div>
+<div class="toc-category"><span>Soups</span><span class="page-num">48</span></div>
+<div class="toc-recipe"><span>Baked Potato Soup</span><span class="dots"></span><span class="page-num">49</span></div>
+<div class="toc-recipe"><span>Chicken & Rice Soup</span><span class="dots"></span><span class="page-num">50</span></div>
+<div class="toc-recipe"><span>Chicken Noodle Soup</span><span class="dots"></span><span class="page-num">51</span></div>
+<div class="toc-recipe"><span>Chicken Tortilla Soup</span><span class="dots"></span><span class="page-num">52</span></div>
+<div class="toc-recipe"><span>Chili</span><span class="dots"></span><span class="page-num">53</span></div>
+<div class="toc-recipe"><span>Egg Drop Soup</span><span class="dots"></span><span class="page-num">54</span></div>
+<div class="toc-recipe"><span>Lentil Ham Soup</span><span class="dots"></span><span class="page-num">55</span></div>
+<div class="toc-recipe"><span>Potato Leek Soup</span><span class="dots"></span><span class="page-num">56</span></div>
+<div class="toc-recipe"><span>Roasted Red Pepper, Tomato & Smoked Gouda Bisque</span><span class="dots"></span><span class="page-num">57</span></div>
+<div class="toc-recipe"><span>Shrimp & Sausage Stew</span><span class="dots"></span><span class="page-num">58</span></div>
+<div class="toc-recipe"><span>White Bean Soup with Greens & Turkey</span><span class="dots"></span><span class="page-num">59</span></div>
+<div class="toc-category"><span>Salads</span><span class="page-num">60</span></div>
+<div class="toc-recipe"><span>Candy Bar Apple Salad</span><span class="dots"></span><span class="page-num">61</span></div>
+<div class="toc-recipe"><span>Charred Corn & Chicken Cheese Salad</span><span class="dots"></span><span class="page-num">62</span></div>
+<div class="toc-recipe"><span>Cucumber Mango Salad</span><span class="dots"></span><span class="page-num">63</span></div>
+<div class="toc-recipe"><span>Cucumber Salad</span><span class="dots"></span><span class="page-num">64</span></div>
+<div class="toc-recipe"><span>Egg Salad</span><span class="dots"></span><span class="page-num">65</span></div>
+<div class="toc-recipe"><span>Lime Jello Salad</span><span class="dots"></span><span class="page-num">66</span></div>
+<div class="toc-recipe"><span>Macaroni Salad</span><span class="dots"></span><span class="page-num">67</span></div>
+<div class="toc-recipe"><span>Marinated Vegetable Salad</span><span class="dots"></span><span class="page-num">68</span></div>
+<div class="toc-recipe"><span>Spaghetti Salad</span><span class="dots"></span><span class="page-num">69</span></div>
+<div class="toc-category"><span>Vegetables & Sides</span><span class="page-num">70</span></div>
+<div class="toc-recipe"><span>Baked Cheese Grits</span><span class="dots"></span><span class="page-num">71</span></div>
+<div class="toc-recipe"><span>Black Eyed Peas</span><span class="dots"></span><span class="page-num">72</span></div>
+<div class="toc-recipe"><span>Garlic Roasted Potato Wedges</span><span class="dots"></span><span class="page-num">73</span></div>
+<div class="toc-recipe"><span>Green Beans & Cheese</span><span class="dots"></span><span class="page-num">74</span></div>
+<div class="toc-recipe"><span>Twice Baked Sweet Potatoes with Ricotta Cheese</span><span class="dots"></span><span class="page-num">75</span></div>
+<div class="toc-recipe"><span>Zucchini & Corn Skillet</span><span class="dots"></span><span class="page-num">76</span></div>
+<div class="toc-category"><span>Breads</span><span class="page-num">77</span></div>
+<div class="toc-recipe"><span>Bountiful Beer Bread Suggestions</span><span class="dots"></span><span class="page-num">78</span></div>
+<div class="toc-category"><span>Cakes</span><span class="page-num">79</span></div>
+<div class="toc-recipe"><span>Apple Dump Cake</span><span class="dots"></span><span class="page-num">80</span></div>
+<div class="toc-recipe"><span>Chewy Gingerbread Cookies</span><span class="dots"></span><span class="page-num">81</span></div>
+<div class="toc-recipe"><span>Hisae's Choc Cake</span><span class="dots"></span><span class="page-num">82</span></div>
+<div class="toc-recipe"><span>Thunder Cake</span><span class="dots"></span><span class="page-num">83</span></div>
+<div class="toc-recipe"><span>Upside Down Blueberry Dump Cake</span><span class="dots"></span><span class="page-num">84</span></div>
+<div class="toc-recipe"><span>Upside Down Pumpkin Cake</span><span class="dots"></span><span class="page-num">85</span></div>
+<div class="toc-category"><span>Desserts</span><span class="page-num">86</span></div>
+<div class="toc-recipe"><span>Apple Pie</span><span class="dots"></span><span class="page-num">87</span></div>
+<div class="toc-recipe"><span>Cinnamon Sugar Pie Crust Cookies</span><span class="dots"></span><span class="page-num">88</span></div>
+<div class="toc-recipe"><span>Creamy Coconut Cake</span><span class="dots"></span><span class="page-num">89</span></div>
+<div class="toc-recipe"><span>No Bake Cookies</span><span class="dots"></span><span class="page-num">90</span></div>
+<div class="toc-recipe"><span>Raspberry Prosecco Tulip</span><span class="dots"></span><span class="page-num">91</span></div>
+<div class="toc-category"><span>Drinks</span><span class="page-num">92</span></div>
+<div class="toc-recipe"><span>Egg Nog Variations</span><span class="dots"></span><span class="page-num">93</span></div>
+<div class="toc-recipe"><span>Egg Nogg</span><span class="dots"></span><span class="page-num">94</span></div>
+<div class="toc-recipe"><span>Mango Breeze Margarita Mix</span><span class="dots"></span><span class="page-num">95</span></div>
+<div class="toc-recipe"><span>Pumpkin Spiced Latte</span><span class="dots"></span><span class="page-num">96</span></div>
+<div class="toc-recipe"><span>Raspberry Prosecco Cocktail</span><span class="dots"></span><span class="page-num">97</span></div>
+<div class="toc-recipe"><span>Sangria</span><span class="dots"></span><span class="page-num">98</span></div>
+<div class="toc-recipe"><span>White Hot Chocolate</span><span class="dots"></span><span class="page-num">99</span></div>
+<div class="toc-category"><span>Thanksgiving</span><span class="page-num">100</span></div>
+<div class="toc-recipe"><span>Buttermilk Chess Pie</span><span class="dots"></span><span class="page-num">101</span></div>
+<div class="toc-recipe"><span>Caramel Apple Crumble Pie</span><span class="dots"></span><span class="page-num">102</span></div>
+<div class="toc-recipe"><span>Caramels</span><span class="dots"></span><span class="page-num">103</span></div>
+<div class="toc-recipe"><span>Corn Casserole</span><span class="dots"></span><span class="page-num">104</span></div>
+<div class="toc-recipe"><span>Cranberry Salad</span><span class="dots"></span><span class="page-num">105</span></div>
+<div class="toc-recipe"><span>Fruit Salad with Cannoli Cream</span><span class="dots"></span><span class="page-num">106</span></div>
+<div class="toc-recipe"><span>Garlic Mashed Potatoes</span><span class="dots"></span><span class="page-num">107</span></div>
+<div class="toc-recipe"><span>Green Beans Amandine</span><span class="dots"></span><span class="page-num">108</span></div>
+<div class="toc-recipe"><span>Marinated Vegetable Salad</span><span class="dots"></span><span class="page-num">109</span></div>
+<div class="toc-recipe"><span>No Bake Cookies</span><span class="dots"></span><span class="page-num">110</span></div>
+<div class="toc-recipe"><span>Peanut Butter Ball</span><span class="dots"></span><span class="page-num">111</span></div>
+<div class="toc-recipe"><span>Peanut Butter Ball</span><span class="dots"></span><span class="page-num">112</span></div>
+<div class="toc-recipe"><span>Peanut Butter Balls</span><span class="dots"></span><span class="page-num">113</span></div>
+<div class="toc-recipe"><span>Pecan Pie</span><span class="dots"></span><span class="page-num">114</span></div>
+<div class="toc-recipe"><span>Pumpkin Pie</span><span class="dots"></span><span class="page-num">115</span></div>
+<div class="toc-recipe"><span>Sweet Potato Casserole</span><span class="dots"></span><span class="page-num">116</span></div>
+<div class="toc-recipe"><span>Taffy Apple Salad</span><span class="dots"></span><span class="page-num">117</span></div>
+<div class="toc-recipe"><span>Thanksgiving Turkey Dressing</span><span class="dots"></span><span class="page-num">118</span></div>
+<div class="toc-category"><span>Miscellaneous</span><span class="page-num">119</span></div>
+<div class="toc-recipe"><span>Almond Tea Bread</span><span class="dots"></span><span class="page-num">120</span></div>
+<div class="toc-recipe"><span>Baklava Palmiers with Chocolate Pecan</span><span class="dots"></span><span class="page-num">121</span></div>
+<div class="toc-recipe"><span>Banana Cream Pretzel Pie</span><span class="dots"></span><span class="page-num">122</span></div>
+<div class="toc-recipe"><span>Banana Pineapple Vanilla Pudding Pie</span><span class="dots"></span><span class="page-num">123</span></div>
+<div class="toc-recipe"><span>Bourbon BBQ Pork Chops</span><span class="dots"></span><span class="page-num">124</span></div>
+<div class="toc-recipe"><span>Bourbon Salted Caramel Brownies</span><span class="dots"></span><span class="page-num">125</span></div>
+<div class="toc-recipe"><span>Bread Pudding with Vanilla Sauce</span><span class="dots"></span><span class="page-num">126</span></div>
+<div class="toc-recipe"><span>Bruschetta</span><span class="dots"></span><span class="page-num">127</span></div>
+<div class="toc-recipe"><span>Cabbage Ramen Salad</span><span class="dots"></span><span class="page-num">128</span></div>
+<div class="toc-recipe"><span>Caprese Stuffed Chicken with Roasted Balsamic Veggies</span><span class="dots"></span><span class="page-num">129</span></div>
+<div class="toc-recipe"><span>Chocolate Almond Macaroons</span><span class="dots"></span><span class="page-num">130</span></div>
+<div class="toc-recipe"><span>Chocolate Cookies</span><span class="dots"></span><span class="page-num">131</span></div>
+<div class="toc-recipe"><span>Chocolate Crackle Cookie</span><span class="dots"></span><span class="page-num">132</span></div>
+<div class="toc-recipe"><span>Chocolate Cream Layered Dessert</span><span class="dots"></span><span class="page-num">133</span></div>
+<div class="toc-recipe"><span>Chocolate Mice</span><span class="dots"></span><span class="page-num">134</span></div>
+<div class="toc-recipe"><span>Cranberry Pecan Brie Cups</span><span class="dots"></span><span class="page-num">135</span></div>
+<div class="toc-recipe"><span>Cream Cheese Pastry</span><span class="dots"></span><span class="page-num">136</span></div>
+<div class="toc-recipe"><span>Creamy Parmesan Spinach Bake</span><span class="dots"></span><span class="page-num">137</span></div>
+<div class="toc-recipe"><span>Cut Out Sugar Cookies with Royal Icing</span><span class="dots"></span><span class="page-num">138</span></div>
+<div class="toc-recipe"><span>English Toffee</span><span class="dots"></span><span class="page-num">139</span></div>
+<div class="toc-recipe"><span>Frosted Butter Cutout Cookies</span><span class="dots"></span><span class="page-num">140</span></div>
+<div class="toc-recipe"><span>German Pancakes in the Oven</span><span class="dots"></span><span class="page-num">141</span></div>
+<div class="toc-recipe"><span>Glazed Lemon Cookies</span><span class="dots"></span><span class="page-num">142</span></div>
+<div class="toc-recipe"><span>Gooey Butter Cake</span><span class="dots"></span><span class="page-num">143</span></div>
+<div class="toc-recipe"><span>Hedgehog Cookies</span><span class="dots"></span><span class="page-num">144</span></div>
+<div class="toc-recipe"><span>Knox Blox</span><span class="dots"></span><span class="page-num">145</span></div>
+<div class="toc-recipe"><span>Lemon Blueberry Dutch Baby</span><span class="dots"></span><span class="page-num">146</span></div>
+<div class="toc-recipe"><span>Lemon Pecan Slab Pie</span><span class="dots"></span><span class="page-num">147</span></div>
+<div class="toc-recipe"><span>Lime Pretzel Jello</span><span class="dots"></span><span class="page-num">148</span></div>
+<div class="toc-recipe"><span>Mac & Cheese</span><span class="dots"></span><span class="page-num">149</span></div>
+<div class="toc-recipe"><span>Meringue Cookies</span><span class="dots"></span><span class="page-num">150</span></div>
+<div class="toc-recipe"><span>Mini Strawberry Santas</span><span class="dots"></span><span class="page-num">151</span></div>
+<div class="toc-recipe"><span>Night Before Christmas Mice</span><span class="dots"></span><span class="page-num">152</span></div>
+<div class="toc-recipe"><span>No Bake Chocolate Oatmeal Cookies</span><span class="dots"></span><span class="page-num">153</span></div>
+<div class="toc-recipe"><span>Nutella Bread Pudding</span><span class="dots"></span><span class="page-num">154</span></div>
+<div class="toc-recipe"><span>Nutella Christmas Tree</span><span class="dots"></span><span class="page-num">155</span></div>
+<div class="toc-recipe"><span>Nutella Tart with Toasted Hazelnut Crust</span><span class="dots"></span><span class="page-num">156</span></div>
+<div class="toc-recipe"><span>Palmiers (Sugar)</span><span class="dots"></span><span class="page-num">157</span></div>
+<div class="toc-recipe"><span>Paula Deen's Banana Pudding</span><span class="dots"></span><span class="page-num">158</span></div>
+<div class="toc-recipe"><span>Peach Crumble</span><span class="dots"></span><span class="page-num">159</span></div>
+<div class="toc-recipe"><span>Pesto Palmiers</span><span class="dots"></span><span class="page-num">160</span></div>
+<div class="toc-recipe"><span>Pumpkin Pudding</span><span class="dots"></span><span class="page-num">161</span></div>
+<div class="toc-recipe"><span>S'more Pie</span><span class="dots"></span><span class="page-num">162</span></div>
+<div class="toc-recipe"><span>Sage and Onion Stuffing</span><span class="dots"></span><span class="page-num">163</span></div>
+<div class="toc-recipe"><span>Sausage Quiche</span><span class="dots"></span><span class="page-num">164</span></div>
+<div class="toc-recipe"><span>Snickerdoodles</span><span class="dots"></span><span class="page-num">165</span></div>
+<div class="toc-recipe"><span>Stuffed Mushrooms</span><span class="dots"></span><span class="page-num">166</span></div>
+<div class="toc-recipe"><span>Tomato Relish</span><span class="dots"></span><span class="page-num">167</span></div>
+<div class="toc-recipe"><span>Witch's Hat Cookies</span><span class="dots"></span><span class="page-num">168</span></div>
+<div class="toc-recipe"><span>Zucchini Lasagna</span><span class="dots"></span><span class="page-num">169</span></div>
 </div>
 
 <!-- APPETIZERS CHAPTER -->
@@ -3031,177 +3078,177 @@
   <h2>Index</h2>
   <div class="index-columns">
     <div class="index-letter">A</div>
-    <div class="index-entry">Almond Tea Bread</div>
-    <div class="index-entry">Apple Dump Cake</div>
-    <div class="index-entry">Apple Pie</div>
+    <div class="index-entry"><span>Almond Tea Bread</span><span class="page-num">120</span></div>
+    <div class="index-entry"><span>Apple Dump Cake</span><span class="page-num">80</span></div>
+    <div class="index-entry"><span>Apple Pie</span><span class="page-num">87</span></div>
     <div class="index-letter">B</div>
-    <div class="index-entry">Baked Cheese Grits</div>
-    <div class="index-entry">Baked Potato Soup</div>
-    <div class="index-entry">Baklava Palmiers with Chocolate Pecan</div>
-    <div class="index-entry">Balsamic & Basil Dipping Oil Suggestions</div>
-    <div class="index-entry">Banana Cream Pretzel Pie</div>
-    <div class="index-entry">Banana Pineapple Vanilla Pudding Pie</div>
-    <div class="index-entry">Black Eyed Peas</div>
-    <div class="index-entry">Bountiful Beer Bread Suggestions</div>
-    <div class="index-entry">Bourbon BBQ Pork Chops</div>
-    <div class="index-entry">Bourbon Salted Caramel Brownies</div>
-    <div class="index-entry">Bread Pudding with Vanilla Sauce</div>
-    <div class="index-entry">Bruschetta</div>
-    <div class="index-entry">Bruschetta</div>
-    <div class="index-entry">Buttermilk Chess Pie</div>
+    <div class="index-entry"><span>Baked Cheese Grits</span><span class="page-num">71</span></div>
+    <div class="index-entry"><span>Baked Potato Soup</span><span class="page-num">49</span></div>
+    <div class="index-entry"><span>Baklava Palmiers with Chocolate Pecan</span><span class="page-num">121</span></div>
+    <div class="index-entry"><span>Balsamic & Basil Dipping Oil Suggestions</span><span class="page-num">9</span></div>
+    <div class="index-entry"><span>Banana Cream Pretzel Pie</span><span class="page-num">122</span></div>
+    <div class="index-entry"><span>Banana Pineapple Vanilla Pudding Pie</span><span class="page-num">123</span></div>
+    <div class="index-entry"><span>Black Eyed Peas</span><span class="page-num">72</span></div>
+    <div class="index-entry"><span>Bountiful Beer Bread Suggestions</span><span class="page-num">78</span></div>
+    <div class="index-entry"><span>Bourbon BBQ Pork Chops</span><span class="page-num">124</span></div>
+    <div class="index-entry"><span>Bourbon Salted Caramel Brownies</span><span class="page-num">125</span></div>
+    <div class="index-entry"><span>Bread Pudding with Vanilla Sauce</span><span class="page-num">126</span></div>
+    <div class="index-entry"><span>Bruschetta</span><span class="page-num">10</span></div>
+    <div class="index-entry"><span>Bruschetta</span><span class="page-num">127</span></div>
+    <div class="index-entry"><span>Buttermilk Chess Pie</span><span class="page-num">101</span></div>
     <div class="index-letter">C</div>
-    <div class="index-entry">Cabbage Ramen Salad</div>
-    <div class="index-entry">Candy Bar Apple Salad</div>
-    <div class="index-entry">Caprese Farfalle</div>
-    <div class="index-entry">Caprese Stuffed Chicken with Roasted Balsamic Veggies</div>
-    <div class="index-entry">Caramel Apple Crumble Pie</div>
-    <div class="index-entry">Caramels</div>
-    <div class="index-entry">Cashew Crab Artichoke Dip</div>
-    <div class="index-entry">Charred Corn & Chicken Cheese Salad</div>
-    <div class="index-entry">Cheese Dip with Beer</div>
-    <div class="index-entry">Cheese Dreams</div>
-    <div class="index-entry">Cheese Fondue</div>
-    <div class="index-entry">Chewy Gingerbread Cookies</div>
-    <div class="index-entry">Chicken & Rice Soup</div>
-    <div class="index-entry">Chicken Noodle Soup</div>
-    <div class="index-entry">Chicken Tortilla Soup</div>
-    <div class="index-entry">Chili</div>
-    <div class="index-entry">Chocolate Almond Macaroons</div>
-    <div class="index-entry">Chocolate Cookies</div>
-    <div class="index-entry">Chocolate Crackle Cookie</div>
-    <div class="index-entry">Chocolate Cream Layered Dessert</div>
-    <div class="index-entry">Chocolate Mice</div>
-    <div class="index-entry">Cilantro & Olive Salsa Suggestions</div>
-    <div class="index-entry">Cinnamon Cottage Cheese Pancakes</div>
-    <div class="index-entry">Cinnamon Crunch Bagels</div>
-    <div class="index-entry">Cinnamon Roll Cake</div>
-    <div class="index-entry">Cinnamon Rolls (Puff Pastry)</div>
-    <div class="index-entry">Cinnamon Sugar Pie Crust Cookies</div>
-    <div class="index-entry">Corn Casserole</div>
-    <div class="index-entry">Cranberry Pecan Brie Cups</div>
-    <div class="index-entry">Cranberry Salad</div>
-    <div class="index-entry">Cream Cheese Pastry</div>
-    <div class="index-entry">Cream Cheese Penguins</div>
-    <div class="index-entry">Creamy Coconut Cake</div>
-    <div class="index-entry">Creamy Parmesan Spinach Bake</div>
-    <div class="index-entry">Cucumber Mango Salad</div>
-    <div class="index-entry">Cucumber Salad</div>
-    <div class="index-entry">Cut Out Sugar Cookies with Royal Icing</div>
+    <div class="index-entry"><span>Cabbage Ramen Salad</span><span class="page-num">128</span></div>
+    <div class="index-entry"><span>Candy Bar Apple Salad</span><span class="page-num">61</span></div>
+    <div class="index-entry"><span>Caprese Farfalle</span><span class="page-num">42</span></div>
+    <div class="index-entry"><span>Caprese Stuffed Chicken with Roasted Balsamic Veggies</span><span class="page-num">129</span></div>
+    <div class="index-entry"><span>Caramel Apple Crumble Pie</span><span class="page-num">102</span></div>
+    <div class="index-entry"><span>Caramels</span><span class="page-num">103</span></div>
+    <div class="index-entry"><span>Cashew Crab Artichoke Dip</span><span class="page-num">11</span></div>
+    <div class="index-entry"><span>Charred Corn & Chicken Cheese Salad</span><span class="page-num">62</span></div>
+    <div class="index-entry"><span>Cheese Dip with Beer</span><span class="page-num">12</span></div>
+    <div class="index-entry"><span>Cheese Dreams</span><span class="page-num">13</span></div>
+    <div class="index-entry"><span>Cheese Fondue</span><span class="page-num">14</span></div>
+    <div class="index-entry"><span>Chewy Gingerbread Cookies</span><span class="page-num">81</span></div>
+    <div class="index-entry"><span>Chicken & Rice Soup</span><span class="page-num">50</span></div>
+    <div class="index-entry"><span>Chicken Noodle Soup</span><span class="page-num">51</span></div>
+    <div class="index-entry"><span>Chicken Tortilla Soup</span><span class="page-num">52</span></div>
+    <div class="index-entry"><span>Chili</span><span class="page-num">53</span></div>
+    <div class="index-entry"><span>Chocolate Almond Macaroons</span><span class="page-num">130</span></div>
+    <div class="index-entry"><span>Chocolate Cookies</span><span class="page-num">131</span></div>
+    <div class="index-entry"><span>Chocolate Crackle Cookie</span><span class="page-num">132</span></div>
+    <div class="index-entry"><span>Chocolate Cream Layered Dessert</span><span class="page-num">133</span></div>
+    <div class="index-entry"><span>Chocolate Mice</span><span class="page-num">134</span></div>
+    <div class="index-entry"><span>Cilantro & Olive Salsa Suggestions</span><span class="page-num">15</span></div>
+    <div class="index-entry"><span>Cinnamon Cottage Cheese Pancakes</span><span class="page-num">32</span></div>
+    <div class="index-entry"><span>Cinnamon Crunch Bagels</span><span class="page-num">33</span></div>
+    <div class="index-entry"><span>Cinnamon Roll Cake</span><span class="page-num">34</span></div>
+    <div class="index-entry"><span>Cinnamon Rolls (Puff Pastry)</span><span class="page-num">35</span></div>
+    <div class="index-entry"><span>Cinnamon Sugar Pie Crust Cookies</span><span class="page-num">88</span></div>
+    <div class="index-entry"><span>Corn Casserole</span><span class="page-num">104</span></div>
+    <div class="index-entry"><span>Cranberry Pecan Brie Cups</span><span class="page-num">135</span></div>
+    <div class="index-entry"><span>Cranberry Salad</span><span class="page-num">105</span></div>
+    <div class="index-entry"><span>Cream Cheese Pastry</span><span class="page-num">136</span></div>
+    <div class="index-entry"><span>Cream Cheese Penguins</span><span class="page-num">16</span></div>
+    <div class="index-entry"><span>Creamy Coconut Cake</span><span class="page-num">89</span></div>
+    <div class="index-entry"><span>Creamy Parmesan Spinach Bake</span><span class="page-num">137</span></div>
+    <div class="index-entry"><span>Cucumber Mango Salad</span><span class="page-num">63</span></div>
+    <div class="index-entry"><span>Cucumber Salad</span><span class="page-num">64</span></div>
+    <div class="index-entry"><span>Cut Out Sugar Cookies with Royal Icing</span><span class="page-num">138</span></div>
     <div class="index-letter">D</div>
-    <div class="index-entry">Deviled Eggs</div>
+    <div class="index-entry"><span>Deviled Eggs</span><span class="page-num">17</span></div>
     <div class="index-letter">E</div>
-    <div class="index-entry">Egg Drop Soup</div>
-    <div class="index-entry">Egg Nog Variations</div>
-    <div class="index-entry">Egg Nogg</div>
-    <div class="index-entry">Egg Salad</div>
-    <div class="index-entry">English Toffee</div>
+    <div class="index-entry"><span>Egg Drop Soup</span><span class="page-num">54</span></div>
+    <div class="index-entry"><span>Egg Nog Variations</span><span class="page-num">93</span></div>
+    <div class="index-entry"><span>Egg Nogg</span><span class="page-num">94</span></div>
+    <div class="index-entry"><span>Egg Salad</span><span class="page-num">65</span></div>
+    <div class="index-entry"><span>English Toffee</span><span class="page-num">139</span></div>
     <div class="index-letter">F</div>
-    <div class="index-entry">Farmer's Medley Dip Suggestions</div>
-    <div class="index-entry">French Toast Bake</div>
-    <div class="index-entry">Frosted Butter Cutout Cookies</div>
-    <div class="index-entry">Fruit Salad with Cannoli Cream</div>
+    <div class="index-entry"><span>Farmer's Medley Dip Suggestions</span><span class="page-num">18</span></div>
+    <div class="index-entry"><span>French Toast Bake</span><span class="page-num">36</span></div>
+    <div class="index-entry"><span>Frosted Butter Cutout Cookies</span><span class="page-num">140</span></div>
+    <div class="index-entry"><span>Fruit Salad with Cannoli Cream</span><span class="page-num">106</span></div>
     <div class="index-letter">G</div>
-    <div class="index-entry">Garlic Mashed Potatoes</div>
-    <div class="index-entry">Garlic Roasted Potato Wedges</div>
-    <div class="index-entry">German Pancakes in the Oven</div>
-    <div class="index-entry">Giblet Gravy</div>
-    <div class="index-entry">Glazed Lemon Cookies</div>
-    <div class="index-entry">Gooey Butter Cake</div>
-    <div class="index-entry">Green Beans & Cheese</div>
-    <div class="index-entry">Green Beans Amandine</div>
+    <div class="index-entry"><span>Garlic Mashed Potatoes</span><span class="page-num">107</span></div>
+    <div class="index-entry"><span>Garlic Roasted Potato Wedges</span><span class="page-num">73</span></div>
+    <div class="index-entry"><span>German Pancakes in the Oven</span><span class="page-num">141</span></div>
+    <div class="index-entry"><span>Giblet Gravy</span><span class="page-num">43</span></div>
+    <div class="index-entry"><span>Glazed Lemon Cookies</span><span class="page-num">142</span></div>
+    <div class="index-entry"><span>Gooey Butter Cake</span><span class="page-num">143</span></div>
+    <div class="index-entry"><span>Green Beans & Cheese</span><span class="page-num">74</span></div>
+    <div class="index-entry"><span>Green Beans Amandine</span><span class="page-num">108</span></div>
     <div class="index-letter">H</div>
-    <div class="index-entry">Hedgehog Cookies</div>
-    <div class="index-entry">Hisae's Choc Cake</div>
+    <div class="index-entry"><span>Hedgehog Cookies</span><span class="page-num">144</span></div>
+    <div class="index-entry"><span>Hisae's Choc Cake</span><span class="page-num">82</span></div>
     <div class="index-letter">I</div>
-    <div class="index-entry">Italian Dipping Oil</div>
+    <div class="index-entry"><span>Italian Dipping Oil</span><span class="page-num">19</span></div>
     <div class="index-letter">K</div>
-    <div class="index-entry">Key Lime Cheese Ball Suggestions</div>
-    <div class="index-entry">Knox Blox</div>
+    <div class="index-entry"><span>Key Lime Cheese Ball Suggestions</span><span class="page-num">20</span></div>
+    <div class="index-entry"><span>Knox Blox</span><span class="page-num">145</span></div>
     <div class="index-letter">L</div>
-    <div class="index-entry">Lemon Blueberry Dutch Baby</div>
-    <div class="index-entry">Lemon Blueberry Scones</div>
-    <div class="index-entry">Lemon Pecan Slab Pie</div>
-    <div class="index-entry">Lentil Ham Soup</div>
-    <div class="index-entry">Lime Jello Salad</div>
-    <div class="index-entry">Lime Pretzel Jello</div>
+    <div class="index-entry"><span>Lemon Blueberry Dutch Baby</span><span class="page-num">146</span></div>
+    <div class="index-entry"><span>Lemon Blueberry Scones</span><span class="page-num">37</span></div>
+    <div class="index-entry"><span>Lemon Pecan Slab Pie</span><span class="page-num">147</span></div>
+    <div class="index-entry"><span>Lentil Ham Soup</span><span class="page-num">55</span></div>
+    <div class="index-entry"><span>Lime Jello Salad</span><span class="page-num">66</span></div>
+    <div class="index-entry"><span>Lime Pretzel Jello</span><span class="page-num">148</span></div>
     <div class="index-letter">M</div>
-    <div class="index-entry">Mac & Cheese</div>
-    <div class="index-entry">Macaroni Salad</div>
-    <div class="index-entry">Mango Breeze Margarita Mix</div>
-    <div class="index-entry">Marinated Vegetable Salad</div>
-    <div class="index-entry">Marinated Vegetable Salad</div>
-    <div class="index-entry">Meringue Cookies</div>
-    <div class="index-entry">Mini Strawberry Santas</div>
+    <div class="index-entry"><span>Mac & Cheese</span><span class="page-num">149</span></div>
+    <div class="index-entry"><span>Macaroni Salad</span><span class="page-num">67</span></div>
+    <div class="index-entry"><span>Mango Breeze Margarita Mix</span><span class="page-num">95</span></div>
+    <div class="index-entry"><span>Marinated Vegetable Salad</span><span class="page-num">68</span></div>
+    <div class="index-entry"><span>Marinated Vegetable Salad</span><span class="page-num">109</span></div>
+    <div class="index-entry"><span>Meringue Cookies</span><span class="page-num">150</span></div>
+    <div class="index-entry"><span>Mini Strawberry Santas</span><span class="page-num">151</span></div>
     <div class="index-letter">N</div>
-    <div class="index-entry">Night Before Christmas Mice</div>
-    <div class="index-entry">No Bake Chocolate Oatmeal Cookies</div>
-    <div class="index-entry">No Bake Cookies</div>
-    <div class="index-entry">No Bake Cookies</div>
-    <div class="index-entry">Nonna's Sauce</div>
-    <div class="index-entry">Nutella Bread Pudding</div>
-    <div class="index-entry">Nutella Christmas Tree</div>
-    <div class="index-entry">Nutella Tart with Toasted Hazelnut Crust</div>
+    <div class="index-entry"><span>Night Before Christmas Mice</span><span class="page-num">152</span></div>
+    <div class="index-entry"><span>No Bake Chocolate Oatmeal Cookies</span><span class="page-num">153</span></div>
+    <div class="index-entry"><span>No Bake Cookies</span><span class="page-num">90</span></div>
+    <div class="index-entry"><span>No Bake Cookies</span><span class="page-num">110</span></div>
+    <div class="index-entry"><span>Nonna's Sauce</span><span class="page-num">44</span></div>
+    <div class="index-entry"><span>Nutella Bread Pudding</span><span class="page-num">154</span></div>
+    <div class="index-entry"><span>Nutella Christmas Tree</span><span class="page-num">155</span></div>
+    <div class="index-entry"><span>Nutella Tart with Toasted Hazelnut Crust</span><span class="page-num">156</span></div>
     <div class="index-letter">P</div>
-    <div class="index-entry">Palmiers (Sugar)</div>
-    <div class="index-entry">Paula Deen's Banana Pudding</div>
-    <div class="index-entry">Peach Crumble</div>
-    <div class="index-entry">Peanut Butter Ball</div>
-    <div class="index-entry">Peanut Butter Ball</div>
-    <div class="index-entry">Peanut Butter Balls</div>
-    <div class="index-entry">Pecan Cheese Ball</div>
-    <div class="index-entry">Pecan Pie</div>
-    <div class="index-entry">Penne Primavera</div>
-    <div class="index-entry">Pepperoni Pizza Dip</div>
-    <div class="index-entry">Pesto Palmiers</div>
-    <div class="index-entry">Potato Leek Soup</div>
-    <div class="index-entry">Pumpkin Breakfast Casserole</div>
-    <div class="index-entry">Pumpkin Pie</div>
-    <div class="index-entry">Pumpkin Pudding</div>
-    <div class="index-entry">Pumpkin Spiced Latte</div>
+    <div class="index-entry"><span>Palmiers (Sugar)</span><span class="page-num">157</span></div>
+    <div class="index-entry"><span>Paula Deen's Banana Pudding</span><span class="page-num">158</span></div>
+    <div class="index-entry"><span>Peach Crumble</span><span class="page-num">159</span></div>
+    <div class="index-entry"><span>Peanut Butter Ball</span><span class="page-num">111</span></div>
+    <div class="index-entry"><span>Peanut Butter Ball</span><span class="page-num">112</span></div>
+    <div class="index-entry"><span>Peanut Butter Balls</span><span class="page-num">113</span></div>
+    <div class="index-entry"><span>Pecan Cheese Ball</span><span class="page-num">21</span></div>
+    <div class="index-entry"><span>Pecan Pie</span><span class="page-num">114</span></div>
+    <div class="index-entry"><span>Penne Primavera</span><span class="page-num">45</span></div>
+    <div class="index-entry"><span>Pepperoni Pizza Dip</span><span class="page-num">22</span></div>
+    <div class="index-entry"><span>Pesto Palmiers</span><span class="page-num">160</span></div>
+    <div class="index-entry"><span>Potato Leek Soup</span><span class="page-num">56</span></div>
+    <div class="index-entry"><span>Pumpkin Breakfast Casserole</span><span class="page-num">38</span></div>
+    <div class="index-entry"><span>Pumpkin Pie</span><span class="page-num">115</span></div>
+    <div class="index-entry"><span>Pumpkin Pudding</span><span class="page-num">161</span></div>
+    <div class="index-entry"><span>Pumpkin Spiced Latte</span><span class="page-num">96</span></div>
     <div class="index-letter">Q</div>
-    <div class="index-entry">Quiche</div>
+    <div class="index-entry"><span>Quiche</span><span class="page-num">39</span></div>
     <div class="index-letter">R</div>
-    <div class="index-entry">Raspberry Prosecco Cocktail</div>
-    <div class="index-entry">Raspberry Prosecco Tulip</div>
-    <div class="index-entry">Roasted Pumpkin Seed Hummus</div>
-    <div class="index-entry">Roasted Red Pepper, Tomato & Smoked Gouda Bisque</div>
+    <div class="index-entry"><span>Raspberry Prosecco Cocktail</span><span class="page-num">97</span></div>
+    <div class="index-entry"><span>Raspberry Prosecco Tulip</span><span class="page-num">91</span></div>
+    <div class="index-entry"><span>Roasted Pumpkin Seed Hummus</span><span class="page-num">23</span></div>
+    <div class="index-entry"><span>Roasted Red Pepper, Tomato & Smoked Gouda Bisque</span><span class="page-num">57</span></div>
     <div class="index-letter">S</div>
-    <div class="index-entry">S'more Pie</div>
-    <div class="index-entry">Sage and Onion Stuffing</div>
-    <div class="index-entry">Salmon Tacos</div>
-    <div class="index-entry">Sangria</div>
-    <div class="index-entry">Sausage Quiche</div>
-    <div class="index-entry">Shrimp & Sausage Stew</div>
-    <div class="index-entry">Snickerdoodles</div>
-    <div class="index-entry">Spaghetti Salad</div>
-    <div class="index-entry">Spice Roasted Honeynut Squash & Chickpeas</div>
-    <div class="index-entry">Spinach Artichoke Dip</div>
-    <div class="index-entry">Spinach Artichoke Pasta</div>
-    <div class="index-entry">Stuffed Celery</div>
-    <div class="index-entry">Stuffed Mushrooms</div>
-    <div class="index-entry">Sweet Almond Crackers</div>
-    <div class="index-entry">Sweet Pepper Jalapeno Jam Suggestions</div>
-    <div class="index-entry">Sweet Potato Casserole</div>
+    <div class="index-entry"><span>S'more Pie</span><span class="page-num">162</span></div>
+    <div class="index-entry"><span>Sage and Onion Stuffing</span><span class="page-num">163</span></div>
+    <div class="index-entry"><span>Salmon Tacos</span><span class="page-num">46</span></div>
+    <div class="index-entry"><span>Sangria</span><span class="page-num">98</span></div>
+    <div class="index-entry"><span>Sausage Quiche</span><span class="page-num">164</span></div>
+    <div class="index-entry"><span>Shrimp & Sausage Stew</span><span class="page-num">58</span></div>
+    <div class="index-entry"><span>Snickerdoodles</span><span class="page-num">165</span></div>
+    <div class="index-entry"><span>Spaghetti Salad</span><span class="page-num">69</span></div>
+    <div class="index-entry"><span>Spice Roasted Honeynut Squash & Chickpeas</span><span class="page-num">24</span></div>
+    <div class="index-entry"><span>Spinach Artichoke Dip</span><span class="page-num">25</span></div>
+    <div class="index-entry"><span>Spinach Artichoke Pasta</span><span class="page-num">26</span></div>
+    <div class="index-entry"><span>Stuffed Celery</span><span class="page-num">27</span></div>
+    <div class="index-entry"><span>Stuffed Mushrooms</span><span class="page-num">166</span></div>
+    <div class="index-entry"><span>Sweet Almond Crackers</span><span class="page-num">28</span></div>
+    <div class="index-entry"><span>Sweet Pepper Jalapeno Jam Suggestions</span><span class="page-num">29</span></div>
+    <div class="index-entry"><span>Sweet Potato Casserole</span><span class="page-num">116</span></div>
     <div class="index-letter">T</div>
-    <div class="index-entry">Taffy Apple Salad</div>
-    <div class="index-entry">Texas Caviar</div>
-    <div class="index-entry">Thanksgiving Turkey Dressing</div>
-    <div class="index-entry">Thunder Cake</div>
-    <div class="index-entry">Tomato Relish</div>
-    <div class="index-entry">Twice Baked Sweet Potatoes with Ricotta Cheese</div>
+    <div class="index-entry"><span>Taffy Apple Salad</span><span class="page-num">117</span></div>
+    <div class="index-entry"><span>Texas Caviar</span><span class="page-num">30</span></div>
+    <div class="index-entry"><span>Thanksgiving Turkey Dressing</span><span class="page-num">118</span></div>
+    <div class="index-entry"><span>Thunder Cake</span><span class="page-num">83</span></div>
+    <div class="index-entry"><span>Tomato Relish</span><span class="page-num">167</span></div>
+    <div class="index-entry"><span>Twice Baked Sweet Potatoes with Ricotta Cheese</span><span class="page-num">75</span></div>
     <div class="index-letter">U</div>
-    <div class="index-entry">Upside Down Blueberry Dump Cake</div>
-    <div class="index-entry">Upside Down Pumpkin Cake</div>
+    <div class="index-entry"><span>Upside Down Blueberry Dump Cake</span><span class="page-num">84</span></div>
+    <div class="index-entry"><span>Upside Down Pumpkin Cake</span><span class="page-num">85</span></div>
     <div class="index-letter">V</div>
-    <div class="index-entry">Veggie Quesadillas</div>
+    <div class="index-entry"><span>Veggie Quesadillas</span><span class="page-num">47</span></div>
     <div class="index-letter">W</div>
-    <div class="index-entry">Waffles</div>
-    <div class="index-entry">White Bean Soup with Greens & Turkey</div>
-    <div class="index-entry">White Hot Chocolate</div>
-    <div class="index-entry">Witch's Hat Cookies</div>
+    <div class="index-entry"><span>Waffles</span><span class="page-num">40</span></div>
+    <div class="index-entry"><span>White Bean Soup with Greens & Turkey</span><span class="page-num">59</span></div>
+    <div class="index-entry"><span>White Hot Chocolate</span><span class="page-num">99</span></div>
+    <div class="index-entry"><span>Witch's Hat Cookies</span><span class="page-num">168</span></div>
     <div class="index-letter">Z</div>
-    <div class="index-entry">Zucchini & Corn Skillet</div>
-    <div class="index-entry">Zucchini Lasagna</div>
+    <div class="index-entry"><span>Zucchini & Corn Skillet</span><span class="page-num">76</span></div>
+    <div class="index-entry"><span>Zucchini Lasagna</span><span class="page-num">169</span></div>
   </div>
 </div>
 

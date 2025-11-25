@@ -41,7 +41,25 @@ function generateHTML() {
   <style>
     @page {
       size: 8in 10in;
-      margin: 0.75in 0.5in 0.5in 0.75in;
+      margin: 0.75in 0.5in 0.6in 0.75in;
+      @bottom-center {
+        content: counter(page);
+        font-family: Georgia, serif;
+        font-size: 10pt;
+        color: #8b4513;
+      }
+    }
+
+    @page:first {
+      @bottom-center {
+        content: none;
+      }
+    }
+
+    @page title-pages {
+      @bottom-center {
+        content: none;
+      }
     }
 
     * {
@@ -56,6 +74,7 @@ function generateHTML() {
       max-width: 7in;
       margin: 0 auto;
       padding: 20px;
+      counter-reset: page;
     }
 
     /* Title Page */
@@ -120,12 +139,34 @@ function generateHTML() {
       margin-bottom: 5px;
       border-bottom: 1px solid #d4a574;
       padding-bottom: 3px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .toc-category .page-num {
+      font-weight: normal;
+      color: #a0522d;
     }
 
     .toc-recipe {
       font-size: 11pt;
       margin-left: 20px;
-      line-height: 1.6;
+      line-height: 1.8;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .toc-recipe .dots {
+      flex: 1;
+      border-bottom: 1px dotted #ccc;
+      margin: 0 8px;
+      position: relative;
+      top: -4px;
+    }
+
+    .toc-recipe .page-num {
+      color: #8b4513;
+      font-weight: normal;
     }
 
     /* Chapter Divider */
@@ -151,16 +192,15 @@ function generateHTML() {
       margin-top: 20px;
     }
 
-    /* Recipe */
+    /* Recipe - each on its own page */
     .recipe {
+      page-break-before: always;
       page-break-inside: avoid;
-      margin-bottom: 0.5in;
-      padding-bottom: 0.3in;
-      border-bottom: 1px solid #eee;
+      padding-top: 0.25in;
     }
 
-    .recipe:last-child {
-      border-bottom: none;
+    .recipe:first-of-type {
+      page-break-before: avoid;
     }
 
     .recipe-title {
@@ -248,6 +288,13 @@ function generateHTML() {
       font-size: 10pt;
       margin-left: 10px;
       line-height: 1.5;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .index-entry .page-num {
+      color: #8b4513;
+      margin-left: 5px;
     }
 
     /* Notes Page */
@@ -310,18 +357,46 @@ function generateHTML() {
   <h2>Table of Contents</h2>
 `;
 
-  // Generate TOC
-  let pageNum = 7; // Start after front matter
-  const tocData = [];
+  // Calculate page numbers
+  // Front matter: Title (1), Copyright (2), Dedication (3), TOC starts at 4
+  // TOC takes approximately 4 pages for 150 recipes
+  // Recipes start after TOC
 
+  const tocData = [];
+  const categoryPages = {};
+
+  // Calculate starting page for recipes (after front matter + TOC)
+  // Front matter = 3 pages, TOC = ~4 pages = start at page 8
+  let currentPage = 8;
+
+  // First pass: calculate all page numbers
   for (const category of categoryOrder) {
     const categoryData = manuscript.categories[category];
     if (categoryData && categoryData.recipes && categoryData.recipes.length > 0) {
-      html += `<div class="toc-category">${category} (${categoryData.recipes.length})</div>\n`;
+      // Chapter divider page
+      categoryPages[category] = currentPage;
+      currentPage++; // chapter divider takes 1 page
 
       for (const recipe of categoryData.recipes) {
-        html += `<div class="toc-recipe">${recipe.title}</div>\n`;
-        tocData.push({title: recipe.title, category: category});
+        tocData.push({
+          title: recipe.title,
+          category: category,
+          page: currentPage
+        });
+        currentPage++; // each recipe gets its own page
+      }
+    }
+  }
+
+  // Generate TOC with page numbers
+  for (const category of categoryOrder) {
+    const categoryData = manuscript.categories[category];
+    if (categoryData && categoryData.recipes && categoryData.recipes.length > 0) {
+      html += `<div class="toc-category"><span>${category}</span><span class="page-num">${categoryPages[category]}</span></div>\n`;
+
+      const categoryRecipes = tocData.filter(r => r.category === category);
+      for (const recipe of categoryRecipes) {
+        html += `<div class="toc-recipe"><span>${recipe.title}</span><span class="dots"></span><span class="page-num">${recipe.page}</span></div>\n`;
       }
     }
   }
@@ -471,7 +546,7 @@ function generateIndexHTML(recipes) {
       currentLetter = firstLetter;
       html += `    <div class="index-letter">${currentLetter}</div>\n`;
     }
-    html += `    <div class="index-entry">${recipe.title}</div>\n`;
+    html += `    <div class="index-entry"><span>${recipe.title}</span><span class="page-num">${recipe.page}</span></div>\n`;
   }
 
   html += `  </div>\n`;
