@@ -527,6 +527,12 @@ function generateHTML() {
   collected over generations. Some recipes may have originated from friends,
   family members, or other sources as noted.</p>
   <br><br>
+  <p style="font-size: 9pt; color: #666; border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+  <strong>Disclaimer:</strong> The recipes in this cookbook are intended for personal
+  enjoyment and are not medical advice. Despite the author's medical background,
+  this cookbook does not constitute dietary, nutritional, or health guidance.
+  Please consult your healthcare provider for any dietary concerns or restrictions.</p>
+  <br>
   <p>First Edition</p>
   <p>Printed in the United States of America</p>
 </div>
