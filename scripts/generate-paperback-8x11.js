@@ -1,10 +1,11 @@
 /**
  * Paperback Cookbook Generator (8.5" x 11")
  * Generates an HTML file optimized for 8.5" x 11" paperback printing
+ * WITH page numbers in footer, TOC, and index
  *
  * Usage: node generate-paperback-8x11.js
  * Output: output/paperback-8x11.html
- * Then: weasyprint ../output/paperback-8x11.html ../output/paperback-8x11.pdf
+ * Then: weasyprint paperback-8x11.html paperback-8x11.pdf
  */
 
 const fs = require('fs');
@@ -104,6 +105,36 @@ const categoryOrder = [
 function generateHTML() {
   const totalRecipes = allRecipes.length;
 
+  // First pass: calculate page numbers
+  // Page 1: Title page (no number shown)
+  // Page 2: Copyright (no number shown)
+  // Page 3: Dedication (no number shown)
+  // Pages 4-7: Table of Contents (estimate ~4 pages for 140 recipes)
+  // Then chapters start
+
+  let currentPage = 8; // Start content after front matter
+  const tocData = [];
+  const categoryPages = {};
+
+  for (const category of categoryOrder) {
+    const categoryData = manuscript.categories[category];
+    if (categoryData && categoryData.recipes && categoryData.recipes.length > 0) {
+      categoryPages[category] = currentPage;
+      currentPage++; // chapter divider page
+
+      for (const recipe of categoryData.recipes) {
+        tocData.push({
+          title: recipe.title,
+          category: category,
+          page: currentPage
+        });
+        currentPage++; // each recipe gets one page
+      }
+    }
+  }
+
+  const indexStartPage = currentPage;
+
   let html = `<!DOCTYPE html>
 <html>
 <head>
@@ -112,20 +143,30 @@ function generateHTML() {
   <style>
     /*
      * KDP 8.5" x 11" Paperback Specifications
-     * For 151-400 pages: Inside margin 0.875", Outside 0.25", Top/Bottom 0.25"
+     * For 151-400 pages: Inside margin 0.875", Outside 0.5", Top/Bottom 0.5"
      * No bleed (content doesn't go to edge)
      */
     @page {
       size: 8.5in 11in;
-      margin: 0.5in 0.5in 0.5in 0.875in; /* top right bottom left(gutter) */
+      margin: 0.75in 0.5in 0.75in 0.875in; /* top right bottom left(gutter) */
+      @bottom-center {
+        content: counter(page);
+        font-family: Georgia, serif;
+        font-size: 10pt;
+        color: #8b4513;
+      }
     }
 
-    @page:right {
-      margin: 0.5in 0.5in 0.5in 0.875in; /* odd pages - gutter on left */
+    @page:first {
+      @bottom-center {
+        content: none;
+      }
     }
 
-    @page:left {
-      margin: 0.5in 0.875in 0.5in 0.5in; /* even pages - gutter on right */
+    @page frontmatter {
+      @bottom-center {
+        content: none;
+      }
     }
 
     * {
@@ -139,24 +180,16 @@ function generateHTML() {
       color: #333;
       margin: 0;
       padding: 0;
-    }
-
-    /* Page numbers - positioned manually */
-    .page-number {
-      position: fixed;
-      bottom: 0.25in;
-      width: 100%;
-      text-align: center;
-      font-size: 10pt;
-      color: #8b4513;
+      counter-reset: page;
     }
 
     /* Title Page */
     .title-page {
+      page: frontmatter;
       page-break-after: always;
       text-align: center;
       padding-top: 3in;
-      height: 10in;
+      height: 9.5in;
     }
 
     .title-page h1 {
@@ -181,6 +214,7 @@ function generateHTML() {
 
     /* Copyright Page */
     .copyright-page {
+      page: frontmatter;
       page-break-after: always;
       font-size: 10pt;
       padding-top: 3in;
@@ -188,6 +222,7 @@ function generateHTML() {
 
     /* Dedication */
     .dedication-page {
+      page: frontmatter;
       page-break-after: always;
       text-align: center;
       padding-top: 2.5in;
@@ -209,19 +244,42 @@ function generateHTML() {
     }
 
     .toc-category {
-      font-size: 14pt;
+      font-size: 13pt;
       font-weight: bold;
       color: #8b4513;
-      margin-top: 18px;
-      margin-bottom: 6px;
+      margin-top: 14px;
+      margin-bottom: 4px;
       border-bottom: 1px solid #d4a574;
-      padding-bottom: 3px;
+      padding-bottom: 2px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .toc-category .page-num {
+      font-weight: normal;
+      color: #a0522d;
     }
 
     .toc-recipe {
-      font-size: 11pt;
-      margin-left: 20px;
-      line-height: 1.6;
+      font-size: 10pt;
+      margin-left: 15px;
+      line-height: 1.5;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .toc-recipe .dots {
+      flex: 1;
+      border-bottom: 1px dotted #ccc;
+      margin: 0 5px;
+      position: relative;
+      top: -3px;
+    }
+
+    .toc-recipe .page-num {
+      color: #8b4513;
+      min-width: 25px;
+      text-align: right;
     }
 
     /* Chapter Divider */
@@ -247,10 +305,14 @@ function generateHTML() {
       margin-top: 20px;
     }
 
-    /* Recipe Container */
+    /* Recipe Container - centered vertically on page */
     .recipe {
       page-break-before: always;
       page-break-inside: avoid;
+      min-height: 9in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .recipe:first-of-type {
@@ -261,6 +323,7 @@ function generateHTML() {
     .recipe-content {
       display: flex;
       gap: 0.25in;
+      width: 100%;
     }
 
     .recipe-left {
@@ -392,17 +455,24 @@ function generateHTML() {
     }
 
     .index-letter {
-      font-size: 16pt;
+      font-size: 14pt;
       font-weight: bold;
       color: #8b4513;
-      margin-top: 15px;
-      margin-bottom: 5px;
+      margin-top: 12px;
+      margin-bottom: 4px;
     }
 
     .index-entry {
-      font-size: 10pt;
-      margin-left: 10px;
-      line-height: 1.6;
+      font-size: 9pt;
+      margin-left: 8px;
+      line-height: 1.5;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .index-entry .page-num {
+      color: #8b4513;
+      margin-left: 5px;
     }
 
     /* Notes Page */
@@ -479,21 +549,21 @@ function generateHTML() {
   <h2>Table of Contents</h2>
 `;
 
-  // Generate TOC
+  // Generate TOC with page numbers
   for (const category of categoryOrder) {
     const categoryData = manuscript.categories[category];
     if (categoryData && categoryData.recipes && categoryData.recipes.length > 0) {
-      html += `<div class="toc-category">${category}</div>\n`;
-      for (const recipe of categoryData.recipes) {
-        html += `<div class="toc-recipe">${recipe.title}</div>\n`;
+      const catPage = categoryPages[category];
+      html += `  <div class="toc-category"><span>${category}</span><span class="page-num">${catPage}</span></div>\n`;
+
+      const categoryRecipes = tocData.filter(r => r.category === category);
+      for (const recipe of categoryRecipes) {
+        html += `  <div class="toc-recipe"><span>${recipe.title}</span><span class="dots"></span><span class="page-num">${recipe.page}</span></div>\n`;
       }
     }
   }
 
   html += `</div>\n\n`;
-
-  // Track recipes for index
-  const indexRecipes = [];
 
   // Generate chapters with recipes
   for (const category of categoryOrder) {
@@ -509,13 +579,12 @@ function generateHTML() {
       // Recipes
       for (const recipe of categoryData.recipes) {
         html += generateRecipeHTML(recipe);
-        indexRecipes.push({ title: recipe.title, category: category });
       }
     }
   }
 
-  // Index
-  html += generateIndexHTML(indexRecipes);
+  // Index with page numbers
+  html += generateIndexHTML(tocData);
 
   // Notes pages
   html += `
@@ -672,8 +741,8 @@ function generateRecipeHTML(recipe) {
   return html;
 }
 
-function generateIndexHTML(recipes) {
-  const sorted = [...recipes].sort((a, b) =>
+function generateIndexHTML(tocData) {
+  const sorted = [...tocData].sort((a, b) =>
     a.title.toLowerCase().localeCompare(b.title.toLowerCase())
   );
 
@@ -689,7 +758,7 @@ function generateIndexHTML(recipes) {
       currentLetter = firstLetter;
       html += `    <div class="index-letter">${currentLetter}</div>\n`;
     }
-    html += `    <div class="index-entry">${recipe.title}</div>\n`;
+    html += `    <div class="index-entry"><span>${recipe.title}</span><span class="page-num">${recipe.page}</span></div>\n`;
   }
 
   html += `  </div>\n`;
@@ -716,11 +785,11 @@ To generate PDF:
   cd output
   weasyprint paperback-8x11.html paperback-8x11.pdf
 
-Specifications:
-- Trim Size: 8.5" x 11" (standard letter)
-- Margins: 0.5" gutter, 0.25" outside, 0.5" top/bottom
-- Layout: 2-column (image left, recipe right)
-- Recommended: Color printing for photos
+Features:
+- Page numbers in footer (via CSS @page)
+- Page numbers in Table of Contents
+- Page numbers in Index
+- KDP-compliant margins for 8.5"x11"
 
 Total Recipes: ${allRecipes.length}
 `);
