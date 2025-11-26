@@ -144,29 +144,12 @@ function generateHTML() {
     /*
      * KDP 8.5" x 11" Paperback - NO BLEED
      * For 151-300 pages: Inside margin 0.5" min, Outside 0.25" min
-     * Using generous margins for safety: 0.75" inside, 0.5" outside, 0.5" top/bottom
+     * Using generous margins: 0.75" inside, 0.5" outside, 0.75" top/bottom
+     * Page numbers are placed INSIDE content area, not in margin
      */
     @page {
       size: 8.5in 11in;
-      margin: 0.5in 0.5in 0.5in 0.75in; /* top right bottom left(gutter) */
-      @bottom-center {
-        content: counter(page);
-        font-family: Georgia, serif;
-        font-size: 10pt;
-        color: #8b4513;
-      }
-    }
-
-    @page:first {
-      @bottom-center {
-        content: none;
-      }
-    }
-
-    @page frontmatter {
-      @bottom-center {
-        content: none;
-      }
+      margin: 0.75in 0.5in 0.75in 0.75in; /* top right bottom left(gutter) */
     }
 
     * {
@@ -180,7 +163,15 @@ function generateHTML() {
       color: #333;
       margin: 0;
       padding: 0;
-      counter-reset: page;
+    }
+
+    /* Page number styling - placed at bottom of content area */
+    .page-num-footer {
+      text-align: center;
+      font-size: 10pt;
+      color: #8b4513;
+      margin-top: auto;
+      padding-top: 0.3in;
     }
 
     /* Title Page */
@@ -288,6 +279,10 @@ function generateHTML() {
       page-break-after: always;
       text-align: center;
       padding-top: 3in;
+      min-height: 9in;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .chapter-divider h2 {
@@ -296,7 +291,6 @@ function generateHTML() {
       font-weight: normal;
       border-bottom: 3px double #d4a574;
       padding-bottom: 10px;
-      display: inline-block;
     }
 
     .chapter-divider .count {
@@ -305,14 +299,17 @@ function generateHTML() {
       margin-top: 20px;
     }
 
-    /* Recipe Container - centered vertically on page */
+    .chapter-divider .page-num-footer {
+      margin-top: auto;
+    }
+
+    /* Recipe Container - full page with footer */
     .recipe {
       page-break-before: always;
       page-break-inside: avoid;
-      min-height: 9.5in;
+      min-height: 9in;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
     }
 
     .recipe:first-of-type {
@@ -324,6 +321,8 @@ function generateHTML() {
       display: flex;
       gap: 0.3in;
       width: 100%;
+      flex: 1;
+      align-items: center;
     }
 
     .recipe-left {
@@ -569,15 +568,20 @@ function generateHTML() {
   for (const category of categoryOrder) {
     const categoryData = manuscript.categories[category];
     if (categoryData && categoryData.recipes && categoryData.recipes.length > 0) {
-      // Chapter divider
+      // Chapter divider with page number
+      const chapterPage = categoryPages[category];
       html += `<!-- ${category.toUpperCase()} CHAPTER -->\n`;
       html += `<div class="chapter-divider">\n`;
       html += `  <h2>${category}</h2>\n`;
       html += `  <div class="count">${categoryData.recipes.length} Recipes</div>\n`;
+      html += `  <div class="page-num-footer">${chapterPage}</div>\n`;
       html += `</div>\n\n`;
 
-      // Recipes
-      for (const recipe of categoryData.recipes) {
+      // Recipes with page numbers
+      const categoryRecipes = tocData.filter(r => r.category === category);
+      for (let i = 0; i < categoryData.recipes.length; i++) {
+        const recipe = categoryData.recipes[i];
+        recipe._pageNum = categoryRecipes[i].page;
         html += generateRecipeHTML(recipe);
       }
     }
@@ -736,6 +740,10 @@ function generateRecipeHTML(recipe) {
 
   html += `  </div>\n`; // Close recipe-right
   html += `</div>\n`; // Close recipe-content
+  // Page number is passed in via the pageNum parameter
+  if (recipe._pageNum) {
+    html += `<div class="page-num-footer">${recipe._pageNum}</div>\n`;
+  }
   html += `</div>\n\n`; // Close recipe
 
   return html;
