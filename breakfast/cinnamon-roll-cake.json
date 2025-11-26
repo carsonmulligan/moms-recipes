@@ -3,23 +3,25 @@
   "source_images": ["IMG_7411.jpg", "IMG_7412.jpg"],
   "oven_temp": "350°",
   "bake_time": "25-30 minutes",
-  "cake_ingredients": [
-    "1 1/2 c sugar",
-    "1 c buttermilk",
-    "2 c self-rising flour (or 2c flour + 1 Tbsp baking powder + 1/2 tsp salt)",
-    "4 lg eggs",
-    "2 tsp vanilla",
-    "1/2 c Crisco or shortening"
-  ],
-  "filling_ingredients": [
-    "1/2 brown sugar",
-    "4 tsp ground cinnamon"
-  ],
-  "icing_ingredients": [
-    "2 c powdered sugar",
-    "3 Tbsp melted butter",
-    "1/4 c milk",
-    "1 tsp vanilla"
-  ],
+  "ingredients": {
+    "cake": [
+      "1 1/2 c sugar",
+      "1 c buttermilk",
+      "2 c self-rising flour (or 2c flour + 1 Tbsp baking powder + 1/2 tsp salt)",
+      "4 lg eggs",
+      "2 tsp vanilla",
+      "1/2 c Crisco or shortening"
+    ],
+    "filling": [
+      "1/2 brown sugar",
+      "4 tsp ground cinnamon"
+    ],
+    "icing": [
+      "2 c powdered sugar",
+      "3 Tbsp melted butter",
+      "1/4 c milk",
+      "1 tsp vanilla"
+    ]
+  },
   "instructions": "Preheat oven to 350°F. Cream together shortening & granulated sugar. Add both to large mixing bowl & use hand mixer to combine until light & fluffy (2 mins). Beat eggs, one at a time. Keep mixer going until mixture starts to look frothy. Beat in remaining wet ingredients. Incorporate until everything is just combined. Add flour & beat for 30 sec's. Whisk together brown sugar & cinnamon separately. In 9x13\" greased pan add 1/2 batter & smoothe. Sprinkle brown sugar mix across layer. Add remainder of batter. Use a chopstick to swirl the mixture. Bake 350° 25-30 min until toothpick is clean. Icing: melt butter, add milk (warmed ~30 sec in microwave) then whisk in powdered sugar. Poke holes in cake & top with glaze."
 }

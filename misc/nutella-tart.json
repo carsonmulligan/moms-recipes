@@ -1,20 +1,22 @@
 {
   "title": "Nutella Tart with Toasted Hazelnut Crust",
   "source_images": ["IMG_7312.jpg", "IMG_7313.jpg", "IMG_7315.jpg"],
-  "crust_ingredients": [
-    "1 1/4 c all-purpose flour",
-    "1/2 c hazelnuts, toasted and ground",
-    "1/4 c sugar",
-    "1/2 tsp salt",
-    "1/2 c cold butter, cubed",
-    "1 egg yolk",
-    "2 Tbsp cold water"
-  ],
-  "filling_ingredients": [
-    "1 1/2 c Nutella",
-    "1 c heavy cream",
-    "Whole hazelnuts for garnish"
-  ],
+  "ingredients": {
+    "crust": [
+      "1 1/4 c all-purpose flour",
+      "1/2 c hazelnuts, toasted and ground",
+      "1/4 c sugar",
+      "1/2 tsp salt",
+      "1/2 c cold butter, cubed",
+      "1 egg yolk",
+      "2 Tbsp cold water"
+    ],
+    "filling": [
+      "1 1/2 c Nutella",
+      "1 c heavy cream",
+      "Whole hazelnuts for garnish"
+    ]
+  },
   "oven_temp": "375°",
   "instructions": "For crust: Pulse flour, hazelnuts, sugar, and salt in food processor. Add butter and pulse until crumbly. Add egg yolk and water. Press into 9-inch tart pan. Bake at 375° for 18-20 minutes until golden. Cool completely. For filling: Heat Nutella and cream together until smooth. Pour into cooled crust. Refrigerate until set, at least 2 hours. Garnish with whole hazelnuts."
 }

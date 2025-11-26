@@ -1,19 +1,21 @@
 {
   "title": "S'more Pie",
   "source_images": ["IMG_7324.jpg", "IMG_7325.jpg", "IMG_7327.jpg", "IMG_7328.jpg"],
-  "crust_ingredients": [
-    "2 c graham cracker crumbs",
-    "1/3 c sugar",
-    "6 Tbsp butter, melted"
-  ],
-  "filling_ingredients": [
-    "2 c semisweet chocolate chips",
-    "1 c heavy cream",
-    "1 tsp vanilla extract"
-  ],
-  "topping_ingredients": [
-    "3 c mini marshmallows",
-    "Graham cracker pieces for garnish"
-  ],
+  "ingredients": {
+    "crust": [
+      "2 c graham cracker crumbs",
+      "1/3 c sugar",
+      "6 Tbsp butter, melted"
+    ],
+    "filling": [
+      "2 c semisweet chocolate chips",
+      "1 c heavy cream",
+      "1 tsp vanilla extract"
+    ],
+    "topping": [
+      "3 c mini marshmallows",
+      "Graham cracker pieces for garnish"
+    ]
+  },
   "instructions": "Mix graham cracker crumbs, sugar, and butter. Press into 9-inch pie pan. Bake at 350° for 10 minutes. Cool. For filling: Heat cream until simmering. Pour over chocolate chips. Let stand 5 minutes, then stir until smooth. Add vanilla. Pour into crust. Refrigerate 2 hours. Top with marshmallows. Broil 1-2 minutes until marshmallows are toasted (watch carefully!). Garnish with graham cracker pieces."
 }

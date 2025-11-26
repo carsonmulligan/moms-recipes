@@ -1,26 +1,28 @@
 {
   "title": "Frosted Butter Cutout Cookies",
   "source_images": ["IMG_7348.jpg", "IMG_7349.jpg"],
-  "cookie_ingredients": [
-    "1 c butter, softened",
-    "2 c sugar",
-    "1 tsp vanilla extract",
-    "1/2 tsp almond extract",
-    "2 large eggs",
-    "1 c buttermilk",
-    "5 c all-purpose flour",
-    "2 tsp baking powder",
-    "1 tsp baking soda",
-    "1/4 tsp salt"
-  ],
-  "frosting_ingredients": [
-    "1/4 c butter, softened",
-    "2 c powdered sugar",
-    "1/2 tsp almond extract",
-    "2-3 Tbsp heavy whipping cream",
-    "Green or red food coloring",
-    "Coarse sugar"
-  ],
+  "ingredients": {
+    "cookies": [
+      "1 c butter, softened",
+      "2 c sugar",
+      "1 tsp vanilla extract",
+      "1/2 tsp almond extract",
+      "2 large eggs",
+      "1 c buttermilk",
+      "5 c all-purpose flour",
+      "2 tsp baking powder",
+      "1 tsp baking soda",
+      "1/4 tsp salt"
+    ],
+    "frosting": [
+      "1/4 c butter, softened",
+      "2 c powdered sugar",
+      "1/2 tsp almond extract",
+      "2-3 Tbsp heavy whipping cream",
+      "Green or red food coloring",
+      "Coarse sugar"
+    ]
+  },
   "oven_temp": "350°",
   "instructions": "In large bowl, beat butter, sugar, & extracts until blended. Beat in eggs, one at a time. Gradually beat in buttermilk. In another bowl, whisk flour, baking powder, baking soda, & salt; gradually beat into creamed mixture (dough will be soft). Refrigerate, covered, overnight. Preheat 350°. Divide dough in half. On a floured surface, roll each portion of dough to 1/4 inch thickness. Cut with a floured 2 1/2 in or other cookie cutter. Place 1 inch apart on greased baking sheets. Bake 6-8 mins or until light brown. Remove to wire racks to cool completely. For frosting, in a bowl, beat the butter, powdered sugar, extract, & enough cream to reach a spreading consistency. If desired, tint frosting with food coloring. Spread over cookies, sprinkle with coarse sugar. Let stand until set."
 }

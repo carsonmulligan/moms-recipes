@@ -1,15 +1,17 @@
 {
   "title": "Raspberry Prosecco Cocktail",
   "source_images": ["IMG_7447.jpg", "IMG_7448.jpg"],
-  "cocktail_ingredients": [
-    "1 Tbsp raspberry syrup",
-    "1 Tbsp fresh lemon juice",
-    "Chilled prosecco"
-  ],
-  "raspberry_syrup_ingredients": [
-    "1 c sugar",
-    "2 Tbsp fresh lemon juice",
-    "2 pints raspberries"
-  ],
+  "ingredients": {
+    "cocktail": [
+      "1 Tbsp raspberry syrup",
+      "1 Tbsp fresh lemon juice",
+      "Chilled prosecco"
+    ],
+    "raspberry_syrup": [
+      "1 c sugar",
+      "2 Tbsp fresh lemon juice",
+      "2 pints raspberries"
+    ]
+  },
   "instructions": "Raspberry Syrup: Place sugar & 2 c water in red sauce pan over med heat. Bring to simmer until dissolved. Add lemon juice & raspberries & simmer until raspberries have broken down, about 10 mins. Pour mixture through a strainer & return to pot. Simmer over med heat until syrup has thickened, about 10 min more. Let cool completely then pour into airtight container & store in refrigerator for up to 2 wks. Cocktail: Add raspberry syrup & lemon juice to bottom of champagne flute. Fill with prosecco."
 }

@@ -3,24 +3,26 @@
   "source_images": ["IMG_7401.jpg", "IMG_7402.jpg"],
   "oven_temp": "350°",
   "bake_time": "45-55 minutes",
-  "batter_ingredients": [
-    "1 loaf French bread",
-    "8 eggs",
-    "2 cups milk",
-    "1/2 c heavy cream or 1/2 & 1/2",
-    "1/4 c sugar",
-    "1/2 c brown sugar",
-    "1 Tbsp vanilla",
-    "2 tsp cinnamon",
-    "1/4 tsp nutmeg",
-    "1/2 c chopped pecans"
-  ],
-  "topping_ingredients": [
-    "1/2 c flour",
-    "1/2 c brown sugar",
-    "1 tsp cinnamon",
-    "1/4 tsp salt",
-    "1/2 c unsalted butter"
-  ],
+  "ingredients": {
+    "batter": [
+      "1 loaf French bread",
+      "8 eggs",
+      "2 cups milk",
+      "1/2 c heavy cream or 1/2 & 1/2",
+      "1/4 c sugar",
+      "1/2 c brown sugar",
+      "1 Tbsp vanilla",
+      "2 tsp cinnamon",
+      "1/4 tsp nutmeg",
+      "1/2 c chopped pecans"
+    ],
+    "topping": [
+      "1/2 c flour",
+      "1/2 c brown sugar",
+      "1 tsp cinnamon",
+      "1/4 tsp salt",
+      "1/2 c unsalted butter"
+    ]
+  },
   "instructions": "Preheat 350°. Spray 9x13 pan with cooking spray. In large bowl, add eggs, milk, heavy cream, sugar, 1/2 c brown sugar, vanilla, cinnamon, nutmeg. Chop bread into 3/4-1 inch cubes & put it in the bowl with egg mixture & toss well until all the liquid is absorbed. In a small bowl or food processor add the flour, remaining brown sugar, cinnamon, & salt and mix. Cut the butter into sugar mixture until crumbly. Mix pecans into mix. Pour the bread & egg mixture into the pan, cover evenly with brown sugar-butter topping & bake 45-55 mins or until top is crispy & center is no longer wet."
 }

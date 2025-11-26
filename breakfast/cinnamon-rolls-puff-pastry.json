@@ -4,18 +4,20 @@
   "oven_temp": "400°",
   "bake_time": "20 minutes",
   "servings": 16,
-  "roll_ingredients": [
-    "2 boxes puff pastry",
-    "1/4 c softened butter",
-    "1 1/3 c brown sugar",
-    "3 Tbsp cinnamon",
-    "1 beaten egg for egg wash"
-  ],
-  "cream_cheese_frosting_ingredients": [
-    "4 oz room temp cream cheese",
-    "3 Tbsp softened butter",
-    "3/4 c powdered sugar",
-    "1/2 tsp vanilla extract"
-  ],
+  "ingredients": {
+    "rolls": [
+      "2 boxes puff pastry",
+      "1/4 c softened butter",
+      "1 1/3 c brown sugar",
+      "3 Tbsp cinnamon",
+      "1 beaten egg for egg wash"
+    ],
+    "cream_cheese_frosting": [
+      "4 oz room temp cream cheese",
+      "3 Tbsp softened butter",
+      "3/4 c powdered sugar",
+      "1/2 tsp vanilla extract"
+    ]
+  },
   "instructions": "Cut each puff pastry sheet into a circle, approx 10\" in diameter. Mix brown sugar & cinnamon. Lay first dough circle on parchment-lined baking sheet; spread 1/3 of softened butter over it evenly and then spread 1/3 of cinnamon sugar mixture over that. Repeat with 2nd & 3rd dough circles. Top with 4th circle. Use something small (about 2\" in diameter) to be guide & place in middle of your stack. Cut 16 pieces (starting by quartering it, halving quarters, etc). Take 2 strips & twist them away from each other two times then pinch the ends together. Repeat around entire snowflake. Brush with egg wash. Bake 400° x 20 mins. While baking, cream butter & cream cheese then add powdered sugar & vanilla. Mix on medium high until well combined. Allow pastry to cool a few minutes, then brush frosting over & dust with powdered sugar."
 }

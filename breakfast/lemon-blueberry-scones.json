@@ -4,21 +4,23 @@
   "oven_temp": "400°",
   "bake_time": "22-25 minutes",
   "yields": "8 scones",
-  "scone_ingredients": [
-    "2 c all purpose flour (plus more for hands/work surface)",
-    "6 Tbsp granulated sugar",
-    "1 Tbsp fresh lemon zest",
-    "2 1/2 tsp baking powder",
-    "1/2 tsp salt",
-    "1/2 cup (8 Tbsp) unsalted butter, frozen",
-    "1/2 cup heavy cream (+2 Tbsp for brushing)",
-    "1 lg egg",
-    "1 1/2 tsp pure vanilla extract",
-    "1 heaping cup fresh/frozen blueberries (do not thaw)"
-  ],
-  "lemon_icing_ingredients": [
-    "1 cup powdered sugar",
-    "3 Tbsp fresh lemon juice"
-  ],
+  "ingredients": {
+    "scones": [
+      "2 c all purpose flour (plus more for hands/work surface)",
+      "6 Tbsp granulated sugar",
+      "1 Tbsp fresh lemon zest",
+      "2 1/2 tsp baking powder",
+      "1/2 tsp salt",
+      "1/2 cup (8 Tbsp) unsalted butter, frozen",
+      "1/2 cup heavy cream (+2 Tbsp for brushing)",
+      "1 lg egg",
+      "1 1/2 tsp pure vanilla extract",
+      "1 heaping cup fresh/frozen blueberries (do not thaw)"
+    ],
+    "lemon_icing": [
+      "1 cup powdered sugar",
+      "3 Tbsp fresh lemon juice"
+    ]
+  },
   "instructions": "Whisk flour, sugar, lemon zest, baking powder, & salt together in a large bowl. Grate the frozen butter, add it to the flour mixture & combine with pastry cutter, two forks, or your fingers until the mixture comes together in pea-sized crumbs. Place in refrigerator as you mix the wet ingredients. Whisk 1/2 cup heavy cream, the egg, & vanilla extract together in a small bowl. Drizzle over the flour mixture, add blueberries, then mix together until everything is moistened. Pour onto the counter & (with floured hands) work dough into ball as best you can. Dough will be sticky. If too sticky add more flour, if too dry add 1-2 Tbsp heavy cream. Press into 8in disk. With sharp knife or bench scraper cut into 8 wedges. Brush scones with remaining heavy cream. For extra crunch sprinkle with coarse sugar. Refrigerate for at least 15 min on plate or lined baking sheet. Preheat oven to 400°F. Arrange scones 2-3 in. apart. Bake for 22-25 min or until golden brown around edges & slightly browned on top. Cool for a few minutes before icing. Whisk icing ingredients together & drizzle over warm scones. Leftover scones keep well at room temp for 2 days or refrigerator for 5 days."
 }

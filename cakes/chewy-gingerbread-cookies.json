@@ -4,25 +4,27 @@
   "oven_temp": "350°",
   "bake_time": "12-14 minutes (large) or 8-10 minutes (small)",
   "yields": "6 large cookies per tray or 8 smaller cookies",
-  "cookie_ingredients": [
-    "1 c unsalted butter, softened",
-    "3/4 tsp salt",
-    "1 1/2 c firmly packed light brown sugar",
-    "1 large egg",
-    "2 tsp vanilla extract",
-    "1/4 c molasses",
-    "2 tsp cinnamon",
-    "1 tsp ground ginger",
-    "1/4 tsp ground cloves",
-    "3 c flour, spoon & level",
-    "2 tsp baking powder",
-    "1 tsp baking soda",
-    "1/4 c granulated sugar for rolling"
-  ],
-  "decorating_ingredients": [
-    "1 c white chocolate",
-    "1/2 c green candy melts",
-    "vegetable oil"
-  ],
+  "ingredients": {
+    "cookies": [
+      "1 c unsalted butter, softened",
+      "3/4 tsp salt",
+      "1 1/2 c firmly packed light brown sugar",
+      "1 large egg",
+      "2 tsp vanilla extract",
+      "1/4 c molasses",
+      "2 tsp cinnamon",
+      "1 tsp ground ginger",
+      "1/4 tsp ground cloves",
+      "3 c flour, spoon & level",
+      "2 tsp baking powder",
+      "1 tsp baking soda",
+      "1/4 c granulated sugar for rolling"
+    ],
+    "decorating": [
+      "1 c white chocolate",
+      "1/2 c green candy melts",
+      "vegetable oil"
+    ]
+  },
   "instructions": "Preheat to 350°. Whisk together flour, baking powder, & baking soda, set aside. Cream butter & salt for a minute to incorporate. Add in brown sugar & cream for 3 mins on medium high speed, until lighter in color & fluffy. Add in egg & vanilla & mix, scrape down sides. Add in molasses, cinnamon, ginger & cloves & mix. Add in flour mix & combine. Stop mixing as soon as the dough comes together. Line a cookie sheet with parchment paper. Use a cookie or ice cream scoop & scoop out dough. Roll into a ball & then roll into granulated sugar. Put 6 larger cookies per tray or 8 smaller cookies. Bake on middle rack for 12-14 min for large cookies, small cookies 8-10 mins. When baked, allow to cool for 2 mins then transfer to cooling rack. When cool, melt both chocolate & candy melts in piping bag. Cut a little end & pipe."
 }

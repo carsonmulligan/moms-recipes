@@ -3,24 +3,26 @@
   "source_images": ["IMG_7404.jpg", "IMG_7405.jpg"],
   "oven_temp": "425°",
   "bake_time": "20-25 minutes",
-  "bagel_ingredients": [
-    "2 1/4 c water 105-115°F",
-    "3 1/4 tsp instant or active dry yeast",
-    "4 c bread flour, plus more for dusting",
-    "1 1/2 Tbsp light or dark brown sugar, packed",
-    "3 tsp salt",
-    "1 tsp vanilla (opt)",
-    "8 c water",
-    "1/4 c honey",
-    "1 egg white",
-    "1 Tbsp water",
-    "raisins (opt)"
-  ],
-  "crunch_topping_ingredients": [
-    "1/4 c unsalted butter, melted",
-    "2/3 c packed brown sugar",
-    "1 Tbsp ground cinnamon",
-    "2 1/2 Tbsp all purpose or bread flour"
-  ],
+  "ingredients": {
+    "bagels": [
+      "2 1/4 c water 105-115°F",
+      "3 1/4 tsp instant or active dry yeast",
+      "4 c bread flour, plus more for dusting",
+      "1 1/2 Tbsp light or dark brown sugar, packed",
+      "3 tsp salt",
+      "1 tsp vanilla (opt)",
+      "8 c water",
+      "1/4 c honey",
+      "1 egg white",
+      "1 Tbsp water",
+      "raisins (opt)"
+    ],
+    "crunch_topping": [
+      "1/4 c unsalted butter, melted",
+      "2/3 c packed brown sugar",
+      "1 Tbsp ground cinnamon",
+      "2 1/2 Tbsp all purpose or bread flour"
+    ]
+  },
   "instructions": "In the bowl of stand mixer with hook attachment, combine warm water & yeast & allow to proof x 5 mins. Next, add flour, brown sugar, & salt. Mix x 2-3 mins on lowest setting. Dough should be stiff & sticky. Knead by hand on lightly floured surface x 5-6 mins. Dough should be firm & tough. First rise: shape dough into a smooth ball & place in a clean, lightly greased bowl. Turn dough over a few times to coat all sides with oil. Cover with clean towel. Let proof at room temp x 60-90 min until it has doubled in size. Topping: In a small bowl, whisk together melted butter, brown sugar, cinnamon, & flour. Set aside. Shape: After 1st rise, punch dough down & turn it out onto lightly floured surface. Divide dough into 12 equal pieces & form each piece into smooth balls. Shape each ball into a bagel by poking your finger through center while gently stretching dough into a ring. Arrange bagels on parchment-lined baking sheet & cover with towel. Let rest 10-15 mins. Water bath: Preheat oven to 425°. Place a large pot on stove over high heat. Fill with 8c water & bring to boil. Whisk in 1/4 c honey & reduce heat to medium. Gently drop 2-3 bagels into water bath at a time. Cook for 2-3 mins, turning about 1 min. Remove using slotted spoon & return to parchment on baking sheet. Limit each baking sheet to 4 bagels. Bake: Whisk egg white & water & brush egg wash over tops & sides. Spoon on crunch topping. Bake 20-25 mins rotating pan halfway & pushing any topping that falls off back onto bagels."
 }
