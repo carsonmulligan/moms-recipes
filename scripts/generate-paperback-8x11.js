@@ -110,22 +110,22 @@ function generateHTML() {
   <meta charset="UTF-8">
   <title>Dr. Lesa Mulligan's Cookbook</title>
   <style>
-    /* 8.5x11 with KDP margins (0.5" inside/gutter, 0.25" outside, 0.5" top/bottom) */
+    /*
+     * KDP 8.5" x 11" Paperback Specifications
+     * For 151-400 pages: Inside margin 0.875", Outside 0.25", Top/Bottom 0.25"
+     * No bleed (content doesn't go to edge)
+     */
     @page {
       size: 8.5in 11in;
-      margin: 0.5in 0.25in 0.5in 0.5in;
-      @bottom-center {
-        content: counter(page);
-        font-family: Georgia, serif;
-        font-size: 10pt;
-        color: #8b4513;
-      }
+      margin: 0.5in 0.5in 0.5in 0.875in; /* top right bottom left(gutter) */
     }
 
-    @page:first {
-      @bottom-center {
-        content: none;
-      }
+    @page:right {
+      margin: 0.5in 0.5in 0.5in 0.875in; /* odd pages - gutter on left */
+    }
+
+    @page:left {
+      margin: 0.5in 0.875in 0.5in 0.5in; /* even pages - gutter on right */
     }
 
     * {
@@ -137,20 +137,30 @@ function generateHTML() {
       font-size: 10pt;
       line-height: 1.3;
       color: #333;
-      max-width: 7.75in;
-      margin: 0 auto;
+      margin: 0;
       padding: 0;
+    }
+
+    /* Page numbers - positioned manually */
+    .page-number {
+      position: fixed;
+      bottom: 0.25in;
+      width: 100%;
+      text-align: center;
+      font-size: 10pt;
+      color: #8b4513;
     }
 
     /* Title Page */
     .title-page {
       page-break-after: always;
       text-align: center;
-      padding-top: 2.5in;
+      padding-top: 3in;
+      height: 10in;
     }
 
     .title-page h1 {
-      font-size: 42pt;
+      font-size: 36pt;
       color: #8b4513;
       margin-bottom: 0.3in;
       font-weight: normal;
@@ -158,14 +168,14 @@ function generateHTML() {
     }
 
     .title-page .subtitle {
-      font-size: 18pt;
+      font-size: 16pt;
       color: #a0522d;
       font-style: italic;
       margin-bottom: 1.5in;
     }
 
     .title-page .author {
-      font-size: 14pt;
+      font-size: 12pt;
       color: #666;
     }
 
@@ -241,21 +251,20 @@ function generateHTML() {
     .recipe {
       page-break-before: always;
       page-break-inside: avoid;
-      min-height: 9.5in;
     }
 
     .recipe:first-of-type {
       page-break-before: avoid;
     }
 
-    /* Recipe Layout - 2 column */
+    /* Recipe Layout - 2 column (7.125" content width) */
     .recipe-content {
       display: flex;
-      gap: 0.3in;
+      gap: 0.25in;
     }
 
     .recipe-left {
-      flex: 0 0 3in;
+      flex: 0 0 2.5in;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -321,14 +330,14 @@ function generateHTML() {
     }
 
     .recipe-images img {
-      max-width: 2.9in;
-      max-height: 3.5in;
+      max-width: 2.4in;
+      max-height: 3.2in;
       border: 1px solid #d4a574;
       border-radius: 4px;
     }
 
     .recipe-images.two-images img {
-      max-height: 3in;
+      max-height: 2.8in;
     }
 
     .recipe-images-caption {
@@ -341,8 +350,8 @@ function generateHTML() {
 
     /* No-image placeholder */
     .no-image {
-      width: 2.8in;
-      height: 3.2in;
+      width: 2.3in;
+      height: 3in;
       border: 2px dashed #d4a574;
       display: flex;
       align-items: center;
