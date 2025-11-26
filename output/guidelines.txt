@@ -1,0 +1,131 @@
+Book Formatting Format Your Paperback Save Your Manuscript File
+Save Your Manuscript File
+Before you upload your manuscript file, make sure you save it in the right format with the correct settings. This page details our file guidelines, specifications, and common errors to check before uploading your book for publication.
+
+If you’ve already uploaded your manuscript file and received an error, check out Fix Paperback Formatting Errors.
+
+Contents
+File guidelines
+File specifications
+Title creation limit
+Create a PDF File
+Manual review checklist
+
+File guidelines
+
+Bleed: If your book has images or elements that bleed to the edges of your pages, you must upload your manuscript as a PDF.
+No Bleed: If your book does not contain bleed, you can upload your manuscript as a PDF, DOC, DOCX, RTF, HTML, or TXT file. KDP will automatically convert these file types to PDF prior to publishing/printing.
+Note: For Japanese, Hebrew, Latin or Yiddish, you can only upload PDF.
+
+File specifications
+
+Element	Check for...
+File size	The maximum file size for conversion is 650MB. Any manuscript files larger than the 650MB limit will fail to convert when uploaded.
+Marks and comments	Submitted files should not contain crop marks, trim marks, bookmarks, comments, invisible objects, annotations, placeholder text, or metadata. Printer’s marks should be disabled.
+File security	Do not lock or encrypt the files.
+Fonts	Embed all fonts in your native file prior to submission. We recommend that fonts be fully embedded, rather than embedding as subsets.
+Images and Objects	Embed all images in your native file prior to submission.
+All images (both cover and manuscript) should be at least 300 DPI.
+Flatten transparent objects and layers in the native file before publishing.
+Page count	We’ll calculate your page count based on your manuscript file, rounding up to an even number if necessary. The minimum page and maximum page count depends on the book format, ink, paper, and trim size options you’ve chosen.
+
+For more information on page count, visit Set Trim Size, Bleed, and Margins.
+Page spreads	We require single page files (as opposed to spreads or 2-up files).
+Grayscale fill	If you‘ve selected black ink and white or cream paper for a book containing gray backgrounds, we recommend a minimum grayscale fill of 10%.
+Line width	If your book contains lines (i.e., a chart, table or graphic element), give the lines a minimum thickness/weight of 0.75 point or 0.01" (0.3 mm).
+Reading direction	For most languages, KDP only supports books formatted to read from left to right (LTR). Currently, we only support right-to-left (RTL) paperback printing in Hebrew, Yiddish and Japanese. Note that for these languages the standard color option is not available. To learn more, see our supported languages.
+Orientation	All pages and content must be oriented the same way. Pages can contain some upside down text as long as the rest of the page contents are right side up (e.g., a book of riddles with answers printed upside down on the page).
+Bleed	Specified page size matches the intended trim size plus bleed (if applicable). You may lose the bleed you included in your native document if not printed to the proper size.
+
+For more information, visit Set Trim Size, Bleed, and Margins.
+
+^ Back to top
+
+Title Creation limit
+To ensure a positive experience for all authors, we limit the number of titles you can create at the same time to 10 per book format each week. If you expect to regularly create a large number of titles, please contact us to inquire about an exception.
+
+^ Back to top
+Create a PDF file
+For the best results, we recommend that you convert your manuscript file to a PDF before uploading it to KDP. Choose of one the methods below to create a PDF file intended for high-quality printing. Be sure to save your documents before creating your PDF so you can edit them later if you want.
+
+Note: When creating a PDF for upload, create a new file. Saving over previous versions can compound upon corrupted data, which can create delays in uploading, processing, and production.
+
+For instructions on converting a Microsoft Word document to PDF, visit Convert a Paperback Word File to PDF.
+
+Settings
+You can choose to print, export, or save as PDF depending on your editing software. Whichever method you choose, make sure you enable the following PDF-specific settings in addition to the file specifications above:
+
+PDF/X format is used. PDF/X-1a is preferred, but if you are submitting non-PDF/X files (for example, PDF/A), any comments, forms, or other non-printing objects could be removed during our review.
+Downsampling, or decreasing resolution, of images is disabled.
+Remove PDF creation logos or watermarks.
+Optimize PDFs. Optimization is useful to reduce your file size, allowing for higher performance when transferring, uploading, viewing, and printing the files.
+
+Any other settings should be left to default in most cases. If you’re not certain how to change these settings, we suggest you consult the Help content for your chosen software. Once created, make sure to open the PDF file to see that it appears as you intended. Otherwise, make the necessary adjustments in the native document and re-create the PDF file.
+
+Print to PDF:
+With the native document open in the application you used to write your book, select "File > Print."
+Select "PDF" from the list of printers you can to print to. If you do not find "PDF" in the list, there may be a "Print to PDF" or "PDF" button in the dialog box. Select this option if it is available. Otherwise, try Option 2 below.
+Click "Properties", "Settings", or "Options" (naming depends on your system) to check the PDF settings that will be used to create your PDF file.
+Provide a name and location for the PDF file you are printing to (may default to the current name and location of the native document). Click "OK" in the print dialog box.
+
+Export to PDF:
+With the native document open in the application you used to write your book, select "File>Export." You may need to select "PDF" if other file formats are available for export in the application.
+Provide a name and location for the PDF file you are exporting (may default to the current name and location of the native document). Click "Save" or "OK" in the print dialog box.
+Check the PDF settings that will be used to create your PDF file.
+Click "Export" or "OK" in the export dialog box.
+
+Save as PDF:
+With the native document open in the application you used to write your book, select "Save As" from the application's main menu or "File" menu.
+Choose "PDF" from the list of available file formats.
+Click "Settings" or "Options" (naming depends on your system) to check the PDF settings that will be used to create your PDF file. If your system allows, make sure the following settings are chosen. Any other settings should be left to default in most cases.
+Provide a name and location for the PDF file you are saving to (may default to the current name and location of the native document). Click "OK" in the print dialog box.
+
+Once created, make sure to open the PDF file to see that it appears as you intended. Otherwise, make the necessary adjustments in the native document and re-create the PDF file.
+
+Once you’ve saved your file, you’re ready to upload and preview your file in KDP.
+
+^ Back to top
+
+
+Manual Review Checklist
+After you submit your book for publication, we manually check your manuscript and cover files. To help you pass the manual review, we've created the checklist below. It includes the most common reasons files don't pass the review.
+
+If you find issues, please update your original files and upload the revised versions to KDP. Updating your original file, instead of a new saved version of your original file, helps to prevent file corruption.
+
+Manual check	Make sure...
+All book details exactly match the information in your files	The information in your manuscript and cover files exactly matches the book details (e.g., title, author name, edition, language, ISBN, etc.) you enter during title setup. Check all parts of your book, including:
+
+Title page
+Copyright page
+Headers and footers
+Front and back cover
+Spine
+Bleed	
+Content in your manuscript file that you want to reach all the way to the edge of the page must extend 0.125" (3.2 mm) past your trim line on the top, bottom, and outside edges. This will prevent a white border from appearing at the edge of the page when the book is trimmed.
+The cover is sized for bleed and any background (e.g. color or images) extends 0.125" (3.2 mm) past the trim line. This will prevent a white border when the book is trimmed.
+Pagination/blank pages	
+The page numbers in your manuscript file are in sequential order with even numbers on left pages and odd numbers on the right. For Japanese manuscripts with right to left orientation, odd numbers are on left pages and even numbers on the right.
+There are no more than 4 consecutive blank pages at the beginning or middle of your manuscript file and/or 10 consecutive blank pages at the end.
+If you continue page numbering from a previous book in a subsequent volume of a series, the series name and volume number are clearly labeled.
+Any scanned content with sequential original page numbering is clearly visible in the footer of the manuscript file.
+Illegible text	Your text is large and clear enough so that readers can enjoy your book. To help ensure your text is legible, check the following:
+
+Text is at least 7-point font
+Other elements don’t cut off or overlap text
+Text doesn’t blend into the background
+Be sure to check the text in all parts of your book, including the manuscript, images that contain text, and cover.
+Spine text	
+The spine text has at least 0.0625" on each side. If the text is too large, it can wrap onto the front or back cover.
+Your book has enough pages to provide a spine wide enough for text. Books need at least 79 pages to have spine text.
+Template text	All template text is customized or removed. Check all parts of your book, including:
+
+Title page
+Copyright page
+Headers and footers
+Front and back cover
+Spine
+Margins	
+Your manuscript content doesn't extend past the margins. This can cause the content from being cut off during manufacturing.
+The text on your cover doesn't extend past the cover edge. This can cause the text to be cut off during manufacturing.
+Bundling	There's no language in your files and metadata that implies your book is part of a bundled set.
+Binding	There’s no wording that mentions your book has different binding terms such as “spiral,” “hard bound,” “Leather bound,” and “Calendar.”
