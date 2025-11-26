@@ -16,7 +16,7 @@ function findRecipes(dir) {
   const items = fs.readdirSync(dir, { withFileTypes: true });
   for (const item of items) {
     const fullPath = path.join(dir, item.name);
-    if (item.isDirectory() && !item.name.startsWith('.') && item.name !== 'node_modules' && item.name !== 'home') {
+    if (item.isDirectory() && !item.name.startsWith('.') && item.name !== 'node_modules' && item.name !== 'home' && item.name !== 'scripts' && item.name !== 'output' && item.name !== 'docs') {
       findRecipes(fullPath);
     } else if (item.name.endsWith('.json') && item.name !== 'cookbook_manuscript.json' && item.name !== 'complete_cookbook.json' && item.name !== 'package.json' && item.name !== 'package-lock.json' && item.name !== 'image-list.json') {
       try {
@@ -57,7 +57,7 @@ function getCategoryFromPath(filePath) {
   return 'Miscellaneous';
 }
 
-findRecipes(__dirname);
+findRecipes(path.join(__dirname, '..'));
 
 // Category order
 const categoryOrder = [
@@ -260,7 +260,9 @@ Visit us online: [carsonmulligan.github.io/moms-recipes](https://carsonmulligan.
 `;
 
 // Write markdown file
-const mdPath = path.join(__dirname, 'kindle-cookbook.md');
+const outputDir = path.join(__dirname, '..', 'output');
+if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+const mdPath = path.join(outputDir, 'kindle-cookbook.md');
 fs.writeFileSync(mdPath, markdown, 'utf8');
 
 console.log(`

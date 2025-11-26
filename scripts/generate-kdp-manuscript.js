@@ -69,7 +69,7 @@ function getCategoryFromPath(filePath) {
   return 'Miscellaneous';
 }
 
-findRecipes(__dirname);
+findRecipes(path.join(__dirname, '..'));
 console.log(`Found images for ${Object.keys(recipeImageMap).length} recipes`);
 
 // Build manuscript structure from found recipes
