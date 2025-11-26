@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Large generated files (regenerate with scripts/)
+output/kdp-manuscript.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
