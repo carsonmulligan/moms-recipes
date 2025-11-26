@@ -142,13 +142,13 @@ function generateHTML() {
   <title>Dr. Lesa Mulligan's Cookbook</title>
   <style>
     /*
-     * KDP 8.5" x 11" Paperback Specifications
-     * For 151-400 pages: Inside margin 0.875", Outside 0.5", Top/Bottom 0.5"
-     * No bleed (content doesn't go to edge)
+     * KDP 8.5" x 11" Paperback - NO BLEED
+     * For 151-300 pages: Inside margin 0.5" min, Outside 0.25" min
+     * Using generous margins for safety: 0.75" inside, 0.5" outside, 0.5" top/bottom
      */
     @page {
       size: 8.5in 11in;
-      margin: 0.75in 0.5in 0.75in 0.875in; /* top right bottom left(gutter) */
+      margin: 0.5in 0.5in 0.5in 0.75in; /* top right bottom left(gutter) */
       @bottom-center {
         content: counter(page);
         font-family: Georgia, serif;
@@ -309,7 +309,7 @@ function generateHTML() {
     .recipe {
       page-break-before: always;
       page-break-inside: avoid;
-      min-height: 9in;
+      min-height: 9.5in;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -319,15 +319,15 @@ function generateHTML() {
       page-break-before: avoid;
     }
 
-    /* Recipe Layout - 2 column (7.125" content width) */
+    /* Recipe Layout - 2 column (content width = 8.5 - 0.75 - 0.5 = 7.25in) */
     .recipe-content {
       display: flex;
-      gap: 0.25in;
+      gap: 0.3in;
       width: 100%;
     }
 
     .recipe-left {
-      flex: 0 0 2.5in;
+      flex: 0 0 2.6in;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -393,14 +393,14 @@ function generateHTML() {
     }
 
     .recipe-images img {
-      max-width: 2.4in;
-      max-height: 3.2in;
+      max-width: 2.5in;
+      max-height: 3.5in;
       border: 1px solid #d4a574;
       border-radius: 4px;
     }
 
     .recipe-images.two-images img {
-      max-height: 2.8in;
+      max-height: 3in;
     }
 
     .recipe-images-caption {
