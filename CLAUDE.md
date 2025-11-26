@@ -4,104 +4,124 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-**Dr. Lesa Mulligan's Cookbook** - A digital archive of 150 family recipes, transcribed from handwritten recipe cards and photographs into a searchable web application.
+**Dr. Lesa Mulligan's Cookbook** - A digital archive of 140 family recipes, transcribed from handwritten recipe cards into a searchable web application and publishable cookbook formats.
 
 ## Live Site
 
-Visit: https://carsonmulligan.github.io/moms-recipes/
+https://carsonmulligan.github.io/moms-recipes/
 
-## Structure
+## Project Structure
 
 ```
-├── index.html           # Main recipe viewer with search & category filters
-├── appetizers/          # 24 appetizer recipes
-├── breads/              # 4 bread recipes
-├── breakfast/           # 11 breakfast recipes
-├── cakes/               # 7 cake recipes
-├── desserts/            # 30 dessert recipes (including cookies & candy)
-├── drinks/              # 7 beverage recipes
-├── entrees/             # 10 main dish recipes
-│   ├── pasta/           # Pasta recipes
-│   ├── sauces/          # Sauce recipes
-│   └── seafood/         # Seafood recipes
-├── salads/              # 10 salad recipes
-├── soups/               # 11 soup recipes
-├── vegetables/          # 10 vegetable & side dish recipes
-├── thanksgiving/        # 18 thanksgiving-specific recipes
-│   ├── desserts/
-│   └── savory-tings/
-├── misc/                # Additional recipes
-└── home/                # Homepage assets
+moms-recipes/
+├── index.html              # Main recipe viewer (search & category filters)
+├── CLAUDE.md               # This file - LLM instructions
+├── README.md               # Project documentation
+│
+├── scripts/                # Build & generation scripts
+│   ├── generate-kdp-manuscript.js   # KDP print PDF generator
+│   ├── generate-kindle-epub.js      # Kindle ebook generator
+│   ├── generate-gallery.js          # Image gallery generator
+│   └── *.py                         # Legacy Python scripts
+│
+├── output/                 # Generated files (gitignored for large files)
+│   ├── kdp-manuscript.pdf           # Print-ready PDF (8.25x11)
+│   ├── kdp-manuscript.html          # HTML source for PDF
+│   ├── kindle-cookbook.epub         # Kindle ebook
+│   └── image-gallery.html           # Recipe card gallery
+│
+├── docs/                   # Documentation & marketing
+│   ├── book-description.txt         # KDP book description
+│   ├── cover-image-prompt.txt       # AI cover image prompt
+│   └── *.md                         # Strategy & analysis docs
+│
+├── home/                   # Homepage assets
+│
+└── [category]/             # Recipe folders (each contains .json + .jpg files)
+    ├── appetizers/         # 18 recipes
+    ├── breakfast/          # 12 recipes
+    ├── entrees/            # 10 recipes
+    ├── soups/              # 11 recipes
+    ├── salads/             # 10 recipes
+    ├── vegetables/         # 9 recipes
+    ├── breads/             # 1 recipe
+    ├── cakes/              # 7 recipes
+    ├── desserts/           # 38 recipes
+    ├── drinks/             # 6 recipes
+    └── thanksgiving/       # 18 recipes (desserts/ & savory-tings/)
 ```
 
-## Photo Convention for Two-Sided Recipe Cards
+## Recipe JSON Schema
 
-When photographing recipe cards that have content on both sides:
-1. **First photo**: Front of the card (usually has title and ingredients)
-2. **Second photo**: Back of the card (usually has instructions)
-3. **Third photo**: Back of the card WITH TWO FINGERS visible in the frame
+Each recipe is a JSON file with this structure:
 
-The **two fingers** indicate this is the BACK side of a two-sided card. This helps Claude identify which images belong together as a single recipe when transcribing.
-
-Example sequence:
-- `IMG_7495.jpg` - Front of "Baked Potato Soup" card
-- `IMG_7496.jpg` - Back of card (instructions)
-- `IMG_7497.jpg` - Back of card with two fingers (confirms this is the back)
-
-## Transcription Status
-
-**COMPLETE** - All 150 recipes have been transcribed!
-
-| Category | Recipes |
-|----------|---------|
-| Appetizers | 24 |
-| Breakfast | 11 |
-| Entrees | 10 |
-| Soups | 11 |
-| Salads | 10 |
-| Vegetables & Sides | 10 |
-| Cakes | 7 |
-| Desserts | 30 |
-| Drinks | 7 |
-| Breads | 4 |
-| Thanksgiving | 18 |
-| **Total** | **150** |
-
-## JSON Recipe Format
-
-Each recipe JSON file follows this structure:
 ```json
 {
   "title": "Recipe Name",
-  "source_images": ["IMG_XXXX.jpg"],
-  "ingredients": ["..."],
-  "instructions": ["..."]
+  "source_images": ["IMG_XXXX.jpg", "IMG_XXXX.jpg"],
+  "ingredients": {
+    "section_name": ["ingredient 1", "ingredient 2"]
+  },
+  "instructions": "Step-by-step instructions as string or array",
+  "yields": "4 servings",
+  "servings": 8,
+  "oven_temp": "350°",
+  "prep_time": "15 minutes",
+  "cooking_time": "30 minutes",
+  "source": "Grandma Smith",
+  "note": "Optional tips"
 }
 ```
 
-Some recipes include additional fields:
-- `source`: Attribution for the recipe
-- `servings`: Number of servings
-- `time_required`: Cooking/prep time
-- `note`: Special instructions or tips
+**Important:** The `ingredients` field can be:
+- An object with named sections: `{"crust": [...], "filling": [...]}`
+- A simple array: `["item1", "item2"]`
 
-## Known Issues
+## Common Tasks
 
-### Image Size Limitation
-When processing many images in a single conversation, Claude's API has a limit on image dimensions (max 2000 pixels per dimension for many-image requests).
+### Regenerate KDP Print Manuscript
+```bash
+cd scripts && node generate-kdp-manuscript.js
+weasyprint ../output/kdp-manuscript.html ../output/kdp-manuscript.pdf
+```
 
-**Workaround:** Start a new conversation to clear the image context, or process images in smaller batches.
+### Regenerate Kindle EPUB
+```bash
+cd scripts && node generate-kindle-epub.js
+pandoc ../output/kindle-cookbook.md -o ../output/kindle-cookbook.epub --toc
+```
 
-## Adding New Recipes
+### Add a New Recipe
+1. Place images in appropriate category folder
+2. Create `recipe-name.json` with schema above
+3. Images should be named `IMG_XXXX.jpg` (iPhone convention)
+4. Run generation scripts to update outputs
 
-1. Take photos of the recipe card (use two-finger convention for two-sided cards)
-2. Convert HEIC to JPG if needed
-3. Place images in appropriate category folder
-4. Create JSON file with recipe transcription
-5. Add entry to `index.html` in the appropriate `<optgroup>`
+### Photo Convention (Two-Sided Cards)
+1. First photo: Front of card (title/ingredients)
+2. Second photo: Back of card (instructions)
+3. Third photo: Back with TWO FINGERS visible (confirms back side)
+
+## Current Stats
+
+| Category | Count |
+|----------|-------|
+| Appetizers | 18 |
+| Breakfast | 12 |
+| Entrees | 10 |
+| Soups | 11 |
+| Salads | 10 |
+| Vegetables | 9 |
+| Breads | 1 |
+| Cakes | 7 |
+| Desserts | 38 |
+| Drinks | 6 |
+| Thanksgiving | 18 |
+| **Total** | **140** |
 
 ## Notes
 
-- All images are in JPG format (converted from iPhone HEIC)
-- Images use original iPhone photo IDs (IMG_XXXX.jpg)
+- All images are JPG (converted from iPhone HEIC)
 - Website hosted via GitHub Pages
+- KDP manuscript is 8.25" x 11" format
+- Medical disclaimer included in all outputs
