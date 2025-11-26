@@ -145,12 +145,25 @@ function generateHTML() {
     /*
      * KDP 8.25" x 11" Hardcover - NO BLEED
      * For 151-300 pages: Inside margin 0.5" min, Outside 0.25" min
-     * Using generous margins: 0.75" inside, 0.5" outside, 0.75" top/bottom
+     * Using generous margins: 0.75" inside (gutter), 0.5" outside, 0.75" top/bottom
      * Page numbers are placed INSIDE content area, not in margin
+     *
+     * IMPORTANT: Gutter alternates sides for book binding:
+     * - Right-hand pages (odd/recto): gutter on LEFT
+     * - Left-hand pages (even/verso): gutter on RIGHT
      */
     @page {
       size: 8.25in 11in;
+    }
+
+    /* Right-hand pages (odd) - gutter on left */
+    @page :right {
       margin: 0.75in 0.5in 0.75in 0.75in; /* top right bottom left(gutter) */
+    }
+
+    /* Left-hand pages (even) - gutter on right */
+    @page :left {
+      margin: 0.75in 0.75in 0.75in 0.5in; /* top right(gutter) bottom left */
     }
 
     * {
