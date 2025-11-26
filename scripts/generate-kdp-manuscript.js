@@ -17,7 +17,7 @@ function findRecipes(dir) {
   const items = fs.readdirSync(dir, { withFileTypes: true });
   for (const item of items) {
     const fullPath = path.join(dir, item.name);
-    if (item.isDirectory() && !item.name.startsWith('.') && item.name !== 'node_modules' && item.name !== 'home') {
+    if (item.isDirectory() && !item.name.startsWith('.') && item.name !== 'node_modules' && item.name !== 'home' && item.name !== 'scripts' && item.name !== 'output' && item.name !== 'docs') {
       findRecipes(fullPath);
     } else if (item.name.endsWith('.json') && item.name !== 'cookbook_manuscript.json' && item.name !== 'complete_cookbook.json' && item.name !== 'package.json' && item.name !== 'package-lock.json' && item.name !== 'image-list.json') {
       try {
@@ -874,7 +874,9 @@ function generateIndexHTML(recipes) {
 
 // Generate and save
 const htmlContent = generateHTML();
-const outputPath = path.join(__dirname, 'kdp-manuscript.html');
+const outputDir = path.join(__dirname, '..', 'output');
+if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+const outputPath = path.join(outputDir, 'kdp-manuscript.html');
 fs.writeFileSync(outputPath, htmlContent, 'utf8');
 
 console.log(`
