@@ -9,30 +9,32 @@
 const fs = require('fs');
 const path = require('path');
 
-// Read the manuscript JSON
-const manuscriptPath = path.join(__dirname, 'cookbook_manuscript.json');
-const manuscript = JSON.parse(fs.readFileSync(manuscriptPath, 'utf8'));
-
-// Build a map of recipe titles to their source images by reading original JSON files
+// Build a map of recipe titles to their source images AND full recipe data by reading original JSON files
 const recipeImageMap = {};
+const allRecipes = [];
 
-function findRecipeImages(dir) {
+function findRecipes(dir) {
   const items = fs.readdirSync(dir, { withFileTypes: true });
   for (const item of items) {
     const fullPath = path.join(dir, item.name);
-    if (item.isDirectory() && !item.name.startsWith('.') && item.name !== 'node_modules') {
-      findRecipeImages(fullPath);
-    } else if (item.name.endsWith('.json') && item.name !== 'cookbook_manuscript.json' && item.name !== 'complete_cookbook.json' && item.name !== 'package.json' && item.name !== 'package-lock.json') {
+    if (item.isDirectory() && !item.name.startsWith('.') && item.name !== 'node_modules' && item.name !== 'home') {
+      findRecipes(fullPath);
+    } else if (item.name.endsWith('.json') && item.name !== 'cookbook_manuscript.json' && item.name !== 'complete_cookbook.json' && item.name !== 'package.json' && item.name !== 'package-lock.json' && item.name !== 'image-list.json') {
       try {
         const recipe = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
         if (recipe.title) {
+          // Store full recipe data
+          recipe._path = fullPath;
+          recipe._dir = path.dirname(fullPath);
+          recipe._category = getCategoryFromPath(fullPath);
+          allRecipes.push(recipe);
+
+          // Also store image mapping
           const images = recipe.source_images || (recipe.source_image ? [recipe.source_image] : []);
           if (images.length > 0) {
-            // Store relative path from recipe JSON to images
-            const recipeDir = path.dirname(fullPath);
             recipeImageMap[recipe.title] = {
               images: images,
-              dir: recipeDir
+              dir: path.dirname(fullPath)
             };
           }
         }
@@ -43,8 +45,47 @@ function findRecipeImages(dir) {
   }
 }
 
-findRecipeImages(__dirname);
+function getCategoryFromPath(filePath) {
+  const parts = filePath.split(path.sep);
+  const idx = parts.indexOf('moms-recipes');
+  if (idx >= 0 && parts.length > idx + 1) {
+    const folder = parts[idx + 1];
+    const categoryMap = {
+      'appetizers': 'Appetizers',
+      'breakfast': 'Breakfast',
+      'entrees': 'Entrees',
+      'soups': 'Soups',
+      'salads': 'Salads',
+      'vegetables': 'Vegetables & Sides',
+      'breads': 'Breads',
+      'cakes': 'Cakes',
+      'desserts': 'Desserts',
+      'drinks': 'Drinks',
+      'thanksgiving': 'Thanksgiving',
+      'misc': 'Miscellaneous'
+    };
+    return categoryMap[folder] || 'Miscellaneous';
+  }
+  return 'Miscellaneous';
+}
+
+findRecipes(__dirname);
 console.log(`Found images for ${Object.keys(recipeImageMap).length} recipes`);
+
+// Build manuscript structure from found recipes
+const manuscript = { categories: {} };
+for (const recipe of allRecipes) {
+  const cat = recipe._category;
+  if (!manuscript.categories[cat]) {
+    manuscript.categories[cat] = { recipes: [] };
+  }
+  manuscript.categories[cat].recipes.push(recipe);
+}
+
+// Sort recipes within each category alphabetically
+for (const cat of Object.keys(manuscript.categories)) {
+  manuscript.categories[cat].recipes.sort((a, b) => a.title.localeCompare(b.title));
+}
 
 // Category order for the cookbook
 const categoryOrder = [
