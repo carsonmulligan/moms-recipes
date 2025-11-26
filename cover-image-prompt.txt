@@ -1,0 +1,5 @@
+  Cookbook cover with a red background featuring a silver whisk with a wooden handle on the left side. White text layout:
+    - Top: "FAMILY KITCHEN"  instead of stockton kitchen
+    - Main title on right side in large lowercase white serif font stacked vertically: "doctor's orders cook book"
+    - Subtitle below in small caps: "A FAMILY COOKBOOK OF TREASURED RECIPES"
+    - Bottom: "by Dr. Lesa Mulligan"

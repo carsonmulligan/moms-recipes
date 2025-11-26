@@ -780,16 +780,12 @@ function generateRecipeHTML(recipe, isHalf = false) {
     }
   }
 
-  // Suggestions (for Tastefully Simple products)
-  if (recipe.suggestions && recipe.suggestions.length > 0) {
-    html += `    <div class="suggestions">\n`;
-    html += `      <h4>Serving Suggestions</h4>\n`;
-    html += `      <ul>\n`;
-    for (const suggestion of recipe.suggestions) {
-      html += `        <li>${suggestion}</li>\n`;
+  // Variations (for recipes like Egg Nog Variations)
+  if (recipe.variations && recipe.variations.length > 0) {
+    html += `    <h4>Variations</h4>\n`;
+    for (const variation of recipe.variations) {
+      html += `    <p><strong>${variation.name}:</strong> ${variation.recipe}</p>\n`;
     }
-    html += `      </ul>\n`;
-    html += `    </div>\n`;
   }
 
   // Notes
