@@ -89,6 +89,8 @@
       display: flex;
       flex-direction: column;
       min-height: 120px;
+      text-decoration: none;
+      color: inherit;
     }
     .recipe-card:hover {
       transform: translateY(-4px);
@@ -280,7 +282,7 @@
   </div>
 
   <script>
-    // Recipe data - each entry has path, title, and category
+    // Recipe data - each entry has path, title, category, and slug for URL
     const recipes = [
       // Appetizers
       { path: "appetizers/bruschetta", title: "Bruschetta", category: "appetizers" },
@@ -470,9 +472,38 @@
       thanksgiving: 'Thanksgiving'
     };
 
+    // Create a map from path to recipe for quick lookup
+    const recipeByPath = {};
+    recipes.forEach(r => recipeByPath[r.path] = r);
+
+    // Generate URL slug from recipe path (simplify nested paths)
+    function getUrlSlug(path) {
+      // For nested paths like "entrees/sauces/nonnas-sauce", use "entrees/nonnas-sauce"
+      const parts = path.split('/');
+      if (parts.length > 2) {
+        return parts[0] + '/' + parts[parts.length - 1];
+      }
+      return path;
+    }
+
+    // Get file path from URL slug
+    function getPathFromSlug(slug) {
+      // First try exact match
+      if (recipeByPath[slug]) return slug;
+
+      // Try to find recipe where slug matches simplified path
+      for (const r of recipes) {
+        if (getUrlSlug(r.path) === slug) return r.path;
+      }
+      return null;
+    }
+
     // Initial render
     renderCards(recipes);
     recipeCount.textContent = `${recipes.length} recipes available`;
+
+    // Check URL hash on load
+    handleHashChange();
 
     // Category filtering
     categoryBtns.forEach(btn => {
@@ -485,6 +516,21 @@
 
     // Search filtering
     searchInput.addEventListener('input', filterAndRender);
+
+    // Handle browser back/forward
+    window.addEventListener('hashchange', handleHashChange);
+
+    function handleHashChange() {
+      const hash = window.location.hash.slice(1); // Remove #
+      if (hash) {
+        const path = getPathFromSlug(hash);
+        if (path) {
+          loadRecipe(path, false); // false = don't update URL again
+        }
+      } else {
+        closeModal(false); // false = don't update URL
+      }
+    }
 
     function filterAndRender() {
       const category = document.querySelector('.category-btn.active').dataset.category;
@@ -502,22 +548,26 @@
 
     function renderCards(recipesToRender) {
       recipeGrid.innerHTML = recipesToRender.map(r => `
-        <div class="recipe-card" data-path="${r.path}">
+        <a class="recipe-card" href="#${getUrlSlug(r.path)}" data-path="${r.path}">
           <span class="category-tag">${categoryLabels[r.category] || r.category}</span>
           <h3>${r.title}</h3>
-        </div>
+        </a>
       `).join('');
-
-      // Add click handlers
-      recipeGrid.querySelectorAll('.recipe-card').forEach(card => {
-        card.addEventListener('click', () => loadRecipe(card.dataset.path));
-      });
     }
 
-    async function loadRecipe(path) {
+    async function loadRecipe(path, updateUrl = true) {
       try {
         const response = await fetch(path + '.json');
         const recipe = await response.json();
+
+        // Update URL if needed
+        if (updateUrl) {
+          window.location.hash = getUrlSlug(path);
+        }
+
+        // Update page title
+        document.title = `${recipe.title} - Dr. Lesa Mulligan's Cookbook`;
+
         displayRecipeModal(recipe, path);
       } catch (error) {
         modalTitle.textContent = 'Error';
@@ -645,17 +695,23 @@
     }
 
     // Close modal
-    modalClose.addEventListener('click', closeModal);
+    modalClose.addEventListener('click', () => closeModal(true));
     modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
+      if (e.target === modalOverlay) closeModal(true);
     });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') closeModal(true);
     });
 
-    function closeModal() {
+    function closeModal(updateUrl = true) {
       modalOverlay.classList.remove('active');
       document.body.style.overflow = '';
+
+      if (updateUrl && window.location.hash) {
+        // Clear hash and restore title
+        history.pushState('', document.title, window.location.pathname);
+        document.title = "Dr. Lesa Mulligan's Cookbook";
+      }
     }
 
     function formatKey(key) {
