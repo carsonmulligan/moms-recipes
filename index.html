@@ -223,6 +223,15 @@
       text-decoration: underline;
     }
 
+    /* Prevent flash of blank content */
+    .recipe-grid:empty::before {
+      content: "Loading recipes...";
+      display: block;
+      text-align: center;
+      color: #888;
+      padding: 40px;
+    }
+
     /* Responsive */
     @media (max-width: 600px) {
       .recipe-grid {
@@ -456,16 +465,28 @@
       { path: "thanksgiving/savory-tings/thanksgiving-turkey-dressing", title: "Thanksgiving Turkey Dressing", category: "thanksgiving" }
     ];
 
-    const recipeGrid = document.getElementById('recipe-grid');
-    const searchInput = document.getElementById('search');
-    const categoryBtns = document.querySelectorAll('.category-btn');
-    const recipeCount = document.getElementById('recipe-count');
-    const modalOverlay = document.getElementById('modal-overlay');
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
-    const modalClose = document.getElementById('modal-close');
+    // Wait for DOM to be fully ready
+    document.addEventListener('DOMContentLoaded', init);
+    // Also run immediately if DOM already loaded (handles cached pages)
+    if (document.readyState !== 'loading') {
+      init();
+    }
 
-    const categoryLabels = {
+    let initialized = false;
+    function init() {
+      if (initialized) return;
+      initialized = true;
+
+      const recipeGrid = document.getElementById('recipe-grid');
+      const searchInput = document.getElementById('search');
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      const recipeCount = document.getElementById('recipe-count');
+      const modalOverlay = document.getElementById('modal-overlay');
+      const modalTitle = document.getElementById('modal-title');
+      const modalBody = document.getElementById('modal-body');
+      const modalClose = document.getElementById('modal-close');
+
+      const categoryLabels = {
       appetizers: 'Appetizer',
       breakfast: 'Breakfast',
       entrees: 'Entree',
@@ -745,6 +766,8 @@
       if (path.includes('thanksgiving')) return 'Thanksgiving';
       return 'Recipe';
     }
+
+    } // end init()
   </script>
 </body>
 </html>
