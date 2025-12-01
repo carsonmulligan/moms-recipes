@@ -8,7 +8,7 @@
     * { box-sizing: border-box; }
     body {
       font-family: Georgia, serif;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
       background: #faf8f5;
@@ -30,6 +30,9 @@
     }
     .search-container {
       margin-bottom: 20px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
     #search {
       width: 100%;
@@ -62,45 +65,110 @@
       background: #8b4513;
       color: white;
     }
-    select {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      font-family: inherit;
-      border: 2px solid #d4a574;
-      border-radius: 8px;
-      background: white;
+    .recipe-count {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
       margin-bottom: 20px;
     }
-    .recipe {
+
+    /* Recipe Grid */
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .recipe-card {
       background: white;
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      min-height: 120px;
+      text-decoration: none;
+      color: inherit;
     }
-    .recipe h2 {
+    .recipe-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .recipe-card .category-tag {
+      display: inline-block;
+      background: #d4a574;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      align-self: flex-start;
+    }
+    .recipe-card h3 {
       color: #8b4513;
-      margin-top: 0;
+      margin: 0;
+      font-size: 1.1em;
+      line-height: 1.3;
     }
-    .recipe img {
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 500px;
-      border-radius: 8px;
-      margin: 15px 0;
-      display: block;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      overflow-y: auto;
     }
-    .recipe h3 {
-      color: #a0522d;
-      margin-bottom: 8px;
+    .modal-overlay.active {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
     }
-    .recipe ul, .recipe ol {
-      margin: 0 0 20px 0;
-      padding-left: 20px;
+    .modal {
+      background: white;
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      margin: 40px auto;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
     }
-    .recipe li { margin: 5px 0; }
-    .recipe p { line-height: 1.6; }
-    .meta { color: #888; font-size: 14px; margin-bottom: 15px; }
-    .category {
+    .modal-header {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .modal-header h2 {
+      color: #8b4513;
+      margin: 0;
+      padding-right: 40px;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #888;
+      line-height: 1;
+      padding: 0;
+    }
+    .modal-close:hover {
+      color: #333;
+    }
+    .modal-body {
+      padding: 20px;
+    }
+    .modal .category-tag {
       display: inline-block;
       background: #d4a574;
       color: white;
@@ -108,16 +176,68 @@
       border-radius: 12px;
       font-size: 12px;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
-    #recipe-container { display: none; }
-    #recipe-container.active { display: block; }
-    .instructions { white-space: pre-wrap; }
-    .recipe-count {
-      text-align: center;
+    .modal .meta {
       color: #888;
       font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .modal img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 8px;
+      margin: 15px 0;
+      display: block;
+    }
+    .modal h3 {
+      color: #a0522d;
+      margin-bottom: 8px;
+      margin-top: 20px;
+    }
+    .modal h4 {
+      color: #a0522d;
+      margin-bottom: 8px;
+      margin-top: 15px;
+    }
+    .modal ul, .modal ol {
+      margin: 0 0 20px 0;
+      padding-left: 20px;
+    }
+    .modal li { margin: 5px 0; }
+    .modal p { line-height: 1.6; }
+    .instructions { white-space: pre-wrap; }
+
+    /* Back button for recipe view */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #8b4513;
+      text-decoration: none;
       margin-bottom: 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .recipe-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-nav {
+        gap: 6px;
+      }
+      .category-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+      .modal {
+        margin: 10px;
+      }
     }
   </style>
 </head>
@@ -136,7 +256,7 @@
     <button class="category-btn" data-category="entrees">Entrees</button>
     <button class="category-btn" data-category="soups">Soups</button>
     <button class="category-btn" data-category="salads">Salads</button>
-    <button class="category-btn" data-category="vegetables">Vegetables</button>
+    <button class="category-btn" data-category="vegetables">Sides</button>
     <button class="category-btn" data-category="cakes">Cakes</button>
     <button class="category-btn" data-category="desserts">Desserts</button>
     <button class="category-btn" data-category="drinks">Drinks</button>
@@ -146,276 +266,325 @@
 
   <p class="recipe-count" id="recipe-count"></p>
 
-  <select id="recipe-select">
-    <option value="">-- Select a Recipe --</option>
+  <div class="recipe-grid" id="recipe-grid"></div>
 
-    <optgroup label="Appetizers" data-category="appetizers">
-      <option value="appetizers/bruschetta">Bruschetta</option>
-      <option value="appetizers/bruschetta">Bruschetta (with Mozzarella)</option>
-      <option value="appetizers/cheese-dip-with-beer">Cheese Dip with Beer</option>
-      <option value="appetizers/cheese-dreams">Cheese Dreams</option>
-      <option value="appetizers/cheese-fondue">Cheese Fondue</option>
-      <option value="appetizers/cream-cheese-penguins">Cream Cheese Penguins</option>
-      <option value="appetizers/cranberry-pecan-brie-cups">Cranberry Pecan Brie Cups</option>
-      <option value="appetizers/italian-dipping-oil">Italian Dipping Oil</option>
-      <option value="appetizers/pecan-cheese-ball">Pecan Cheese Ball</option>
-      <option value="appetizers/pepperoni-pizza-dip">Pepperoni Pizza Dip</option>
-      <option value="appetizers/roasted-pumpkin-seed-hummus">Roasted Pumpkin Seed Hummus</option>
-      <option value="appetizers/spice-roasted-honeynut-squash-chickpeas">Spice Roasted Honeynut Squash & Chickpeas</option>
-      <option value="appetizers/spinach-artichoke-dip">Spinach Artichoke Dip</option>
-      <option value="appetizers/spinach-artichoke-pasta">Spinach Artichoke Pasta</option>
-      <option value="appetizers/stuffed-celery">Stuffed Celery</option>
-      <option value="appetizers/stuffed-mushrooms">Stuffed Mushrooms</option>
-      <option value="appetizers/sweet-almond-crackers">Sweet Almond Crackers</option>
-      <option value="appetizers/texas-caviar">Texas Caviar</option>
-    </optgroup>
-
-    <optgroup label="Breakfast" data-category="breakfast">
-      <option value="breakfast/cinnamon-cottage-cheese-pancakes">Cinnamon Cottage Cheese Pancakes</option>
-      <option value="breakfast/cinnamon-crunch-bagels">Cinnamon Crunch Bagels</option>
-      <option value="breakfast/cinnamon-roll-cake">Cinnamon Roll Cake</option>
-      <option value="breakfast/cinnamon-rolls-puff-pastry">Cinnamon Rolls (Puff Pastry)</option>
-      <option value="breakfast/french-toast-bake">French Toast Bake</option>
-      <option value="breakfast/lemon-blueberry-scones">Lemon Blueberry Scones</option>
-      <option value="breakfast/pumpkin-breakfast-casserole">Pumpkin Breakfast Casserole</option>
-      <option value="breakfast/quiche">Quiche</option>
-      <option value="breakfast/waffles">Waffles</option>
-      <option value="breakfast/german-pancakes">German Pancakes</option>
-      <option value="breakfast/lemon-blueberry-dutch-baby">Lemon Blueberry Dutch Baby</option>
-    </optgroup>
-
-    <optgroup label="Entrees" data-category="entrees">
-      <option value="entrees/veggie-quesadillas">Veggie Quesadillas</option>
-      <option value="entrees/pasta/caprese-farfalle">Caprese Farfalle</option>
-      <option value="entrees/pasta/penne-primavera">Penne Primavera</option>
-      <option value="entrees/sauces/giblet-gravy">Giblet Gravy</option>
-      <option value="entrees/sauces/nonnas-sauce">Nonna's Sauce</option>
-      <option value="entrees/seafood/salmon-tacos">Salmon Tacos</option>
-      <option value="entrees/bourbon-bbq-pork-chops">Bourbon BBQ Pork Chops</option>
-      <option value="entrees/caprese-stuffed-chicken">Caprese Stuffed Chicken</option>
-      <option value="breakfast/sausage-quiche">Sausage Quiche</option>
-      <option value="entrees/zucchini-lasagna">Zucchini Lasagna</option>
-    </optgroup>
-
-    <optgroup label="Soups" data-category="soups">
-      <option value="soups/baked-potato-soup">Baked Potato Soup</option>
-      <option value="soups/chicken-noodle-soup">Chicken Noodle Soup</option>
-      <option value="soups/chicken-rice-soup">Chicken & Rice Soup</option>
-      <option value="soups/chicken-tortilla-soup">Chicken Tortilla Soup</option>
-      <option value="soups/chili">Chili</option>
-      <option value="soups/egg-drop-soup">Egg Drop Soup</option>
-      <option value="soups/lentil-ham-soup">Lentil Ham Soup</option>
-      <option value="soups/potato-leek-soup">Potato Leek Soup</option>
-      <option value="soups/roasted-red-pepper-tomato-gouda-bisque">Roasted Red Pepper Tomato & Smoked Gouda Bisque</option>
-      <option value="soups/shrimp-sausage-stew">Shrimp & Sausage Stew</option>
-      <option value="soups/white-bean-soup-greens-turkey">White Bean Soup with Greens & Turkey</option>
-    </optgroup>
-
-    <optgroup label="Salads" data-category="salads">
-      <option value="salads/candy-bar-apple-salad">Candy Bar Apple Salad</option>
-      <option value="salads/charred-corn-chicken-salad">Charred Corn & Chicken Cheese Salad</option>
-      <option value="salads/cucumber-mango-salad">Cucumber Mango Salad</option>
-      <option value="salads/cucumber-salad">Cucumber Salad</option>
-      <option value="salads/egg-salad">Egg Salad</option>
-      <option value="salads/lime-jello-salad">Lime Jello Salad</option>
-      <option value="salads/macaroni-salad">Macaroni Salad</option>
-      <option value="salads/marinated-vegetable-salad">Marinated Vegetable Salad</option>
-      <option value="salads/spaghetti-salad">Spaghetti Salad</option>
-      <option value="salads/cabbage-ramen-salad">Cabbage Ramen Salad</option>
-    </optgroup>
-
-    <optgroup label="Vegetables & Sides" data-category="vegetables">
-      <option value="vegetables/baked-cheese-grits">Baked Cheese Grits</option>
-      <option value="vegetables/black-eyed-peas">Black Eyed Peas</option>
-      <option value="vegetables/garlic-roasted-potato-wedges">Garlic Roasted Potato Wedges</option>
-      <option value="vegetables/green-beans-cheese">Green Beans & Cheese</option>
-      <option value="vegetables/twice-baked-sweet-potatoes-ricotta">Twice Baked Sweet Potatoes with Ricotta</option>
-      <option value="vegetables/zucchini-corn-skillet">Zucchini & Corn Skillet</option>
-      <option value="vegetables/creamy-parmesan-spinach-bake">Creamy Parmesan Spinach Bake</option>
-      <option value="entrees/mac-and-cheese">Mac & Cheese</option>
-      <option value="vegetables/sage-and-onion-stuffing">Sage and Onion Stuffing</option>
-      <option value="vegetables/tomato-relish">Tomato Relish</option>
-    </optgroup>
-
-    <optgroup label="Cakes" data-category="cakes">
-      <option value="cakes/apple-dump-cake">Apple Dump Cake</option>
-      <option value="cakes/chewy-gingerbread-cookies">Chewy Gingerbread Cookies</option>
-      <option value="cakes/hisaes-choc-cake">Hisae's Chocolate Cake</option>
-      <option value="cakes/thunder-cake">Thunder Cake</option>
-      <option value="cakes/upside-down-blueberry-dump-cake">Upside Down Blueberry Dump Cake</option>
-      <option value="cakes/upside-down-pumpkin-cake">Upside Down Pumpkin Cake</option>
-      <option value="cakes/gooey-butter-cake">Gooey Butter Cake</option>
-    </optgroup>
-
-    <optgroup label="Desserts" data-category="desserts">
-      <option value="desserts/apple-pie">Apple Pie</option>
-      <option value="desserts/cinnamon-sugar-pie-crust-cookies">Cinnamon Sugar Pie Crust Cookies</option>
-      <option value="desserts/creamy-coconut-cake">Creamy Coconut Cake</option>
-      <option value="desserts/no-bake-cookies">No Bake Cookies</option>
-      <option value="desserts/raspberry-prosecco-tulip">Raspberry Prosecco Tulip</option>
-      <option value="desserts/banana-cream-pretzel-pie">Banana Cream Pretzel Pie</option>
-      <option value="desserts/banana-pineapple-pudding-pie">Banana Pineapple Pudding Pie</option>
-      <option value="desserts/bourbon-salted-caramel-brownies">Bourbon Salted Caramel Brownies</option>
-      <option value="desserts/bread-pudding">Bread Pudding</option>
-      <option value="desserts/chocolate-almond-macaroons">Chocolate Almond Macaroons</option>
-      <option value="desserts/chocolate-cream-layered-dessert">Chocolate Cream Layered Dessert</option>
-      <option value="desserts/chocolate-mice">Chocolate Mice</option>
-      <option value="desserts/english-toffee">English Toffee</option>
-      <option value="desserts/lemon-pecan-slab-pie">Lemon Pecan Slab Pie</option>
-      <option value="desserts/lime-pretzel-jello">Lime Pretzel Jello</option>
-      <option value="desserts/nutella-bread-pudding">Nutella Bread Pudding</option>
-      <option value="desserts/nutella-tart">Nutella Tart</option>
-      <option value="desserts/paula-deens-banana-pudding">Paula Deen's Banana Pudding</option>
-      <option value="desserts/peach-crumble">Peach Crumble</option>
-      <option value="desserts/pumpkin-pudding">Pumpkin Pudding</option>
-      <option value="desserts/smore-pie">S'more Pie</option>
-    </optgroup>
-
-    <optgroup label="Cookies" data-category="desserts">
-      <option value="desserts/chocolate-cookies">Chocolate Cookies</option>
-      <option value="desserts/chocolate-crackle-cookie">Chocolate Crackle Cookie</option>
-      <option value="desserts/cut-out-sugar-cookies">Cut Out Sugar Cookies</option>
-      <option value="desserts/frosted-butter-cutout-cookies">Frosted Butter Cutout Cookies</option>
-      <option value="desserts/glazed-lemon-cookies">Glazed Lemon Cookies</option>
-      <option value="desserts/hedgehog-cookies">Hedgehog Cookies</option>
-      <option value="desserts/meringue-cookies">Meringue Cookies</option>
-      <option value="desserts/no-bake-chocolate-oatmeal-cookies">No Bake Chocolate Oatmeal Cookies</option>
-      <option value="desserts/snickerdoodles">Snickerdoodles</option>
-    </optgroup>
-
-    <optgroup label="Candy & Treats" data-category="desserts">
-      <option value="desserts/baklava-palmiers">Baklava Palmiers</option>
-      <option value="desserts/knox-blox">Knox Blox</option>
-      <option value="desserts/mini-strawberry-santas">Mini Strawberry Santas</option>
-      <option value="desserts/night-before-christmas-mice">Night Before Christmas Mice</option>
-      <option value="desserts/palmiers">Palmiers (Sugar)</option>
-      <option value="appetizers/pesto-palmiers">Pesto Palmiers</option>
-      <option value="desserts/witches-hat">Witch's Hat Cookies</option>
-    </optgroup>
-
-    <optgroup label="Drinks" data-category="drinks">
-      <option value="drinks/egg-nog-variations">Egg Nog Variations</option>
-      <option value="drinks/egg-nogg">Egg Nog</option>
-      <option value="drinks/pumpkin-spiced-latte">Pumpkin Spiced Latte</option>
-      <option value="drinks/raspberry-prosecco-cocktail">Raspberry Prosecco Cocktail</option>
-      <option value="drinks/sangria">Sangria</option>
-      <option value="drinks/white-hot-chocolate">White Hot Chocolate</option>
-    </optgroup>
-
-    <optgroup label="Breads" data-category="breads">
-      <option value="breads/almond-tea-bread">Almond Tea Bread</option>
-      <option value="desserts/cream-cheese-pastry">Cream Cheese Pastry</option>
-      <option value="desserts/nutella-christmas-tree">Nutella Christmas Tree</option>
-    </optgroup>
-
-    <optgroup label="Thanksgiving - Desserts" data-category="thanksgiving">
-      <option value="thanksgiving/desserts/buttermilk-chess-pie">Buttermilk Chess Pie</option>
-      <option value="thanksgiving/desserts/no-bake-cookies">No Bake Cookies</option>
-      <option value="thanksgiving/desserts/peanut-butter-ball-dip">Peanut Butter Ball (Dip)</option>
-      <option value="thanksgiving/desserts/peanut-butter-ball-ingredients">Peanut Butter Ball Ingredients</option>
-      <option value="thanksgiving/desserts/peanut-butter-balls">Peanut Butter Balls</option>
-      <option value="thanksgiving/desserts/pecan-pie">Pecan Pie</option>
-      <option value="thanksgiving/desserts/pumpkin-pie">Pumpkin Pie</option>
-    </optgroup>
-
-    <optgroup label="Thanksgiving - Sides" data-category="thanksgiving">
-      <option value="thanksgiving/savory-tings/caramel-apple-crumble-pie">Caramel Apple Crumble Pie</option>
-      <option value="thanksgiving/savory-tings/caramels">Caramels</option>
-      <option value="thanksgiving/savory-tings/corn-casserole">Corn Casserole</option>
-      <option value="thanksgiving/savory-tings/cranberry-salad">Cranberry Salad</option>
-      <option value="thanksgiving/savory-tings/fruit-salad-with-cannoli-cream">Fruit Salad with Cannoli Cream</option>
-      <option value="thanksgiving/savory-tings/garlic-mashed-potatoes">Garlic Mashed Potatoes</option>
-      <option value="thanksgiving/savory-tings/green-beans-amandine">Green Beans Amandine</option>
-      <option value="thanksgiving/savory-tings/marinated-vegetable-salad">Marinated Vegetable Salad</option>
-      <option value="thanksgiving/savory-tings/sweet-potato-casserole">Sweet Potato Casserole</option>
-      <option value="thanksgiving/savory-tings/taffy-apple-salad">Taffy Apple Salad</option>
-      <option value="thanksgiving/savory-tings/thanksgiving-turkey-dressing">Thanksgiving Turkey Dressing</option>
-    </optgroup>
-  </select>
-
-  <div id="recipe-container"></div>
+  <!-- Modal for recipe detail -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Recipe Title</h2>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Recipe content loads here -->
+      </div>
+    </div>
+  </div>
 
   <script>
-    const recipeSelect = document.getElementById('recipe-select');
-    const recipeContainer = document.getElementById('recipe-container');
+    // Recipe data - each entry has path, title, category, and slug for URL
+    const recipes = [
+      // Appetizers
+      { path: "appetizers/bruschetta", title: "Bruschetta", category: "appetizers" },
+      { path: "appetizers/cheese-dip-with-beer", title: "Cheese Dip with Beer", category: "appetizers" },
+      { path: "appetizers/cheese-dreams", title: "Cheese Dreams", category: "appetizers" },
+      { path: "appetizers/cheese-fondue", title: "Cheese Fondue", category: "appetizers" },
+      { path: "appetizers/cream-cheese-penguins", title: "Cream Cheese Penguins", category: "appetizers" },
+      { path: "appetizers/cranberry-pecan-brie-cups", title: "Cranberry Pecan Brie Cups", category: "appetizers" },
+      { path: "appetizers/italian-dipping-oil", title: "Italian Dipping Oil", category: "appetizers" },
+      { path: "appetizers/pecan-cheese-ball", title: "Pecan Cheese Ball", category: "appetizers" },
+      { path: "appetizers/pepperoni-pizza-dip", title: "Pepperoni Pizza Dip", category: "appetizers" },
+      { path: "appetizers/roasted-pumpkin-seed-hummus", title: "Roasted Pumpkin Seed Hummus", category: "appetizers" },
+      { path: "appetizers/spice-roasted-honeynut-squash-chickpeas", title: "Spice Roasted Honeynut Squash & Chickpeas", category: "appetizers" },
+      { path: "appetizers/spinach-artichoke-dip", title: "Spinach Artichoke Dip", category: "appetizers" },
+      { path: "appetizers/spinach-artichoke-pasta", title: "Spinach Artichoke Pasta", category: "appetizers" },
+      { path: "appetizers/stuffed-celery", title: "Stuffed Celery", category: "appetizers" },
+      { path: "appetizers/stuffed-mushrooms", title: "Stuffed Mushrooms", category: "appetizers" },
+      { path: "appetizers/sweet-almond-crackers", title: "Sweet Almond Crackers", category: "appetizers" },
+      { path: "appetizers/texas-caviar", title: "Texas Caviar", category: "appetizers" },
+      { path: "appetizers/pesto-palmiers", title: "Pesto Palmiers", category: "appetizers" },
+
+      // Breakfast
+      { path: "breakfast/cinnamon-cottage-cheese-pancakes", title: "Cinnamon Cottage Cheese Pancakes", category: "breakfast" },
+      { path: "breakfast/cinnamon-crunch-bagels", title: "Cinnamon Crunch Bagels", category: "breakfast" },
+      { path: "breakfast/cinnamon-roll-cake", title: "Cinnamon Roll Cake", category: "breakfast" },
+      { path: "breakfast/cinnamon-rolls-puff-pastry", title: "Cinnamon Rolls (Puff Pastry)", category: "breakfast" },
+      { path: "breakfast/french-toast-bake", title: "French Toast Bake", category: "breakfast" },
+      { path: "breakfast/lemon-blueberry-scones", title: "Lemon Blueberry Scones", category: "breakfast" },
+      { path: "breakfast/pumpkin-breakfast-casserole", title: "Pumpkin Breakfast Casserole", category: "breakfast" },
+      { path: "breakfast/quiche", title: "Quiche", category: "breakfast" },
+      { path: "breakfast/sausage-quiche", title: "Sausage Quiche", category: "breakfast" },
+      { path: "breakfast/waffles", title: "Waffles", category: "breakfast" },
+      { path: "breakfast/german-pancakes", title: "German Pancakes", category: "breakfast" },
+      { path: "breakfast/lemon-blueberry-dutch-baby", title: "Lemon Blueberry Dutch Baby", category: "breakfast" },
+
+      // Entrees
+      { path: "entrees/veggie-quesadillas", title: "Veggie Quesadillas", category: "entrees" },
+      { path: "entrees/pasta/caprese-farfalle", title: "Caprese Farfalle", category: "entrees" },
+      { path: "entrees/pasta/penne-primavera", title: "Penne Primavera", category: "entrees" },
+      { path: "entrees/sauces/giblet-gravy", title: "Giblet Gravy", category: "entrees" },
+      { path: "entrees/sauces/nonnas-sauce", title: "Nonna's Sauce", category: "entrees" },
+      { path: "entrees/seafood/salmon-tacos", title: "Salmon Tacos", category: "entrees" },
+      { path: "entrees/bourbon-bbq-pork-chops", title: "Bourbon BBQ Pork Chops", category: "entrees" },
+      { path: "entrees/caprese-stuffed-chicken", title: "Caprese Stuffed Chicken", category: "entrees" },
+      { path: "entrees/zucchini-lasagna", title: "Zucchini Lasagna", category: "entrees" },
+      { path: "entrees/mac-and-cheese", title: "Mac & Cheese", category: "vegetables" },
+
+      // Soups
+      { path: "soups/baked-potato-soup", title: "Baked Potato Soup", category: "soups" },
+      { path: "soups/chicken-noodle-soup", title: "Chicken Noodle Soup", category: "soups" },
+      { path: "soups/chicken-rice-soup", title: "Chicken & Rice Soup", category: "soups" },
+      { path: "soups/chicken-tortilla-soup", title: "Chicken Tortilla Soup", category: "soups" },
+      { path: "soups/chili", title: "Chili", category: "soups" },
+      { path: "soups/egg-drop-soup", title: "Egg Drop Soup", category: "soups" },
+      { path: "soups/lentil-ham-soup", title: "Lentil Ham Soup", category: "soups" },
+      { path: "soups/potato-leek-soup", title: "Potato Leek Soup", category: "soups" },
+      { path: "soups/roasted-red-pepper-tomato-gouda-bisque", title: "Roasted Red Pepper Tomato & Smoked Gouda Bisque", category: "soups" },
+      { path: "soups/shrimp-sausage-stew", title: "Shrimp & Sausage Stew", category: "soups" },
+      { path: "soups/white-bean-soup-greens-turkey", title: "White Bean Soup with Greens & Turkey", category: "soups" },
+
+      // Salads
+      { path: "salads/candy-bar-apple-salad", title: "Candy Bar Apple Salad", category: "salads" },
+      { path: "salads/charred-corn-chicken-salad", title: "Charred Corn & Chicken Cheese Salad", category: "salads" },
+      { path: "salads/cucumber-mango-salad", title: "Cucumber Mango Salad", category: "salads" },
+      { path: "salads/cucumber-salad", title: "Cucumber Salad", category: "salads" },
+      { path: "salads/egg-salad", title: "Egg Salad", category: "salads" },
+      { path: "salads/lime-jello-salad", title: "Lime Jello Salad", category: "salads" },
+      { path: "salads/macaroni-salad", title: "Macaroni Salad", category: "salads" },
+      { path: "salads/marinated-vegetable-salad", title: "Marinated Vegetable Salad", category: "salads" },
+      { path: "salads/spaghetti-salad", title: "Spaghetti Salad", category: "salads" },
+      { path: "salads/cabbage-ramen-salad", title: "Cabbage Ramen Salad", category: "salads" },
+
+      // Vegetables & Sides
+      { path: "vegetables/baked-cheese-grits", title: "Baked Cheese Grits", category: "vegetables" },
+      { path: "vegetables/black-eyed-peas", title: "Black Eyed Peas", category: "vegetables" },
+      { path: "vegetables/garlic-roasted-potato-wedges", title: "Garlic Roasted Potato Wedges", category: "vegetables" },
+      { path: "vegetables/green-beans-cheese", title: "Green Beans & Cheese", category: "vegetables" },
+      { path: "vegetables/twice-baked-sweet-potatoes-ricotta", title: "Twice Baked Sweet Potatoes with Ricotta", category: "vegetables" },
+      { path: "vegetables/zucchini-corn-skillet", title: "Zucchini & Corn Skillet", category: "vegetables" },
+      { path: "vegetables/creamy-parmesan-spinach-bake", title: "Creamy Parmesan Spinach Bake", category: "vegetables" },
+      { path: "vegetables/sage-and-onion-stuffing", title: "Sage and Onion Stuffing", category: "vegetables" },
+      { path: "vegetables/tomato-relish", title: "Tomato Relish", category: "vegetables" },
+
+      // Cakes
+      { path: "cakes/apple-dump-cake", title: "Apple Dump Cake", category: "cakes" },
+      { path: "cakes/chewy-gingerbread-cookies", title: "Chewy Gingerbread Cookies", category: "cakes" },
+      { path: "cakes/hisaes-choc-cake", title: "Hisae's Chocolate Cake", category: "cakes" },
+      { path: "cakes/thunder-cake", title: "Thunder Cake", category: "cakes" },
+      { path: "cakes/upside-down-blueberry-dump-cake", title: "Upside Down Blueberry Dump Cake", category: "cakes" },
+      { path: "cakes/upside-down-pumpkin-cake", title: "Upside Down Pumpkin Cake", category: "cakes" },
+      { path: "cakes/gooey-butter-cake", title: "Gooey Butter Cake", category: "cakes" },
+
+      // Desserts
+      { path: "desserts/apple-pie", title: "Apple Pie", category: "desserts" },
+      { path: "desserts/cinnamon-sugar-pie-crust-cookies", title: "Cinnamon Sugar Pie Crust Cookies", category: "desserts" },
+      { path: "desserts/creamy-coconut-cake", title: "Creamy Coconut Cake", category: "desserts" },
+      { path: "desserts/no-bake-cookies", title: "No Bake Cookies", category: "desserts" },
+      { path: "desserts/raspberry-prosecco-tulip", title: "Raspberry Prosecco Tulip", category: "desserts" },
+      { path: "desserts/banana-cream-pretzel-pie", title: "Banana Cream Pretzel Pie", category: "desserts" },
+      { path: "desserts/banana-pineapple-pudding-pie", title: "Banana Pineapple Pudding Pie", category: "desserts" },
+      { path: "desserts/bourbon-salted-caramel-brownies", title: "Bourbon Salted Caramel Brownies", category: "desserts" },
+      { path: "desserts/bread-pudding", title: "Bread Pudding", category: "desserts" },
+      { path: "desserts/chocolate-almond-macaroons", title: "Chocolate Almond Macaroons", category: "desserts" },
+      { path: "desserts/chocolate-cream-layered-dessert", title: "Chocolate Cream Layered Dessert", category: "desserts" },
+      { path: "desserts/chocolate-mice", title: "Chocolate Mice", category: "desserts" },
+      { path: "desserts/english-toffee", title: "English Toffee", category: "desserts" },
+      { path: "desserts/lemon-pecan-slab-pie", title: "Lemon Pecan Slab Pie", category: "desserts" },
+      { path: "desserts/lime-pretzel-jello", title: "Lime Pretzel Jello", category: "desserts" },
+      { path: "desserts/nutella-bread-pudding", title: "Nutella Bread Pudding", category: "desserts" },
+      { path: "desserts/nutella-tart", title: "Nutella Tart", category: "desserts" },
+      { path: "desserts/paula-deens-banana-pudding", title: "Paula Deen's Banana Pudding", category: "desserts" },
+      { path: "desserts/peach-crumble", title: "Peach Crumble", category: "desserts" },
+      { path: "desserts/pumpkin-pudding", title: "Pumpkin Pudding", category: "desserts" },
+      { path: "desserts/smore-pie", title: "S'more Pie", category: "desserts" },
+      { path: "desserts/chocolate-cookies", title: "Chocolate Cookies", category: "desserts" },
+      { path: "desserts/chocolate-crackle-cookie", title: "Chocolate Crackle Cookie", category: "desserts" },
+      { path: "desserts/cut-out-sugar-cookies", title: "Cut Out Sugar Cookies", category: "desserts" },
+      { path: "desserts/frosted-butter-cutout-cookies", title: "Frosted Butter Cutout Cookies", category: "desserts" },
+      { path: "desserts/glazed-lemon-cookies", title: "Glazed Lemon Cookies", category: "desserts" },
+      { path: "desserts/hedgehog-cookies", title: "Hedgehog Cookies", category: "desserts" },
+      { path: "desserts/meringue-cookies", title: "Meringue Cookies", category: "desserts" },
+      { path: "desserts/no-bake-chocolate-oatmeal-cookies", title: "No Bake Chocolate Oatmeal Cookies", category: "desserts" },
+      { path: "desserts/snickerdoodles", title: "Snickerdoodles", category: "desserts" },
+      { path: "desserts/baklava-palmiers", title: "Baklava Palmiers", category: "desserts" },
+      { path: "desserts/knox-blox", title: "Knox Blox", category: "desserts" },
+      { path: "desserts/mini-strawberry-santas", title: "Mini Strawberry Santas", category: "desserts" },
+      { path: "desserts/night-before-christmas-mice", title: "Night Before Christmas Mice", category: "desserts" },
+      { path: "desserts/palmiers", title: "Palmiers (Sugar)", category: "desserts" },
+      { path: "desserts/witches-hat", title: "Witch's Hat Cookies", category: "desserts" },
+      { path: "desserts/cream-cheese-pastry", title: "Cream Cheese Pastry", category: "breads" },
+      { path: "desserts/nutella-christmas-tree", title: "Nutella Christmas Tree", category: "breads" },
+
+      // Drinks
+      { path: "drinks/egg-nog-variations", title: "Egg Nog Variations", category: "drinks" },
+      { path: "drinks/egg-nogg", title: "Egg Nog", category: "drinks" },
+      { path: "drinks/pumpkin-spiced-latte", title: "Pumpkin Spiced Latte", category: "drinks" },
+      { path: "drinks/raspberry-prosecco-cocktail", title: "Raspberry Prosecco Cocktail", category: "drinks" },
+      { path: "drinks/sangria", title: "Sangria", category: "drinks" },
+      { path: "drinks/white-hot-chocolate", title: "White Hot Chocolate", category: "drinks" },
+
+      // Breads
+      { path: "breads/almond-tea-bread", title: "Almond Tea Bread", category: "breads" },
+
+      // Thanksgiving - Desserts
+      { path: "thanksgiving/desserts/buttermilk-chess-pie", title: "Buttermilk Chess Pie", category: "thanksgiving" },
+      { path: "thanksgiving/desserts/no-bake-cookies", title: "No Bake Cookies (Thanksgiving)", category: "thanksgiving" },
+      { path: "thanksgiving/desserts/peanut-butter-ball-dip", title: "Peanut Butter Ball (Dip)", category: "thanksgiving" },
+      { path: "thanksgiving/desserts/peanut-butter-ball-ingredients", title: "Peanut Butter Ball Ingredients", category: "thanksgiving" },
+      { path: "thanksgiving/desserts/peanut-butter-balls", title: "Peanut Butter Balls", category: "thanksgiving" },
+      { path: "thanksgiving/desserts/pecan-pie", title: "Pecan Pie", category: "thanksgiving" },
+      { path: "thanksgiving/desserts/pumpkin-pie", title: "Pumpkin Pie", category: "thanksgiving" },
+
+      // Thanksgiving - Sides
+      { path: "thanksgiving/savory-tings/caramel-apple-crumble-pie", title: "Caramel Apple Crumble Pie", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/caramels", title: "Caramels", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/corn-casserole", title: "Corn Casserole", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/cranberry-salad", title: "Cranberry Salad", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/fruit-salad-with-cannoli-cream", title: "Fruit Salad with Cannoli Cream", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/garlic-mashed-potatoes", title: "Garlic Mashed Potatoes", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/green-beans-amandine", title: "Green Beans Amandine", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/marinated-vegetable-salad", title: "Marinated Vegetable Salad", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/sweet-potato-casserole", title: "Sweet Potato Casserole", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/taffy-apple-salad", title: "Taffy Apple Salad", category: "thanksgiving" },
+      { path: "thanksgiving/savory-tings/thanksgiving-turkey-dressing", title: "Thanksgiving Turkey Dressing", category: "thanksgiving" }
+    ];
+
+    const recipeGrid = document.getElementById('recipe-grid');
     const searchInput = document.getElementById('search');
     const categoryBtns = document.querySelectorAll('.category-btn');
     const recipeCount = document.getElementById('recipe-count');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    const modalClose = document.getElementById('modal-close');
 
-    // Count total recipes
-    const totalRecipes = recipeSelect.querySelectorAll('option[value]').length;
-    recipeCount.textContent = `${totalRecipes} recipes available`;
+    const categoryLabels = {
+      appetizers: 'Appetizer',
+      breakfast: 'Breakfast',
+      entrees: 'Entree',
+      soups: 'Soup',
+      salads: 'Salad',
+      vegetables: 'Side',
+      cakes: 'Cake',
+      desserts: 'Dessert',
+      drinks: 'Drink',
+      breads: 'Bread',
+      thanksgiving: 'Thanksgiving'
+    };
+
+    // Create a map from path to recipe for quick lookup
+    const recipeByPath = {};
+    recipes.forEach(r => recipeByPath[r.path] = r);
+
+    // Generate URL slug from recipe path (simplify nested paths)
+    function getUrlSlug(path) {
+      // For nested paths like "entrees/sauces/nonnas-sauce", use "entrees/nonnas-sauce"
+      const parts = path.split('/');
+      if (parts.length > 2) {
+        return parts[0] + '/' + parts[parts.length - 1];
+      }
+      return path;
+    }
+
+    // Get file path from URL slug
+    function getPathFromSlug(slug) {
+      // First try exact match
+      if (recipeByPath[slug]) return slug;
+
+      // Try to find recipe where slug matches simplified path
+      for (const r of recipes) {
+        if (getUrlSlug(r.path) === slug) return r.path;
+      }
+      return null;
+    }
+
+    // Initial render
+    renderCards(recipes);
+    recipeCount.textContent = `${recipes.length} recipes available`;
+
+    // Check URL hash on load
+    handleHashChange();
 
     // Category filtering
     categoryBtns.forEach(btn => {
       btn.addEventListener('click', function() {
         categoryBtns.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
-        filterRecipes(this.dataset.category, searchInput.value);
+        filterAndRender();
       });
     });
 
     // Search filtering
-    searchInput.addEventListener('input', function() {
-      const activeCategory = document.querySelector('.category-btn.active').dataset.category;
-      filterRecipes(activeCategory, this.value);
-    });
+    searchInput.addEventListener('input', filterAndRender);
 
-    function filterRecipes(category, search) {
-      const optgroups = recipeSelect.querySelectorAll('optgroup');
-      const searchLower = search.toLowerCase();
-      let visibleCount = 0;
+    // Handle browser back/forward
+    window.addEventListener('hashchange', handleHashChange);
 
-      optgroups.forEach(group => {
-        const groupCategory = group.dataset.category || '';
-        const options = group.querySelectorAll('option');
-        let groupVisible = false;
-
-        options.forEach(option => {
-          const matchesCategory = category === 'all' || groupCategory === category;
-          const matchesSearch = !search || option.textContent.toLowerCase().includes(searchLower);
-          const visible = matchesCategory && matchesSearch;
-
-          option.style.display = visible ? '' : 'none';
-          if (visible) {
-            groupVisible = true;
-            visibleCount++;
-          }
-        });
-
-        group.style.display = groupVisible ? '' : 'none';
-      });
-
-      recipeCount.textContent = `${visibleCount} of ${totalRecipes} recipes`;
+    function handleHashChange() {
+      const hash = window.location.hash.slice(1); // Remove #
+      if (hash) {
+        const path = getPathFromSlug(hash);
+        if (path) {
+          loadRecipe(path, false); // false = don't update URL again
+        }
+      } else {
+        closeModal(false); // false = don't update URL
+      }
     }
 
-    recipeSelect.addEventListener('change', async function() {
-      if (!this.value) {
-        recipeContainer.classList.remove('active');
-        return;
-      }
+    function filterAndRender() {
+      const category = document.querySelector('.category-btn.active').dataset.category;
+      const search = searchInput.value.toLowerCase();
 
+      const filtered = recipes.filter(r => {
+        const matchesCategory = category === 'all' || r.category === category;
+        const matchesSearch = !search || r.title.toLowerCase().includes(search);
+        return matchesCategory && matchesSearch;
+      });
+
+      renderCards(filtered);
+      recipeCount.textContent = `${filtered.length} of ${recipes.length} recipes`;
+    }
+
+    function renderCards(recipesToRender) {
+      recipeGrid.innerHTML = recipesToRender.map(r => `
+        <a class="recipe-card" href="#${getUrlSlug(r.path)}" data-path="${r.path}">
+          <span class="category-tag">${categoryLabels[r.category] || r.category}</span>
+          <h3>${r.title}</h3>
+        </a>
+      `).join('');
+    }
+
+    async function loadRecipe(path, updateUrl = true) {
       try {
-        const response = await fetch(this.value + '.json');
+        const response = await fetch(path + '.json');
         const recipe = await response.json();
-        displayRecipe(recipe, this.value);
-        recipeContainer.classList.add('active');
-      } catch (error) {
-        recipeContainer.innerHTML = '<div class="recipe"><p>Error loading recipe. Please try again.</p></div>';
-        recipeContainer.classList.add('active');
-      }
-    });
 
-    function displayRecipe(recipe, path) {
+        // Update URL if needed
+        if (updateUrl) {
+          window.location.hash = getUrlSlug(path);
+        }
+
+        // Update page title
+        document.title = `${recipe.title} - Dr. Lesa Mulligan's Cookbook`;
+
+        displayRecipeModal(recipe, path);
+      } catch (error) {
+        modalTitle.textContent = 'Error';
+        modalBody.innerHTML = '<p>Error loading recipe. Please try again.</p>';
+        modalOverlay.classList.add('active');
+      }
+    }
+
+    function displayRecipeModal(recipe, path) {
       const folder = path.split('/').slice(0, -1).join('/');
+      modalTitle.textContent = recipe.title;
+
       let html = '';
 
       // Category badge
       const category = getCategoryFromPath(path);
-      html += `<span class="category">${category}</span>`;
-
-      // Title
-      html += `<h2>${recipe.title}</h2>`;
+      html += `<span class="category-tag">${category}</span>`;
 
       // Meta info
       let meta = [];
@@ -446,7 +615,6 @@
           recipe.ingredients.forEach(i => html += `<li>${i}</li>`);
           html += '</ul>';
         } else {
-          // Object with categories
           for (const [key, items] of Object.entries(recipe.ingredients)) {
             if (Array.isArray(items)) {
               html += `<h3>${formatKey(key)}</h3><ul>`;
@@ -496,7 +664,7 @@
         }
       }
 
-      // Variations (for recipes like Egg Nog Variations)
+      // Variations
       if (recipe.variations) {
         html += '<h3>Variations</h3>';
         recipe.variations.forEach(v => {
@@ -504,14 +672,14 @@
         });
       }
 
-      // Suggestions (for Tastefully Simple cards)
+      // Suggestions
       if (recipe.suggestions) {
         html += '<h3>Serving Suggestions</h3><ul>';
         recipe.suggestions.forEach(s => html += `<li>${s}</li>`);
         html += '</ul>';
       }
 
-      // Storage notes
+      // Storage
       if (recipe.storage) {
         html += `<h3>Storage</h3><p>${recipe.storage}</p>`;
       }
@@ -521,7 +689,29 @@
         html += `<h3>Nutrition</h3><p>${recipe.nutrition}</p>`;
       }
 
-      recipeContainer.innerHTML = '<div class="recipe">' + html + '</div>';
+      modalBody.innerHTML = html;
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close modal
+    modalClose.addEventListener('click', () => closeModal(true));
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal(true);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal(true);
+    });
+
+    function closeModal(updateUrl = true) {
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+
+      if (updateUrl && window.location.hash) {
+        // Clear hash and restore title
+        history.pushState('', document.title, window.location.pathname);
+        document.title = "Dr. Lesa Mulligan's Cookbook";
+      }
     }
 
     function formatKey(key) {
@@ -546,13 +736,6 @@
       if (path.includes('drinks')) return 'Drink';
       if (path.includes('breads')) return 'Bread';
       if (path.includes('thanksgiving')) return 'Thanksgiving';
-      if (path.includes('misc')) {
-        const name = path.split('/').pop();
-        if (name.includes('cookie')) return 'Cookie';
-        if (name.includes('pie') || name.includes('tart')) return 'Pie';
-        if (name.includes('bread') || name.includes('pastry')) return 'Bread';
-        return 'Recipe';
-      }
       return 'Recipe';
     }
   </script>
