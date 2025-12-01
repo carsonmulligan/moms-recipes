@@ -1,0 +1,243 @@
+Your Account | English | Help | Sign out | Give Feedback 
+Bookshelf | Reports | Community | Marketing
+Help Topics
+Help
+KDP Help Center Home
+Account & Taxes
+Set up your KDP account
+CreateSpace Account
+Tax Information
+Book Formatting
+Format Your Paperback
+Set Trim Size, Bleed, and Margins
+Format Front Matter, Body Matter, and Back Matter
+Save Your Manuscript File
+Paperback and Hardcover Manuscript Templates
+Cover Creator
+Create a Paperback Cover
+Format Images in Your Book
+Paperback Fonts
+Fix Paperback and Hardcover Formatting Issues
+Paperback Submission Guidelines
+Format Your Hardcover
+Format Your eBook
+Tools and Resources
+KDP Publishing
+Start publishing with KDP
+Create a Book
+Hardcover
+Start a Book Series
+Orders & Book Copies
+Proof and Author Copies
+Amazon Store & Detail Page
+KDP Categories
+Read Sample (Look Inside the Book)
+Customer Reviews
+Search Results
+Link Your Books Together
+Sales Ranking
+Book Trends Data
+Recaps
+Marketing & Distribution
+Guidelines for use of the Available at Amazon Badge by KDP Publishers
+Ways to Promote Your Book
+KDP Select
+Author Central
+A+ Content
+Advertising for KDP books
+Expanded Distribution
+Merchandising Tips
+Nominate Your eBook for a Promotion (Beta)
+Book Updates
+Update Your Book
+Payments & Reports
+Royalties
+KDP Reports
+KDP Payments
+Legal & Content Guidelines
+Kindle Direct Publishing Terms and Conditions
+Program Policies
+User Guides
+Kindle Publishing Guidelines
+KDP Jumpstart
+KDP University
+Contact Us
+Have feedback? Can't find your answer in our Help pages?
+
+Contact Us
+Topic or Keyword
+Search Help
+Book Formatting Format Your Paperback Paperback Submission Guidelines
+Paperback Submission Guidelines
+These guidelines are for designers of paperbacks with full-color covers, with any interior type.
+For help formatting your paperback manuscript, see our guides for Microsoft Word for Windows, Microsoft Word for Mac and Pages for Mac. You can also try our Kindle Create tool to format your paperback interiors.
+
+
+Contents
+Title creation limit
+File guidelines
+Manuscript
+Cover
+File specifications
+Common points of failure
+Cover specifications
+Calculating cover size
+Cover formatting
+Spine measurements for black and white books
+Spine measurements for color books
+Spine text
+Barcodes
+Interior specifications
+Page spreads
+Page size
+No bleed
+Interior full bleed
+Font
+Image resolution
+Pagination
+Page count
+Margins and alignment
+Grayscale fill
+Line width
+Reading direction
+Orientation
+
+Title creation limit
+To ensure a positive experience for all authors, we limit the number of titles you can create at the same time to 10 per book format each week. If you expect to regularly create a large number of titles, please contact us to inquire about an exception.
+
+File guidelines
+
+Manuscript
+Bleed: If your book has images or elements that bleed to the edges of your pages, you must upload your manuscript as a PDF.
+No Bleed: If your book does not contain bleed, you can upload your manuscript as a PDF, DOC, DOCX, RTF, HTML, or TXT file. KDP will automatically convert these file types to PDF prior to publishing/printing.
+Note: For Japanese, Hebrew, Latin or Yiddish, you can only upload PDF.
+Cover
+You can create your book cover using KDP’s Cover Creator tool or submit your book cover in a PDF. (Cover Creator accepts JPG, PNG, and GIF file formats.)
+
+File specifications
+Ensure file size is not more than 650MB.
+Embed all fonts and images in your native file prior to submission.
+Flatten transparent objects and layers in the native file before publishing.
+Submitted files should not contain crop marks, trim marks, bookmarks, comments, invisible objects, annotations, placeholder text, or metadata.
+All images (both cover and manuscript) should be at least 300 DPI.
+Optimize PDFs. Optimization is useful to reduce your file size, allowing for higher performance when transferring, uploading, viewing, and printing the files.
+Common points of failure
+Not flattening transparent objects and/or layers in the native file
+Locked or encrypted files
+Files with crop marks*, trim marks, bookmarks, comments, invisible objects, annotations, placeholder text, or metadata
+Missing pages
+Excessive blank pages
+Title missing on the front cover
+Barcode missing
+Incorrect pagination
+PDF creation logos or watermarks
+*Crop marks are lines showing where pages should be trimmed.
+
+Cover specifications
+
+Calculating cover size
+To format your paperback cover, you’ll first need to calculate the spine measurements (black and white books, color books).
+
+Insert the spine measurements, selected trim size width and height, and the 0.125" (3.2 mm) bleed requirement into the following equations to find your cover size:
+Cover Width = Bleed + Back Cover Width + Spine Width + Front Cover Width + Bleed
+Cover Height = Bleed + Trim Height + Bleed
+Cover formatting
+Covers should be one continuous image centered left to right on the spine.
+Flatten all layers in the native file.
+Bleed of 0.125" (3.2 mm) is required on all sides. Bleed at the bottom of the page cannot exceed 0.125" (3.2 mm).
+Any content you don’t intend to be trimmed off should be a minimum of 0.25" (6.4 mm) from the outside cover edge.
+Embed all fonts on the cover in the native program before publishing.
+Spine measurements for black and white books
+White paper: page count x 0.002252" (0.0572 mm)
+Cream paper: page count x 0.0025" (0.0635 mm)
+Spine measurements for color books
+Color paper: page count x 0.002347" (0.0596 mm)
+Spine text
+We only print spine text on books with more than 79 pages. Text on larger spines must be sized to fit the spine, with at least 0.0625" (1.6 mm) of space between the text and the edge of the spine. Every book varies slightly when bound. Allow for 0.0625" (1.6 mm) variance on either side of the fold lines for your cover
+
+Barcodes
+You can upload a cover with or without a barcode. If you choose not to provide your own barcode, we'll automatically place one on your back cover. Learn more about barcodes.
+
+Interior specifications
+Page spreads
+We require single page files (as opposed to spreads or 2-up files).
+
+Page size
+No bleed
+Set the page size to your selected trim size (width by height).
+
+Interior full bleed
+If you want your images to bleed to the edges of your pages, extend them 0.125" (3.2 mm) beyond the final trim size from the top, bottom, and outer edges of your manuscript.
+Format your PDF manuscript at 0.25" (6.4 mm) higher and 0.125" (3.2 mm) wider than your selected trim size in order to print the full bleed area.
+
+Font
+Minimum font size: 7 points
+All fonts in the interior files should be embedded in the native program before publishing.
+
+Image resolution
+Minimum resolution of 300 DPI. There is no set maximum DPI for images, however, images with excessively high resolutions may result in files timing out during processing, or may cause manufacturing delays. We recommend a maximum resolution of 600 DPI, to keep your total file size under 650MB.
+
+Pagination
+Order all page numbers sequentially, with even numbers on left pages and odd numbers on the right for the left to right content, and with even numbers on right pages and odd numbers on the left for the right to left content.
+You can use Roman numerals to indicate the beginning of the manuscript, and then continue with standard page numbering.
+You may continue page numbering from a previous book in a subsequent volume of a series as long as the series name and volume number are clearly labeled.
+We allow scanned content with sequential original page numbering clearly visible in the footer of the manuscript file.
+Page count
+We’ll calculate your page count based on your manuscript file, rounding up to an even number if necessary. The minimum page count is 24 pages, and the maximum page count depends on ink, paper, and trim size options.
+
+Trim size specifications (width x height) with minimum and maximum page counts (kdp.amazon.com)
+
+Trim size specifications (width x height) with minimum and maximum page counts(kdp.amazon.co.jp)
+
+Margins and alignment
+Based on your book’s page count, the minimum margin requirements are below:
+
+Page count	Inside (gutter) margins	Outside margins (no bleed)	Outside margins (with bleed)
+24 to 150 pages	0.375" (9.6 mm)	at least 0.25" (6.4 mm)	at least 0.375" (9.6mm)
+151 to 300 pages	0.5" (12.7 mm)	at least 0.25" (6.4 mm)	at least 0.375" (9.6 mm)
+301 to 500 pages	0.625" (15.9 mm)	at least 0.25" (6.4 mm)	at least 0.375" (9.6 mm)
+501 to 700 pages	0.75" (19.1 mm)	at least 0.25" (6.4 mm)	at least 0.375" (9.6 mm)
+701 to 828 pages	0.875" (22.3 mm)	at least 0.25" (6.4 mm)	at least 0.375" (9.6 mm)
+
+Grayscale fill
+If you‘ve selected black ink and white or cream paper for a book containing gray backgrounds, we recommend a minimum grayscale fill of 10%.
+
+Line width
+If your book contains lines (i.e., a chart, table or graphic element), give the lines a minimum thickness/weight of 0.75 point or 0.01" (0.3 mm).
+
+Reading direction
+For most languages, KDP only supports books formatted to read from left to right (LTR). Currently, we only support right-to-left (RTL) paperback printing in Hebrew, Yiddish and Japanese. To learn more, see our supported languages.
+
+Orientation
+All pages and content must be oriented the same way. Pages can contain some upside down text as long as the rest of the page contents are right-side up (e.g., a book of riddles with answers printed upside down on the page).
+
+
+Was this article helpful? Yes | No
+The survey is hosted by Qualtrics, so you'll visit their site to fill it out.
+Make more money and reach more readers through Kindle Unlimited. Learn More
+
+KDP Select logo
+Total KDP Select Author Earnings
+
+October 2025
+
+ • 
+
+$64.6 Million
+
+Amazon Kindle logo© 1996-2025, Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+Amazon and Kindle are trademarks of Amazon.com Inc. or its affiliates.
+KDP Select
+Earn more money and
+reach new readers
+KDP Community
+Connect with experts
+and fellow authors
+CreateSpace
+Indie print publishing
+made easy
+ACX
+Indie audiobook publishing
+made easy
+KDP Terms and Conditions  |  Privacy Notice  |  Conditions of Use  |  Contact Us  |  Join Our Team  |  kdp.amazon.co.jp
