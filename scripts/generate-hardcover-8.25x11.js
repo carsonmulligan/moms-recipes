@@ -509,8 +509,15 @@ function generateHTML() {
     /* Back Page */
     .back-page {
       page-break-before: always;
+      page-break-after: avoid;
       text-align: center;
       padding-top: 3.5in;
+      page: backmatter;
+    }
+
+    @page backmatter {
+      size: 8.25in 11in;
+      margin: 0.75in;
     }
   </style>
 </head>
