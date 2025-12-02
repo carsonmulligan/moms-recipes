@@ -1,0 +1,1 @@
+At least one of the following elements in your manuscript does not match the details you entered on your Bookshelf during setup: title, subtitle, edition number. Please check these details in your manuscript and ensure they match. You can find your title on your Bookshelf.
