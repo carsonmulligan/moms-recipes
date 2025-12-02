@@ -3,9 +3,9 @@
  * Generates an HTML file optimized for 8.5" x 11" paperback printing
  * WITH page numbers in footer, TOC, and index
  *
- * Usage: node generate-paperback-8x11.js
- * Output: output/paperback-8x11.html
- * Then: weasyprint paperback-8x11.html paperback-8x11.pdf
+ * Usage: node generate-paperback-8.5x11.js
+ * Output: output/paperback-8.5x11.html
+ * Then: weasyprint paperback-8.5x11.html paperback-8.5x11.pdf
  */
 
 const fs = require('fs');
@@ -786,7 +786,7 @@ function generateIndexHTML(tocData) {
 const htmlContent = generateHTML();
 const outputDir = path.join(__dirname, '..', 'output');
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
-const outputPath = path.join(outputDir, 'paperback-8x11.html');
+const outputPath = path.join(outputDir, 'paperback-8.5x11.html');
 fs.writeFileSync(outputPath, htmlContent, 'utf8');
 
 console.log(`
@@ -794,11 +794,11 @@ console.log(`
   Paperback Cookbook Generated (8.5x11)
 ========================================
 
-Output: output/paperback-8x11.html
+Output: output/paperback-8.5x11.html
 
 To generate PDF:
   cd output
-  weasyprint paperback-8x11.html paperback-8x11.pdf
+  weasyprint paperback-8.5x11.html paperback-8.5x11.pdf
 
 Features:
 - Page numbers in footer (via CSS @page)
