@@ -139,7 +139,7 @@ function generateHTML() {
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Dr. Lesa Mulligan's Cookbook</title>
+  <title>Doctor's Orders Cookbook</title>
   <style>
     /*
      * KDP 8.5" x 11" Paperback - NO BLEED
@@ -495,8 +495,15 @@ function generateHTML() {
     /* Back Page */
     .back-page {
       page-break-before: always;
+      page-break-after: avoid;
       text-align: center;
       padding-top: 3.5in;
+      page: backmatter;
+    }
+
+    @page backmatter {
+      size: 8.5in 11in;
+      margin: 0.75in;
     }
   </style>
 </head>
@@ -504,15 +511,15 @@ function generateHTML() {
 
 <!-- TITLE PAGE -->
 <div class="title-page">
-  <h1>Dr. Lesa Mulligan's<br>Cookbook</h1>
-  <div class="subtitle">A Collection of ${totalRecipes} Family Recipes</div>
-  <div class="author">Compiled with love from handwritten recipe cards</div>
+  <h1>Doctor's Orders<br>Cookbook</h1>
+  <div class="subtitle">A Family Cookbook of Treasured Recipes</div>
+  <div class="author">Dr. Lesa Mulligan</div>
 </div>
 
 <!-- COPYRIGHT PAGE -->
 <div class="copyright-page">
-  <p><strong>Dr. Lesa Mulligan's Cookbook</strong></p>
-  <p>A Collection of ${totalRecipes} Family Recipes</p>
+  <p><strong>Doctor's Orders Cookbook</strong></p>
+  <p>A Family Cookbook of Treasured Recipes</p>
   <br><br>
   <p>Copyright &copy; ${new Date().getFullYear()}</p>
   <p>All rights reserved.</p>
