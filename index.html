@@ -576,7 +576,11 @@
     }
 
     function renderCards(recipesToRender) {
-      recipeGrid.innerHTML = recipesToRender.map(r => `
+      // Sort alphabetically by title
+      const sorted = [...recipesToRender].sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+      recipeGrid.innerHTML = sorted.map(r => `
         <a class="recipe-card" href="#${getUrlSlug(r.path)}" data-path="${r.path}">
           <span class="category-tag">${categoryLabels[r.category] || r.category}</span>
           <h3>${r.title}</h3>
